@@ -1,0 +1,62 @@
+.navbar
+
+	&-brand
+		display: flex
+		align-items: center
+		justify-content: center
+
+		&-text
+			font-size: 1.25rem
+			font-weight: 500
+			line-height: 1.375rem
+			margin-left: 1rem
+
+	&-collapse
+		justify-content: flex-end
+
+	&-toggler
+		background-color: var(--bs-white)
+
+		&:focus
+			box-shadow: none
+
+		&:focus-visible
+			box-shadow: 0 0 0 var(--bs-navbar-toggler-focus-width)
+
+		&-icon
+			width: 1.5rem
+			height: 1.5rem
+
+	.nav-item
+
+		&:not(:first-child)
+			margin-left: var(--bs-navbar-nav-item-margin-x)
+
+		&:not(:last-child)
+			margin-right: var(--bs-navbar-nav-item-margin-x)
+
+	
+	.nav-link
+		line-height: 1.375rem
+
+		&.disabled
+
+			.icon
+				--i-color: var(--bs-nav-link-disabled-color)
+
+		&.active
+
+			.icon
+				--i-color: var(--bs-navbar-active-color)
+
+		&:is(:hover, :focus)
+
+			.icon
+				--i-color: var(--bs-nav-link-hover-color)
+
+		.icon
+			display: none
+
+
+	&-footer
+		display: none

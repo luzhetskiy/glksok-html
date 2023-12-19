@@ -1,0 +1,153 @@
+// Bootstrap Variables
+$primary: #0365B2
+$primary-light: #a7d1fc
+
+$secondary: #FF4881
+$secondary-light: #fc6f99
+
+$success: #198754
+$info: #0dcaf0
+$warning: #ffc107
+$danger: #dc3545
+$light: #f8f9fa
+$dark: #212529
+
+$white: #fff
+$gray-100: #f8f9fa
+$gray-rbga-100: rgba($gray-100, .4)
+$gray-200: #e9ecef
+$gray-rbga-200: rgba($gray-200, .4)
+$gray-300: #dee2e6
+$gray-rbga-300: rgba($gray-300, .4)
+$gray-400: #ced4da
+$gray-rbga-400: rgba($gray-400, .4)
+$gray-500: #adb5bd
+$gray-rbga-500: rgba($gray-500, .4)
+$gray-600: #80858E
+$gray-rbga-600: rgba($gray-600, .4)
+$gray-700: #525965
+$gray-rbga-700: rgba($gray-700, .4)
+$gray-800: #3E4043
+$gray-rbga-800: rgba($gray-800, .4)
+$gray-900: #212529
+$gray-rbga-900: rgba($gray-900, .4)
+$black: #000
+
+$grays: ( "100": $gray-100, "rgba-100": $gray-rbga-100, "200": $gray-200, "rgba-200": $gray-rbga-200, "300": $gray-300, "rgba-300": $gray-rbga-300, "400": $gray-400, "rgba-400": $gray-rbga-400, "500": $gray-500, "rgba-500": $gray-rbga-500, "600": $gray-600, "rgba-600": $gray-rbga-600, "700": $gray-700, "rgba-700": $gray-rbga-700, "800": $gray-800, "rgba-800": $gray-rbga-800, "900": $gray-900, "rgba-900": $gray-rbga-900 )
+
+$blue: #0365B2
+$blue-light: #4680F8
+$indigo: #6610f2
+$purple: #6f42c1
+$pink: #d63384
+$red: #dc3545
+$orange: #fd7e14
+$yellow: #ffc107
+$green: #198754
+$teal: #20c997
+$cyan: #0dcaf0
+
+$colors: ( "blue": $blue, "blue-light": $blue-light, "indigo": $indigo, "purple": $purple, "pink": $pink, "red": $red, "orange": $orange, "yellow": $yellow, "green": $green, "teal": $teal, "cyan": $cyan, "black": $black, "white": $white, "gray": $gray-600, "gray-dark": $gray-800 )
+
+$theme-colors: ( "primary": $primary, "primary-light": $primary-light, "secondary": $secondary, "secondary-light": $secondary-light, "success": $success, "info": $info, "warning": $warning, "danger": $danger, "light": $light, "dark": $dark )
+
+$font-family-sans-serif: Roboto, system-ui, sans-serif
+
+$font-size-base: 1rem
+$font-size-sm: $font-size-base * .9375
+$font-size-md: $font-size-base * 1.25
+$font-size-lg: $font-size-base * 1.625
+
+$h1-font-size: $font-size-base * 3
+$h2-font-size: $font-size-base * 2.25
+
+$font-weight-lighter: lighter
+$font-weight-light: 300
+$font-weight-normal: 400
+$font-weight-medium: 500
+$font-weight-semibold: 600
+$font-weight-bold: 700
+$font-weight-bolder: bolder
+
+$body-bg: #D2E4F0
+$gradient: linear-gradient(180deg, rgba($body-bg, 1) 70%, rgba(142, 197, 254, .65) 100%)
+
+$border-radius-xl: 1.25rem
+
+$box-shadow-lg: 0 .25rem 3.125rem 0 rgba(12, 16, 24, 0.15)
+
+$spacer: 1rem
+$spacers: ( 0: 0, 1: $spacer * .25, 2: $spacer * .5, 3: $spacer, 4: $spacer * 1.5, 5: $spacer * 2, 6: $spacer * 3 )
+
+$container-max-widths: ( sm: 540px, md: 720px, lg: 960px, xl: 1140px, xxl: 1360px )
+
+$grid-gutter-width: 2rem
+$gutter: $grid-gutter-width
+
+$link-color: $black
+$link-shade-percentage: 100%
+$link-hover-color: $blue-light
+
+/*Navbar*/
+$navbar-padding-y: $spacer
+
+$nav-link-font-size: $font-size-md
+$nav-link-font-weight: $font-weight-medium
+$navbar-nav-item-margin-x: 1rem
+$navbar-nav-item-margin-y: 1.5rem
+$navbar-nav-link-padding-x: 0
+
+$navbar-light-color: $black
+$navbar-light-hover-color: $blue-light
+$navbar-light-active-color: $blue
+$navbar-light-disabled-color: $gray-rbga-800
+
+$navbar-light-icon-color: $black
+$navbar-light-toggler-icon-bg: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='#{$navbar-light-icon-color}'%3E%3Cpath d='M4 5V7H20V5H4ZM4 13H20V11H4V13ZM4 19H20V17H4V19Z'/%3E%3C/svg%3E")
+$navbar-toggler-font-size: $font-size-md
+$navbar-toggler-padding-y: .4375rem
+$navbar-toggler-padding-x: .4375rem
+$navbar-toggler-border-radius: 50%
+$navbar-toggler-focus-width: .125rem
+$navbar-light-toggler-border-color: transparent
+
+$btn-close-width: 1.5rem
+$btn-close-padding-x: .5rem
+$btn-close-color: $black
+$btn-close-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-5 0 26 16' fill='#{$btn-close-color}'><path d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/></svg>")
+$btn-close-opacity: 1
+$btn-close-hover-opacity: .5
+
+$offcanvas-padding-y: 0
+$offcanvas-padding-x: 0
+$offcanvas-border-color: transparent
+$offcanvas-border-width: 0
+$offcanvas-bg-color: $white
+$offcanvas-backdrop-bg: $body-bg
+$offcanvas-backdrop-opacity: .9
+
+// IMPORT SECTION
+
+@import 'node_modules/bootstrap/scss/bootstrap.scss'
+
+body
+	background-image: $gradient
+	background-color: $body-bg
+
+.navbar
+	--#{$prefix}navbar-nav-item-margin-x: #{$navbar-nav-item-margin-x}
+	--#{$prefix}navbar-nav-item-margin-y: #{$navbar-nav-item-margin-y}
+
+.navbar-expand
+	@each $breakpoint in map-keys($grid-breakpoints)
+		$next: breakpoint-next($breakpoint, $grid-breakpoints)
+		$infix: breakpoint-infix($next, $grid-breakpoints)
+
+		&#{$infix}
+			@include media-breakpoint-up($next)
+
+				.navbar-nav
+
+					.nav-link
+						padding-right: var(--#{$prefix}navbar-nav-link-padding-x)
+						padding-left: var(--#{$prefix}navbar-nav-link-padding-x)

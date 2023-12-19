@@ -1,0 +1,21 @@
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format('woff2')
+
+@include font('Roboto', normal, 400, '../fonts/Roboto-Regular.woff2')
+@include font('Roboto', normal, 500, '../fonts/Roboto-Medium.woff2')
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: var(--bs-primary)
+	color: #fff
+
+html, body
+	overflow-x: hidden

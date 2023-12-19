@@ -1,0 +1,37 @@
+// GENERAL PROJECT STYLES
+
+.page
+	min-height: 100vh
+	min-height: 100dvh
+	display: flex
+	flex-direction: column
+
+	main
+		flex: 1
+
+a
+	text-decoration: none
+	transition: color .3s ease-in-out, background .3s ease-in-out
+
+.icon
+	--i-size: 1.5rem
+	--i-color: var(--bs-primary)
+	display: block
+	width: var(--i-size)
+	height: var(--i-size)
+	color: var(--i-color)
+	flex-shrink: 0
+	transition: color .3s ease-in-out, transform .3s ease-in-out
+
+	svg
+		width: 100%
+		height: 100%
+		display: block
+		object-fit: contain
+
+	&-solid
+		fill: currentColor
+
+	&-outline
+		stroke: currentColor
+
