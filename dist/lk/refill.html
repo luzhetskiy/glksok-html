@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<!-- <base href="/"> -->
+
+	<title>glksok</title>
+	<meta name="description" content="Website">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="icon" href="../images/favicon.png">
+	
+	<link rel="stylesheet" href="../css/libraries.min.css">
+	<link rel="stylesheet" href="../css/app.min.css">
+
+</head>
+
+<body>
+<div class="page">
+	<header>
+	<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+		<div class="container">
+			<a class="navbar-brand" href="../index.html">
+				<img src="../images/dist/logo.svg" width="56" alt="Logo">
+				<span class="navbar-brand-text">Юрий К.</span>
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+				aria-controls="offcanvasNavbar">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+				<div class="offcanvas-header">
+					<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть навигационное меню"></button>
+				</div>
+				<div class="offcanvas-body">
+					<ul class="navbar-nav justify-content-end flex-grow-1">
+						<li class="nav-item">
+							<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">
+								<span class="icon icon-solid icon-home">
+									<svg>
+										<use xlink:href="../images/icons/home.svg#svg-home"></use>
+									</svg>
+								</span>
+								профиль
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="#">
+								<span class="icon icon-solid icon-skipass">
+									<svg>
+										<use xlink:href="../images/icons/skipass.svg#svg-skipass"></use>
+									</svg>
+								</span>
+								мои скипассы
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<span class="icon icon-solid icon-cash">
+									<svg>
+										<use xlink:href="../images/icons/cash.svg#svg-cash"></use>
+									</svg>
+								</span>
+								баланс
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<span class="icon icon-solid icon-settings">
+									<svg>
+										<use xlink:href="../images/icons/settings.svg#svg-settings"></use>
+									</svg>
+								</span>
+								аккаунт
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<span class="icon icon-solid icon-exit">
+									<svg>
+										<use xlink:href="../images/icons/exit.svg#svg-exit"></use>
+									</svg>
+								</span>
+								выйти
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="navbar-footer">
+					Вопросы по работе:
+					<a href="mailto:info@glksok.ru">info@glksok.ru</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+</header>
+
+	<main>
+		
+		<div class="page-header">
+			<div class="container">
+				<h1 class="h2">
+					Пополнить баланс
+				</h1>
+	
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item">
+							<a href="#">
+								<span class="icon icon-solid">
+									<svg>
+										<use xlink:href="../images/icons/home-outline.svg#svg-home-outline"></use>
+									</svg>
+								</span>
+							</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a href="#">
+								Баланс
+							</a>
+						</li>
+						<li class="breadcrumb-item active" aria-current="page">
+							Пололнить баланс
+						</li>
+					</ol>
+				</nav>
+			</div>
+		</div>
+
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col-xxl-4 col-lg-5">
+						<div class="card card-image-bg" style="background-image: url(../images/dist/bg-1.png);">
+							<h2 class="card-header">
+								текущий баланс аккаунта
+							</h2>
+							<div class="card-body">
+								<div class="card-title">
+									<h2 class="card-balance">
+										2150
+									</h2>
+								</div>
+								<div class="card-buttons">
+									<button class="btn btn-link" type="button">
+										История транзакций
+									</button>
+									<button class="btn btn-link" type="button">
+										Привязанные карты
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xxl-8 col-lg-7 mt-lg-0 mt-sm-4 mt-2">
+						<div class="card card-bigger card-form">
+							<h2 class="card-header">
+								пополнение общего баланса
+							</h2>
+							<div class="card-body">
+								<div class="form-check mb-sm-5 mb-4">
+									<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+									<label class="form-check-label" for="flexCheckDefault">
+										Запомнить карту
+									</label>
+								</div>
+
+								<div class="card-button mb-sm-5 mb-3">
+									<button class="btn btn-secondary" type="button">
+										Пополнить
+									</button>
+								</div>
+
+								<p class="card-text d-sm-block d-none">
+									Здесь вы можете пополнить общий баланс профиля с банковской карты. Чтобы не вводить каждый раз реквизиты карт, их можно запомнить. С общего баланса профиля вы сможете пополнять свои скипассы и покупать услуги.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<footer class="footer">
+	<div class="container">
+		<div class="footer-text">
+			Горнолыйжный комплес <span>«СОК», Самара</span>
+		</div>
+	</div>
+</footer>
+</div>
+	
+	<script src="../js/app.min.js"></script>
+
+</body>
+</html>

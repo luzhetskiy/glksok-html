@@ -1,9 +1,11 @@
 // Bootstrap Variables
 $primary: #0365B2
 $primary-light: #a7d1fc
+$primary-dark: #85b4e6
 
 $secondary: #FF4881
 $secondary-light: #fc6f99
+$secondary-dark: #ef497a
 
 $success: #198754
 $info: #0dcaf0
@@ -17,11 +19,11 @@ $gray-100: #f8f9fa
 $gray-rbga-100: rgba($gray-100, .4)
 $gray-200: #e9ecef
 $gray-rbga-200: rgba($gray-200, .4)
-$gray-300: #dee2e6
+$gray-300: #d9d9d9
 $gray-rbga-300: rgba($gray-300, .4)
 $gray-400: #ced4da
 $gray-rbga-400: rgba($gray-400, .4)
-$gray-500: #adb5bd
+$gray-500: #b2b3b4
 $gray-rbga-500: rgba($gray-500, .4)
 $gray-600: #80858E
 $gray-rbga-600: rgba($gray-600, .4)
@@ -32,8 +34,6 @@ $gray-rbga-800: rgba($gray-800, .4)
 $gray-900: #212529
 $gray-rbga-900: rgba($gray-900, .4)
 $black: #000
-
-$grays: ( "100": $gray-100, "rgba-100": $gray-rbga-100, "200": $gray-200, "rgba-200": $gray-rbga-200, "300": $gray-300, "rgba-300": $gray-rbga-300, "400": $gray-400, "rgba-400": $gray-rbga-400, "500": $gray-500, "rgba-500": $gray-rbga-500, "600": $gray-600, "rgba-600": $gray-rbga-600, "700": $gray-700, "rgba-700": $gray-rbga-700, "800": $gray-800, "rgba-800": $gray-rbga-800, "900": $gray-900, "rgba-900": $gray-rbga-900 )
 
 $blue: #0365B2
 $blue-light: #4680F8
@@ -47,9 +47,11 @@ $green: #198754
 $teal: #20c997
 $cyan: #0dcaf0
 
+$grays: ( "100": $gray-100, "rgba-100": $gray-rbga-100, "200": $gray-200, "rgba-200": $gray-rbga-200, "300": $gray-300, "rgba-300": $gray-rbga-300, "400": $gray-400, "rgba-400": $gray-rbga-400, "500": $gray-500, "rgba-500": $gray-rbga-500, "600": $gray-600, "rgba-600": $gray-rbga-600, "700": $gray-700, "rgba-700": $gray-rbga-700, "800": $gray-800, "rgba-800": $gray-rbga-800, "900": $gray-900, "rgba-900": $gray-rbga-900 )
+
 $colors: ( "blue": $blue, "blue-light": $blue-light, "indigo": $indigo, "purple": $purple, "pink": $pink, "red": $red, "orange": $orange, "yellow": $yellow, "green": $green, "teal": $teal, "cyan": $cyan, "black": $black, "white": $white, "gray": $gray-600, "gray-dark": $gray-800 )
 
-$theme-colors: ( "primary": $primary, "primary-light": $primary-light, "secondary": $secondary, "secondary-light": $secondary-light, "success": $success, "info": $info, "warning": $warning, "danger": $danger, "light": $light, "dark": $dark )
+$theme-colors: ( "primary": $primary, "primary-light": $primary-light, "primary-dark": $primary-dark, "secondary": $secondary, "secondary-light": $secondary-light, "secondary-dark": $secondary-dark, "success": $success, "info": $info, "warning": $warning, "danger": $danger, "light": $light, "dark": $dark )
 
 $font-family-sans-serif: Roboto, system-ui, sans-serif
 
@@ -57,6 +59,8 @@ $font-size-base: 1rem
 $font-size-sm: $font-size-base * .9375
 $font-size-md: $font-size-base * 1.25
 $font-size-lg: $font-size-base * 1.625
+
+$headings-color: $black
 
 $h1-font-size: $font-size-base * 3
 $h2-font-size: $font-size-base * 2.25
@@ -77,7 +81,7 @@ $border-radius-xl: 1.25rem
 $box-shadow-lg: 0 .25rem 3.125rem 0 rgba(12, 16, 24, 0.15)
 
 $spacer: 1rem
-$spacers: ( 0: 0, 1: $spacer * .25, 2: $spacer * .5, 3: $spacer, 4: $spacer * 1.5, 5: $spacer * 2, 6: $spacer * 3 )
+$spacers: ( 0: 0, 1: $spacer * .25, 2: $spacer * .75, 3: $spacer, 4: $spacer * 1.5, 5: $spacer * 2, 6: $spacer * 3 )
 
 $container-max-widths: ( sm: 540px, md: 720px, lg: 960px, xl: 1140px, xxl: 1360px )
 
@@ -118,13 +122,49 @@ $btn-close-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' v
 $btn-close-opacity: 1
 $btn-close-hover-opacity: .5
 
+$btn-font-size: $font-size-md
+$btn-line-height: normal
+$btn-font-weight: $font-weight-medium
+$btn-padding-y: $spacer
+$btn-padding-x: $spacer * 2
+$btn-border-radius: $border-radius-xl
+
+$focus-ring-width: .125rem
+$focus-ring-opacity: .15
+$focus-ring-color: rgba($blue-light, $focus-ring-opacity)
+
+$form-check-input-width: 1.25em
+$form-check-padding-start: 0
+$form-check-label-color: $black
+$form-check-label-cursor: pointer
+$form-check-transition: box-shadow .3s ease-in-out, background .3s ease-in-out, border .3s ease-in-out
+
+$form-check-input-active-filter: brightness(100%)
+
+$form-check-input-bg: $white
+$form-check-input-border: 2px solid $blue-light
+$form-check-input-border-radius: .5rem
+$form-check-input-focus-border: $blue-light
+
+$form-check-input-checked-color: $white
+$form-check-input-checked-bg-color: $blue-light
+$form-check-input-checked-border-color: $blue-light
+$form-check-input-checked-bg-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='4 4 16 16' fill='#{$form-check-input-checked-color}'%3E%3Cpath d='M10.4487 17L5 12.428L6.42164 9.97566L10.4487 13.1113L17.5784 6L19 8.45229L10.4487 17Z'/%3E%3C/svg%3E")
+
+$form-check-input-disabled-opacity: .35
+
 $offcanvas-padding-y: 0
 $offcanvas-padding-x: 0
+$offcanvas-horizontal-width: 290px
 $offcanvas-border-color: transparent
 $offcanvas-border-width: 0
 $offcanvas-bg-color: $white
 $offcanvas-backdrop-bg: $body-bg
 $offcanvas-backdrop-opacity: .9
+
+$breadcrumb-divider-color: #37474F
+$breadcrumb-active-color: rgba($gray-800, .4)
+$breadcrumb-divider: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='2 0 24 24' fill='#{$breadcrumb-divider-color}' opacity='0.5'><path d='M9.18207 21.0512L7.76807 19.6372L15.4041 12.0002L7.76807 4.36322L9.18207 2.94922L18.2321 12.0002L9.18207 21.0512Z'/></svg>")
 
 // IMPORT SECTION
 
@@ -151,3 +191,30 @@ body
 					.nav-link
 						padding-right: var(--#{$prefix}navbar-nav-link-padding-x)
 						padding-left: var(--#{$prefix}navbar-nav-link-padding-x)
+
+.breadcrumb-item
+	display: flex
+	align-items: center
+
+	+ .breadcrumb-item
+
+		&::before
+			all: initial
+
+	&:not(:last-child)
+
+		&::after
+			width: 1.5rem
+			height: 1.5rem
+			float: left
+			margin-left: var(--#{$prefix}breadcrumb-item-padding-x)
+			color: var(--#{$prefix}breadcrumb-divider-color)
+			content: var(--#{$prefix}breadcrumb-divider, escape-svg($breadcrumb-divider)) #{"/* rtl:"} var(--#{$prefix}breadcrumb-divider, escape-svg($breadcrumb-divider-flipped)) #{"*/"}
+
+.form-check-input
+
+	&:focus,
+	&:hover
+		border-color: $form-check-input-focus-border
+		outline: 0
+		box-shadow: $form-check-input-focus-box-shadow

@@ -9,9 +9,78 @@
 	main
 		flex: 1
 
+	&-header
+		padding: 1rem 0 1.5rem
+
+		h1
+			margin-bottom: 2rem
+
+h1, .h1
+	line-height: 3.125rem
+
+h2, .h2
+	line-height: 2.375rem
+
+h4, .h4
+	line-height: 1.75rem
+
+h5, .h5
+	line-height: 1.5rem
+
+
 a
 	text-decoration: none
 	transition: color .3s ease-in-out, background .3s ease-in-out
+
+.btn-primary
+	--bs-btn-hover-color: var(--bs-blue-light)
+	--bs-btn-hover-bg: var(--bs-primary-light)
+	--bs-btn-hover-border-color: var(--bs-primary-light)
+	--bs-btn-active-color: var(--bs-blue)
+	--bs-btn-active-bg: var(--bs-primary-dark)
+	--bs-btn-active-border-color: var(--bs-primary-dark)
+
+.btn-outline-primary
+	--bs-btn-border-color: var(--bs-border-color)
+	--bs-btn-hover-color: var(--bs-blue-light)
+	--bs-btn-hover-bg: var(--bs-primary-light)
+	--bs-btn-hover-border-color: var(--bs-primary-light)
+	--bs-btn-active-color: var(--bs-blue)
+	--bs-btn-active-bg: var(--bs-primary-dark)
+	--bs-btn-active-border-color: var(--bs-primary-dark)
+
+.btn-secondary
+	--bs-btn-color: var(--bs-white)
+	--bs-btn-hover-color: var(--bs-white)
+	--bs-btn-active-color: var(--bs-white)
+	--bs-btn-disabled-color: var(--bs-white)
+
+.btn-link
+	--bs-btn-padding-x: .5rem
+	--bs-btn-padding-y: .25rem
+	--bs-btn-font-weight: 500
+	--bs-btn-color: var(--bs-blue)
+	--bs-btn-disabled-color: var(--bs-gray-500)
+	--bs-btn-border-width: 0
+	--bs-btn-focus-box-shadow: 0 0 0 0.125rem rgba(var(--bs-btn-focus-shadow-rgb),.5)
+	margin: calc( var(--bs-btn-padding-y) * -1 ) calc( var(--bs-btn-padding-x) * -1 )
+	text-decoration: none
+
+.form
+
+	&-check
+		display: flex
+		align-items: center
+
+		&-input
+			float: initial
+			margin-top: initial
+			margin-right: .5rem
+
+		&-label
+			font-size: 1.125rem
+			font-weight: 500
+			line-height: normal
 
 .icon
 	--i-size: 1.5rem
@@ -35,3 +104,16 @@ a
 	&-outline
 		stroke: currentColor
 
+.breadcrumb
+	margin-left: 2rem
+	margin-bottom: 0
+
+	&-item
+
+		a
+			color: var(--bs-primary)
+
+			&:hover
+
+				.icon
+					--i-color: var(--bs-link-color-rgb)

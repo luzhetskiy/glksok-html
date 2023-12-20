@@ -1,7 +1,18 @@
+@media (max-width: 1399.98px)
 
-@media (max-width: 575.98px)
+@media (max-width: 1199.98px)
 
-@media (max-width: 767.98px)
+	h1, .h1
+		font-size: 3rem
+
+	h2, .h2
+		font-size: 2.25rem
+
+	h4, .h4
+		font-size: 1.5rem
+
+	h5, .h5
+		font-size: 1.25rem
 
 @media (max-width: 991.98px)
 	
@@ -47,6 +58,71 @@
 			&>a
 				display: block
 
-@media (max-width: 1199.98px)
+@media (max-width: 767.98px)
 
-@media (max-width: 1399.98px)
+@media (max-width: 575.98px)
+
+	.container
+		--bs-gutter-x: 1rem
+
+	.page
+
+		&-header
+			padding-bottom: .5rem
+
+			h1
+				margin-bottom: 0
+
+	.btn
+
+		&:not(.btn-link)
+			--bs-btn-padding-x: 1.375rem
+
+	.breadcrumb
+		display: none
+
+	.card
+		--bs-card-spacer-y: 1.5rem
+		--bs-card-spacer-x: 1rem
+		--bs-card-cap-padding-y: 1rem
+
+		&:not(.card-mini, .card-add)
+			min-height: 300px
+
+		&:not(:last-child)
+			margin-bottom: .75rem
+
+		&-title
+			margin-bottom: 1.5rem
+
+		&-text
+			margin-bottom: 1rem
+
+		&-button
+
+			.btn-outline-primary,
+			.btn-secondary,
+			.btn-primary
+				width: 100%
+
+	.card-bigger
+
+		&:not(.card-form)
+			--bs-card-cap-padding-x: 1rem
+			--bs-card-spacer-x: .5rem
+
+	.footer
+		padding: 1rem 0
+
+		&-text
+			flex-direction: column
+			align-items: center
+
+@media (max-width: 399.98px)
+
+	.card-mini
+		background-position: 110%
+
+		.card-header,
+		.card-body
+			width: 80%
