@@ -10,18 +10,19 @@ $secondary-dark: #ef497a
 $success: #198754
 $info: #0dcaf0
 $warning: #ffc107
-$danger: #dc3545
+$danger: #E35454
+$danger-rgba: rgba($danger, .15)
 $light: #f8f9fa
 $dark: #212529
 
 $white: #fff
-$gray-100: #f8f9fa
+$gray-100: #f1f1f3
 $gray-rbga-100: rgba($gray-100, .4)
 $gray-200: #e9ecef
 $gray-rbga-200: rgba($gray-200, .4)
 $gray-300: #d9d9d9
 $gray-rbga-300: rgba($gray-300, .4)
-$gray-400: #ced4da
+$gray-400: #e6e6e8
 $gray-rbga-400: rgba($gray-400, .4)
 $gray-500: #b2b3b4
 $gray-rbga-500: rgba($gray-500, .4)
@@ -37,6 +38,7 @@ $black: #000
 
 $blue: #0365B2
 $blue-light: #4680F8
+$blue-light-rgba: rgba($blue-light, .65)
 $indigo: #6610f2
 $purple: #6f42c1
 $pink: #d63384
@@ -49,9 +51,9 @@ $cyan: #0dcaf0
 
 $grays: ( "100": $gray-100, "rgba-100": $gray-rbga-100, "200": $gray-200, "rgba-200": $gray-rbga-200, "300": $gray-300, "rgba-300": $gray-rbga-300, "400": $gray-400, "rgba-400": $gray-rbga-400, "500": $gray-500, "rgba-500": $gray-rbga-500, "600": $gray-600, "rgba-600": $gray-rbga-600, "700": $gray-700, "rgba-700": $gray-rbga-700, "800": $gray-800, "rgba-800": $gray-rbga-800, "900": $gray-900, "rgba-900": $gray-rbga-900 )
 
-$colors: ( "blue": $blue, "blue-light": $blue-light, "indigo": $indigo, "purple": $purple, "pink": $pink, "red": $red, "orange": $orange, "yellow": $yellow, "green": $green, "teal": $teal, "cyan": $cyan, "black": $black, "white": $white, "gray": $gray-600, "gray-dark": $gray-800 )
+$colors: ( "blue": $blue, "blue-light": $blue-light, "blue-light-rgba": $blue-light-rgba, "indigo": $indigo, "purple": $purple, "pink": $pink, "red": $red, "orange": $orange, "yellow": $yellow, "green": $green, "teal": $teal, "cyan": $cyan, "black": $black, "white": $white, "gray": $gray-600, "gray-dark": $gray-800 )
 
-$theme-colors: ( "primary": $primary, "primary-light": $primary-light, "primary-dark": $primary-dark, "secondary": $secondary, "secondary-light": $secondary-light, "secondary-dark": $secondary-dark, "success": $success, "info": $info, "warning": $warning, "danger": $danger, "light": $light, "dark": $dark )
+$theme-colors: ( "primary": $primary, "primary-light": $primary-light, "primary-dark": $primary-dark, "secondary": $secondary, "secondary-light": $secondary-light, "secondary-dark": $secondary-dark, "success": $success, "info": $info, "warning": $warning, "danger": $danger, "danger-rgba": $danger-rgba, "light": $light, "dark": $dark )
 
 $font-family-sans-serif: Roboto, system-ui, sans-serif
 
@@ -91,6 +93,9 @@ $gutter: $grid-gutter-width
 $link-color: $black
 $link-shade-percentage: 100%
 $link-hover-color: $blue-light
+
+$variable-prefix: bs-
+$prefix: $variable-prefix
 
 /*Navbar*/
 $navbar-padding-y: $spacer
@@ -142,7 +147,7 @@ $form-check-transition: box-shadow .3s ease-in-out, background .3s ease-in-out, 
 $form-check-input-active-filter: brightness(100%)
 
 $form-check-input-bg: $white
-$form-check-input-border: 2px solid $blue-light
+$form-check-input-border: 2px solid $blue-light-rgba
 $form-check-input-border-radius: .5rem
 $form-check-input-focus-border: $blue-light
 
@@ -152,6 +157,33 @@ $form-check-input-checked-border-color: $blue-light
 $form-check-input-checked-bg-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='4 4 16 16' fill='#{$form-check-input-checked-color}'%3E%3Cpath d='M10.4487 17L5 12.428L6.42164 9.97566L10.4487 13.1113L17.5784 6L19 8.45229L10.4487 17Z'/%3E%3C/svg%3E")
 
 $form-check-input-disabled-opacity: .35
+
+$form-floating-line-height: normal
+$form-floating-label-height: 1.25em
+$form-floating-label-transform: scale(.75) translateY(-.5rem) translateX(.25rem)
+$form-floating-label-opacity: .75
+
+$input-font-size: $font-size-md
+$input-font-weight: $font-weight-medium
+$input-color: $black
+$input-bg: $gray-100
+$input-border-width: 0
+$input-padding-x: 1rem
+
+$input-border-radius: var(--#{$prefix}border-radius-xl)
+
+$input-placeholder-color: $gray-700
+$input-plaintext-color: $gray-700
+
+$input-focus-bg: $gray-400
+$input-focus-box-shadow: none
+
+$form-select-focus-box-shadow: 0
+
+$form-feedback-margin-top: .125rem
+$form-feedback-font-size: .75rem
+$form-feedback-icon-valid: none
+$form-feedback-icon-invalid: none
 
 $offcanvas-padding-y: 0
 $offcanvas-padding-x: 0
@@ -165,6 +197,14 @@ $offcanvas-backdrop-opacity: .9
 $breadcrumb-divider-color: #37474F
 $breadcrumb-active-color: rgba($gray-800, .4)
 $breadcrumb-divider: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='2 0 24 24' fill='#{$breadcrumb-divider-color}' opacity='0.5'><path d='M9.18207 21.0512L7.76807 19.6372L15.4041 12.0002L7.76807 4.36322L9.18207 2.94922L18.2321 12.0002L9.18207 21.0512Z'/></svg>")
+
+$badge-font-size: 1.25rem
+$badge-font-weight: $font-weight-medium
+$badge-padding-y: .5rem
+$badge-padding-x: .775rem
+$badge-border-radius: 1rem
+
+$enable-negative-margins: true
 
 // IMPORT SECTION
 
@@ -211,6 +251,36 @@ body
 			color: var(--#{$prefix}breadcrumb-divider-color)
 			content: var(--#{$prefix}breadcrumb-divider, escape-svg($breadcrumb-divider)) #{"/* rtl:"} var(--#{$prefix}breadcrumb-divider, escape-svg($breadcrumb-divider-flipped)) #{"*/"}
 
+.form-floating
+
+	> label
+		font-size: $font-size-md
+		font-weight: $font-weight-medium
+		line-height: normal
+		color: $gray-700
+
+	> .form-control:focus,
+	> .form-control:not(:placeholder-shown),
+	> .form-control-plaintext,
+	> .form-select
+		~ label
+			color: rgba($gray-700, $form-floating-label-opacity)
+			&::after
+				background-color: transparent
+
+	> .form-control
+		
+		&.is-invalid
+			background-color: $danger-rgba
+
+		&:focus
+			~ label
+				&::after
+					background-color: transparent
+
+	> .form-select
+		line-height: 1
+
 .form-check-input
 
 	&:focus,
@@ -218,3 +288,6 @@ body
 		border-color: $form-check-input-focus-border
 		outline: 0
 		box-shadow: $form-check-input-focus-box-shadow
+
+.invalid-feedback
+	padding-left: $input-padding-x
