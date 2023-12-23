@@ -98,16 +98,19 @@
 	background-size: contain
 	transition: background .3s ease-in-out
 
-	&:is(:hover, :focus-visible)
-		--bs-card-bg: var(--bs-primary-light)
-		outline: none
+	&:not(&--bank)
+		&:is(:hover, :focus-visible)
+			--bs-card-bg: var(--bs-primary-light)
+			outline: none
 
-	&:active
-		--bs-card-bg: var(--bs-primary-dark)
+		&:active
+			--bs-card-bg: var(--bs-primary-dark)
 
-	.card-header,
-	.card-body
-		width: 68%
+	&:not(&--bank)
+
+		.card-header,
+		.card-body
+			width: 68%
 
 	.card-header
 		border: 0
@@ -130,6 +133,20 @@
 			line-height: 2.5rem
 			color: var(--bs-white)
 			margin-bottom: 0
+
+.card-mini--bank
+	--bs-card-cap-padding-y: 1.5rem
+
+	.card-header
+		font-size: 1.5rem
+		line-height: 1.75rem
+		padding-bottom: 1rem
+
+	.card-body
+		display: flex
+		flex-direction: row
+		align-items: flex-end
+		justify-content: space-between
 
 .card-add
 	--bs-card-spacer-y: .625rem

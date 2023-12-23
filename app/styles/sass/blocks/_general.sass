@@ -71,14 +71,31 @@ a
 	margin: calc( var(--bs-btn-padding-y) * -1 ) calc( var(--bs-btn-padding-x) * -1 )
 	text-decoration: none
 
+.btn-light
+	--bs-btn-color: var(--bs-secondary)
+	--bs-btn-hover-color: var(--bs-white)
+	--bs-btn-active-color: var(--bs-white)
+	--bs-btn-disabled-color: var(--bs-white)
+	--bs-btn-hover-bg: var(--bs-secondary)
+	--bs-btn-active-bg: var(--bs-secondary-dark)
+	--bs-btn-hover-border-color: var(--bs-secondary)
+	--bs-btn-active-border-color: var(--bs-secondary-dark)
+	--bs-btn-border-color: var(--bs-border-color)
+	--bs-btn-focus-box-shadow: none
+
 .btn-icon
 	display: flex
 	align-items: center
 	justify-content: center
+	padding: .625rem 1.5rem
 
 	.icon
-		--i-size: 100%
+		--i-size: 1rem
 		--i-color: inherit
+		transition: initial
+
+	.icon-xxl
+		--i-size: 2.25rem
 
 .was-validated,
 
