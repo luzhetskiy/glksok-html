@@ -4,13 +4,13 @@
 	<!--#include virtual="/parts/header-lk.html" -->
 
 	<main>
-		
+
 		<div class="page-header">
 			<div class="container">
 				<h1 class="h2">
 					Пополнить баланс
 				</h1>
-	
+
 				<nav aria-label="breadcrumb">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item">
@@ -73,15 +73,20 @@
 
 								<div class="card-form-inputs">
 									<div class="form-floating form-floating-sm me-lg-5 mb-lg-0 mb-sm-5 mb-4">
-										<input type="text" class="form-control" id="floatingInput1" maxlength="60" placeholder="сумма, ₽" required>
+										<input type="text" class="form-control form-control-numbers" id="floatingInput1" maxlength="60"
+											placeholder="сумма, ₽" required>
 										<label for="floatingInput1">сумма, ₽</label>
 									</div>
 									<div class="form-floating form-floating-md">
-										<select class="form-select" id="floatingSelect1" aria-label="Выберете карту для оплаты">
-											<option selected>Новая карта</option>
-											<option value="1">Один</option>
-											<option value="2">Два</option>
-											<option value="3">Три</option>
+										<select class="form-select js-form-select" id="floatingSelect1"
+											aria-label="Выберете карту для оплаты">
+											<option value="">Новая карта</option>
+											<option value="1">МИР ..4584</option>
+											<option value="2">VISA ..4635</option>
+											<option value="3">VISA ..4657</option>
+											<option value="4">МИР ..4584</option>
+											<option value="5">VISA ..4635</option>
+											<option value="6">VISA ..4657</option>
 										</select>
 										<label for="floatingSelect1">Выберете карту для оплаты</label>
 									</div>
@@ -101,7 +106,9 @@
 								</div>
 
 								<p class="card-text d-sm-block d-none">
-									Здесь вы можете пополнить общий баланс профиля с банковской карты. Чтобы не вводить каждый раз реквизиты карт, их можно запомнить. С общего баланса профиля вы сможете пополнять свои скипассы и покупать услуги.
+									Здесь вы можете пополнить общий баланс профиля с банковской карты. Чтобы не вводить каждый раз
+									реквизиты карт, их можно запомнить. С общего баланса профиля вы сможете пополнять свои скипассы и
+									покупать услуги.
 								</p>
 							</form>
 						</div>

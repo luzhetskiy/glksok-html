@@ -18,6 +18,8 @@ $dark: #212529
 $white: #fff
 $gray-100: #f1f1f3
 $gray-rbga-100: rgba($gray-100, .4)
+$gray-100-rbga-80: rgba($gray-100, .8)
+$gray-100-rbga-60: rgba($gray-100, .6)
 $gray-200: #e9ecef
 $gray-rbga-200: rgba($gray-200, .4)
 $gray-300: #d9d9d9
@@ -49,7 +51,7 @@ $green: #198754
 $teal: #20c997
 $cyan: #0dcaf0
 
-$grays: ( "100": $gray-100, "rgba-100": $gray-rbga-100, "200": $gray-200, "rgba-200": $gray-rbga-200, "300": $gray-300, "rgba-300": $gray-rbga-300, "400": $gray-400, "rgba-400": $gray-rbga-400, "500": $gray-500, "rgba-500": $gray-rbga-500, "600": $gray-600, "rgba-600": $gray-rbga-600, "700": $gray-700, "rgba-700": $gray-rbga-700, "800": $gray-800, "rgba-800": $gray-rbga-800, "900": $gray-900, "rgba-900": $gray-rbga-900 )
+$grays: ( "100": $gray-100, "rgba-100": $gray-rbga-100, "100-rgba-80": $gray-100-rbga-80, "100-rgba-60": $gray-100-rbga-60, "200": $gray-200, "rgba-200": $gray-rbga-200, "300": $gray-300, "rgba-300": $gray-rbga-300, "400": $gray-400, "rgba-400": $gray-rbga-400, "500": $gray-500, "rgba-500": $gray-rbga-500, "600": $gray-600, "rgba-600": $gray-rbga-600, "700": $gray-700, "rgba-700": $gray-rbga-700, "800": $gray-800, "rgba-800": $gray-rbga-800, "900": $gray-900, "rgba-900": $gray-rbga-900 )
 
 $colors: ( "blue": $blue, "blue-light": $blue-light, "blue-light-rgba": $blue-light-rgba, "indigo": $indigo, "purple": $purple, "pink": $pink, "red": $red, "orange": $orange, "yellow": $yellow, "green": $green, "teal": $teal, "cyan": $cyan, "black": $black, "white": $white, "gray": $gray-600, "gray-dark": $gray-800 )
 
@@ -80,6 +82,7 @@ $gradient: linear-gradient(180deg, rgba($body-bg, 1) 70%, rgba(142, 197, 254, .6
 
 $border-radius-xl: 1.25rem
 
+$box-shadow-md: 0 .25rem 1.5rem 0 rgba(12, 16, 24, 0.15)
 $box-shadow-lg: 0 .25rem 3.125rem 0 rgba(12, 16, 24, 0.15)
 
 $spacer: 1rem
@@ -160,7 +163,7 @@ $form-check-input-disabled-opacity: .35
 
 $form-floating-line-height: normal
 $form-floating-label-height: 1.25em
-$form-floating-label-transform: scale(.75) translateY(-.5rem) translateX(.25rem)
+$form-floating-label-transform: scale(.75) translateY(-.5rem) translateX(.34rem)
 $form-floating-label-opacity: .75
 
 $input-font-size: $font-size-md
@@ -178,7 +181,26 @@ $input-plaintext-color: $gray-700
 $input-focus-bg: $gray-400
 $input-focus-box-shadow: none
 
+$input-transition: border-color 300ms ease-in-out, box-shadow 300ms ease-in-out, transform 300ms ease-in-out
+
+$form-select-decor-size: 24px 24px
+$form-select-decor-size-y: 24px
+$form-select-decor-size-x: 24px
+
+$form-select-bg-size: 18px 10px
+$form-select-bg-size-y: 10px
+$form-select-bg-size-x: 18px
+
+$form-select-indicator-color: $gray-600
+$form-select-indicator-color-focus: $black
+$form-select-decor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='#{$form-select-indicator-color}'%3E%3Cpath d='M19 4H5C4.20435 4 3.44129 4.31607 2.87868 4.87868C2.31607 5.44129 2 6.20435 2 7V17C2 17.7956 2.31607 18.5587 2.87868 19.1213C3.44129 19.6839 4.20435 20 5 20H19C19.7956 20 20.5587 19.6839 21.1213 19.1213C21.6839 18.5587 22 17.7956 22 17V7C22 6.20435 21.6839 5.44129 21.1213 4.87868C20.5587 4.31607 19.7956 4 19 4ZM20 17C19.9997 17.2651 19.8943 17.5193 19.7068 17.7068C19.5193 17.8943 19.2651 17.9997 19 18H5C4.73487 17.9997 4.48069 17.8943 4.29321 17.7068C4.10574 17.5193 4.00029 17.2651 4 17V11H20V17ZM20 9H4V7C4.00029 6.73487 4.10574 6.48069 4.29321 6.29321C4.48069 6.10574 4.73487 6.00029 5 6H19C19.2651 6.00029 19.5193 6.10574 19.7068 6.29321C19.8943 6.48069 19.9997 6.73487 20 7V9Z'/%3E%3C/svg%3E")
+$form-select-decor-focus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='#{$form-select-indicator-color-focus}'%3E%3Cpath d='M19 4H5C4.20435 4 3.44129 4.31607 2.87868 4.87868C2.31607 5.44129 2 6.20435 2 7V17C2 17.7956 2.31607 18.5587 2.87868 19.1213C3.44129 19.6839 4.20435 20 5 20H19C19.7956 20 20.5587 19.6839 21.1213 19.1213C21.6839 18.5587 22 17.7956 22 17V7C22 6.20435 21.6839 5.44129 21.1213 4.87868C20.5587 4.31607 19.7956 4 19 4ZM20 17C19.9997 17.2651 19.8943 17.5193 19.7068 17.7068C19.5193 17.8943 19.2651 17.9997 19 18H5C4.73487 17.9997 4.48069 17.8943 4.29321 17.7068C4.10574 17.5193 4.00029 17.2651 4 17V11H20V17ZM20 9H4V7C4.00029 6.73487 4.10574 6.48069 4.29321 6.29321C4.48069 6.10574 4.73487 6.00029 5 6H19C19.2651 6.00029 19.5193 6.10574 19.7068 6.29321C19.8943 6.48069 19.9997 6.73487 20 7V9Z'/%3E%3C/svg%3E")
+$form-select-indicator: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 12' fill='#{$form-select-indicator-color}'%3E%3Cpath d='M10 11.2315L0.948975 2.18158L2.36297 0.767578L10 8.40354L17.637 0.767578L19.051 2.18158L10 11.2315Z'/%3E%3C/svg%3E")
+$form-select-indicator-focus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 12' fill='#{$form-select-indicator-color-focus}'%3E%3Cpath d='M10 11.2315L0.948975 2.18158L2.36297 0.767578L10 8.40354L17.637 0.767578L19.051 2.18158L10 11.2315Z'/%3E%3C/svg%3E")
+
 $form-select-focus-box-shadow: 0
+
+$form-select-transition: $input-transition
 
 $form-feedback-margin-top: .125rem
 $form-feedback-font-size: .75rem
@@ -209,10 +231,44 @@ $enable-negative-margins: true
 // IMPORT SECTION
 
 @import 'node_modules/bootstrap/scss/bootstrap.scss'
+@import 'node_modules/choices.js/src/styles/choices.scss'
+
+/** (Start) Bootstrap **/
+
+:root,
+[data-bs-theme="light"]
+
+	--#{$prefix}font-size: #{$font-size-base}
+	--#{$prefix}font-size-sm: #{$font-size-sm}
+	--#{$prefix}font-size-md: #{$font-size-md}
+	--#{$prefix}font-size-lg: #{$font-size-lg}
+	--#{$prefix}font-weight-lighter: #{$font-weight-lighter}
+	--#{$prefix}font-weight-light: #{$font-weight-light}
+	--#{$prefix}font-weight: #{$font-weight-normal}
+	--#{$prefix}font-weight-medium: #{$font-weight-medium}
+	--#{$prefix}font-weight-semibold: #{$font-weight-semibold}
+	--#{$prefix}font-weight-bold: #{$font-weight-bold}
+	--#{$prefix}font-weight-bolder: #{$font-weight-bolder}
+
+	--#{$prefix}box-shadow-md: #{$box-shadow-md}
 
 body
 	background-image: $gradient
 	background-color: $body-bg
+
+::-webkit-scrollbar
+	width: .375rem
+	height: .375rem
+
+::-webkit-scrollbar-track
+	background-color: transparent
+
+::-webkit-scrollbar-thumb
+	background-color: var(--#{$prefix}gray-400)
+	border-radius: var(--#{$prefix}border-radius-sm)
+
+::-webkit-scrollbar-thumb:hover
+	background-color: var(--#{$prefix}gray-500)
 
 .navbar
 	--#{$prefix}navbar-nav-item-margin-x: #{$navbar-nav-item-margin-x}
@@ -269,7 +325,7 @@ body
 				background-color: transparent
 
 	> .form-control
-		
+
 		&.is-invalid
 			background-color: $danger-rgba
 
@@ -291,3 +347,177 @@ body
 
 .invalid-feedback
 	padding-left: $input-padding-x
+
+/** (End) Bootstrap **/
+
+/** (Start) Choices.js **/
+
+.#{$choices-selector}
+	margin-bottom: 0
+	~ label
+		color: rgba(var(--#{$prefix}body-color-rgb), #{$form-floating-label-opacity})
+		transform: $form-floating-label-transform
+		@include media-breakpoint-down(sm)
+			padding-left: 3rem
+			transform: scale(.75) translateY(-0.5rem) translateX(1rem)
+
+	&:focus
+
+		.#{$choices-selector}
+
+			&__inner,
+			&__placeholder
+				color: var(--#{$prefix}black)
+
+			&__inner
+				background-color: $input-focus-bg
+
+	&.is-open
+
+		.#{$choices-selector}
+
+			&__inner,
+			&__placeholder
+				color: var(--#{$prefix}gray-700)
+
+			&__inner
+				background-color: $form-select-bg
+
+	&__inner
+		min-height: $form-floating-height
+		font-size: $form-select-font-size
+		font-weight: $font-weight-medium
+		line-height: 1
+		color: var(--#{$prefix}gray-700)
+		background-color: $form-select-bg
+		border: $form-select-border-width solid $form-select-border-color
+		border-radius: $form-select-border-radius
+		padding: 0
+
+		.is-open &,
+		.is-flipped.is-open &
+			border-radius: $form-select-border-radius
+
+	&__placeholder
+		color: var(--#{$prefix}gray-700)
+		opacity: 1
+
+	&[data-type*=select-one]
+
+		&:focus
+
+			&::after
+				background-image: $form-select-indicator-focus
+
+		&::after
+			width: $form-select-bg-size-x
+			height: $form-select-bg-size-y
+			border: 0
+			margin: 0
+			background-image: $form-select-indicator
+			background-position: right center
+			background-repeat: no-repeat
+			background-size: $form-select-bg-size
+			right: 1rem
+			transform: translateY(-50%)
+
+			transition: $form-select-transition
+
+		&.is-open::after
+			margin: 0
+			border: 0
+			transform: translateY(-50%) rotateX(180deg)
+
+		.#{$choices-selector}
+
+			&__inner
+				padding: 0
+
+		@include media-breakpoint-down(sm)
+			&::before
+				content: ''
+				width: $form-select-decor-size-x
+				height: $form-select-decor-size-y
+				background-image: $form-select-decor
+				background-position: right center
+				background-repeat: no-repeat
+				background-size: $form-select-decor-size
+				position: absolute
+				top: 50%
+				left: 1rem
+				transform: translateY(-50%)
+
+			&:focus
+
+				&:not(.is-open)
+
+					&::before
+						background-image: $form-select-decor-focus
+
+	&__list
+
+		&--single
+			padding: $form-floating-input-padding-t $form-select-indicator-padding $form-floating-input-padding-b $form-select-padding-x
+			@include media-breakpoint-down(sm)
+				padding-left: 3rem
+
+%choices-dropdown
+	margin-top: 4px
+	border: 0
+	border-radius: var(--#{$prefix}border-radius-xl)
+	box-shadow: var(--#{$prefix}box-shadow-md)
+	z-index: $zindex-dropdown
+
+	.is-flipped &
+		margin-bottom: 4px
+		border-radius: var(--#{$prefix}border-radius-xl)
+
+	.#{$choices-selector}__list
+		max-height: 194px
+		display: flex
+		flex-direction: column
+		padding: 4px
+		@include media-breakpoint-up(sm)
+			max-height: 290px
+
+	.#{$choices-selector}__item
+		display: flex
+		align-items: center
+		font-size: var(--#{$prefix}font-size-md)
+		font-weight: var(--#{$prefix}font-weight-medium)
+		line-height: normal
+		color: var(--#{$prefix}gray-700)
+		border-radius: calc( var(--#{$prefix}border-radius-xl) - 4px )
+		padding: .75rem
+		opacity: .8
+
+		@include media-breakpoint-down(sm)
+			&::before
+				content: ''
+				width: $form-select-decor-size-x
+				height: $form-select-decor-size-y
+				display: block
+				margin-right: .5rem
+				background-image: $form-select-decor
+				background-position: right center
+				background-repeat: no-repeat
+				background-size: $form-select-decor-size
+
+	.#{$choices-selector}__item--selectable
+		@include media-breakpoint-up(sm)
+			padding-left: .75rem
+			padding-right: .75rem
+
+		&.is-highlighted
+			background-color: var(--#{$prefix}gray-100-rgba-80)
+
+		&.is-selected
+			order: -1
+			color: var(--#{$prefix}black)
+			background-color: var(--#{$prefix}gray-100-rgba-60)
+
+			@include media-breakpoint-down(sm)
+				&::before
+					background-image: $form-select-decor-focus
+
+/** (End) Choices.js **/
