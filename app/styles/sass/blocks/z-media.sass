@@ -14,6 +14,10 @@
 	h5, .h5
 		font-size: 1.25rem
 
+	.filters
+		grid-template-columns: repeat(2, auto)
+		grid-auto-flow: initial
+
 @media (max-width: 991.98px)
 
 	.page
@@ -81,6 +85,10 @@
 				max-width: initial
 
 @media (max-width: 767.98px)
+
+	.filters
+		width: 100%
+		grid-template-columns: 1fr
 
 @media (max-width: 575.98px)
 
@@ -153,6 +161,12 @@
 	.card-mini--bank
 		--bs-card-spacer-y: 1rem
 		--bs-card-cap-padding-x: 1rem
+
+	.widget
+		padding: 1.5rem 1rem
+
+	.filters
+		padding: .75rem 1rem
 
 	.footer
 		padding: 1rem 0

@@ -127,10 +127,17 @@ a
 			margin-top: initial
 			margin-right: .5rem
 
+			&:is(:hover, :focus, :checked)
+
+				~ label
+					color: var(--bs-black)
+
 		&-label
 			font-size: 1.125rem
+			color: var(--bs-gray-700)
 			font-weight: 500
 			line-height: normal
+			transition: color 300ms ease-in-out
 
 .text-bg-secondary
 	color: var(--bs-white) !important
