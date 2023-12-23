@@ -15,6 +15,12 @@
 		h1
 			margin-bottom: 2rem
 
+		.alert
+			position: absolute
+			top: -1rem
+			right: calc(var(--bs-gutter-x) * .5)
+
+
 h1, .h1
 	line-height: 3.125rem
 
@@ -64,6 +70,15 @@ a
 	--bs-btn-focus-box-shadow: 0 0 0 0.125rem rgba(var(--bs-btn-focus-shadow-rgb),.5)
 	margin: calc( var(--bs-btn-padding-y) * -1 ) calc( var(--bs-btn-padding-x) * -1 )
 	text-decoration: none
+
+.btn-icon
+	display: flex
+	align-items: center
+	justify-content: center
+
+	.icon
+		--i-size: 100%
+		--i-color: inherit
 
 .was-validated,
 
@@ -138,3 +153,47 @@ a
 
 				.icon
 					--i-color: var(--bs-link-color-rgb)
+
+.alert
+	--bs-alert-margin-bottom: 0
+	font-size: var(--bs-font-size-md)
+	font-weight: 500
+	line-height: normal
+	box-shadow: var(--bs-box-shadow-lg)
+
+	& > .icon
+		margin-bottom: .5rem
+
+.alert-success
+	--bs-alert-color: var(--bs-black)
+	--bs-alert-bg: var(--bs-white)
+
+	& > .icon
+		--i-size: 2.25rem
+		--i-color: var(--bs-success)
+
+.alert-dismissible
+
+	.btn-close
+		--bs-btn-close-focus-shadow: none
+		--bs-btn-close-hover-opacity: 1
+		--bs-btn-close-color: var(--bs-blue)
+		--bs-btn-close-bg: none
+		width: 1rem
+		height: 1rem
+		padding: .25rem
+		border-radius: 50%
+
+		top: .75rem
+		right: .75rem
+
+		&:is(:hover, :focus, :active, .active)
+			background-color: var(--bs-blue-light-rgba-15)
+
+			.icon
+				opacity: .8
+
+		&:is(:active, .active)
+			
+			.icon
+				opacity: 1

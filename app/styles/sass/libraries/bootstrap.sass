@@ -7,7 +7,7 @@ $secondary: #FF4881
 $secondary-light: #fc6f99
 $secondary-dark: #ef497a
 
-$success: #198754
+$success: #5FAD05
 $info: #0dcaf0
 $warning: #ffc107
 $danger: #E35454
@@ -41,6 +41,7 @@ $black: #000
 $blue: #0365B2
 $blue-light: #4680F8
 $blue-light-rgba: rgba($blue-light, .65)
+$blue-light-rgba-15: rgba($blue-light, .15)
 $indigo: #6610f2
 $purple: #6f42c1
 $pink: #d63384
@@ -53,7 +54,7 @@ $cyan: #0dcaf0
 
 $grays: ( "100": $gray-100, "rgba-100": $gray-rbga-100, "100-rgba-80": $gray-100-rbga-80, "100-rgba-60": $gray-100-rbga-60, "200": $gray-200, "rgba-200": $gray-rbga-200, "300": $gray-300, "rgba-300": $gray-rbga-300, "400": $gray-400, "rgba-400": $gray-rbga-400, "500": $gray-500, "rgba-500": $gray-rbga-500, "600": $gray-600, "rgba-600": $gray-rbga-600, "700": $gray-700, "rgba-700": $gray-rbga-700, "800": $gray-800, "rgba-800": $gray-rbga-800, "900": $gray-900, "rgba-900": $gray-rbga-900 )
 
-$colors: ( "blue": $blue, "blue-light": $blue-light, "blue-light-rgba": $blue-light-rgba, "indigo": $indigo, "purple": $purple, "pink": $pink, "red": $red, "orange": $orange, "yellow": $yellow, "green": $green, "teal": $teal, "cyan": $cyan, "black": $black, "white": $white, "gray": $gray-600, "gray-dark": $gray-800 )
+$colors: ( "blue": $blue, "blue-light": $blue-light, "blue-light-rgba": $blue-light-rgba, "blue-light-rgba-15": $blue-light-rgba-15, "indigo": $indigo, "purple": $purple, "pink": $pink, "red": $red, "orange": $orange, "yellow": $yellow, "green": $green, "teal": $teal, "cyan": $cyan, "black": $black, "white": $white, "gray": $gray-600, "gray-dark": $gray-800 )
 
 $theme-colors: ( "primary": $primary, "primary-light": $primary-light, "primary-dark": $primary-dark, "secondary": $secondary, "secondary-light": $secondary-light, "secondary-dark": $secondary-dark, "success": $success, "info": $info, "warning": $warning, "danger": $danger, "danger-rgba": $danger-rgba, "light": $light, "dark": $dark )
 
@@ -227,6 +228,12 @@ $badge-padding-x: .775rem
 $badge-border-radius: 1rem
 
 $enable-negative-margins: true
+
+$alert-padding-y: $spacer * 1.5
+$alert-padding-x: $spacer * 2
+$alert-border-width: 0
+$alert-border-radius: var(--#{$prefix}border-radius-xl)
+$alert-dismissible-padding-r: $alert-padding-x
 
 // IMPORT SECTION
 

@@ -6,7 +6,7 @@
 	<main>
 
 		<div class="page-header">
-			<div class="container">
+			<div class="container position-relative">
 				<h1 class="h2">
 					Пополнить баланс
 				</h1>
@@ -32,6 +32,22 @@
 						</li>
 					</ol>
 				</nav>
+
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+					<div class="icon icon-solid">
+						<svg>
+							<use xlink:href="../images/icons/success.svg#svg-success"></use>
+						</svg>
+					</div>
+					<div>Баланс успешно пополнен на 1000</div>
+					<button type="button" class="btn-close btn-icon" data-bs-dismiss="alert" aria-label="Закрыть">
+						<div class="icon icon-solid">
+							<svg>
+								<use xlink:href="../images/icons/cross.svg#svg-cross"></use>
+							</svg>
+						</div>
+					</button>
+				</div>
 			</div>
 		</div>
 
@@ -78,7 +94,7 @@
 										<label for="floatingInput1">сумма, ₽</label>
 									</div>
 									<div class="form-floating form-floating-md">
-										<select class="form-select js-form-select" id="floatingSelect1"
+										<select class="form-select js-form-select" id="floatingSelectBank"
 											aria-label="Выберете карту для оплаты">
 											<option value="">Новая карта</option>
 											<option value="1">МИР ..4584</option>
@@ -88,7 +104,7 @@
 											<option value="5">VISA ..4635</option>
 											<option value="6">VISA ..4657</option>
 										</select>
-										<label for="floatingSelect1">Выберете карту для оплаты</label>
+										<label for="floatingSelectBank">Выберете карту для оплаты</label>
 									</div>
 								</div>
 
