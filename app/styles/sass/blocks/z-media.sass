@@ -84,6 +84,24 @@
 			&-md
 				max-width: initial
 
+	.table-responsive
+
+		.table
+			min-width: 680px
+
+	.table
+
+		& > :not(caption) 
+		
+			& > * > *
+				padding: .3rem 1.25rem
+
+				&:first-child
+					padding-left: .5rem
+
+				&:last-child
+					padding-right: .5rem
+
 @media (max-width: 767.98px)
 
 	.filters
@@ -161,6 +179,51 @@
 	.card-mini--bank
 		--bs-card-spacer-y: 1rem
 		--bs-card-cap-padding-x: 1rem
+
+	.wrapper-talbe
+		--table-gutter-x: 0
+
+		tr
+
+			&::before,
+			&::after
+				all: initial
+
+		tbody
+
+			tr
+
+				&:hover
+
+					& > *
+						border-color: transparent
+
+						&:first-child
+							border-top-left-radius: .75rem
+							border-bottom-left-radius: .75rem
+
+						&:last-child
+							border-top-right-radius: .75rem
+							border-bottom-right-radius: .75rem
+
+	.table-responsive
+
+		.table
+			min-width: 580px
+	
+	.table
+		font-size: var(--bs-font-size)
+
+		& > thead 
+
+			& > * 
+				
+				& > *
+					font-weight: inherit
+
+		.badge
+			--bs-badge-font-size: var(--bs-font-size)
+			--bs-badge-padding-x: .625rem
 
 	.widget
 		padding: 1.5rem 1rem

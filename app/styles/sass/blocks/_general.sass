@@ -221,3 +221,97 @@ a
 			
 			.icon
 				opacity: 1
+
+.table-responsive
+	max-height: 330px
+	overflow-y: auto
+
+.wrapper-talbe
+	--table-gutter-x: .625rem
+
+	margin-top: 1.5rem
+	padding-left: var(--table-gutter-x)
+	padding-right: var(--table-gutter-x)
+	will-change: scroll-position
+
+	tr
+		position: relative
+		z-index: 1
+
+		&::before,
+		&::after
+			content: ''
+			width: 1.5rem
+			background-color: var(--bs-table-bg)
+			border-radius: 1rem
+			position: absolute
+			top: 0
+			bottom: 0
+			z-index: -1
+
+		&::before
+			left: calc( var(--table-gutter-x) * -1 )
+
+		&::after
+			right: calc( var(--table-gutter-x) * -1 )
+
+	tbody
+
+		tr
+
+			&:hover
+
+				& + tr
+
+					& > *
+						border-color: transparent
+			
+				&::before,
+				&::after
+					background-color: var(--bs-table-hover-bg)
+
+				& > *
+					border-color: var(--bs-table-hover-bg)
+
+.table
+	font-size: var(--bs-font-size-md)
+	line-height: normal
+	margin-bottom: 0
+
+	& > :not(caption) 
+		
+		& > * > *
+			border-top-width: var(--bs-border-width)
+			border-bottom-width: 0
+
+			&:first-child
+				padding-left: 2rem
+
+	.date
+		width: 33.3333%
+
+	.col-bank
+		width: 241px
+
+	.badge
+		--bs-badge-padding-x: .75rem
+		--bs-badge-padding-y: .25rem
+		--bs-badge-font-weight: 400
+		--bs-badge-border-radius: .5rem
+
+	& > thead 
+
+		& > * 
+			
+			& > *
+				font-weight: 500
+				white-space: nowrap
+				border-top-width: 0
+
+.badge
+
+	&.text-bg-success
+		background-color: var(--bs-success-light) !important
+
+	&.text-bg-danger
+		background-color: var(--bs-danger-light) !important

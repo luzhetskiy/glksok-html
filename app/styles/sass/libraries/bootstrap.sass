@@ -8,9 +8,11 @@ $secondary-light: #fc6f99
 $secondary-dark: #ef497a
 
 $success: #5FAD05
+$success-light: #E3F3D8
 $info: #0dcaf0
 $warning: #ffc107
 $danger: #E35454
+$danger-light: #fdeeee
 $danger-rgba: rgba($danger, .15)
 $light: #f8f9fa
 $dark: #212529
@@ -56,7 +58,7 @@ $grays: ( "100": $gray-100, "rgba-100": $gray-rbga-100, "100-rgba-80": $gray-100
 
 $colors: ( "blue": $blue, "blue-light": $blue-light, "blue-light-rgba": $blue-light-rgba, "blue-light-rgba-15": $blue-light-rgba-15, "indigo": $indigo, "purple": $purple, "pink": $pink, "red": $red, "orange": $orange, "yellow": $yellow, "green": $green, "teal": $teal, "cyan": $cyan, "black": $black, "white": $white, "gray": $gray-600, "gray-dark": $gray-800 )
 
-$theme-colors: ( "primary": $primary, "primary-light": $primary-light, "primary-dark": $primary-dark, "secondary": $secondary, "secondary-light": $secondary-light, "secondary-dark": $secondary-dark, "success": $success, "info": $info, "warning": $warning, "danger": $danger, "danger-rgba": $danger-rgba, "light": $light, "dark": $dark )
+$theme-colors: ( "primary": $primary, "primary-light": $primary-light, "primary-dark": $primary-dark, "secondary": $secondary, "secondary-light": $secondary-light, "secondary-dark": $secondary-dark, "success": $success, "success-light": $success-light, "info": $info, "warning": $warning, "danger": $danger, "danger-light": $danger-light, "danger-rgba": $danger-rgba, "light": $light, "dark": $dark )
 
 $font-family-sans-serif: Roboto, system-ui, sans-serif
 
@@ -78,13 +80,17 @@ $font-weight-semibold: 600
 $font-weight-bold: 700
 $font-weight-bolder: bolder
 
+
 $body-bg: #D2E4F0
 $gradient: linear-gradient(180deg, rgba($body-bg, 1) 70%, rgba(142, 197, 254, .65) 100%)
 
+
 $border-radius-xl: 1.25rem
+
 
 $box-shadow-md: 0 .25rem 1.5rem 0 rgba(12, 16, 24, 0.15)
 $box-shadow-lg: 0 .25rem 3.125rem 0 rgba(12, 16, 24, 0.15)
+
 
 $spacer: 1rem
 $spacers: ( 0: 0, 1: $spacer * .25, 2: $spacer * .75, 3: $spacer, 4: $spacer * 1.5, 5: $spacer * 2, 6: $spacer * 3 )
@@ -94,14 +100,16 @@ $container-max-widths: ( sm: 540px, md: 720px, lg: 960px, xl: 1140px, xxl: 1360p
 $grid-gutter-width: 2rem
 $gutter: $grid-gutter-width
 
+
 $link-color: $black
 $link-shade-percentage: 100%
 $link-hover-color: $blue-light
 
+
 $variable-prefix: bs-
 $prefix: $variable-prefix
 
-/*Navbar*/
+
 $navbar-padding-y: $spacer
 
 $nav-link-font-size: $font-size-md
@@ -124,6 +132,7 @@ $navbar-toggler-border-radius: 50%
 $navbar-toggler-focus-width: .125rem
 $navbar-light-toggler-border-color: transparent
 
+
 $btn-close-width: 1.5rem
 $btn-close-padding-x: .5rem
 $btn-close-color: $black
@@ -140,9 +149,11 @@ $btn-border-radius: $border-radius-xl
 
 $btn-transition: color 300ms ease-in-out, background-color 300ms ease-in-out, border-color 300ms ease-in-out, box-shadow 300ms ease-in-out
 
+
 $focus-ring-width: .125rem
 $focus-ring-opacity: .15
 $focus-ring-color: rgba($blue-light, $focus-ring-opacity)
+
 
 $form-check-input-width: 1.25em
 $form-check-padding-start: 0
@@ -169,6 +180,7 @@ $form-floating-label-height: 1.25em
 $form-floating-label-transform: scale(.75) translateY(-.5rem) translateX(.34rem)
 $form-floating-label-opacity: .75
 
+
 $input-font-size: $font-size-md
 $input-font-weight: $font-weight-medium
 $input-color: $black
@@ -185,6 +197,7 @@ $input-focus-bg: $gray-400
 $input-focus-box-shadow: none
 
 $input-transition: border-color 300ms ease-in-out, box-shadow 300ms ease-in-out, transform 300ms ease-in-out
+
 
 $form-select-decor-size: 24px 24px
 $form-select-decor-size-y: 24px
@@ -210,6 +223,7 @@ $form-feedback-font-size: .75rem
 $form-feedback-icon-valid: none
 $form-feedback-icon-invalid: none
 
+
 $offcanvas-padding-y: 0
 $offcanvas-padding-x: 0
 $offcanvas-horizontal-width: 290px
@@ -219,9 +233,11 @@ $offcanvas-bg-color: $white
 $offcanvas-backdrop-bg: $body-bg
 $offcanvas-backdrop-opacity: .9
 
+
 $breadcrumb-divider-color: #37474F
 $breadcrumb-active-color: rgba($gray-800, .4)
 $breadcrumb-divider: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='2 0 24 24' fill='#{$breadcrumb-divider-color}' opacity='0.5'><path d='M9.18207 21.0512L7.76807 19.6372L15.4041 12.0002L7.76807 4.36322L9.18207 2.94922L18.2321 12.0002L9.18207 21.0512Z'/></svg>")
+
 
 $badge-font-size: 1.25rem
 $badge-font-weight: $font-weight-medium
@@ -229,13 +245,24 @@ $badge-padding-y: .5rem
 $badge-padding-x: .775rem
 $badge-border-radius: 1rem
 
+
 $enable-negative-margins: true
+
 
 $alert-padding-y: $spacer * 1.5
 $alert-padding-x: $spacer * 2
 $alert-border-width: 0
 $alert-border-radius: var(--#{$prefix}border-radius-xl)
 $alert-dismissible-padding-r: $alert-padding-x
+
+$table-cell-padding-y: .3rem
+
+$table-cell-vertical-align: middle
+	
+$table-bg: var(--#{$prefix}white)
+$table-hover-bg: var(--#{$prefix}gray-100)
+
+$table-border-color: var(--#{$prefix}body-bg)
 
 // IMPORT SECTION
 
