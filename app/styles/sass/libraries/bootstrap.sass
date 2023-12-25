@@ -97,6 +97,12 @@ $spacers: ( 0: 0, 1: $spacer * .25, 2: $spacer * .5, 3: $spacer, 4: $spacer * 1.
 
 $container-max-widths: ( sm: 540px, md: 720px, lg: 960px, xl: 1140px, xxl: 1360px )
 
+$container-max-widths-xxl: map-get($container-max-widths, xxl)
+$container-max-widths-xl: map-get($container-max-widths, xl)
+$container-max-widths-lg: map-get($container-max-widths, lg)
+$container-max-widths-md: map-get($container-max-widths, md)
+$container-max-widths-sm: map-get($container-max-widths, sm)
+
 $grid-gutter-width: 2rem
 $gutter: $grid-gutter-width
 
@@ -273,6 +279,16 @@ $table-border-color: var(--#{$prefix}body-bg)
 
 :root,
 [data-bs-theme="light"]
+
+	--#{$prefix}container-xxl: #{$container-max-widths-xxl}
+	--#{$prefix}container-xl: #{$container-max-widths-xl}
+	--#{$prefix}container-lg: #{$container-max-widths-lg}
+	--#{$prefix}container-md: #{$container-max-widths-md}
+	--#{$prefix}container-sm: #{$container-max-widths-sm}
+
+	--#{$prefix}zindex-dropdown: #{$zindex-dropdown}
+	--#{$prefix}zindex-sticky: #{$zindex-sticky}
+	--#{$prefix}zindex-fixed: #{$zindex-fixed}
 
 	--#{$prefix}font-size: #{$font-size-base}
 	--#{$prefix}font-size-sm: #{$font-size-sm}

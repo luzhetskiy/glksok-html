@@ -7,46 +7,52 @@
 
 		<div class="page-header">
 			<div class="container position-relative">
-				<h1 class="h2">
-					Пополнить баланс
-				</h1>
-
-				<nav aria-label="breadcrumb">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item">
-							<a href="./home.html">
-								<span class="icon icon-solid">
-									<svg>
-										<use xlink:href="../images/icons/home-outline.svg#svg-home-outline"></use>
-									</svg>
-								</span>
-							</a>
-						</li>
-						<li class="breadcrumb-item">
-							<a href="#">
-								Баланс
-							</a>
-						</li>
-						<li class="breadcrumb-item active" aria-current="page">
-							Пололнить баланс
-						</li>
-					</ol>
-				</nav>
-
-				<div class="alert alert-success alert-dismissible fade show" role="alert">
-					<div class="icon icon-solid">
-						<svg>
-							<use xlink:href="../images/icons/success.svg#svg-success"></use>
-						</svg>
+				<div class="row">
+					<div class="col-12">
+						<h1 class="h2">
+							Пополнить баланс
+						</h1>
+		
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item">
+									<a href="./home.html">
+										<span class="icon icon-solid">
+											<svg>
+												<use xlink:href="../images/icons/home-outline.svg#svg-home-outline"></use>
+											</svg>
+										</span>
+									</a>
+								</li>
+								<li class="breadcrumb-item">
+									<a href="#">
+										Профиль
+									</a>
+								</li>
+								<li class="breadcrumb-item active" aria-current="page">
+									Пополнить баланс
+								</li>
+							</ol>
+						</nav>
 					</div>
-					<div>Баланс успешно пополнен на 1000</div>
-					<button type="button" class="btn-close btn-icon" data-bs-dismiss="alert" aria-label="Закрыть">
-						<div class="icon icon-solid">
-							<svg>
-								<use xlink:href="../images/icons/cross.svg#svg-cross"></use>
-							</svg>
+
+					<div class="col-xxl-4 col-xl-5 col-lg-6 position-absolute end-0">
+						<div class="alert alert-success alert-dismissible fade show" role="alert">
+							<div class="icon icon-solid">
+								<svg>
+									<use xlink:href="../images/icons/success.svg#svg-success"></use>
+								</svg>
+							</div>
+							<div>Баланс успешно пополнен на 1000</div>
+							<button type="button" class="btn-close btn-icon" data-bs-dismiss="alert" aria-label="Закрыть">
+								<div class="icon icon-solid">
+									<svg>
+										<use xlink:href="../images/icons/cross.svg#svg-cross"></use>
+									</svg>
+								</div>
+							</button>
 						</div>
-					</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -88,12 +94,19 @@
 								</div>
 
 								<div class="card-form-inputs">
-									<div class="form-floating form-floating-sm me-lg-5 mb-lg-0 mb-sm-5 mb-4">
-										<input type="text" class="form-control form-control-numbers" id="floatingInput1" maxlength="60"
+									<div class="form-floating form-floating-xs form-control-reset me-lg-5 mb-lg-0 mb-sm-5 mb-4">
+										<input type="text" class="form-control form-control-numbers" id="floatingInputCash" maxlength="60" inputmode="numeric"
 											placeholder="сумма, ₽" required>
-										<label for="floatingInput1">сумма, ₽</label>
+										<label for="floatingInputCash">сумма, ₽</label>
+										<button type="button" class="btn btn-reset">
+											<span class="icon icon-solid">
+												<svg>
+													<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+												</svg>
+											</span>
+										</button>
 									</div>
-									<div class="form-floating form-floating-md">
+									<div class="form-floating">
 										<select class="form-select js-form-select" id="floatingSelectBank"
 											aria-label="Выберете карту для оплаты">
 											<option value="">Новая карта</option>
@@ -116,7 +129,7 @@
 								</div>
 
 								<div class="card-button mb-sm-5 mb-3">
-									<button class="btn btn-secondary" type="button">
+									<button class="btn btn-secondary" type="submit">
 										Пополнить
 									</button>
 								</div>

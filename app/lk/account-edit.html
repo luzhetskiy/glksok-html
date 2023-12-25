@@ -1,0 +1,205 @@
+<!--#set var="title" value="glksok" -->
+<!--#include virtual="/parts/head-lk.html" -->
+<div class="page">
+	<!--#include virtual="/parts/header-lk.html" -->
+
+	<main>
+
+		<div class="page-header">
+			<div class="container position-relative">
+				<div class="row">
+					<div class="col-12">
+						<h1 class="h2">
+							Редактирование личных данных
+						</h1>
+		
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item">
+									<a href="./home.html">
+										<span class="icon icon-solid">
+											<svg>
+												<use xlink:href="../images/icons/home-outline.svg#svg-home-outline"></use>
+											</svg>
+										</span>
+									</a>
+								</li>
+								<li class="breadcrumb-item">
+									<a href="#">
+										Баланс
+									</a>
+								</li>
+								<li class="breadcrumb-item active" aria-current="page">
+									Редактирование личных данных
+								</li>
+							</ol>
+						</nav>
+					</div>
+
+					<div class="col-xxl-4 col-xl-5 col-lg-6 position-absolute end-0">
+						<div class="alert alert-success alert-dismissible fade show" role="alert">
+							<div class="icon icon-solid">
+								<svg>
+									<use xlink:href="../images/icons/success.svg#svg-success"></use>
+								</svg>
+							</div>
+							<div>Вы успешно изменили пароль</div>
+							<button type="button" class="btn-close btn-icon" data-bs-dismiss="alert" aria-label="Закрыть">
+								<div class="icon icon-solid">
+									<svg>
+										<use xlink:href="../images/icons/cross.svg#svg-cross"></use>
+									</svg>
+								</div>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<section>
+			<div class="container">
+				<div class="row gy-sm-4 gy-3">
+					<div class="col-xxl-8 col-xl-7 col-lg-6">
+						<div class="card card-bigger card-form">
+							<h2 class="card-header">
+								данные аккаунта
+							</h2>
+							<form action="#" class="card-body">
+
+								<div class="card-form-inputs flex-column">
+									<div class="form-floating form-control-reset mb-4">
+										<input type="text" class="form-control" id="floatingInputName" maxlength="60" placeholder="ФИО" required>
+										<label for="floatingInputName">ФИО</label>
+										<button type="button" class="btn btn-reset">
+											<span class="icon icon-solid">
+												<svg>
+													<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+												</svg>
+											</span>
+										</button>
+									</div>
+
+									<div class="form-floating form-control-reset mb-4">
+										<input type="email" class="form-control" id="floatingInputEmail" maxlength="60" inputmode="email" placeholder="e-mail" required>
+										<label for="floatingInputEmail">e-mail</label>
+										<button type="button" class="btn btn-reset">
+											<span class="icon icon-solid">
+												<svg>
+													<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+												</svg>
+											</span>
+										</button>
+									</div>
+
+									<div class="d-flex flex-lg-row flex-column w-100">
+										<div class="form-floating form-control-reset me-lg-5 mb-lg-0 mb-sm-5 mb-4">
+											<input type="tel" class="form-control form-control-tel" id="floatingInputTel" inputmode="tel" maxlength="14"
+												placeholder="Телефон" required>
+											<label for="floatingInputTel">Телефон</label>
+											<button type="button" class="btn btn-reset">
+												<span class="icon icon-solid">
+													<svg>
+														<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+													</svg>
+												</span>
+											</button>
+										</div>
+	
+										<div class="form-floating form-floating-sm form-control-reset">
+											<input type="text" class="form-control" id="floatingInputDate" inputmode="numeric"
+												placeholder="Дата рождения" required>
+											<label for="floatingInputDate">Дата рождения</label>
+											<button type="button" class="btn btn-reset">
+												<span class="icon icon-solid">
+													<svg>
+														<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+													</svg>
+												</span>
+											</button>
+										</div>
+									</div>
+								</div>
+
+								<div class="card-button mt-5">
+									<button class="btn btn-secondary" type="submit">
+										Сохранить
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+
+					<div class="col-xxl-4 col-xl-5 col-lg-6">
+						<div class="card card-bigger card-form">
+							<h2 class="card-header">
+								смена пароля
+							</h2>
+							<form action="#" class="card-body">
+
+								<div class="card-form-inputs flex-column">
+									<div class="form-floating form-control-reset mb-4">
+										<input type="password" class="form-control" id="floatingInputPassword" maxlength="60" placeholder="Старый пароль" required>
+										<label for="floatingInputPassword">Старый пароль</label>
+										<button type="button" class="btn btn-reset">
+											<span class="icon icon-solid">
+												<svg>
+													<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+												</svg>
+											</span>
+										</button>
+									</div>
+
+									<div class="form-floating form-control-reset mb-4">
+										<input type="password" class="form-control" id="floatingInputPasswordNew" maxlength="60" placeholder="Новый пароль" required>
+										<label for="floatingInputPasswordNew">Новый пароль</label>
+										<button type="button" class="btn btn-reset">
+											<span class="icon icon-solid">
+												<svg>
+													<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+												</svg>
+											</span>
+										</button>
+									</div>
+
+									<div class="form-floating form-control-reset">
+										<input type="password" class="form-control" id="floatingInputPasswordNewRepeat" maxlength="60" placeholder="Повторите новый пароль" required>
+										<label for="floatingInputPasswordNewRepeat">Повторите новый пароль</label>
+										<button type="button" class="btn btn-reset">
+											<span class="icon icon-solid">
+												<svg>
+													<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+												</svg>
+											</span>
+										</button>
+									</div>
+								</div>
+
+								<div class="card-button mt-5">
+									<button class="btn btn-secondary" type="submit">
+										Сохранить
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+
+					<div class="col-12 mt-sm-4 mt-5">
+						<button type="button" class="btn btn-outline-primary btn-remove">
+							<span class="icon icon-solid">
+								<svg>
+									<use xlink:href="../images/icons/trash.svg#svg-trash"></use>
+								</svg>
+							</span>
+							Удалить аккаунт
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<!--#include virtual="/parts/footer.html" -->
+</div>
+<!--#include virtual="/parts/scripts-lk.html" -->

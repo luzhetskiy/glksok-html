@@ -32,6 +32,13 @@
 		grid-template-columns: repeat(2, auto)
 		grid-auto-flow: initial
 
+	.card-form
+
+		.card-body
+
+			& > *
+				max-width: 100%
+
 	.card-skipass--full
 
 		.card-header
@@ -46,11 +53,13 @@
 		&-header
 
 			.alert
-				margin-top: 1.5rem
-
-				position: relative
-				top: initial
-				right: initial
+				width: 100%
+				max-width: calc(  var(--bs-container-md) - var(--bs-gutter-x) )
+				position: fixed
+				top: 1rem
+				left: 50%
+				transform: translateX(-50%)
+				z-index: var(--bs-zindex-fixed)
 	
 	.offcanvas
 		border-radius: var(--bs-border-radius-xl) 0 0 var(--bs-border-radius-xl)
@@ -148,6 +157,13 @@
 
 @media (max-width: 767.98px)
 
+	.page
+
+		&-header
+
+			.alert
+				max-width: calc(  var(--bs-container-sm) - var(--bs-gutter-x) )
+
 	.filters
 		width: 100%
 		grid-template-columns: 1fr
@@ -167,13 +183,17 @@
 	.page
 
 		&-header
-			padding-bottom: 1rem
 
 			h1
 				margin-bottom: 0
 
 			.alert
-				margin-top: 1rem
+				--bs-gutter-x: 1rem
+				width: initial
+				max-width: initial
+				left: calc( var(--bs-gutter-x) / 2 )
+				right: calc( var(--bs-gutter-x) / 2 )
+				transform: initial
 
 	.btn
 
@@ -278,6 +298,11 @@
 	.card-skipass--full
 		--bs-card-spacer-y: .75rem
 
+		.card-header
+
+			&.mb-2
+				margin-bottom: .25rem !important
+
 		.card-title
 			font-size: calc( var(--bs-font-size-lg) - .125rem )
 			line-height: 1.75rem
@@ -286,6 +311,9 @@
 
 				.icon
 					--i-size: 1rem
+
+		.card-body-wrapper
+			--bs-gutter-y: .25rem
 
 		.card-body
 			padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x) calc( var(--bs-card-spacer-y) * 2 ) var(--bs-card-spacer-x)
@@ -298,7 +326,7 @@
 				line-height: 1.375rem
 				color: var(--bs-gray-800)
 
-	.btn-skipass--remove
+	.btn-remove
 		width: 100%
 
 	.wrapper-talbe

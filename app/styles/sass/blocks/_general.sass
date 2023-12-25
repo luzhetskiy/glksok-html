@@ -16,9 +16,7 @@
 			margin-bottom: 2rem
 
 		.alert
-			position: absolute
 			top: -1rem
-			right: calc(var(--bs-gutter-x) * .5)
 
 
 h1, .h1
@@ -110,6 +108,26 @@ a
 	.icon-xxl
 		--i-size: 2.25rem
 
+.btn-reset
+	--bs-btn-padding-y: 0
+	--bs-btn-padding-x: 0
+	--bs-btn-bg: var(--bs-white)
+	--bs-btn-hover-bg: var(--bs-white)
+	--bs-btn-active-bg: var(--bs-white)
+	--bs-btn-border-width: 0
+	--bs-btn-border-radius: 50%
+	transition: opacity 150ms ease-in-out, visibility 150ms ease-in-out
+
+	.icon
+		--i-color: var(--bs-gray-700)
+		opacity: .8
+		transition: opacity 300ms ease-in-out
+
+	&:is(:hover, :focus-visible, :active)
+
+		.icon
+			opacity: 1
+
 .was-validated,
 
 	.form-control
@@ -125,6 +143,25 @@ a
 
 			&:focus
 				box-shadow: none
+
+		&-reset
+
+			.btn-reset
+				opacity: 0
+				visibility: hidden
+				position: absolute
+				top: 50%
+				right: 1rem
+				transform: translateY(-50%)
+
+			.form-control
+				padding-right: 3rem
+
+			&.is-show
+
+				.btn-reset
+					visibility: visible
+					opacity: 1
 
 	&-select
 

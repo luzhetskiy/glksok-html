@@ -109,7 +109,7 @@
 				<div class="row">
 					<div class="col-12">
 						<h1 class="h2">
-							Пополнить баланс
+							Редактирование личных данных
 						</h1>
 		
 						<nav aria-label="breadcrumb">
@@ -125,11 +125,11 @@
 								</li>
 								<li class="breadcrumb-item">
 									<a href="#">
-										Профиль
+										Баланс
 									</a>
 								</li>
 								<li class="breadcrumb-item active" aria-current="page">
-									Пополнить баланс
+									Редактирование личных данных
 								</li>
 							</ol>
 						</nav>
@@ -142,7 +142,7 @@
 									<use xlink:href="../images/icons/success.svg#svg-success"></use>
 								</svg>
 							</div>
-							<div>Баланс успешно пополнен на 1000</div>
+							<div>Вы успешно изменили пароль</div>
 							<button type="button" class="btn-close btn-icon" data-bs-dismiss="alert" aria-label="Закрыть">
 								<div class="icon icon-solid">
 									<svg>
@@ -158,45 +158,18 @@
 
 		<section>
 			<div class="container">
-				<div class="row">
-					<div class="col-xxl-4 col-lg-5">
-						<div class="card card-image-bg" style="background-image: url(../images/dist/bg-1.png);">
-							<h2 class="card-header">
-								текущий баланс аккаунта
-							</h2>
-							<div class="card-body">
-								<div class="card-title">
-									<h2 class="card-balance">
-										2150
-									</h2>
-								</div>
-								<div class="card-buttons">
-									<a href="./transaction.html" class="btn btn-link">
-										История транзакций
-									</a>
-									<a href="./cards.html" class="btn btn-link">
-										Привязанные карты
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-xxl-8 col-lg-7 mt-lg-0 mt-sm-4 mt-2">
+				<div class="row gy-sm-4 gy-3">
+					<div class="col-xxl-8 col-xl-7 col-lg-6">
 						<div class="card card-bigger card-form">
 							<h2 class="card-header">
-								пополнение общего баланса
+								данные аккаунта
 							</h2>
 							<form action="#" class="card-body">
-								<div class="card-title">
-									<h3 class="h1">Сумма пополнения</h3>
-								</div>
 
-								<div class="card-form-inputs">
-									<div class="form-floating form-floating-xs form-control-reset me-lg-5 mb-lg-0 mb-sm-5 mb-4">
-										<input type="text" class="form-control form-control-numbers" id="floatingInputCash" maxlength="60" inputmode="numeric"
-											placeholder="сумма, ₽" required>
-										<label for="floatingInputCash">сумма, ₽</label>
+								<div class="card-form-inputs flex-column">
+									<div class="form-floating form-control-reset mb-4">
+										<input type="text" class="form-control" id="floatingInputName" maxlength="60" placeholder="ФИО" required>
+										<label for="floatingInputName">ФИО</label>
 										<button type="button" class="btn btn-reset">
 											<span class="icon icon-solid">
 												<svg>
@@ -205,41 +178,120 @@
 											</span>
 										</button>
 									</div>
-									<div class="form-floating">
-										<select class="form-select js-form-select" id="floatingSelectBank"
-											aria-label="Выберете карту для оплаты">
-											<option value="">Новая карта</option>
-											<option value="1">МИР ..4584</option>
-											<option value="2">VISA ..4635</option>
-											<option value="3">VISA ..4657</option>
-											<option value="4">МИР ..4584</option>
-											<option value="5">VISA ..4635</option>
-											<option value="6">VISA ..4657</option>
-										</select>
-										<label for="floatingSelectBank">Выберете карту для оплаты</label>
+
+									<div class="form-floating form-control-reset mb-4">
+										<input type="email" class="form-control" id="floatingInputEmail" maxlength="60" inputmode="email" placeholder="e-mail" required>
+										<label for="floatingInputEmail">e-mail</label>
+										<button type="button" class="btn btn-reset">
+											<span class="icon icon-solid">
+												<svg>
+													<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+												</svg>
+											</span>
+										</button>
+									</div>
+
+									<div class="d-flex flex-lg-row flex-column w-100">
+										<div class="form-floating form-control-reset me-lg-5 mb-lg-0 mb-sm-5 mb-4">
+											<input type="tel" class="form-control form-control-tel" id="floatingInputTel" inputmode="tel" maxlength="14"
+												placeholder="Телефон" required>
+											<label for="floatingInputTel">Телефон</label>
+											<button type="button" class="btn btn-reset">
+												<span class="icon icon-solid">
+													<svg>
+														<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+													</svg>
+												</span>
+											</button>
+										</div>
+	
+										<div class="form-floating form-floating-sm form-control-reset">
+											<input type="text" class="form-control" id="floatingInputDate" inputmode="numeric"
+												placeholder="Дата рождения" required>
+											<label for="floatingInputDate">Дата рождения</label>
+											<button type="button" class="btn btn-reset">
+												<span class="icon icon-solid">
+													<svg>
+														<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+													</svg>
+												</span>
+											</button>
+										</div>
 									</div>
 								</div>
 
-								<div class="form-check mb-sm-5 mb-4">
-									<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-									<label class="form-check-label" for="flexCheckDefault">
-										Запомнить карту
-									</label>
-								</div>
-
-								<div class="card-button mb-sm-5 mb-3">
+								<div class="card-button mt-5">
 									<button class="btn btn-secondary" type="submit">
-										Пополнить
+										Сохранить
 									</button>
 								</div>
-
-								<p class="card-text d-sm-block d-none">
-									Здесь вы можете пополнить общий баланс профиля с банковской карты. Чтобы не вводить каждый раз
-									реквизиты карт, их можно запомнить. С общего баланса профиля вы сможете пополнять свои скипассы и
-									покупать услуги.
-								</p>
 							</form>
 						</div>
+					</div>
+
+					<div class="col-xxl-4 col-xl-5 col-lg-6">
+						<div class="card card-bigger card-form">
+							<h2 class="card-header">
+								смена пароля
+							</h2>
+							<form action="#" class="card-body">
+
+								<div class="card-form-inputs flex-column">
+									<div class="form-floating form-control-reset mb-4">
+										<input type="password" class="form-control" id="floatingInputPassword" maxlength="60" placeholder="Старый пароль" required>
+										<label for="floatingInputPassword">Старый пароль</label>
+										<button type="button" class="btn btn-reset">
+											<span class="icon icon-solid">
+												<svg>
+													<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+												</svg>
+											</span>
+										</button>
+									</div>
+
+									<div class="form-floating form-control-reset mb-4">
+										<input type="password" class="form-control" id="floatingInputPasswordNew" maxlength="60" placeholder="Новый пароль" required>
+										<label for="floatingInputPasswordNew">Новый пароль</label>
+										<button type="button" class="btn btn-reset">
+											<span class="icon icon-solid">
+												<svg>
+													<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+												</svg>
+											</span>
+										</button>
+									</div>
+
+									<div class="form-floating form-control-reset">
+										<input type="password" class="form-control" id="floatingInputPasswordNewRepeat" maxlength="60" placeholder="Повторите новый пароль" required>
+										<label for="floatingInputPasswordNewRepeat">Повторите новый пароль</label>
+										<button type="button" class="btn btn-reset">
+											<span class="icon icon-solid">
+												<svg>
+													<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+												</svg>
+											</span>
+										</button>
+									</div>
+								</div>
+
+								<div class="card-button mt-5">
+									<button class="btn btn-secondary" type="submit">
+										Сохранить
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+
+					<div class="col-12 mt-sm-4 mt-5">
+						<button type="button" class="btn btn-outline-primary btn-remove">
+							<span class="icon icon-solid">
+								<svg>
+									<use xlink:href="../images/icons/trash.svg#svg-trash"></use>
+								</svg>
+							</span>
+							Удалить аккаунт
+						</button>
 					</div>
 				</div>
 			</div>
