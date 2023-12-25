@@ -46,6 +46,7 @@ a
 	--bs-btn-active-border-color: var(--bs-primary-dark)
 
 .btn-outline-primary
+	--bs-btn-bg: var(--bs-white)
 	--bs-btn-border-color: var(--bs-border-color)
 	--bs-btn-hover-color: var(--bs-blue-light)
 	--bs-btn-hover-bg: var(--bs-primary-light)
@@ -53,6 +54,17 @@ a
 	--bs-btn-active-color: var(--bs-blue)
 	--bs-btn-active-bg: var(--bs-primary-dark)
 	--bs-btn-active-border-color: var(--bs-primary-dark)
+
+	display: flex
+	align-items: center
+	justify-content: center
+
+	.icon
+		--i-size: 2.25rem
+		--i-color: var(--bs-secondary)
+
+		margin: -.375rem .5rem -.375rem 0
+
 
 .btn-secondary
 	--bs-btn-color: var(--bs-white)
@@ -84,10 +96,11 @@ a
 	--bs-btn-focus-box-shadow: none
 
 .btn-icon
+	--bs-btn-padding-x: 1.5rem
+	--bs-btn-padding-y: .625rem
 	display: flex
 	align-items: center
 	justify-content: center
-	padding: .625rem 1.5rem
 
 	.icon
 		--i-size: 1rem
@@ -277,6 +290,7 @@ a
 	font-size: var(--bs-font-size-md)
 	line-height: normal
 	margin-bottom: 0
+	position: relative
 
 	& > :not(caption) 
 		
@@ -300,6 +314,10 @@ a
 		--bs-badge-border-radius: .5rem
 
 	& > thead 
+		position: sticky
+		top: 0
+		left: 0
+		z-index: 10
 
 		& > * 
 			

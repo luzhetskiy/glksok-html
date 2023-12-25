@@ -1,5 +1,19 @@
 @media (max-width: 1399.98px)
 
+	.card-skipass
+
+		.card-header
+
+			& > *
+				width: 70%
+
+	.card-skipass--full
+
+		.card-text
+
+			.btn
+				width: 100%
+
 @media (max-width: 1199.98px)
 
 	h1, .h1
@@ -17,6 +31,13 @@
 	.filters
 		grid-template-columns: repeat(2, auto)
 		grid-auto-flow: initial
+
+	.card-skipass--full
+
+		.card-header
+
+			& > *
+				width: 75%
 
 @media (max-width: 991.98px)
 
@@ -73,17 +94,6 @@
 			&>a
 				display: block
 
-	.card-form
-
-		&-inputs
-			flex-direction: column
-
-		.form-floating
-
-			&-sm,
-			&-md
-				max-width: initial
-
 	.table-responsive
 
 		.table
@@ -102,11 +112,52 @@
 				&:last-child
 					padding-right: .5rem
 
+	.card-form
+
+		&-inputs
+			flex-direction: column
+
+		.form-floating
+
+			&-sm,
+			&-md
+				max-width: initial
+
+	.card-skipass
+
+		.card-header
+
+			& > *
+				width: 75%
+
+	.card-skipass--full
+
+		.card-body-wrapper
+
+			& > *
+
+				&:first-child
+
+					.card-body
+						border-radius: calc( var(--bs-card-border-radius) / 5 )
+
+				&:last-child
+				
+					.card-body
+						border-radius: calc( var(--bs-card-border-radius) / 5 ) calc( var(--bs-card-border-radius) / 5 ) var(--bs-card-border-radius) var(--bs-card-border-radius)
+
 @media (max-width: 767.98px)
 
 	.filters
 		width: 100%
 		grid-template-columns: 1fr
+
+	.card-skipass
+
+		.card-header
+
+			& > *
+				width: 64%
 
 @media (max-width: 575.98px)
 
@@ -130,7 +181,8 @@
 			--bs-btn-padding-x: 1.375rem
 
 	.btn-icon
-		padding: .625rem 1.375rem
+		--bs-btn-padding-x: 1.375rem
+		--bs-btn-padding-y: .625rem
 
 	.breadcrumb
 		display: none
@@ -176,9 +228,78 @@
 				font-size: 2.25rem
 				line-height: 2.5rem
 
+	.card-mini
+		background-position: calc( 100% + 5.5rem ) 0%
+		background-size: 220px
+
+		&:not(&--bank)
+
+			.card-header,
+			.card-body
+				width: 100%
+				max-width: 320px
+
 	.card-mini--bank
 		--bs-card-spacer-y: 1rem
 		--bs-card-cap-padding-x: 1rem
+
+	.card-skipass
+		--bs-card-spacer-y: 1rem
+		--bs-card-spacer-x: 1.5rem
+
+		.card-header
+			background-position: calc(100% + 4.75rem) 0%
+			background-size: 210px
+
+			& > *
+				width: 100%
+				max-width: 280px
+
+		.card-body
+			padding: var(--bs-card-spacer-y) 1rem 1.25rem var(--bs-card-spacer-x)
+
+			.btn
+				margin-top: 1.5rem
+				margin-left: -.5rem
+
+		.card-text
+			flex-direction: column
+			align-items: stretch
+
+			&-left
+				font-size: var(--bs-font-size)
+				line-height: normal
+				margin-bottom: .5rem
+
+			& > * 
+				max-width: initial
+				text-align: left
+
+	.card-skipass--full
+		--bs-card-spacer-y: .75rem
+
+		.card-title
+			font-size: calc( var(--bs-font-size-lg) - .125rem )
+			line-height: 1.75rem
+
+			.btn-icon
+
+				.icon
+					--i-size: 1rem
+
+		.card-body
+			padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x) calc( var(--bs-card-spacer-y) * 2 ) var(--bs-card-spacer-x)
+
+		.card-text
+
+			&-left
+				font-size: var(--bs-font-size-md)
+				font-weight: var(--bs-font-weight-medium)
+				line-height: 1.375rem
+				color: var(--bs-gray-800)
+
+	.btn-skipass--remove
+		width: 100%
 
 	.wrapper-talbe
 		--table-gutter-x: 0
@@ -237,14 +358,3 @@
 		&-text
 			flex-direction: column
 			align-items: center
-
-@media (max-width: 399.98px)
-
-	.card-mini
-		background-position: 110%
-
-		&:not(&--bank)
-			
-			.card-header,
-			.card-body
-				width: 80%

@@ -107,7 +107,7 @@
 		<div class="page-header">
 			<div class="container position-relative">
 				<h1 class="h2">
-					Пополнить баланс
+					Мои скипассы
 				</h1>
 
 				<nav aria-label="breadcrumb">
@@ -127,106 +127,90 @@
 							</a>
 						</li>
 						<li class="breadcrumb-item active" aria-current="page">
-							Пололнить баланс
+							Мои скипассы
 						</li>
 					</ol>
 				</nav>
-
-				<div class="alert alert-success alert-dismissible fade show" role="alert">
-					<div class="icon icon-solid">
-						<svg>
-							<use xlink:href="../images/icons/success.svg#svg-success"></use>
-						</svg>
-					</div>
-					<div>Баланс успешно пополнен на 1000</div>
-					<button type="button" class="btn-close btn-icon" data-bs-dismiss="alert" aria-label="Закрыть">
-						<div class="icon icon-solid">
-							<svg>
-								<use xlink:href="../images/icons/cross.svg#svg-cross"></use>
-							</svg>
-						</div>
-					</button>
-				</div>
 			</div>
 		</div>
 
 		<section>
 			<div class="container">
-				<div class="row">
-					<div class="col-xxl-4 col-lg-5">
-						<div class="card card-image-bg" style="background-image: url(../images/dist/bg-1.png);">
-							<h2 class="card-header">
-								текущий баланс аккаунта
-							</h2>
-							<div class="card-body">
-								<div class="card-title">
-									<h2 class="card-balance">
-										2150
-									</h2>
+				<div class="row gy-sm-4 gy-2">
+					<div class="col-12">
+						<div class="card card-skipass card-skipass--full">
+							<div class="card-header mb-2" style="background-image: url(../images/dist/card-img-2.png);">
+								<h2 class="card-title">
+									Основной очень длинный
+
+									<button type="button" class="btn btn-icon btn-light">
+										<span class="icon icon-solid">
+											<svg>
+												<use xlink:href="../images/icons/pencil-edit.svg#svg-pencil-edit"></use>
+											</svg>
+										</span>
+									</button>
+								</h2>
+
+								<div class="card-subtitle">
+									<div class="card-status is-success">
+										Активен
+										<span class="icon icon-solid">
+											<svg>
+												<use xlink:href="../images/icons/status.svg#svg-status"></use>
+											</svg>
+										</span>
+									</div>
+									<div class="card-id">020805CA5110FE</div>
 								</div>
-								<div class="card-buttons">
-									<a href="./transaction.html" class="btn btn-link">
-										История транзакций
-									</a>
-									<a href="./cards.html" class="btn btn-link">
-										Привязанные карты
-									</a>
+							</div>
+
+							
+							<div class="card-body-wrapper row g-2">
+								<div class="col-lg-6">
+									<div class="card-body">
+										<div class="card-text">
+											<span class="card-text-left">
+												Активный тариф для прохода по времени:
+											</span>
+											<div class="card-text-right">
+												<span>Нет</span>
+
+												<button type="button" class="btn btn-secondary ms-xxl-5 mt-xxl-0 mt-4">Купить</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="col-lg-6">
+									<div class="card-body">
+										<div class="card-text">
+											<span class="card-text-left">
+												Баланс для прохода через турникеты:
+											</span>
+											<div class="card-text-right">
+												<span>1500 ₽</span>
+
+												<button type="button" class="btn btn-secondary ms-xxl-5 mt-xxl-0 mt-4">Пополнить</button>
+
+												<button type="button" class="btn btn-outline-primary ms-xxl-3 mt-xxl-0 mt-4">Вернуть на общий</button>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 
-					<div class="col-xxl-8 col-lg-7 mt-lg-0 mt-sm-4 mt-2">
-						<div class="card card-bigger card-form">
-							<h2 class="card-header">
-								пополнение общего баланса
-							</h2>
-							<form action="#" class="card-body">
-								<div class="card-title">
-									<h3 class="h1">Сумма пополнения</h3>
-								</div>
-
-								<div class="card-form-inputs">
-									<div class="form-floating form-floating-sm me-lg-5 mb-lg-0 mb-sm-5 mb-4">
-										<input type="text" class="form-control form-control-numbers" id="floatingInput1" maxlength="60"
-											placeholder="сумма, ₽" required>
-										<label for="floatingInput1">сумма, ₽</label>
-									</div>
-									<div class="form-floating form-floating-md">
-										<select class="form-select js-form-select" id="floatingSelectBank"
-											aria-label="Выберете карту для оплаты">
-											<option value="">Новая карта</option>
-											<option value="1">МИР ..4584</option>
-											<option value="2">VISA ..4635</option>
-											<option value="3">VISA ..4657</option>
-											<option value="4">МИР ..4584</option>
-											<option value="5">VISA ..4635</option>
-											<option value="6">VISA ..4657</option>
-										</select>
-										<label for="floatingSelectBank">Выберете карту для оплаты</label>
-									</div>
-								</div>
-
-								<div class="form-check mb-sm-5 mb-4">
-									<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-									<label class="form-check-label" for="flexCheckDefault">
-										Запомнить карту
-									</label>
-								</div>
-
-								<div class="card-button mb-sm-5 mb-3">
-									<button class="btn btn-secondary" type="button">
-										Пополнить
-									</button>
-								</div>
-
-								<p class="card-text d-sm-block d-none">
-									Здесь вы можете пополнить общий баланс профиля с банковской карты. Чтобы не вводить каждый раз
-									реквизиты карт, их можно запомнить. С общего баланса профиля вы сможете пополнять свои скипассы и
-									покупать услуги.
-								</p>
-							</form>
-						</div>
+					<div class="col-12 mt-sm-4 mt-5">
+						<button type="button" class="btn btn-outline-primary btn-skipass--remove">
+							<span class="icon icon-solid">
+								<svg>
+									<use xlink:href="../images/icons/trash.svg#svg-trash"></use>
+								</svg>
+							</span>
+							Удалить скипасс
+						</button>
 					</div>
 				</div>
 			</div>
