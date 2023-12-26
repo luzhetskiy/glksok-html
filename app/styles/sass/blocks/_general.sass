@@ -35,6 +35,16 @@ a
 	text-decoration: none
 	transition: color .3s ease-in-out, background .3s ease-in-out
 
+.is-hidden
+	opacity: 0
+	visibility: hidden
+	transition: opacity 300ms ease-in, visibility 300ms ease-in
+
+.is-show
+	opacity: 1
+	visibility: visible
+	transition: opacity 300ms ease-in, visibility 300ms ease-in
+
 .btn-primary
 	--bs-btn-hover-color: var(--bs-blue-light)
 	--bs-btn-hover-bg: var(--bs-primary-light)
@@ -370,3 +380,33 @@ a
 
 	&.text-bg-danger
 		background-color: var(--bs-danger-light) !important
+
+.nav-tabs
+	--bs-nav-link-padding-y: 1rem
+	--bs-nav-link-padding-x: 1.5rem
+	--bs-nav-link-color: var(--bs-blue)
+
+
+	border-bottom: 0
+
+	.nav-item
+
+		&:not(:last-child)
+			margin-right: calc( var(--bs-nav-tabs-border-width) * -1 )
+
+		&:first-child
+			
+			.nav-link
+				border-radius: var(--bs-nav-tabs-border-radius) 0 0 var(--bs-nav-tabs-border-radius)
+
+		&:last-child
+			
+			.nav-link
+				border-radius: 0 var(--bs-nav-tabs-border-radius) var(--bs-nav-tabs-border-radius) 0
+
+	.nav-link
+		border-radius: 0
+		border-color: var(--bs-nav-tabs-border-color)
+
+		&:is(:hover, :focus-visible)
+			background-color: #A5D1FE

@@ -1,5 +1,11 @@
 @media (max-width: 1399.98px)
 
+	.card-form
+
+		.card-img
+			right: -520px
+			bottom: -220px
+
 	.card-skipass
 
 		.card-header
@@ -34,10 +40,14 @@
 
 	.card-form
 
+		.tab-pane .card-body,
 		.card-body
 
-			& > *
+			& > *:not(.card-img)
 				max-width: 100%
+		
+		.card-img
+			right: -560px
 
 	.card-skipass--full
 
@@ -154,6 +164,16 @@
 				
 					.card-body
 						border-radius: calc( var(--bs-card-border-radius) / 5 ) calc( var(--bs-card-border-radius) / 5 ) var(--bs-card-border-radius) var(--bs-card-border-radius)
+
+	.card-list
+		min-height: initial
+
+		.card-header
+			min-height: initial
+
+			& > p
+				max-width: initial
+
 
 @media (max-width: 767.98px)
 

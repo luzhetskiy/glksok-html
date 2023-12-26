@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<!-- <base href="/"> -->
+
+	<title>glksok</title>
+	<meta name="description" content="Website">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="icon" href="../images/favicon.png">
+	
+	<link rel="stylesheet" href="../css/libraries.min.css">
+	<link rel="stylesheet" href="../css/app.min.css">
+
+</head>
+
+<body>
+<div class="page">
+	<header>
+	<nav class="navbar signin navbar-expand-lg navbar-light bg-transparent">
+		<div class="container">
+			<a class="navbar-brand" href="../index.html">
+				<img src="../images/dist/logo.svg" width="56" alt="Logo">
+				<span class="navbar-brand-text">Личный кабинет</span>
+			</a>
+		</div>
+	</nav>
+</header>
+
+	<main>
+
+		<section>
+			<div class="container mt-6 pt-5">
+				<div class="row gy-sm-4 gy-3">
+					<div class="col-xxl-8 col-xl-7 col-lg-6">
+						<div class="card card-bigger card-form">
+							<div class="card-header">
+								<ul class="nav nav-tabs" id="tabOverflow" role="tablist">
+									<li class="nav-item" role="presentation">
+										<button class="nav-link active" id="signin-tab" data-bs-toggle="tab"
+											data-bs-target="#signin-tab-pane" type="button" role="tab" aria-controls="signin-tab-pane"
+											aria-selected="true">
+											Вход
+										</button>
+									</li>
+
+									<li class="nav-item" role="presentation">
+										<button class="nav-link" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup-tab-pane"
+											type="button" role="tab" aria-controls="signup-tab-pane" aria-selected="false">
+											Регистрация
+										</button>
+									</li>
+								</ul>
+							</div>
+
+							<div class="tab-content" id="tabOverflowContent">
+								<div class="tab-pane fade show active" id="signin-tab-pane" role="tabpanel" aria-labelledby="signin-tab"
+									tabindex="-1">
+									<form action="#" class="card-body">
+										<img src="../images/dist/card-img-3.png" class="card-img d-lg-block d-none" width="760" loading="lazy" alt="Картинка">
+
+										<div class="card-title">
+											<h3 class="h1">Вход</h3>
+										</div>
+
+										<div class="card-form-inputs flex-column">
+											<div class="form-floating form-control-reset mb-4">
+												<input type="email" class="form-control" id="floatingInputEmail" maxlength="60"
+													inputmode="email" placeholder="e-mail" required>
+												<label for="floatingInputEmail">e-mail</label>
+												<button type="button" class="btn btn-reset">
+													<span class="icon icon-solid">
+														<svg>
+															<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+														</svg>
+													</span>
+												</button>
+											</div>
+
+											<div class="form-floating form-control-reset">
+												<input type="text" class="form-control form-control-numbers" id="floatingInputCode"
+													maxlength="6" inputmode="numeric" placeholder="ПИН-код из письма" required>
+												<label for="floatingInputCode">ПИН-код из письма</label>
+												<button type="button" class="btn btn-reset">
+													<span class="icon icon-solid">
+														<svg>
+															<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+														</svg>
+													</span>
+												</button>
+											</div>
+										</div>
+
+										<a href="./transaction.html" class="btn btn-link">История транзакций</a>
+
+										<div class="card-button mt-sm-5 mt-4">
+											<button class="btn btn-secondary" type="submit">
+												Сохранить
+											</button>
+										</div>
+									</form>
+								</div>
+
+								<div class="tab-pane fade" id="signup-tab-pane" role="tabpanel" aria-labelledby="signup-tab"
+									tabindex="-1">
+									<form action="#" class="card-body">
+										<div class="card-title">
+											<h3 class="h1">Регистрация</h3>
+										</div>
+
+										<div class="card-form-inputs flex-column">
+											<div class="form-floating form-control-reset mb-4">
+												<input type="email" class="form-control" id="floatingInputSignUpEmail" maxlength="60"
+													inputmode="email" placeholder="e-mail" required>
+												<label for="floatingInputEmail">e-mail</label>
+												<button type="button" class="btn btn-reset">
+													<span class="icon icon-solid">
+														<svg>
+															<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+														</svg>
+													</span>
+												</button>
+											</div>
+
+											<div class="form-floating form-control-reset mb-4">
+												<input type="password" class="form-control" id="floatingInputPassword" maxlength="60"
+													placeholder="Придумайте пароль" required>
+												<label for="floatingInputPassword">Придумайте пароль</label>
+												<button type="button" class="btn btn-reset">
+													<span class="icon icon-solid">
+														<svg>
+															<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+														</svg>
+													</span>
+												</button>
+											</div>
+
+											<div class="form-floating form-control-reset">
+												<input type="password" class="form-control" id="floatingInputPasswordRepeat" maxlength="60"
+													placeholder="Старый пароль" required>
+												<label for="floatingInputPasswordRepeat">Повторите пароль</label>
+												<button type="button" class="btn btn-reset">
+													<span class="icon icon-solid">
+														<svg>
+															<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+														</svg>
+													</span>
+												</button>
+											</div>
+										</div>
+
+										<div class="card-button mt-sm-5 mt-4">
+											<button class="btn btn-secondary" type="submit">
+												Сохранить
+											</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xxl-4 col-xl-5 col-lg-6">
+						<div id="signin-tab-card" class="card card-list d-none">
+							<div class="card-header">
+								<img src="../images/dist/card-img-3--mini.png" class="card-img d-lg-block d-none" width="290" alt="Картинка">
+
+								<p>
+									основные возможности
+									личного кабинета
+								</p>
+							</div>
+
+							<div class="card-body">
+								<h2 class="card-title">
+									После регистрации вам будут доступны
+								</h2>
+
+								<ol class="list-group list-group-flush list-group-numbered mb-5">
+									<li class="list-group-item">
+										Общий баланс
+									</li>
+									<li class="list-group-item">
+										Мои скипассы
+									</li>
+									<li class="list-group-item">
+										Покупка тарифов по "подъёмам"
+									</li>
+									<li class="list-group-item">
+										Покупка тарифов по "времени"
+									</li>
+								</ol>
+
+								<p class="card-text">
+									Очереди в кассу, прощайте!
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<footer class="footer">
+	<div class="container">
+		<div class="footer-text">
+			Горнолыйжный комплес <span>«СОК», Самара</span>
+		</div>
+	</div>
+</footer>
+</div>
+	
+	<script src="../js/app.min.js"></script>
+
+</body>
+</html>

@@ -223,10 +223,24 @@
 			&-sm
 				max-width: 200px
 
+	.tab-pane
+
+		.card-body
+
+			& > *:not(.card-img)
+				max-width: 500px
+
 	.card-body
 
-		& > *
+		& > *:not(.card-img)
 			max-width: 616px
+
+	.card-img
+		width: 760px
+		object-fit: contain
+		position: absolute
+		bottom: -180px
+		right: -450px
 
 .card-skipass
 	--bs-card-spacer-y: 1rem
@@ -386,7 +400,36 @@
 
 			min-width: 160px
 
-	
+.card-list
+	--bs-card-cap-padding-y: 2rem
+	--bs-card-color: var(--bs-black)
+	min-height: 470px
+	font-size: var(--bs-font-size-md)
+	position: relative
+
+	.card-header
+		min-height: 150px
+
+		& > p
+			max-width: 160px
+			margin-left: auto
+			margin-bottom: 0
+
+	.card-img
+		width: 290px
+		display: block
+		object-fit: contain
+		position: absolute
+		top: -270px
+		left: -32px
+
+	.card-title
+		color: var(--bs-heading-color)
+		margin-bottom: 1.5rem
+
+	.card-text
+		color: var(--bs-card-color)
+
 
 
 
