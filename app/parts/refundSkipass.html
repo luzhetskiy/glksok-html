@@ -13,7 +13,7 @@
 					</span>
 				</button>
       </div>
-			<form action="#" class="form">
+			<form action="#" class="form needs-validation" novalidate>
 				<div class="modal-body">
 					<div class="modal-current mb-sm-5 mb-4">
 						<span>
@@ -24,17 +24,23 @@
 						</span>
 					</div>
 
-					<div class="form-floating form-control-reset mb-sm-3 mb-2">
-						<input type="text" class="form-control form-control-numbers" id="modalFloatingInputRefundCash" maxlength="60" inputmode="numeric"
-							placeholder="Сумма списания" required>
-						<label for="modalFloatingInputRefundCash">Сумма списания</label>
-						<button type="button" class="btn btn-reset">
-							<span class="icon icon-solid">
-								<svg>
-									<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
-								</svg>
-							</span>
-						</button>
+					<div class="has-validation mb-sm-3 mb-2">
+						<div class="form-floating form-control-reset">
+							<input type="text" class="form-control form-control-numbers" id="modalFloatingInputRefundCash" maxlength="60" inputmode="numeric"
+								placeholder="Сумма списания" required>
+							<label for="modalFloatingInputRefundCash">Сумма списания</label>
+							<button type="button" class="btn btn-reset">
+								<span class="icon icon-solid">
+									<svg>
+										<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+									</svg>
+								</span>
+							</button>
+						</div>
+
+						<div class="invalid-feedback">
+							Вы все неправильно сделали. Нельзя использовать кириллические символы
+						</div>
 					</div>
 
 					<p class="modal-text">

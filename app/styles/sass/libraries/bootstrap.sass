@@ -233,10 +233,11 @@ $form-select-focus-box-shadow: 0
 $form-select-transition: $input-transition
 
 $form-feedback-margin-top: .125rem
-$form-feedback-font-size: .75rem
+$form-feedback-font-size: .825rem
 $form-feedback-icon-valid: none
 $form-feedback-icon-invalid: none
 
+$form-validation-states: ( "valid": ( "color": var(--#{$prefix}form-valid-color), "icon": $form-feedback-icon-valid, "tooltip-color": #fff, "tooltip-bg-color": var(--#{$prefix}success), "focus-box-shadow": none, "border-color": var(--#{$prefix}form-valid-border-color), ), "invalid": ( "color": var(--#{$prefix}form-invalid-color), "icon": $form-feedback-icon-invalid, "tooltip-color": #fff, "tooltip-bg-color": var(--#{$prefix}danger), "focus-box-shadow": none, "border-color": var(--#{$prefix}form-invalid-border-color), ) )
 
 $offcanvas-padding-y: 0
 $offcanvas-padding-x: 0
@@ -385,6 +386,10 @@ body
 			color: var(--#{$prefix}breadcrumb-divider-color)
 			content: var(--#{$prefix}breadcrumb-divider, escape-svg($breadcrumb-divider)) #{"/* rtl:"} var(--#{$prefix}breadcrumb-divider, escape-svg($breadcrumb-divider-flipped)) #{"*/"}
 
+.form-control.is-invalid,
+.was-validated .form-control:invalid
+	padding-right: $input-padding-x
+
 .form-floating
 
 	> label
@@ -424,6 +429,8 @@ body
 		box-shadow: $form-check-input-focus-box-shadow
 
 .invalid-feedback
+	font-weight: var(--#{$prefix}font-weight-medium)
+	line-height: normal
 	padding-left: $input-padding-x
 
 /** (End) Bootstrap **/
@@ -460,6 +467,13 @@ body
 
 			&__inner
 				background-color: $form-select-bg
+
+	&.is-invalid
+
+		.#{$choices-selector}
+
+			&__inner
+				background-color: $danger-rgba
 
 	&__inner
 		min-height: $form-floating-height

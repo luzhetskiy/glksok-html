@@ -88,36 +88,49 @@
 							<h2 class="card-header">
 								пополнение общего баланса
 							</h2>
-							<form action="#" class="card-body">
+							<form action="#" class="card-body needs-validation" novalidate>
 								<div class="card-title">
 									<h3 class="h1">Сумма пополнения</h3>
 								</div>
 
 								<div class="card-form-inputs">
-									<div class="form-floating form-floating-xs form-control-reset me-lg-5 mb-lg-0 mb-sm-5 mb-4">
-										<input type="text" class="form-control form-control-numbers" id="floatingInputCash" maxlength="60" inputmode="numeric"
-											placeholder="сумма, ₽" required>
-										<label for="floatingInputCash">сумма, ₽</label>
-										<button type="button" class="btn btn-reset">
-											<span class="icon icon-solid">
-												<svg>
-													<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
-												</svg>
-											</span>
-										</button>
+									<div class="has-validation has-validation-xs me-lg-5 mb-lg-0 mb-sm-5 mb-4">
+										<div class="form-floating form-control-reset">
+											<input type="text" class="form-control form-control-numbers" id="floatingInputCash" maxlength="60" inputmode="numeric"
+												placeholder="сумма, ₽" required>
+											<label for="floatingInputCash">сумма, ₽</label>
+											<button type="button" class="btn btn-reset">
+												<span class="icon icon-solid">
+													<svg>
+														<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+													</svg>
+												</span>
+											</button>
+										</div>
+
+										<div class="invalid-feedback">
+											Вы все неправильно сделали. Нельзя использовать кириллические символы
+										</div>
 									</div>
-									<div class="form-floating">
-										<select class="form-select js-form-select" id="floatingSelectBank"
-											aria-label="Выберете карту для оплаты">
-											<option value="">Новая карта</option>
-											<option value="1">МИР ..4584</option>
-											<option value="2">VISA ..4635</option>
-											<option value="3">VISA ..4657</option>
-											<option value="4">МИР ..4584</option>
-											<option value="5">VISA ..4635</option>
-											<option value="6">VISA ..4657</option>
-										</select>
-										<label for="floatingSelectBank">Выберете карту для оплаты</label>
+
+									<div class="has-validation">
+										<div class="form-floating">
+											<select class="form-select js-form-select" id="floatingSelectBank"
+												aria-label="Выберете карту для оплаты" required>
+												<option value="">Новая карта</option>
+												<option value="1">МИР ..4584</option>
+												<option value="2">VISA ..4635</option>
+												<option value="3">VISA ..4657</option>
+												<option value="4">МИР ..4584</option>
+												<option value="5">VISA ..4635</option>
+												<option value="6">VISA ..4657</option>
+											</select>
+											<label for="floatingSelectBank">Выберете карту для оплаты</label>
+										</div>
+
+										<div class="invalid-feedback">
+											Вы все неправильно сделали. Нельзя использовать кириллические символы
+										</div>
 									</div>
 								</div>
 

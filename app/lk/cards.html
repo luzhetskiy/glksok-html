@@ -3,6 +3,9 @@
 <div class="page">
 	<!--#include virtual="/parts/header-lk.html" -->
 
+	<!--#include virtual="/parts/removeAll.html" -->
+	<!--#include virtual="/parts/removeBank.html" -->
+
 	<main>
 		
 		<div class="page-header">
@@ -79,7 +82,7 @@
 														VISA
 													</h3>
 												</div>
-												<button type="button" class="btn btn-light btn-icon">
+												<button type="button" class="btn btn-light btn-icon" data-bs-toggle="modal" data-bs-target="#removeBank">
 													<div class="icon icon-xxl icon-solid">
 														<svg>
 															<use xlink:href="../images/icons/trash.svg#svg-trash"></use>
@@ -100,7 +103,7 @@
 														VISA
 													</h3>
 												</div>
-												<button type="button" class="btn btn-light btn-icon">
+												<button type="button" class="btn btn-light btn-icon" data-bs-toggle="modal" data-bs-target="#removeBank">
 													<div class="icon icon-xxl icon-solid">
 														<svg>
 															<use xlink:href="../images/icons/trash.svg#svg-trash"></use>
@@ -127,7 +130,7 @@
 								</div>
 
 								<div class="card-button ms-sm-0 ms-4">
-									<button class="btn btn-link" type="button">
+									<button class="btn btn-link" type="button" data-bs-toggle="modal" data-bs-target="#removeAll">
 										Удалить все
 									</button>
 								</div>

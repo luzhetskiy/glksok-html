@@ -3,6 +3,7 @@
 <div class="page">
 	<!--#include virtual="/parts/header-lk.html" -->
 
+	<!--#include virtual="/parts/removeSkipass.html" -->
 	<!--#include virtual="/parts/refillSkipass.html" -->
 	<!--#include virtual="/parts/refundSkipass.html" -->
 	<!--#include virtual="/parts/buySkipass.html" -->
@@ -114,7 +115,7 @@
 					</div>
 
 					<div class="col-12 mt-sm-4 mt-5">
-						<button type="button" class="btn btn-outline-primary btn-remove">
+						<button type="button" class="btn btn-outline-primary btn-remove" data-bs-toggle="modal" data-bs-target="#removeSkipass">
 							<span class="icon icon-solid">
 								<svg>
 									<use xlink:href="../images/icons/trash.svg#svg-trash"></use>

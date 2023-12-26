@@ -12,7 +12,7 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="icon" href="../images/favicon.png">
+	<link rel="icon" href="../images/favicon.svg">
 	
 	<link rel="stylesheet" href="../css/libraries.min.css">
 	<link rel="stylesheet" href="../css/app.min.css">
@@ -92,6 +92,35 @@
 	</nav>
 </header>
 
+	<div class="modal fade" id="removeSkipass" tabindex="-1" aria-labelledby="removeSkipassLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="removeSkipassLabel">
+					Удаление скипасса
+				</h2>
+        <button type="button" class="btn-close btn-icon" data-bs-dismiss="modal" aria-label="Закрыть">
+					<span class="icon icon-solid">
+						<svg>
+							<use xlink:href="../images/icons/cross.svg#svg-cross"></use>
+						</svg>
+					</span>
+				</button>
+      </div>
+			<form action="#" class="form">
+				<div class="modal-body">
+					<p class="modal-text">
+						Вы точно хотите удалить скипасс?
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-secondary">Да</button>
+					<button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Нет</button>
+				</div>
+			</form>
+    </div>
+  </div>
+</div>
 	<div class="modal fade" id="refillSkipass" tabindex="-1" aria-labelledby="refillSkipassLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -107,7 +136,7 @@
 					</span>
 				</button>
       </div>
-			<form action="#" class="form">
+			<form action="#" class="form needs-validation" novalidate>
 				<div class="modal-body">
 					<div class="modal-current mb-sm-5 mb-4">
 						<span>
@@ -118,17 +147,23 @@
 						</span>
 					</div>
 
-					<div class="form-floating form-control-reset mb-sm-3 mb-2">
-						<input type="text" class="form-control form-control-numbers" id="modalFloatingInputCash" maxlength="60" inputmode="numeric"
-							placeholder="Сумма пополнения" required>
-						<label for="modalFloatingInputCash">Сумма пополнения</label>
-						<button type="button" class="btn btn-reset">
-							<span class="icon icon-solid">
-								<svg>
-									<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
-								</svg>
-							</span>
-						</button>
+					<div class="has-validation mb-sm-3 mb-2">
+						<div class="form-floating form-control-reset">
+							<input type="text" class="form-control form-control-numbers" id="modalFloatingInputCash" maxlength="60" inputmode="numeric"
+								placeholder="Сумма пополнения" required>
+							<label for="modalFloatingInputCash">Сумма пополнения</label>
+							<button type="button" class="btn btn-reset">
+								<span class="icon icon-solid">
+									<svg>
+										<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+									</svg>
+								</span>
+							</button>
+						</div>
+
+						<div class="invalid-feedback">
+							Вы все неправильно сделали. Нельзя использовать кириллические символы
+						</div>
 					</div>
 
 					<p class="modal-text">
@@ -157,7 +192,7 @@
 					</span>
 				</button>
       </div>
-			<form action="#" class="form">
+			<form action="#" class="form needs-validation" novalidate>
 				<div class="modal-body">
 					<div class="modal-current mb-sm-5 mb-4">
 						<span>
@@ -168,17 +203,23 @@
 						</span>
 					</div>
 
-					<div class="form-floating form-control-reset mb-sm-3 mb-2">
-						<input type="text" class="form-control form-control-numbers" id="modalFloatingInputRefundCash" maxlength="60" inputmode="numeric"
-							placeholder="Сумма списания" required>
-						<label for="modalFloatingInputRefundCash">Сумма списания</label>
-						<button type="button" class="btn btn-reset">
-							<span class="icon icon-solid">
-								<svg>
-									<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
-								</svg>
-							</span>
-						</button>
+					<div class="has-validation mb-sm-3 mb-2">
+						<div class="form-floating form-control-reset">
+							<input type="text" class="form-control form-control-numbers" id="modalFloatingInputRefundCash" maxlength="60" inputmode="numeric"
+								placeholder="Сумма списания" required>
+							<label for="modalFloatingInputRefundCash">Сумма списания</label>
+							<button type="button" class="btn btn-reset">
+								<span class="icon icon-solid">
+									<svg>
+										<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+									</svg>
+								</span>
+							</button>
+						</div>
+
+						<div class="invalid-feedback">
+							Вы все неправильно сделали. Нельзя использовать кириллические символы
+						</div>
 					</div>
 
 					<p class="modal-text">
@@ -359,7 +400,7 @@
 					</div>
 
 					<div class="col-12 mt-sm-4 mt-5">
-						<button type="button" class="btn btn-outline-primary btn-remove">
+						<button type="button" class="btn btn-outline-primary btn-remove" data-bs-toggle="modal" data-bs-target="#removeSkipass">
 							<span class="icon icon-solid">
 								<svg>
 									<use xlink:href="../images/icons/trash.svg#svg-trash"></use>

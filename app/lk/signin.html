@@ -32,7 +32,7 @@
 							<div class="tab-content" id="tabOverflowContent">
 								<div class="tab-pane fade show active" id="signin-tab-pane" role="tabpanel" aria-labelledby="signin-tab"
 									tabindex="-1">
-									<form action="#" class="card-body">
+									<form action="#" class="card-body needs-validation" novalidate>
 										<img src="../images/dist/card-img-3.png" class="card-img d-lg-block d-none" width="760" loading="lazy" alt="Картинка">
 
 										<div class="card-title">
@@ -40,30 +40,42 @@
 										</div>
 
 										<div class="card-form-inputs flex-column">
-											<div class="form-floating form-control-reset mb-4">
-												<input type="email" class="form-control" id="floatingInputEmail" maxlength="60"
-													inputmode="email" placeholder="e-mail" required>
-												<label for="floatingInputEmail">e-mail</label>
-												<button type="button" class="btn btn-reset">
-													<span class="icon icon-solid">
-														<svg>
-															<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
-														</svg>
-													</span>
-												</button>
+											<div class="has-validation mb-4">
+												<div class="form-floating form-control-reset">
+													<input type="email" class="form-control" id="floatingInputEmail" maxlength="48"
+														inputmode="email" placeholder="e-mail" required>
+													<label for="floatingInputEmail">e-mail</label>
+													<button type="button" class="btn btn-reset">
+														<span class="icon icon-solid">
+															<svg>
+																<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+															</svg>
+														</span>
+													</button>
+												</div>
+
+												<div class="invalid-feedback">
+													Вы все неправильно сделали. Нельзя использовать кириллические символы
+												</div>
 											</div>
 
-											<div class="form-floating form-control-reset">
-												<input type="text" class="form-control form-control-numbers" id="floatingInputCode"
-													maxlength="6" inputmode="numeric" placeholder="ПИН-код из письма" required>
-												<label for="floatingInputCode">ПИН-код из письма</label>
-												<button type="button" class="btn btn-reset">
-													<span class="icon icon-solid">
-														<svg>
-															<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
-														</svg>
-													</span>
-												</button>
+											<div class="has-validation">
+												<div class="form-floating form-control-reset">
+													<input type="text" class="form-control form-control-numbers" id="floatingInputCode"
+														maxlength="4" inputmode="numeric" placeholder="ПИН-код из письма" required>
+													<label for="floatingInputCode">ПИН-код из письма</label>
+													<button type="button" class="btn btn-reset">
+														<span class="icon icon-solid">
+															<svg>
+																<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+															</svg>
+														</span>
+													</button>
+												</div>
+
+												<div class="invalid-feedback">
+													Вы все неправильно сделали. Нельзя использовать кириллические символы
+												</div>
 											</div>
 										</div>
 
@@ -79,49 +91,67 @@
 
 								<div class="tab-pane fade" id="signup-tab-pane" role="tabpanel" aria-labelledby="signup-tab"
 									tabindex="-1">
-									<form action="#" class="card-body">
+									<form action="#" class="card-body needs-validation" novalidate>
 										<div class="card-title">
 											<h3 class="h1">Регистрация</h3>
 										</div>
 
 										<div class="card-form-inputs flex-column">
-											<div class="form-floating form-control-reset mb-4">
-												<input type="email" class="form-control" id="floatingInputSignUpEmail" maxlength="60"
-													inputmode="email" placeholder="e-mail" required>
-												<label for="floatingInputEmail">e-mail</label>
-												<button type="button" class="btn btn-reset">
-													<span class="icon icon-solid">
-														<svg>
-															<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
-														</svg>
-													</span>
-												</button>
+											<div class="has-validation mb-4">
+												<div class="form-floating form-control-reset">
+													<input type="email" class="form-control" id="floatingInputSignUpEmail" maxlength="48"
+														inputmode="email" placeholder="e-mail" required>
+													<label for="floatingInputEmail">e-mail</label>
+													<button type="button" class="btn btn-reset">
+														<span class="icon icon-solid">
+															<svg>
+																<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+															</svg>
+														</span>
+													</button>
+												</div>
+
+												<div class="invalid-feedback">
+													Вы все неправильно сделали. Нельзя использовать кириллические символы
+												</div>
 											</div>
 
-											<div class="form-floating form-control-reset mb-4">
-												<input type="password" class="form-control" id="floatingInputPassword" maxlength="60"
-													placeholder="Придумайте пароль" required>
-												<label for="floatingInputPassword">Придумайте пароль</label>
-												<button type="button" class="btn btn-reset">
-													<span class="icon icon-solid">
-														<svg>
-															<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
-														</svg>
-													</span>
-												</button>
+											<div class="has-validation mb-4">
+												<div class="form-floating form-control-reset">
+													<input type="password" class="form-control" id="floatingInputPassword" maxlength="48"
+														placeholder="Придумайте пароль" required>
+													<label for="floatingInputPassword">Придумайте пароль</label>
+													<button type="button" class="btn btn-reset">
+														<span class="icon icon-solid">
+															<svg>
+																<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+															</svg>
+														</span>
+													</button>
+												</div>
+
+												<div class="invalid-feedback">
+													Вы все неправильно сделали. Нельзя использовать кириллические символы
+												</div>
 											</div>
 
-											<div class="form-floating form-control-reset">
-												<input type="password" class="form-control" id="floatingInputPasswordRepeat" maxlength="60"
-													placeholder="Старый пароль" required>
-												<label for="floatingInputPasswordRepeat">Повторите пароль</label>
-												<button type="button" class="btn btn-reset">
-													<span class="icon icon-solid">
-														<svg>
-															<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
-														</svg>
-													</span>
-												</button>
+											<div class="has-validation">
+												<div class="form-floating form-control-reset">
+													<input type="password" class="form-control" id="floatingInputPasswordRepeat" maxlength="48"
+														placeholder="Старый пароль" required>
+													<label for="floatingInputPasswordRepeat">Повторите пароль</label>
+													<button type="button" class="btn btn-reset">
+														<span class="icon icon-solid">
+															<svg>
+																<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+															</svg>
+														</span>
+													</button>
+												</div>
+
+												<div class="invalid-feedback">
+													Вы все неправильно сделали. Нельзя использовать кириллические символы
+												</div>
 											</div>
 										</div>
 
