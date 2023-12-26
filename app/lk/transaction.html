@@ -40,26 +40,26 @@
 				<div class="widget">
 					<div class="filters">
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" checked>
-							<label class="form-check-label" for="flexCheckDefault1">
+							<input class="form-check-input" type="checkbox" value="allTransaction" id="allTransaction" checked>
+							<label class="form-check-label" for="allTransaction">
 								Все операции
 							</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
-							<label class="form-check-label" for="flexCheckDefault2">
+							<input class="form-check-input" type="checkbox" value="creditsRefundTransaction" id="creditsRefundTransaction">
+							<label class="form-check-label" for="creditsRefundTransaction">
 								Зачисления на скипасс / Возвраты
 							</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
-							<label class="form-check-label" for="flexCheckDefault3">
+							<input class="form-check-input" type="checkbox" value="refillCardTransaction" id="refillCardTransaction">
+							<label class="form-check-label" for="refillCardTransaction">
 								Пополнения картой
 							</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
-							<label class="form-check-label" for="flexCheckDefault4">
+							<input class="form-check-input" type="checkbox" value="buyServicesTransaction" id="buyServicesTransaction">
+							<label class="form-check-label" for="buyServicesTransaction">
 								Покупка услуг
 							</label>
 						</div>
@@ -76,49 +76,49 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
+								<tr data-filter="allTransaction refillCardTransaction">
 									<td>11 декабря 2023 г. 23:40</td>
 									<td>1500</td>
 									<td>пополнение</td>
 									<td>2200 00XX XXXX 0052</td>
 								</tr>
-								<tr>
+								<tr data-filter="allTransaction refillCardTransaction">
 									<td>11 декабря 2023 г. 23:40</td>
 									<td>2500</td>
 									<td>пополнение</td>
 									<td>2200 00XX XXXX 0052</td>
 								</tr>
-								<tr>
+								<tr data-filter="allTransaction refillCardTransaction">
 									<td>11 декабря 2023 г. 23:40</td>
 									<td>50</td>
 									<td>пополнение</td>
 									<td>2200 00XX XXXX 0052</td>
 								</tr>
-								<tr>
+								<tr data-filter="allTransaction refillCardTransaction">
 									<td>11 декабря 2023 г. 23:40</td>
 									<td>25 144</td>
 									<td>пополнение</td>
 									<td>2200 00XX XXXX 0052</td>
 								</tr>
-								<tr>
+								<tr data-filter="allTransaction creditsRefundTransaction">
 									<td>11 декабря 2023 г. 23:40</td>
 									<td><span class="badge text-bg-success">+150</span></td>
 									<td>зачисление</td>
 									<td>...EFD2</td>
 								</tr>
-								<tr>
+								<tr data-filter="allTransaction buyServicesTransaction">
 									<td>11 декабря 2023 г. 23:40</td>
 									<td><span class="badge text-bg-danger">-1500</span></td>
 									<td>покупка</td>
 									<td>...EFD2</td>
 								</tr>
-								<tr>
+								<tr data-filter="allTransaction creditsRefundTransaction">
 									<td>11 декабря 2023 г. 23:40</td>
 									<td><span class="badge text-bg-success">+150</span></td>
 									<td>зачисление</td>
 									<td>...EFD2</td>
 								</tr>
-								<tr>
+								<tr data-filter="allTransaction buyServicesTransaction">
 									<td>11 декабря 2023 г. 23:40</td>
 									<td><span class="badge text-bg-danger">-100</span></td>
 									<td>покупка</td>

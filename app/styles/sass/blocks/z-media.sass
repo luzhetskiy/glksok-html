@@ -195,6 +195,18 @@
 			& > *
 				width: 64%
 
+	.modal
+		padding: .5rem !important
+
+		&-header
+			padding: 4.25rem 4.5rem var(--bs-modal-header-padding-y)
+
+		&-body
+			padding: 0 4.5rem
+
+		&-footer
+			padding: 1.5rem 4.5rem 4.25rem
+
 @media (max-width: 575.98px)
 
 	.container
@@ -399,6 +411,71 @@
 
 	.filters
 		padding: .75rem 1rem
+
+	.modal
+		--bs-modal-title-line-height: normal
+		--bs-modal-header-padding-y: 1.5rem
+		--bs-modal-footer-gap: 1.5rem
+		padding: 0 !important
+
+		&-content
+			min-height: calc( 100vh - var(--bs-modal-margin) * 2)
+			justify-content: center
+
+		&-header
+			padding: 4.25rem 1rem var(--bs-modal-header-padding-y)
+
+		&-body
+			padding: 0 1rem
+			flex: 0
+
+		&-footer
+			padding: 1.5rem 1rem 4.25rem
+
+			& > *
+				width: 100%
+
+				&:not(:last-child)
+					margin-right: initial
+					margin-bottom: var(--bs-modal-footer-gap)
+
+		&-img
+			min-height: 170px
+			position: absolute
+			top: 0
+			left: 0
+
+		&-title
+			font-size: 2.25rem
+
+		&-current
+
+			& > *:not(:last-child)
+				margin-bottom: .5rem
+
+	#successSignUp
+		text-align: center
+
+		.btn-close
+			background-color: rgba(255, 255, 255, 0.5)
+
+		.modal-header
+			margin-top: 170px
+			justify-content: center
+			padding-left: 3.75rem
+			padding-right: 3.75rem
+
+		.modal-body,
+		.modal-footer
+			padding-left: 1.5rem
+			padding-right: 1.5rem
+
+		.modal-footer
+			flex-direction: column
+			align-items: center
+
+			& > *
+				width: fit-content
 
 	.footer
 		padding: 1rem 0

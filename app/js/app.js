@@ -1,5 +1,4 @@
-// // Import vendor jQuery plugin example
-import bootstrap from 'bootstrap'
+// import bootstrap from 'bootstrap'
 import Choices from 'choices.js'
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -53,6 +52,46 @@ document.addEventListener('DOMContentLoaded', () => {
 	handleFormControlReset();
 	allowNumbersOnly();
 
+
+
+	const filtersInput = document.querySelector('.filters');
+	const tableFilters = document.querySelectorAll('[data-filter]');
+
+	if (filtersInput && tableFilters.length > 0) {
+		function applyFilters() {
+			const checkedCheckbox = filtersInput.querySelector('input[type="checkbox"]:checked');
+
+			tableFilters.forEach(function (row) {
+				const rowFilters = row.dataset.filter.split(' ');
+				const isVisible = !checkedCheckbox || rowFilters.includes(checkedCheckbox.value);
+
+				if (isVisible) {
+					row.classList.remove('is-hidden');
+				} else {
+					row.classList.add('is-hidden');
+				}
+			});
+		}
+
+		filtersInput.addEventListener('change', function (event) {
+			const checkbox = event.target;
+
+			if (checkbox.type === 'checkbox' && checkbox.checked) {
+				filtersInput.querySelectorAll('input[type="checkbox"]').forEach(function (checkbox) {
+					if (checkbox !== event.target) {
+						checkbox.checked = false;
+					}
+				});
+			}
+
+			applyFilters();
+		});
+
+		applyFilters();
+	}
+
+
+
 	const jsFormSelects = document.querySelectorAll('.js-form-select');
 
 	const selectConfig = {
@@ -65,6 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	jsFormSelects.forEach((select) => {
 		const choices = new Choices(select, selectConfig)
 	})
+
+
 
 	const tabOverflow = document.querySelector('#tabOverflow')
 	const signinTab = document.querySelector('#signin-tab')
@@ -95,6 +136,18 @@ document.addEventListener('DOMContentLoaded', () => {
 			tabPaneCard.classList.remove(hiddenClass)
 			// tabPaneCard.classList.add(showClass)
 		}
+	}
+
+
+
+	const successSignUpModalId = 'successSignUp';
+	const successSignUpModal = document.querySelector(`#${successSignUpModalId}`);
+
+	if (successSignUpModal && !localStorage.getItem(successSignUpModalId)) {
+		const bootstrapModal = new bootstrap.Modal(successSignUpModal);
+		bootstrapModal.show();
+
+		localStorage.setItem(successSignUpModalId, 'true');
 	}
 
 

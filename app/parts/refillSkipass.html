@@ -1,0 +1,50 @@
+<div class="modal fade" id="refillSkipass" tabindex="-1" aria-labelledby="refillSkipassLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="refillSkipassLabel">
+					Пополнение баланса скипасса
+				</h2>
+        <button type="button" class="btn-close btn-icon" data-bs-dismiss="modal" aria-label="Закрыть">
+					<span class="icon icon-solid">
+						<svg>
+							<use xlink:href="../images/icons/cross.svg#svg-cross"></use>
+						</svg>
+					</span>
+				</button>
+      </div>
+			<form action="#" class="form">
+				<div class="modal-body">
+					<div class="modal-current mb-sm-5 mb-4">
+						<span>
+							На общем балансе: <span>3400 руб</span>
+						</span>
+						<span>
+							На счету скипасса: <span>400 руб</span>
+						</span>
+					</div>
+
+					<div class="form-floating form-control-reset mb-sm-3 mb-2">
+						<input type="text" class="form-control form-control-numbers" id="modalFloatingInputCash" maxlength="60" inputmode="numeric"
+							placeholder="Сумма пополнения" required>
+						<label for="modalFloatingInputCash">Сумма пополнения</label>
+						<button type="button" class="btn btn-reset">
+							<span class="icon icon-solid">
+								<svg>
+									<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+								</svg>
+							</span>
+						</button>
+					</div>
+
+					<p class="modal-text">
+						Указанная сумма спишется с общего баланса и поступит на баланс скипасса.
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-secondary">Добавить</button>
+				</div>
+			</form>
+    </div>
+  </div>
+</div>

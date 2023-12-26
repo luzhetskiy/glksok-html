@@ -1,0 +1,59 @@
+.modal
+	--bs-modal-title-line-height: 3.125rem
+
+	.btn-close
+		margin: -.25rem
+		padding: .25rem
+		position: absolute
+		top: 1rem
+		right: 1rem
+
+	&-header
+		padding: 4.25rem 5rem var(--bs-modal-header-padding-y) 7rem
+
+	&-body
+		padding: 0 7rem
+
+	&-footer
+		justify-content: flex-start
+		padding: 1.5rem 7rem 4.25rem
+
+		& > *
+			margin: 0
+
+			&:not(:last-child)
+				margin-right: var(--bs-modal-footer-gap)
+
+	&-img
+		width: 100%
+		min-height: 220px
+		border-radius: var(--bs-modal-border-radius) var(--bs-modal-border-radius) 0 0
+		background-repeat: no-repeat
+		background-size: cover
+		background-position: center
+
+	&-title
+		font-size: 3rem
+		font-weight: var(--bs-font-weight-medium)
+
+	&-current
+		display: flex
+		flex-direction: column
+
+		font-size: var(--bs-font-size-md)
+		font-weight: var(--bs-font-weight-medium)
+		line-height: 1.75rem
+		color: var(--bs-black)
+
+		& > *:not(:last-child)
+			margin-bottom: 1rem
+
+	&-text
+		line-height: 1.25rem
+		color: var(--bs-gray-800)
+		margin-bottom: 0
+
+#successSignUp
+
+	.modal-footer
+		padding-top: 2rem

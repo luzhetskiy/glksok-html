@@ -2,36 +2,41 @@
 <!--#include virtual="/parts/head-lk.html" -->
 <div class="page">
 	<!--#include virtual="/parts/header-lk.html" -->
+	<!--#include virtual="/parts/addedSkipass.html" -->
 
 	<main>
 
 		<div class="page-header">
 			<div class="container position-relative">
-				<h1 class="h2">
-					Мои скипассы
-				</h1>
-
-				<nav aria-label="breadcrumb">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item">
-							<a href="./home.html">
-								<span class="icon icon-solid">
-									<svg>
-										<use xlink:href="../images/icons/home-outline.svg#svg-home-outline"></use>
-									</svg>
-								</span>
-							</a>
-						</li>
-						<li class="breadcrumb-item">
-							<a href="#">
-								Баланс
-							</a>
-						</li>
-						<li class="breadcrumb-item active" aria-current="page">
+				<div class="row">
+					<div class="col-12">
+						<h1 class="h2">
 							Мои скипассы
-						</li>
-					</ol>
-				</nav>
+						</h1>
+		
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item">
+									<a href="./home.html">
+										<span class="icon icon-solid">
+											<svg>
+												<use xlink:href="../images/icons/home-outline.svg#svg-home-outline"></use>
+											</svg>
+										</span>
+									</a>
+								</li>
+								<li class="breadcrumb-item">
+									<a href="#">
+										Баланс
+									</a>
+								</li>
+								<li class="breadcrumb-item active" aria-current="page">
+									Мои скипассы
+								</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -131,7 +136,7 @@
 					</div>
 
 					<div class="col-xxl-4 col-lg-6">
-						<button type="button" class="card card-add">
+						<button type="button" class="card card-add" data-bs-toggle="modal" data-bs-target="#addedSkipass">
 							<div class="card-body">
 								<div class="card-add-text">
 									<span class="icon icon-solid">

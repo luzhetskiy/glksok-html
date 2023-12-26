@@ -1,10 +1,22 @@
 .list-group
 	--bs-list-group-bg: var(--bs-white)
+	--bs-list-group-border-width: 0
 
 .list-group-flush
 	--bs-list-group-item-padding-y: 0
 	--bs-list-group-item-padding-x: .25rem
-	--bs-list-group-border-width: 0
 	--bs-list-group-color: var(--bs-black)
 	font-size: var(--bs-font-size-md)
 	line-height: 1.625rem
+
+.list-group-radio
+	--bs-list-group-item-padding-y: 1rem
+	--bs-list-group-item-padding-x: 1rem
+	--bs-list-group-bg: var(--bs-gray-100)
+	--bs-list-group-border-radius: 1rem
+
+	& > *:not(:last-child)
+		margin-bottom: .5rem
+
+	.list-group-item
+		border-radius: var(--bs-list-group-border-radius)

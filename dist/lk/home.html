@@ -72,16 +72,6 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">
-								<span class="icon icon-solid icon-settings">
-									<svg>
-										<use xlink:href="../images/icons/settings.svg#svg-settings"></use>
-									</svg>
-								</span>
-								аккаунт
-							</a>
-						</li>
-						<li class="nav-item">
 							<a class="nav-link" href="./signin.html">
 								<span class="icon icon-solid icon-exit">
 									<svg>
@@ -101,6 +91,96 @@
 		</div>
 	</nav>
 </header>
+
+	<div class="modal fade" id="successSignUp" tabindex="-1" aria-labelledby="successSignUpLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+			<div class="modal-img" style="background-image: url(../images/dist/bg-2.png);"></div>
+      <div class="modal-header pt-sm-3 pt-5">
+        <h2 class="modal-title" id="successSignUpLabel">
+					Вы это сделали!
+				</h2>
+        <button type="button" class="btn-close btn-icon" data-bs-dismiss="modal" aria-label="Закрыть">
+					<span class="icon icon-solid">
+						<svg>
+							<use xlink:href="../images/icons/cross.svg#svg-cross"></use>
+						</svg>
+					</span>
+				</button>
+      </div>
+			<div class="modal-body">
+				<p class="modal-text mb-sm-5 mb-4">
+					Теперь это ваш личный кабинет, где вы сможете пополнять скипассы без очередей.
+				</p>
+
+				<p class="modal-text">
+					Пополните свой баланс с помощью банковской карты, привяжите свой скипасс (уникальный id можно найти в чеке) и управляйте им. Это просто и удобно! Вы можете добавить сразу несколько скипассов.
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Понятно!</button>
+			</div>
+    </div>
+  </div>
+</div>
+	<div class="modal fade" id="addedSkipass" tabindex="-1" aria-labelledby="addedSkipassLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="addedSkipassLabel">
+					Добавление нового скипасса
+				</h2>
+        <button type="button" class="btn-close btn-icon" data-bs-dismiss="modal" aria-label="Закрыть">
+					<span class="icon icon-solid">
+						<svg>
+							<use xlink:href="../images/icons/cross.svg#svg-cross"></use>
+						</svg>
+					</span>
+				</button>
+      </div>
+			<form action="#" class="form">
+				<div class="modal-body">
+					<div class="form-floating form-control-reset mb-sm-3 mb-2">
+						<input type="text" class="form-control" id="floatingInputID" maxlength="14"
+							placeholder="ID скипасса" required>
+						<label for="floatingInputID">ID скипасса</label>
+						<button type="button" class="btn btn-reset">
+							<span class="icon icon-solid">
+								<svg>
+									<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+								</svg>
+							</span>
+						</button>
+					</div>
+
+					<p class="modal-text mb-4">
+						ID указан на чеке, пример - 020801FA562BFA. Для его получения, пожалуйста, обратитесь в кассу
+					</p>
+
+					<div class="form-floating form-control-reset mb-sm-3 mb-2">
+						<input type="text" class="form-control" id="floatingInputNameID" maxlength="30"
+							placeholder="Придумайте название" required>
+						<label for="floatingInputNameID">Придумайте название</label>
+						<button type="button" class="btn btn-reset">
+							<span class="icon icon-solid">
+								<svg>
+									<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+								</svg>
+							</span>
+						</button>
+					</div>
+
+					<p class="modal-text">
+						Произвольное, чтобы вам было удобно. Вы можете добавить несколько скипассов
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-secondary">Добавить</button>
+				</div>
+			</form>
+    </div>
+  </div>
+</div>
 
 	<main>
 		
@@ -202,7 +282,7 @@
 										</a>
 									</div>
 									<div class="col-xxl-6">
-										<button type="button" class="card card-add">
+										<button type="button" class="card card-add" data-bs-toggle="modal" data-bs-target="#addedSkipass">
 											<div class="card-body">
 												<div class="card-add-text">
 													<span class="icon icon-solid">
@@ -265,7 +345,7 @@
 							<div class="card-body">
 								<div class="row gy-sm-4 gy-2 mb-4">
 									<div class="col-xxl-6">
-										<a href="#" class="card card-mini" style="background-image: url(../images/dist/card-img-1.png);">
+										<a href="./skipass-edit.html" class="card card-mini" style="background-image: url(../images/dist/card-img-1.png);">
 											<h2 class="card-header">
 												Скипас Маргариты Семеновны 
 												<span class="icon icon-solid">
@@ -284,7 +364,7 @@
 										</a>
 									</div>
 									<div class="col-xxl-6">
-										<a href="#" class="card card-mini" style="background-image: url(../images/dist/card-img-2.png);">
+										<a href="./skipass-edit.html" class="card card-mini" style="background-image: url(../images/dist/card-img-2.png);">
 											<h2 class="card-header">
 												Основной 
 												<span class="icon icon-solid">
@@ -303,7 +383,7 @@
 										</a>
 									</div>
 									<div class="col-xxl-6">
-										<button type="button" class="card card-add">
+										<button type="button" class="card card-add" data-bs-toggle="modal" data-bs-target="#addedSkipass">
 											<div class="card-body">
 												<div class="card-add-text">
 													<span class="icon icon-solid">
@@ -323,9 +403,9 @@
 								</p>
 
 								<div class="card-button ms-sm-0 ms-4">
-									<button class="btn btn-link" type="button">
+									<a href="./skipass.html" class="btn btn-link">
 										Управлять
-									</button>
+									</a>
 								</div>
 							</div>
 						</div>
@@ -345,6 +425,7 @@
 </footer>
 </div>
 	
+	<script src="../js/bootstrap.bundle.min.js"></script>
 	<script src="../js/app.min.js"></script>
 
 </body>

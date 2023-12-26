@@ -36,14 +36,9 @@ a
 	transition: color .3s ease-in-out, background .3s ease-in-out
 
 .is-hidden
-	opacity: 0
-	visibility: hidden
-	transition: opacity 300ms ease-in, visibility 300ms ease-in
+	display: none
 
-.is-show
-	opacity: 1
-	visibility: visible
-	transition: opacity 300ms ease-in, visibility 300ms ease-in
+
 
 .btn-primary
 	--bs-btn-hover-color: var(--bs-blue-light)
@@ -135,6 +130,30 @@ a
 
 	&:is(:hover, :focus-visible, :active)
 
+		.icon
+			opacity: 1
+
+.btn-close
+	--bs-btn-close-focus-shadow: none
+	--bs-btn-close-hover-opacity: 1
+	--bs-btn-close-color: var(--bs-blue)
+	--bs-btn-close-bg: none
+	width: 1rem
+	height: 1rem
+	padding: .25rem
+	border-radius: 50%
+
+	top: .75rem
+	right: .75rem
+
+	&:is(:hover, :focus, :active, .active)
+		background-color: var(--bs-blue-light-rgba-15)
+
+		.icon
+			opacity: .8
+
+	&:is(:active, .active)
+		
 		.icon
 			opacity: 1
 
@@ -259,28 +278,9 @@ a
 .alert-dismissible
 
 	.btn-close
-		--bs-btn-close-focus-shadow: none
-		--bs-btn-close-hover-opacity: 1
-		--bs-btn-close-color: var(--bs-blue)
-		--bs-btn-close-bg: none
-		width: 1rem
-		height: 1rem
 		padding: .25rem
-		border-radius: 50%
-
 		top: .75rem
 		right: .75rem
-
-		&:is(:hover, :focus, :active, .active)
-			background-color: var(--bs-blue-light-rgba-15)
-
-			.icon
-				opacity: .8
-
-		&:is(:active, .active)
-			
-			.icon
-				opacity: 1
 
 .table-responsive
 	max-height: 330px

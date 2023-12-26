@@ -1,0 +1,58 @@
+<div class="modal fade" id="addedSkipass" tabindex="-1" aria-labelledby="addedSkipassLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="addedSkipassLabel">
+					Добавление нового скипасса
+				</h2>
+        <button type="button" class="btn-close btn-icon" data-bs-dismiss="modal" aria-label="Закрыть">
+					<span class="icon icon-solid">
+						<svg>
+							<use xlink:href="../images/icons/cross.svg#svg-cross"></use>
+						</svg>
+					</span>
+				</button>
+      </div>
+			<form action="#" class="form">
+				<div class="modal-body">
+					<div class="form-floating form-control-reset mb-sm-3 mb-2">
+						<input type="text" class="form-control" id="floatingInputID" maxlength="14"
+							placeholder="ID скипасса" required>
+						<label for="floatingInputID">ID скипасса</label>
+						<button type="button" class="btn btn-reset">
+							<span class="icon icon-solid">
+								<svg>
+									<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+								</svg>
+							</span>
+						</button>
+					</div>
+
+					<p class="modal-text mb-4">
+						ID указан на чеке, пример - 020801FA562BFA. Для его получения, пожалуйста, обратитесь в кассу
+					</p>
+
+					<div class="form-floating form-control-reset mb-sm-3 mb-2">
+						<input type="text" class="form-control" id="floatingInputNameID" maxlength="30"
+							placeholder="Придумайте название" required>
+						<label for="floatingInputNameID">Придумайте название</label>
+						<button type="button" class="btn btn-reset">
+							<span class="icon icon-solid">
+								<svg>
+									<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+								</svg>
+							</span>
+						</button>
+					</div>
+
+					<p class="modal-text">
+						Произвольное, чтобы вам было удобно. Вы можете добавить несколько скипассов
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-secondary">Добавить</button>
+				</div>
+			</form>
+    </div>
+  </div>
+</div>

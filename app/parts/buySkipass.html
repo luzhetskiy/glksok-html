@@ -1,0 +1,59 @@
+<div class="modal fade" id="buySkipass" tabindex="-1" aria-labelledby="buySkipassLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="buySkipassLabel">
+					Купить тариф по времени
+				</h2>
+        <button type="button" class="btn-close btn-icon" data-bs-dismiss="modal" aria-label="Закрыть">
+					<span class="icon icon-solid">
+						<svg>
+							<use xlink:href="../images/icons/cross.svg#svg-cross"></use>
+						</svg>
+					</span>
+				</button>
+      </div>
+			<form action="#" class="form">
+				<div class="modal-body">
+					<div class="modal-current mb-3">
+						<span>
+							На общем балансе: <span>3400 руб</span>
+						</span>
+					</div>
+
+					<p class="modal-text text-black mb-4">
+						Тариф по времени имеет приоритет над “Балансом”, при проходе через турнитет будет будет действовать “Тариф”
+					</p>
+
+					<ul class="list-group list-group-radio mb-3">
+						<li class="list-group-item">
+							<input class="form-check-input" type="radio" name="listGroupRadio" value="" id="modalFirstRadio" checked>
+							<label class="form-check-label stretched-link" for="modalFirstRadio">
+								1 час - 400 ₽
+							</label>
+						</li>
+						<li class="list-group-item">
+							<input class="form-check-input" type="radio" name="listGroupRadio" value="" id="modalSecondRadio">
+							<label class="form-check-label stretched-link" for="modalSecondRadio">
+								2 часа - 700 ₽
+							</label>
+						</li>
+						<li class="list-group-item">
+							<input class="form-check-input" type="radio" name="listGroupRadio" value="" id="modalThirdRadio">
+							<label class="form-check-label stretched-link" for="modalThirdRadio">
+								3 часа - 1000 ₽
+							</label>
+						</li>
+					</ul>
+
+					<p class="modal-text">
+						Указанная сумма спишется с общего баланса
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-secondary">Купить</button>
+				</div>
+			</form>
+    </div>
+  </div>
+</div>
