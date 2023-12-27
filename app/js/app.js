@@ -374,7 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			const target = document.elementFromPoint(touch.clientX, touch.clientY);
 			const draggableZone = target.closest('.draggable-zone');
-
+			
 			if (draggableZone) {
 				const draggableItems = draggableZone.querySelectorAll('.draggable');
 
@@ -395,9 +395,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			const target = document.elementFromPoint(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
 			const targetDraggable = target.closest('.draggable');
+			const draggableZone = draggedItem.closest('.draggable-zone');
 
 			if (draggedItem && targetDraggable && draggedItem !== targetDraggable) {
-				const draggableZone = draggedItem.closest('.draggable-zone');
 				const draggableItems = draggableZone.querySelectorAll('.draggable');
 				const draggedIndex = Array.from(draggableItems).indexOf(draggedItem);
 				const targetIndex = Array.from(draggableItems).indexOf(targetDraggable);
@@ -409,12 +409,12 @@ document.addEventListener('DOMContentLoaded', () => {
 				}
 
 				const updatedDraggableItems = draggableZone.querySelectorAll('.draggable');
-        updatedDraggableItems.forEach((item, index) => {
-            item.setAttribute('data-position', index + 1);
-        });
+				updatedDraggableItems.forEach((item, index) => {
+					item.setAttribute('data-position', index + 1);
+				});
 			}
 
-			const draggableItems = document.querySelectorAll('.draggable');
+			const draggableItems = draggableZone.querySelectorAll('.draggable');
 			draggableItems.forEach(item => {
 				item.classList.remove('dragover');
 			});
@@ -424,7 +424,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		function dragOver(event) {
 			event.preventDefault();
+
 			const target = event.target.closest('.draggable');
+
 			if (draggedItem && draggedItem !== target) {
 				target.classList.add('dragover');
 			}
@@ -432,6 +434,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		function dragLeave(event) {
 			const target = event.target.closest('.draggable');
+
 			if (draggedItem && draggedItem !== target) {
 				target.classList.remove('dragover');
 			}
@@ -441,6 +444,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			event.preventDefault();
 
 			const dragged = event.dataTransfer.getData('text/plain');
+			const draggableZone = draggedItem.closest('.draggable-zone');
 			if (dragged === 'dragged') {
 				const target = event.target.closest('.draggable');
 
@@ -450,10 +454,15 @@ document.addEventListener('DOMContentLoaded', () => {
 					target.parentNode.insertBefore(draggedItem, target);
 					temp.parentNode.insertBefore(target, temp);
 					temp.parentNode.removeChild(temp);
+
+					const draggableItems = draggableZone.querySelectorAll('.draggable');
+					draggableItems.forEach((item, index) => {
+						item.setAttribute('data-position', index + 1);
+					});
 				}
 			}
 
-			const draggableItems = document.querySelectorAll('.draggable');
+			const draggableItems = draggableZone.querySelectorAll('.draggable');
 			draggableItems.forEach(item => {
 				item.classList.remove('dragover');
 			});
