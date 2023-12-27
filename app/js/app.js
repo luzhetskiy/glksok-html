@@ -254,6 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const jsFormSelects = document.querySelectorAll('.js-form-select');
 
 	const selectConfig = {
+		allowHTML: true,
 		placeholder: true,
 		searchEnabled: false,
 		shouldSort: false,
@@ -308,6 +309,159 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		localStorage.setItem(successSignUpModalId, 'true');
 	}
+
+
+
+	function draggable() {
+		const draggableZones = document.querySelectorAll('.draggable-zone');
+		let draggedItem = null;
+		let touchStartX, touchStartY;
+
+		draggableZones.forEach(zone => {
+			const draggableItems = zone.querySelectorAll('.draggable');
+
+			draggableItems.forEach((item, index) => {
+				const draggableHandle = item.querySelector('.draggable-handle');
+
+				draggableHandle.setAttribute('draggable', 'true');
+
+				draggableHandle.addEventListener('dragstart', dragStart);
+				draggableHandle.addEventListener('dragend', dragEnd);
+
+				draggableHandle.addEventListener('touchstart', touchStart);
+				draggableHandle.addEventListener('touchmove', touchMove);
+				draggableHandle.addEventListener('touchend', touchEnd);
+
+				item.addEventListener('dragover', dragOver);
+				item.addEventListener('dragleave', dragLeave);
+				item.addEventListener('drop', drop);
+				item.setAttribute('data-position', index + 1);
+			});
+		});
+
+		function dragStart(event) {
+			event.dataTransfer.setData('text/html', event.target.outerHTML);
+			event.dataTransfer.setData('text/plain', 'dragged');
+			draggedItem = event.target.closest('.draggable');
+			draggedItem.classList.add('dragging');
+		}
+
+		function dragEnd(event) {
+			draggedItem.classList.remove('dragging');
+			draggedItem = null;
+		}
+
+		function touchStart(event) {
+			touchStartX = event.touches[0].clientX;
+			touchStartY = event.touches[0].clientY;
+			draggedItem = event.target.closest('.draggable');
+
+			draggedItem.classList.add('dragging')
+		}
+
+		function touchMove(event) {
+			event.preventDefault();
+
+			const touch = event.touches[0];
+
+			const offsetX = touch.clientX - touchStartX;
+			const offsetY = touch.clientY - touchStartY;
+
+			draggedItem.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+			draggedItem.style.pointerEvents = 'none';
+			draggedItem.style.position = 'relative';
+			draggedItem.style.zIndex = '1';
+
+			const target = document.elementFromPoint(touch.clientX, touch.clientY);
+			const draggableZone = target.closest('.draggable-zone');
+
+			if (draggableZone) {
+				const draggableItems = draggableZone.querySelectorAll('.draggable');
+
+				draggableItems.forEach(item => {
+					item.classList.remove('dragover');
+				});
+
+				const targetDraggable = target.closest('.draggable');
+				if (targetDraggable && targetDraggable !== draggedItem) {
+					targetDraggable.classList.add('dragover');
+				}
+			}
+		}
+
+		function touchEnd(event) {
+			draggedItem.classList.remove('dragging')
+			draggedItem.style = '';
+
+			const target = document.elementFromPoint(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
+			const targetDraggable = target.closest('.draggable');
+
+			if (draggedItem && targetDraggable && draggedItem !== targetDraggable) {
+				const draggableZone = draggedItem.closest('.draggable-zone');
+				const draggableItems = draggableZone.querySelectorAll('.draggable');
+				const draggedIndex = Array.from(draggableItems).indexOf(draggedItem);
+				const targetIndex = Array.from(draggableItems).indexOf(targetDraggable);
+
+				if (draggedIndex > targetIndex) {
+					draggableZone.insertBefore(draggedItem, targetDraggable);
+				} else {
+					draggableZone.insertBefore(draggedItem, targetDraggable.nextSibling);
+				}
+
+				const updatedDraggableItems = draggableZone.querySelectorAll('.draggable');
+        updatedDraggableItems.forEach((item, index) => {
+            item.setAttribute('data-position', index + 1);
+        });
+			}
+
+			const draggableItems = document.querySelectorAll('.draggable');
+			draggableItems.forEach(item => {
+				item.classList.remove('dragover');
+			});
+
+			draggedItem = null;
+		}
+
+		function dragOver(event) {
+			event.preventDefault();
+			const target = event.target.closest('.draggable');
+			if (draggedItem && draggedItem !== target) {
+				target.classList.add('dragover');
+			}
+		}
+
+		function dragLeave(event) {
+			const target = event.target.closest('.draggable');
+			if (draggedItem && draggedItem !== target) {
+				target.classList.remove('dragover');
+			}
+		}
+
+		function drop(event) {
+			event.preventDefault();
+
+			const dragged = event.dataTransfer.getData('text/plain');
+			if (dragged === 'dragged') {
+				const target = event.target.closest('.draggable');
+
+				if (draggedItem && draggedItem !== target) {
+					const temp = document.createElement('div');
+					draggedItem.parentNode.insertBefore(temp, draggedItem);
+					target.parentNode.insertBefore(draggedItem, target);
+					temp.parentNode.insertBefore(target, temp);
+					temp.parentNode.removeChild(temp);
+				}
+			}
+
+			const draggableItems = document.querySelectorAll('.draggable');
+			draggableItems.forEach(item => {
+				item.classList.remove('dragover');
+			});
+		}
+	}
+
+	draggable();
+
 
 
 })
