@@ -318,7 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		let draggableZone = null;
 		let touchStartX, touchStartY;
 		let touchStartTime = 0;
-		const holdDuration = 750;
+		const holdDuration = 1000;
 
 		draggableZones.forEach(zone => {
 			const draggableItems = zone.querySelectorAll('.draggable');
@@ -409,6 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				if (draggedItem && Date.now() - touchStartTime >= holdDuration) {
 					draggedItem.classList.add('dragging');
 					event.target.addEventListener('touchmove', touchMove);
+					document.documentElement.style.overflow = 'hidden';
 				}
 			}, holdDuration);
 			
@@ -416,7 +417,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 
 		function touchMove(event) {
-			event.preventDefault();
 
 			const touch = event.touches[0];
 			const offsetX = touch.clientX - touchStartX;
@@ -446,6 +446,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			draggedItem.classList.remove('dragging');
 			draggedItem.style = '';
+			document.documentElement.style = '';
 
 			const target = document.elementFromPoint(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
 			const targetDraggable = target.closest('.draggable');
