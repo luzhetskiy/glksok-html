@@ -315,7 +315,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	function draggable() {
 		const draggableZones = document.querySelectorAll('.draggable-zone');
 		let draggedItem = null;
+		let draggableZone = null;
 		let touchStartX, touchStartY;
+		let touchStartTime = 0;
+		const holdDuration = 750;
 
 		draggableZones.forEach(zone => {
 			const draggableItems = zone.querySelectorAll('.draggable');
@@ -329,8 +332,6 @@ document.addEventListener('DOMContentLoaded', () => {
 				draggableHandle.addEventListener('dragend', dragEnd);
 
 				draggableHandle.addEventListener('touchstart', touchStart);
-				draggableHandle.addEventListener('touchmove', touchMove);
-				draggableHandle.addEventListener('touchend', touchEnd);
 
 				item.addEventListener('dragover', dragOver);
 				item.addEventListener('dragleave', dragLeave);
@@ -348,77 +349,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		function dragEnd(event) {
 			draggedItem.classList.remove('dragging');
-			draggedItem = null;
-		}
-
-		function touchStart(event) {
-			touchStartX = event.touches[0].clientX;
-			touchStartY = event.touches[0].clientY;
-			draggedItem = event.target.closest('.draggable');
-
-			draggedItem.classList.add('dragging')
-		}
-
-		function touchMove(event) {
-			event.preventDefault();
-
-			const touch = event.touches[0];
-
-			const offsetX = touch.clientX - touchStartX;
-			const offsetY = touch.clientY - touchStartY;
-
-			draggedItem.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-			draggedItem.style.pointerEvents = 'none';
-			draggedItem.style.position = 'relative';
-			draggedItem.style.zIndex = '1';
-
-			const target = document.elementFromPoint(touch.clientX, touch.clientY);
-			const draggableZone = target.closest('.draggable-zone');
-			
-			if (draggableZone) {
-				const draggableItems = draggableZone.querySelectorAll('.draggable');
-
-				draggableItems.forEach(item => {
-					item.classList.remove('dragover');
-				});
-
-				const targetDraggable = target.closest('.draggable');
-				if (targetDraggable && targetDraggable !== draggedItem) {
-					targetDraggable.classList.add('dragover');
-				}
-			}
-		}
-
-		function touchEnd(event) {
-			draggedItem.classList.remove('dragging')
-			draggedItem.style = '';
-
-			const target = document.elementFromPoint(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
-			const targetDraggable = target.closest('.draggable');
-			const draggableZone = draggedItem.closest('.draggable-zone');
-
-			if (draggedItem && targetDraggable && draggedItem !== targetDraggable) {
-				const draggableItems = draggableZone.querySelectorAll('.draggable');
-				const draggedIndex = Array.from(draggableItems).indexOf(draggedItem);
-				const targetIndex = Array.from(draggableItems).indexOf(targetDraggable);
-
-				if (draggedIndex > targetIndex) {
-					draggableZone.insertBefore(draggedItem, targetDraggable);
-				} else {
-					draggableZone.insertBefore(draggedItem, targetDraggable.nextSibling);
-				}
-
-				const updatedDraggableItems = draggableZone.querySelectorAll('.draggable');
-				updatedDraggableItems.forEach((item, index) => {
-					item.setAttribute('data-position', index + 1);
-				});
-			}
-
-			const draggableItems = draggableZone.querySelectorAll('.draggable');
-			draggableItems.forEach(item => {
-				item.classList.remove('dragover');
-			});
-
 			draggedItem = null;
 		}
 
@@ -466,6 +396,84 @@ document.addEventListener('DOMContentLoaded', () => {
 			draggableItems.forEach(item => {
 				item.classList.remove('dragover');
 			});
+		}
+
+		function touchStart(event) {
+			touchStartX = event.touches[0].clientX;
+			touchStartY = event.touches[0].clientY;
+			draggedItem = event.target.closest('.draggable');
+			draggableZone = draggedItem.closest('.draggable-zone');
+			touchStartTime = Date.now();
+
+			setTimeout(() => {
+				if (draggedItem && Date.now() - touchStartTime >= holdDuration) {
+					draggedItem.classList.add('dragging');
+					event.target.addEventListener('touchmove', touchMove);
+				}
+			}, holdDuration);
+			
+			event.target.addEventListener('touchend', touchEnd);
+		}
+
+		function touchMove(event) {
+			event.preventDefault();
+
+			const touch = event.touches[0];
+			const offsetX = touch.clientX - touchStartX;
+			const offsetY = touch.clientY - touchStartY;
+
+			draggedItem.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+			draggedItem.style.pointerEvents = 'none';
+			draggedItem.style.position = 'relative';
+			draggedItem.style.zIndex = '1';
+
+			const target = document.elementFromPoint(touch.clientX, touch.clientY);
+
+			const draggableItems = draggableZone.querySelectorAll('.draggable');
+			draggableItems.forEach(item => {
+				item.classList.remove('dragover');
+			});
+
+			const targetDraggable = target.closest('.draggable');
+			if (targetDraggable && targetDraggable !== draggedItem) {
+				targetDraggable.classList.add('dragover');
+			}
+		}
+
+		function touchEnd(event) {
+			event.target.removeEventListener('touchmove', touchMove);
+			event.target.removeEventListener('touchend', touchEnd);
+
+			draggedItem.classList.remove('dragging');
+			draggedItem.style = '';
+
+			const target = document.elementFromPoint(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
+			const targetDraggable = target.closest('.draggable');
+
+			if (draggedItem && targetDraggable && draggedItem !== targetDraggable) {
+				const draggableItems = draggableZone.querySelectorAll('.draggable');
+				const draggedIndex = Array.from(draggableItems).indexOf(draggedItem);
+				const targetIndex = Array.from(draggableItems).indexOf(targetDraggable);
+
+				if (draggedIndex > targetIndex) {
+					draggableZone.insertBefore(draggedItem, targetDraggable);
+				} else {
+					draggableZone.insertBefore(draggedItem, targetDraggable.nextSibling);
+				}
+
+				const updatedDraggableItems = draggableZone.querySelectorAll('.draggable');
+				updatedDraggableItems.forEach((item, index) => {
+					item.setAttribute('data-position', index + 1);
+				});
+			}
+
+			const draggableItems = draggableZone.querySelectorAll('.draggable');
+			draggableItems.forEach(item => {
+				item.classList.remove('dragover');
+			});
+
+			draggedItem = null;
+			draggableZone = null;
 		}
 	}
 
