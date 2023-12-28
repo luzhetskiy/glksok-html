@@ -315,6 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	function draggable() {
 		const draggableZones = document.querySelectorAll('.draggable-zone');
 		let draggedItem = null;
+		let draggedHandle = null;
 		let draggableZone = null;
 		let touchStartX, touchStartY;
 		let touchStartTime = 0;
@@ -402,11 +403,14 @@ document.addEventListener('DOMContentLoaded', () => {
 			touchStartX = event.touches[0].clientX;
 			touchStartY = event.touches[0].clientY;
 			draggedItem = event.target.closest('.draggable');
+			draggedHandle = draggedItem.querySelector('.draggable-handle');
 			draggableZone = draggedItem.closest('.draggable-zone');
 			touchStartTime = Date.now();
+			draggedHandle.draggable = false;
 
 			setTimeout(() => {
 				if (draggedItem && Date.now() - touchStartTime >= holdDuration) {
+
 					draggedItem.classList.add('dragging');
 					event.target.addEventListener('touchmove', touchMove, { passive: false });
 					document.documentElement.style.overflow = 'hidden';
@@ -417,6 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 
 		function touchMove(event) {
+			event.preventDefault();
 
 			const touch = event.touches[0];
 			const offsetX = touch.clientX - touchStartX;
@@ -444,7 +449,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			event.target.removeEventListener('touchstart', touchStart);
 			event.target.removeEventListener('touchmove', touchMove, { passive: false });
 			event.target.removeEventListener('touchend', touchEnd);
-
+			
 			draggedItem.classList.remove('dragging');
 			draggedItem.style = '';
 			document.documentElement.style = '';
@@ -474,6 +479,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				item.classList.remove('dragover');
 			});
 
+			draggedHandle.draggable = true;
 			draggedItem = null;
 			draggableZone = null;
 		}
