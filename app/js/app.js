@@ -412,7 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				if (draggedItem && Date.now() - touchStartTime >= holdDuration) {
 
 					draggedItem.classList.add('dragging');
-					event.target.addEventListener('touchmove', touchMove, { passive: false });
+					event.target.addEventListener('touchmove', touchMove);
 					document.documentElement.style.overflow = 'hidden';
 				}
 			}, holdDuration);
@@ -446,8 +446,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 
 		function touchEnd(event) {
-			event.target.removeEventListener('touchstart', touchStart);
-			event.target.removeEventListener('touchmove', touchMove, { passive: false });
+			event.target.removeEventListener('touchmove', touchMove);
 			event.target.removeEventListener('touchend', touchEnd);
 			
 			draggedItem.classList.remove('dragging');
