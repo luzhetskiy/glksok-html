@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<!-- <base href="/"> -->
+
+	<title>glksok</title>
+	<meta name="description" content="Website">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="icon" href="../images/favicon.svg">
+	
+	<link rel="stylesheet" href="../css/libraries.min.css">
+	<link rel="stylesheet" href="../css/app.min.css">
+
+</head>
+
+<body>
+<div class="page">
+	<header>
+	<nav class="navbar signin navbar-expand-lg navbar-light bg-transparent">
+		<div class="container">
+			<a class="navbar-brand" href="../index.html">
+				<img src="../images/dist/logo.svg" width="56" alt="Logo">
+				<span class="navbar-brand-text">Личный кабинет</span>
+			</a>
+		</div>
+	</nav>
+</header>
+
+	<main>
+
+		<section>
+			<div class="container mt-6 pt-5">
+				<div class="row gy-sm-4 gy-3">
+					<div class="col-xxl-8 col-xl-7 col-lg-6">
+						<div class="card card-bigger card-form card-promocode">
+							<div class="card-header">
+								<button type="button" id="backButton" class="btn btn-link d-flex align-items-center gap-2">
+									<span class="icon icon-solid" style="--i-color: currentColor;">
+										<svg>
+											<use xlink:href="../images/icons/arrow-left.svg#svg-arrow-left"></use>
+										</svg>
+									</span>
+									Назад
+								</button>
+							</div>
+
+							<form action="#" class="card-body needs-validation" novalidate>
+								<div class="card-title">
+									<h3 class="h1">
+										Покупка сертификата
+									</h3>
+								</div>
+
+								<div class="card-form-inputs flex-column">
+									<div class="has-validation mb-4">
+										<div class="form-floating form-control-reset">
+											<input type="text" class="form-control form-control-numbers" id="floatingInputNominal"
+												maxlength="60" placeholder="Номинал от 1000 до 10000 руб." required>
+											<label for="floatingInputNominal">Номинал от 1000 до 10000 руб.</label>
+											<button type="button" class="btn btn-reset">
+												<span class="icon icon-solid">
+													<svg>
+														<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+													</svg>
+												</span>
+											</button>
+										</div>
+
+										<div class="invalid-feedback">
+											Вы все неправильно сделали. Нельзя использовать кириллические символы
+										</div>
+									</div>
+
+									<div class="has-validation mb-4">
+										<div class="form-floating form-control-reset">
+											<input type="email" class="form-control" id="floatingInputEmail" maxlength="48" inputmode="email"
+												placeholder="e-mail, куда отправить" required>
+											<label for="floatingInputEmail">e-mail, куда отправить</label>
+											<button type="button" class="btn btn-reset">
+												<span class="icon icon-solid">
+													<svg>
+														<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+													</svg>
+												</span>
+											</button>
+										</div>
+
+										<div class="invalid-feedback">
+											Вы все неправильно сделали. Нельзя использовать кириллические символы
+										</div>
+									</div>
+
+									<div class="form-floating form-control-reset">
+										<textarea class="form-control" placeholder="Пожелание" id="floatingTextarea"
+											maxlength="200"></textarea>
+										<label for="floatingTextarea">Пожелание</label>
+										<button type="button" class="btn btn-reset">
+											<span class="icon icon-solid">
+												<svg>
+													<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+												</svg>
+											</span>
+										</button>
+									</div>
+								</div>
+
+								<div class="card-button mt-sm-5 mt-4">
+									<button type="submit" class="btn btn-secondary" data-bs-toggle="modal"
+										data-bs-target="#modalPromocode">
+										Войти
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+
+					<div class="col-xxl-4 col-xl-5 col-lg-6">
+						<div class="card card-list card-list--promocode">
+							<div class="card-header">
+								<p>
+									что такое подарочный сертификат
+								</p>
+
+								<img src="../images/dist/gift-img.jpg" class="card-img d-lg-block d-none" loading="lazy"
+									alt="Gift Image">
+							</div>
+
+							<div class="card-body">
+								<h2 class="card-title">
+									Дарите активный отдых
+								</h2>
+
+								<ol class="list-group list-group-flush list-group-numbered mb-5">
+									<li class="list-group-item d-flex align-items-start gap-2">
+										После выбора номинала для сертификата и его оплаты, на указанный e-mail поступит уникальный код для
+										пополнения баланса Личного кабинета на lk.glksok.ru
+									</li>
+									<li class="list-group-item d-flex align-items-start gap-2">
+										Сертификат можно использовать только один раз
+									</li>
+									<li class="list-group-item d-flex align-items-start gap-2">
+										В данный момент сертификат можно использовать только для оплаты канатных дорог
+									</li>
+								</ol>
+
+								<p class="card-text">
+									Для вопросов: <a href="mailto:lk@glksok.ru" class="btn btn-link">lk@glksok.ru</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<footer class="footer">
+	<div class="container">
+		<div class="footer-text">
+			Горнолыйжный комплес <span>«СОК», Самара</span>
+		</div>
+	</div>
+</footer>
+</div>
+<div class="modal modal-promocode fade" id="modalPromocode" tabindex="-1" aria-labelledby="modalPromocodeLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header" style="background-image: url(../images/dist/gift-bg.png);">
+				<h2 class="modal-title" id="modalPromocodeLabel">
+					Подарочный сертификат
+					#glksok на 1000 рублей
+				</h2>
+				<div class="modal-header-promo">
+					<h3>
+						Промо-код:
+					</h3>
+					<span>
+						SvGsljksp01H
+					</span>
+				</div>
+				<div class="modal-header-request">
+					<h3>
+						Пожелание:
+					</h3>
+					<p>
+						От коллег компании “Спорт Поставка”. С Днем рождения! Живи активно!
+					</p>
+				</div>
+				<button type="button" class="btn-close btn-icon" data-bs-dismiss="modal" aria-label="Закрыть">
+					<span class="icon icon-solid">
+						<svg>
+							<use xlink:href="../images/icons/cross.svg#svg-cross"></use>
+						</svg>
+					</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<ol class="list-group list-group-flush list-group-numbered ms-sm-4 mt-4 mb-5">
+					<li class="list-group-item d-flex align-items-start gap-2">
+						Чтобы использовать сертификат нужно иметь регистрацию на lk.glksok.ru
+					</li>
+					<li class="list-group-item d-flex align-items-start gap-2">
+						На странице пополнения баланса в личном кабинете ввести промо-код
+					</li>
+					<li class="list-group-item d-flex align-items-start gap-2">
+						Нажать кнопку «Применить» и ваш баланс пополниться на сумму сертификата
+					</li>
+				</ol>
+
+				<p class="modal-text ms-sm-4">
+					Для связи — lk@glksok.ru
+				</p>
+			</div>
+			<div class="modal-footer ms-sm-4">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Закрыть">
+					Закрыть
+				</button>
+				<button type="button" class="btn btn-outline-primary">
+					<span class="icon">
+						<svg>
+							<use xlink:href="../images/icons/printer.svg#svg-printer"></use>
+						</svg>
+					</span>
+					Скачать pdf
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+	
+	<script src="../js/bootstrap.bundle.min.js"></script>
+	<script src="../js/app.min.js"></script>
+
+</body>
+</html>

@@ -153,6 +153,69 @@
 									покупать услуги.
 								</p>
 							</form>
+
+							<form action="#" id="formPromoCode" class="card-body needs-validation" novalidate>
+								<div class="card-title">
+									<h3 class="h3">Применить промо-код / сертификат</h3>
+								</div>
+
+								<div class="card-form-inputs card-form-promocode mb-sm-5 mb-3">
+									<div class="has-validation has-validation-md me-lg-5 mb-lg-0 mb-sm-5 mb-4">
+										<div class="form-floating form-control-reset">
+											<input type="text" class="form-control" id="floatingInputCode" maxlength="60"
+												placeholder="введите код" required>
+											<label for="floatingInputCode">введите код</label>
+											<button type="button" class="btn btn-reset">
+												<span class="icon icon-solid">
+													<svg>
+														<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+													</svg>
+												</span>
+											</button>
+										</div>
+
+										<div class="invalid-feedback">
+											Вы все неправильно сделали. Нельзя использовать кириллические символы
+										</div>
+									</div>
+
+									<div id="outputPromoCode" class="has-validation-sm d-none me-lg-5 mb-lg-0 mb-sm-5 mb-4">
+										<input type="text" class="form-control fs-2 lh-1 bg-success-light text-center" value="1000Р" readonly>
+										<!-- (Start) Скрытие и раскрытие суммы -->
+										<script>
+											const formPromoCode = document.querySelector('#formPromoCode'),
+														formInput = formPromoCode.querySelector('#floatingInputCode'),
+														btnReset = formPromoCode.querySelector('.btn-reset')
+														outputPromoCode = formPromoCode.querySelector('#outputPromoCode')
+
+											formInput.addEventListener('input', function () {
+												const inputLength = this.value.length;
+												
+												if (inputLength > 3) {
+													outputPromoCode.classList.remove('d-none');
+												} else {
+													outputPromoCode.classList.add('d-none');
+												}
+											});
+
+											btnReset.addEventListener('click', function () {
+												outputPromoCode.classList.add('d-none');
+											})
+										</script>
+										<!-- (End) Скрытие и раскрытие суммы -->
+									</div>
+
+									<div class="card-button">
+										<button type="submit" class="btn btn-secondary btn-disabled" disabled>
+											Применить
+										</button>
+									</div>
+								</div>
+
+								<p class="card-text d-sm-block d-none">
+									Если у вас есть подарочный сертификат или промокод, вы можете его использовать для пополнения баланса ващего аккаунта
+								</p>
+							</form>
 						</div>
 					</div>
 				</div>

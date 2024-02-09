@@ -30,13 +30,17 @@
 	.nav-item
 
 		&:not(:first-child)
-			margin-left: var(--bs-navbar-nav-item-margin-x)
+			margin: initial
 
 		&:not(:last-child)
-			margin-right: var(--bs-navbar-nav-item-margin-x)
+			margin: initial
+			margin-bottom: var(--bs-navbar-nav-item-margin-y)
 
 	
 	.nav-link
+		display: flex
+		align-items: center
+		padding-left: .5rem
 		line-height: 1.375rem
 
 		&.disabled
@@ -55,10 +59,15 @@
 				--i-color: var(--bs-nav-link-hover-color)
 
 		.icon
-			display: none
+				display: block
+				margin-right: 1rem
 
 	&-footer
-		display: none
+		margin-top: auto
+		color: var(--bs-gray-600)
+
+		&>a
+			display: block
 
 	&.signin
 
@@ -67,3 +76,17 @@
 			font-weight: var(--bs-font-weight-medium)
 			line-height: 2.375rem
 			color: var(--bs-heading-color)
+
+.offcanvas
+	border-radius: var(--bs-border-radius-xl) 0 0 var(--bs-border-radius-xl)
+	padding: 1.5rem 1rem 2rem 2rem
+	box-shadow: var(--bs-box-shadow-lg)
+
+	&-header
+		margin-bottom: 2rem
+
+	.btn-close
+		background-color: var(--bs-white)
+		border-radius: 50%
+		margin-left: auto
+		padding: .5rem

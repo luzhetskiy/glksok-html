@@ -3,6 +3,14 @@ import Choices from 'choices.js'
 
 document.addEventListener('DOMContentLoaded', () => {
 
+	const backButton = document.querySelector('#backButton');
+
+	if (backButton) {
+		backButton.addEventListener('click', function () {
+			history.back();
+		});
+	}
+
 	function restrictInputToHex() {
 		const formControlID = document.querySelectorAll('.form-control-id');
 
@@ -29,45 +37,82 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		if (formControlResets.length > 0) {
 			formControlResets.forEach(function (formControlReset) {
+				const textarea = formControlReset.querySelector('textarea');
 				const input = formControlReset.querySelector('input');
 				const btnReset = formControlReset.querySelector('.btn-reset');
+				const btnReveal = formControlReset.querySelector('.btn-reveal');
 				const form = formControlReset.closest('.needs-validation');
 				const btnSubmit = form.querySelector('.btn-disabled[type="submit"]');
 				const inputs = form.querySelectorAll('input:required');
 				const selects = form.querySelectorAll('select:required');
 
-				input.addEventListener('input', function () {
-					if (input.value.trim() !== '') {
-						formControlReset.classList.add('is-show');
-					} else {
+				if (input) {
+					input.addEventListener('input', function () {
+						if (input.value.trim() !== '') {
+							formControlReset.classList.add('is-show');
+						} else {
+							formControlReset.classList.remove('is-show');
+						}
+	
+						if (checkAllInputsFilled()) {
+							if (btnSubmit) {
+								btnSubmit.removeAttribute('disabled');
+							}
+						} else {
+							if (btnSubmit) {
+								btnSubmit.setAttribute('disabled', 'disabled');
+							}
+						}
+					});
+				}
+
+				if (textarea) {
+					textarea.addEventListener('input', function () {
+						if (textarea.value.trim() !== '') {
+							formControlReset.classList.add('is-show');
+						} else {
+							formControlReset.classList.remove('is-show');
+						}
+					})
+				}
+
+				if (btnReveal) {
+					btnReveal.addEventListener('click', function () {
+						btnReveal.classList.toggle('is-show')
+
+						if (!input) {
+							return
+						} else {
+							if (btnReveal.classList.contains('is-show')) {
+								input.type = 'text';
+							} else {
+								input.type = 'password';
+							}
+						}
+					})
+				}
+
+				if (btnReset) {
+					btnReset.addEventListener('click', function () {
+						if (input) {
+							input.value = '';
+						}
+						if (textarea) {
+							textarea.value = '';
+						}
 						formControlReset.classList.remove('is-show');
-					}
-
-					if (checkAllInputsFilled()) {
-						if (btnSubmit) {
-							btnSubmit.removeAttribute('disabled');
+	
+						if (checkAllInputsFilled()) {
+							if (btnSubmit) {
+								btnSubmit.removeAttribute('disabled');
+							}
+						} else {
+							if (btnSubmit) {
+								btnSubmit.setAttribute('disabled', 'disabled');
+							}
 						}
-					} else {
-						if (btnSubmit) {
-							btnSubmit.setAttribute('disabled', 'disabled');
-						}
-					}
-				});
-
-				btnReset.addEventListener('click', function () {
-					input.value = '';
-					formControlReset.classList.remove('is-show');
-
-					if (checkAllInputsFilled()) {
-						if (btnSubmit) {
-							btnSubmit.removeAttribute('disabled');
-						}
-					} else {
-						if (btnSubmit) {
-							btnSubmit.setAttribute('disabled', 'disabled');
-						}
-					}
-				});
+					});
+				}
 
 				function checkAllInputsFilled() {
 					let allFieldsFilled = true;

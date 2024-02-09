@@ -40,6 +40,9 @@
 	&-body
 		padding: 0 var(--bs-card-spacer-x) var(--bs-card-spacer-y)
 
+		& ~ &
+			margin-top: calc( (var(--bs-card-spacer-y) - 1.5rem) * -1 )
+
 	&-info
 		margin-bottom: 2rem
 
@@ -224,6 +227,9 @@
 			&-sm
 				max-width: 200px
 
+			&-md
+				max-width: 260px
+
 	.tab-pane
 
 		.card-body
@@ -233,7 +239,7 @@
 
 	.card-body
 
-		& > *:not(.card-img)
+		& > *:not(.card-img, .card-form-promocode)
 			max-width: 616px
 
 	.card-img
@@ -242,6 +248,11 @@
 		position: absolute
 		bottom: -180px
 		right: -450px
+
+.card-promocode
+	--bs-card-cap-padding-y: 2.5rem
+	--bs-card-spacer-y: 2.5rem
+
 
 .card-skipass
 	--bs-card-spacer-y: 1rem
@@ -431,7 +442,19 @@
 	.card-text
 		color: var(--bs-card-color)
 
+.card-list--promocode
 
+	.card-header
+
+		p
+			max-width: initial
+			margin: initial initial 1rem initial
+
+	.card-img
+		width: 100%
+		position: static
+		top: initial
+		left: initial
 
 
 

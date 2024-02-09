@@ -135,6 +135,38 @@ a
 		.icon
 			opacity: 1
 
+.btn-reveal
+	--bs-btn-padding-y: .125rem
+	--bs-btn-padding-x: .125rem
+	--bs-btn-bg: var(--bs-white)
+	--bs-btn-hover-bg: var(--bs-white)
+	--bs-btn-active-bg: var(--bs-white)
+	--bs-btn-border-width: 0
+	--bs-btn-border-radius: 50%
+	transition: opacity 150ms ease-in-out, visibility 150ms ease-in-out
+
+	.icon
+		--i-size: 1.25rem
+		--i-color: var(--bs-gray-700)
+		opacity: .8
+		transition: opacity 300ms ease-in-out
+
+	.icon-eye-visibility
+			display: none
+
+	&:is(:hover, :focus-visible, :active)
+
+		.icon
+			opacity: 1
+
+	&.is-show
+
+		.icon-eye-visibility
+			display: block
+
+		.icon-eye-closed
+			display: none
+
 .btn-close
 	--bs-btn-close-focus-shadow: none
 	--bs-btn-close-color: var(--bs-blue)
@@ -170,9 +202,20 @@ a
 		&:invalid:focus
 			box-shadow: none
 
+textarea.form-control
+	max-height: 16rem
+	height: initial
+
+.form-floating
+
+	> textarea.form-control
+		height: initial
+		min-height: 10rem
+
 .form
 
 	&-control
+		min-height: 3.5rem
 
 		&.is-invalid
 
@@ -181,20 +224,21 @@ a
 
 		&-reset
 
-			.btn-reset
+			.btn-reset,
+			.btn-reveal
 				opacity: 0
 				visibility: hidden
 				position: absolute
-				top: 50%
+				top: 1rem
 				right: 1rem
-				transform: translateY(-50%)
 
 			.form-control
 				padding-right: 3rem
 
 			&.is-show
 
-				.btn-reset
+				.btn-reset,
+				.btn-reveal
 					visibility: visible
 					opacity: 1
 
