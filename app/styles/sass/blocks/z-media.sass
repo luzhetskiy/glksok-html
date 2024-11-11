@@ -113,6 +113,53 @@
 				display: block
 				margin-right: 1rem
 
+		&-main
+
+			.navbar-brand
+
+				img
+					width: 100px
+
+			.nav-link
+
+				.icon
+					margin: 0
+
+			.container 
+				
+				> .navbar-nav
+						gap: 2rem
+
+			.offcanvas
+				border-radius: 0
+				padding-top: 0
+				padding-inline: 0
+
+				&-body
+					margin-top: 0
+
+				.navbar-nav
+					--bs-nav-link-font-size: 1.25rem
+
+					.nav-link
+						gap: 1rem
+						padding-left: 0
+
+						&:not([data-has-icon])
+							padding-left: 0
+
+						.icon
+							--i-size: 1.5rem
+							margin: 0
+
+				.navbar-social
+					padding-left: 0
+					margin-bottom: 0
+
+					.nav-link
+						.icon
+							--i-size: 3rem
+
 		&-footer
 			display: block
 			margin-top: auto
@@ -185,6 +232,47 @@
 			& > p
 				max-width: initial
 
+	.card-category
+		--bs-card-cap-padding-y: 1rem
+		
+		.card-header
+			font-size: 1rem
+
+	// sections
+	.section
+
+		&-title
+			font-size: 2.25rem
+
+	// hero
+	.hero
+
+		&-image
+			min-height: 240px
+
+	// weather
+	.weather
+
+		&::after
+			top: -200px
+
+		&-info
+			gap: .25rem
+			line-height: 1
+			padding-block: 0 1rem
+			
+			&-value,
+			&-subtitle
+				line-height: inherit
+
+			&-suptitle
+				font-size: 1rem
+
+			&-value
+				font-size: 2.25rem
+
+			&-subtitle
+				font-size: 1.25rem
 
 @media (max-width: 767.98px)
 
@@ -227,9 +315,6 @@
 
 @media (max-width: 575.98px)
 
-	.container
-		--bs-gutter-x: 1rem
-
 	.page
 
 		&-header
@@ -265,7 +350,7 @@
 		--bs-card-spacer-x: 1rem
 		--bs-card-cap-padding-y: 1rem
 
-		&:not(.card-mini, .card-add)
+		&:not(.card-mini, .card-add, .card-category)
 			min-height: 300px
 
 		&:not(:last-child)

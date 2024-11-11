@@ -1,12 +1,76 @@
 <!--#set var="title" value="glksok" -->
 <!--#include virtual="/parts/head.html" -->
-<div class="page">
-	<!--#include virtual="/parts/header.html" -->
+<div class="page bg-white">
+	<!--#include virtual="/parts/header-main.html" -->
 
 	<main>
-		
+		<section class="section hero">
+			<picture>
+				<!-- <source srcset="./images/dist/firstscreen_bg.webp" type="image/webp"> -->
+				<img loading="lazy" src="./images/dist/firstscreen_bg.jpg" class="hero-image" width="1360" height="500" alt="Картинка">
+			</picture>
+		</section>
+
+		<section class="section category">
+			<div class="container">
+				<div class="section-header">
+					<h2 class="section-title text-center">
+						“СОК” — семейный горный курорт в 30-ти
+						<br>
+						минутах от центра Самары
+					</h2>
+				</div>
+
+				<div class="row g-lg-5 g-3">
+					<div class="col-xl-3 col-lg-4 col-6">
+						<a href="#" class="card card-category" style="background-image: url(../images/dist/category/category-1.png);">
+							<h3 class="card-header">
+								о комплексе
+							</h3>
+						</a>
+					</div>
+					<div class="col-xl-3 col-lg-4 col-6">
+						<a href="#" class="card card-category is-active" style="background-image: url(../images/dist/category/category-2.png);">
+							<h3 class="card-header">
+								цены
+							</h3>
+						</a>
+					</div>
+					<div class="col-xl-3 col-lg-4 col-6">
+						<a href="#" class="card card-category" style="background-image: url(../images/dist/category/category-3.png);">
+							<h3 class="card-header">
+								расписание
+							</h3>
+						</a>
+					</div>
+					<div class="col-xl-3 col-lg-4 col-6">
+						<a href="#" class="card card-category" style="background-image: url(../images/dist/category/category-4.png);">
+							<h3 class="card-header">
+								пополнить
+								<br>
+								скипасс
+							</h3>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section weather">
+			<picture class="weather-picture">
+				<!-- <source srcset="./images/dist/weather_bg.webp" type="image/webp"> -->
+				<img loading="lazy" src="./images/dist/weather_bg.jpg" class="weather-image" width="1360" height="415" alt="Картинка">
+			</picture>
+			<div class="container">
+				<div class="weather-info">
+					<div class="weather-info-suptitle">сейчас у нас:</div>
+					<div class="weather-info-value h1">-9°C</div>
+					<div class="weather-info-subtitle h2">переменная облачность</div>
+				</div>
+			</div>
+		</section>
 	</main>
 
-	<!--#include virtual="/parts/footer.html" -->
+	<!-- #include virtual="/parts/footer.html" -->
 </div>
 <!--#include virtual="/parts/scripts.html" -->
