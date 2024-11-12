@@ -470,7 +470,7 @@
 	background-size: contain
 	background-position: 100% 100%
 
-	&:is(:hover, :focus-visible, :active, .is-active)
+	&:is(:hover, :focus-visible, :active, .active)
 		--bs-card-bg: #8EC5FE
 		--bs-card-border-color: #8EC5FE
 
@@ -482,6 +482,48 @@
 		border: 0
 		transition: color 300ms ease-in-out
 
+.card-article
+	--bs-card-spacer-y: 1rem
+	--bs-card-spacer-x: 1.5rem
+	--bs-card-inner-border-radius: var(--bs-card-border-radius)
 
+	width: 20rem
+	height: 100%
+	min-height: 400px
 
+	.card-body
+		padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x)
 
+	.card-img-top
+		height: auto
+		min-height: 12.5rem
+		object-fit: cover
+
+	.card-time,
+	.card-title
+		display: block
+		color: var(--bs-heading-color)
+
+	.card-time
+		font-size: 1.5rem
+		font-weight: 500
+		line-height: normal
+		margin-bottom: .5rem
+
+	.card-title
+		font-size: 1.25rem
+		margin: 0
+		transition: color 300ms ease-in-out
+
+		.icon
+			--i-color: var(--bs-heading-color)
+
+			display: inline-block
+			vertical-align: middle
+
+	&:is(:hover, :focus-visible, :active, .active)
+		--bs-card-bg: #8EC5FE
+		--bs-card-border-color: #8EC5FE
+
+		.card-title
+			color: var(--bs-secondary)

@@ -1,0 +1,40 @@
+$themeColor: var(--bs-secondary)
+
+// Swiper
+@import 'node_modules/swiper/swiper'
+@import 'node_modules/swiper/modules/navigation'
+@import 'node_modules/swiper/modules/pagination'
+
+.swiper-pagination
+	--swiper-pagination-bullet-size: .75rem
+	--swiper-pagination-bullet-inactive-color: var(--bs-blue-light)
+	--swiper-pagination-bullet-inactive-opacity: 1
+	--swiper-pagination-bullet-horizontal-gap: .5rem
+
+	display: flex
+	align-items: center
+	justify-content: center
+	position: static
+	
+	&:not(.swiper-pagination-lock)
+		margin-top: 1rem
+
+.swiper-button-next,
+.swiper-button-prev
+	--swiper-navigation-size: 3rem
+	--bs-btn-border-width: 0
+	--bs-btn-border-radius: 50%
+	--bs-btn-padding-x: .5rem
+	--bs-btn-padding-y: .5rem
+
+	width: var(--swiper-navigation-size)
+
+	@media (max-width: 991.98px)
+		display: none
+
+	.icon
+		--i-size: 100%
+		--i-color: currentColor
+
+	&::after
+		all: unset

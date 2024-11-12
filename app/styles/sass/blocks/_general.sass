@@ -19,17 +19,13 @@
 			top: -1rem
 
 
-h1, .h1
-	line-height: 3.125rem
-
+h1, .h1,
 h2, .h2
-	line-height: 2.375rem
+	line-height: 1
 
-h4, .h4
-	line-height: 1.75rem
-
+h4, .h4,
 h5, .h5
-	line-height: 1.5rem
+	line-height: 1.125
 
 a
 	text-decoration: none
@@ -99,6 +95,21 @@ a
 	--bs-btn-active-border-color: var(--bs-secondary-dark)
 	--bs-btn-border-color: var(--bs-border-color)
 	--bs-btn-focus-box-shadow: none
+
+.btn-outline-white
+	--bs-btn-color: var(--bs-white)
+	--bs-btn-bg: transparent
+	--bs-btn-border-color: rgba(var(--bs-white-rgb), .5)
+	--bs-btn-hover-color: var(--bs-white)
+	--bs-btn-hover-bg: rgba(var(--bs-white-rgb), .5)
+	--bs-btn-hover-border-color: rgba(var(--bs-white-rgb), .5)
+	--bs-btn-active-color: var(--bs-white)
+	--bs-btn-active-bg: rgba(var(--bs-white-rgb), .5)
+	--bs-btn-active-border-color: rgba(var(--bs-white-rgb), .5)
+
+	display: flex
+	align-items: center
+	justify-content: center
 
 .btn-icon
 	--bs-btn-padding-x: 1.5rem
@@ -194,6 +205,12 @@ a
 			
 			.icon
 				opacity: 1
+
+.btn-has-icon
+	justify-content: space-between
+
+	.icon
+		margin-right: calc( var(--bs-btn-padding-x) / 2 * -1 )
 
 .was-validated,
 
@@ -458,6 +475,7 @@ textarea.form-control
 				border-radius: 0 var(--bs-nav-tabs-border-radius) var(--bs-nav-tabs-border-radius) 0
 
 	.nav-link
+		background-color: var(--bs-nav-tabs-background-color)
 		border-radius: 0
 		border-color: var(--bs-nav-tabs-border-color)
 

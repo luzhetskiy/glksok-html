@@ -7,3 +7,56 @@
 	&-title
 		font-size: 3rem
 		margin-bottom: 0
+
+	&-gradient
+
+		&-secondary
+			position: relative
+			z-index: 0
+
+			&::after
+				content: ''
+				display: block
+				background-image: linear-gradient(0deg, rgba(255, 72, 129, 0) 0%, var(--bs-secondary) 100%)
+				border-bottom-left-radius: var(--bs-border-radius-xl)
+				border-bottom-right-radius: var(--bs-border-radius-xl)
+				pointer-events: none
+				user-select: none
+				position: absolute
+				top: -4rem
+				left: 0
+				right: 0
+				bottom: 0
+				z-index: -1
+
+			&,
+			h1,
+			h2,
+			h3
+				color: var(--bs-white)
+
+	&-background
+
+		&-primary-200
+
+			&::after
+				background-color: var(--bs-blue-200)
+				border-bottom-left-radius: var(--bs-border-radius-xl)
+				border-bottom-right-radius: var(--bs-border-radius-xl)
+
+			&,
+			h1,
+			h2,
+			h3
+				color: var(--bs-white)
+
+			.nav-tabs
+
+				.nav-link
+					--bs-nav-tabs-background-color: var(--bs-white)
+
+	&-more
+		margin-top: 2rem
+
+		.btn
+			width: 100%

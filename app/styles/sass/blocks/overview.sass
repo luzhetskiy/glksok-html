@@ -1,0 +1,57 @@
+.overview
+	padding-block: 2rem
+
+	@media (max-width: 991.98px)
+		padding-top: .5rem
+
+	&-row
+
+		> *
+
+			@media (min-width: 991.98px)
+				&:not(:first-child, :last-child)
+					display: flex
+					justify-content: center
+
+					> *
+						max-width: 13.75rem
+
+				&:last-child
+					display: flex
+					justify-content: flex-end
+
+	&-item
+
+		&-title,
+		&-subtitle
+			margin: 0
+
+		&-title
+			font-size: 4rem
+
+			@media (max-width: 991.98px)
+				font-size: 2.25rem
+
+		&-subtitle
+			font-size: 1.5rem
+			line-height: 1
+
+			@media (max-width: 991.98px)
+				font-size: 1.25rem
+
+	&-buttons
+		display: flex
+		flex-wrap: wrap
+		align-items: center
+		gap: 1.5rem
+		margin-top: 3rem
+
+		@media (max-width: 991.98px)
+			gap: 1rem
+			margin-top: 2rem
+
+		.btn
+			min-width: 15rem
+
+			@media (max-width: 575.98px)
+				min-width: 100%
