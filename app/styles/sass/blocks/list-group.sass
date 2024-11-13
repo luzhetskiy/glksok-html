@@ -2,6 +2,9 @@
 	--bs-list-group-bg: var(--bs-white)
 	--bs-list-group-border-width: 0
 
+	&-item-action
+		color: var(--bs-list-group-action-color)
+
 .list-group-flush
 	--bs-list-group-item-padding-y: 0
 	--bs-list-group-item-padding-x: .25rem
@@ -20,3 +23,68 @@
 
 	.list-group-item
 		border-radius: var(--bs-list-group-border-radius)
+
+.list-group-plaintext
+	--bs-list-group-color: #37474F
+	--bs-list-group-action-color: var(--bs-black)
+	--bs-list-group-action-hover-color: var(--bs-secondary)
+	--bs-list-group-action-active-color: var(--bs-secondary)
+	--bs-list-group-bg: transparent
+	--bs-list-group-action-hover-bg: transparent
+	--bs-list-group-action-active-bg: transparent
+	--bs-list-group-border-color: transparent
+
+	--bs-list-group-item-padding-y: .25rem
+	--bs-list-group-item-padding-x: 0
+	
+	font-size: 1.125rem
+	line-height: normal
+
+	.list-group-item
+		margin: 0
+
+		&-title
+			font-size: 1.25rem
+			line-height: inherit
+			color: var(--bs-list-group-color)
+			margin-bottom: .25rem
+			padding-block: 0
+
+.list-group-social
+	
+	.list-group-item
+
+		&-title
+			margin-bottom: 1rem
+
+	.navbar-nav
+		--bs-nav-link-padding-y: 0
+
+		flex-direction: row
+		gap: 1rem
+
+		.nav-link
+			
+			.icon
+				--i-size: 3rem
+				--i-color: currentColor
+
+.list-group-address
+
+	@media (max-width: 991.98px)
+		font-size: 1rem
+
+	.list-group-item
+
+		&-title
+			display: flex
+			align-items: center
+			gap: .5rem
+
+.list-group-contacts
+
+	@media (max-width: 991.98px)
+		font-size: 1.5rem
+		font-weight: 500
+
+

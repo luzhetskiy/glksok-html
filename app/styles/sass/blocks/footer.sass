@@ -10,3 +10,117 @@
 
 		&>span
 			margin-left: .25rem
+
+	&-main
+		color: #37474F
+		background-color: #E6EBF1
+		margin-top: -4rem
+		padding-block: 4rem 2rem
+		position: relative
+
+		@media (max-width: 1200px)
+			padding-top: 8rem
+
+		&-nav
+
+			@media (max-width: 992px)
+				display: none
+
+			.navbar-nav
+				--bs-nav-link-color: var(--bs-black)
+				--bs-nav-link-hover-color: var(--bs-secondary)
+
+
+				align-items: stretch
+
+				.nav-link
+					line-height: normal
+
+					&:focus-visible
+						box-shadow: unset
+
+		.list-group-address,
+		.list-group-social
+
+			@media (max-width: 768px)
+				text-align: center
+
+			.list-group-item
+
+				&-title
+
+					@media (max-width: 768px)
+						flex-direction: column
+						color: var(--bs-black)
+
+					.icon
+						--i-size: 3rem
+						--i-color: var(--bs-secondary)
+
+		.list-group-social
+
+			.navbar-nav
+				@media (max-width: 768px)
+					justify-content: center
+
+		&-top
+			padding-bottom: 1.25rem
+
+			@media (max-width: 768px)
+				padding-bottom: 2rem
+
+		&-bottom
+			border-top: 1px solid var(--bs-white)
+			padding-top: 2rem
+
+			.navbar-brand
+				--bs-navbar-brand-color: inherit
+
+				white-space: initial
+
+				@media (min-width: 1200px)
+					width: 12.5rem
+					position: relative
+
+				.image
+					width: 8rem
+					height: 8rem
+					display: block
+					object-fit: contain
+					position: absolute
+					top: -2rem
+					left: 50%
+					transform: translateX(-50%)
+					z-index: 1
+
+					@media (min-width: 1200px)
+						width: 4rem
+						height: 4rem
+						top: 50%
+						right: calc( 100% + 1rem )
+						left: auto
+						transform: translateY(-50%)
+
+			.list-group
+				--bs-list-group-action-color: inherit
+				--bs-list-group-item-padding-y: 0
+
+				width: 100%
+				align-items: stretch
+				gap: 1rem
+				font-size: 1rem
+
+				@media (min-width: 768px)
+					width: auto
+					flex-direction: row
+					align-items: center
+					gap: 2rem
+
+				.list-group-item-action
+					width: fit-content
+
+
+
+
+
+
