@@ -5,7 +5,7 @@
     "body": [
       "<span class=\"icon\">",
       "  <svg>",
-      "    <use xlink:href=\"../images/icons/.svg#svg-\"></use>",
+      "    <use xlink:href=\"images/icons/.svg#svg-\"></use>",
       "  </svg>",
       "</span>"
     ],
@@ -105,8 +105,8 @@
     "prefix": "g-picture",
     "body": [
       "<picture>",
-      "  <source srcset=\"../images/$1.webp\" type=\"image/webp\">",
-      "  <img loading=\"lazy\" src=\"../images/$1.$2\" class=\"image\" width=\"$4\" height=\"$5\" alt=\"$3\">",
+      "  <source srcset=\"images/$1.webp\" type=\"image/webp\">",
+      "  <img loading=\"lazy\" src=\"images/$1.$2\" class=\"image\" width=\"$4\" height=\"$5\" alt=\"$3\">",
       "</picture>"
     ],
     "description": "Snippet for basic logo structure"
