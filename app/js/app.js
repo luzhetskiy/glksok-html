@@ -565,6 +565,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const bannerSwiperClass = document.querySelectorAll('.swiper-banner')
 	const articleSwiperClass = document.querySelectorAll('.swiper-article')
+	const infrastructureSwiperClass = document.querySelectorAll('.swiper-infrastructure')
 	const allNavigationNext = document.querySelectorAll('.swiper-button-next')
 	const allNavigationPrev = document.querySelectorAll('.swiper-button-prev')
 
@@ -607,6 +608,21 @@ document.addEventListener('DOMContentLoaded', () => {
 					spaceBetween: 32,
 				}
 			}
+		});
+	})
+
+	infrastructureSwiperClass?.forEach((element) => {
+		const swiperElement = element.querySelector('.swiper')
+		const pagination = element.querySelector('.swiper-pagination')
+
+		new Swiper(swiperElement, {
+			modules: [Pagination],
+			spaceBetween: 24,
+
+			pagination: {
+				el: pagination,
+				clickable: true,
+			},
 		});
 	})
 

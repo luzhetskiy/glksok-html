@@ -1,0 +1,68 @@
+.infrastructure
+	
+	&-image
+		width: 100%
+		height: 100%
+		display: block
+		object-fit: contain
+		border-top-left-radius: var(--bs-border-radius-xl)
+		border-top-right-radius: var(--bs-border-radius-xl)
+
+		@media (max-width: 576px)
+			width: calc( 100% + 2rem )
+			margin-inline: -1rem
+
+	&-info
+		font-size: 1.25rem
+		color: var(--bs-black)
+		background-color: var(--bs-white)
+		border-bottom-left-radius: var(--bs-border-radius-xl)
+		border-bottom-right-radius: var(--bs-border-radius-xl)
+		padding: 4rem 2rem
+
+		@media (max-width: 992px)
+			font-size: 1rem
+
+		@media (max-width: 576px)
+			margin-inline: -1rem
+			padding: 1.5rem 1rem 0
+
+		&-title
+			color: inherit
+			margin-bottom: 1.5rem
+
+			@media (max-width: 992px)
+				margin-bottom: 1rem
+
+		&-subtitle
+			font-size: 1.5rem
+			font-weight: 500
+
+			@media (max-width: 992px)
+				font-size: 1.25rem
+
+		p
+			margin: 0
+
+			+ p
+				margin-top: 1rem
+
+	.swiper-infrastructure
+		width: 100%
+		height: 100%
+		display: flex
+		flex-direction: column
+		justify-content: center
+
+		@media (max-width: 576px)
+			width: calc( 100% + 2rem )
+			margin-inline: -1rem
+
+		.swiper
+			width: 100%
+
+			&-pagination
+
+				@media (max-width: 576px)
+					display: none
+

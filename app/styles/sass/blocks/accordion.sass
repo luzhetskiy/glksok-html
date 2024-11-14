@@ -1,0 +1,75 @@
+.accordion-flush
+	--bs-accordion-color: inherit
+	--bs-accordion-bg: transparent
+	--bs-accordion-btn-color: var(--bs-black)
+	--bs-accordion-active-color: var(--bs-secondary)
+	--bs-accordion-btn-bg: transparent
+	--bs-accordion-active-bg: transparent
+	--bs-accordion-btn-icon: unset
+	--bs-accordion-btn-active-icon: unset
+	--bs-accordion-border-color: var(--bs-body-bg)
+	--bs-accordion-btn-padding-y: 1.5rem
+	--bs-accordion-btn-padding-x: 0
+	--bs-accordion-body-padding-y: 1rem
+	--bs-accordion-body-padding-x: 2rem
+	--bs-accordion-btn-focus-border-color: unset
+	--bs-accordion-btn-focus-box-shadow: unset
+
+	@media (max-width: 992px)
+		--bs-accordion-btn-padding-y: 1rem
+		--bs-accordion-body-padding-x: 0
+
+	.accordion-button
+		font-size: 1.5rem
+		font-weight: 500
+		gap: 1rem
+
+		@media (max-width: 992px)
+			font-size: 1.25rem
+
+		&:hover
+			color: var(--bs-accordion-active-color)
+
+		&:not(.collapsed)
+			box-shadow: unset
+
+			.accordion-button-icon
+				&::after
+					transform: translate(-50%, -50%) rotate(90deg)
+
+		&-icon
+			width: 2.25rem
+			height: 2.25rem
+			flex-shrink: 0
+			background-color: var(--bs-white)
+			margin-left: auto
+			border: 1px solid var(--bs-border-color)
+			border-radius: 50%
+			padding: .5rem
+			position: relative
+
+			&::before,
+			&::after
+				content: ''
+				width: 2px
+				height: calc( 100% - 1rem )
+				display: block
+				background-color: var(--bs-secondary)
+				pointer-events: none
+				user-select: none
+				position: absolute
+				top: 50%
+				left: 50%
+				transform: translate(-50%, -50%)
+				transition: transform 300ms ease-in-out, opacity 300ms ease-in-out
+
+			&::before
+				transform: translate(-50%, -50%) rotate(90deg)
+
+		&::after
+			all: unset
+
+	.accordion-body
+		padding-top: unset
+
+
