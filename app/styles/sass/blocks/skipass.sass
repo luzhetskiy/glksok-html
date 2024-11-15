@@ -1,0 +1,50 @@
+.skipass
+
+	&-slide
+		height: 100%
+		display: flex
+		gap: 3rem
+		font-size: 1.25rem
+		background-color: #A5D1FE
+		border-radius: var(--bs-border-radius-xl)
+		padding-inline: 6.25rem 4rem
+		
+		@media (max-width: 992px)
+			flex-direction: column-reverse
+			gap: 0
+			font-size: 1rem
+			padding-inline: 1.25rem
+
+		&-info
+			padding-block: 3rem
+
+			@media (max-width: 992px)
+				padding-block: 1.5rem 2.25rem
+
+			&-title
+				margin-bottom: 1rem
+
+				@media (max-width: 992px)
+					font-size: 1.5rem
+
+			&-text
+				margin-bottom: 2rem
+
+				@media (max-width: 992px)
+					margin-bottom: 1rem
+
+		&-image
+			width: 20rem
+			height: 100%
+			display: block
+			object-fit: contain
+
+			@media (max-width: 992px)
+				width: 15rem
+				margin-inline: auto
+
+		picture
+			flex-shrink: 0
+
+
+

@@ -19,6 +19,29 @@
 	.swiper
 		padding-inline: max(1rem, calc(((100% - var(--swiper-container) + 2rem) / 2)))
 
+.swiper-slide-remove
+	--bs-btn-color: var(--bs-blue-light)
+	--bs-btn-hover-color: var(--bs-secondary)
+	--bs-btn-active-color: var(--bs-secondary)
+	--bs-btn-bg: rgba(var(--bs-white-rgb), .5)
+	--bs-btn-hover-bg: rgba(var(--bs-white-rgb), .5)
+	--bs-btn-active-bg: rgba(var(--bs-white-rgb), .5)
+	--bs-btn-border-width: 0
+	--bs-btn-border-radius: 50%
+	--bs-btn-padding-y: .125rem
+	--bs-btn-padding-x: .125rem
+
+	@media (max-width: 576px)
+		--bs-btn-padding-y: .125rem
+		--bs-btn-padding-x: .125rem
+
+	.icon
+		--i-size: 1rem
+		--i-color: currentColor
+
+		fill: var(--i-color)
+		transition: unset
+
 .swiper-banner
 	position: relative
 
@@ -71,5 +94,65 @@
 				display: block
 				border-radius: var(--bs-border-radius-xl)
 				object-fit: cover
+
+.swiper-skipass
+	--swiper-navigation-top-offset: auto
+
+	position: relative
+	
+	@media (max-width: 576px)
+		margin-inline: -1rem
+
+	.swiper-slide
+		height: auto
+		position: relative
+		transition: opacity 300ms ease-in
+
+		&.swiper-slide-fade-out
+			opacity: 0
+
+		&-remove
+			position: absolute
+			top: 1.25rem
+			right: 1.25rem
+			z-index: 1
+
+	.swiper-pagination
+
+		@media (min-width: 992px)
+			display: none
+
+	.swiper-button-next,
+	.swiper-button-prev
+		--bs-btn-hover-color: var(--bs-secondary)
+		--bs-btn-active-color: var(--bs-secondary)
+		--bs-btn-bg: var(--bs-white)
+		--bs-btn-hover-bg: var(--bs-white)
+		--bs-btn-active-bg: var(--bs-white)
+		--bs-btn-border-color: var(--bs-border-color)
+		--bs-btn-hover-border-color: var(--bs-secondary)
+		--bs-btn-active-border-color: var(--bs-secondary)
+		--bs-btn-border-radius: 50%
+
+		margin-top: unset
+		bottom: 1rem
+
+		@media (max-width: 992px)
+			display: none
+
+	.swiper-button-prev
+		left: auto
+		right: 5rem
+
+	.swiper-button-next
+		right: 1rem
+
+
+
+
+
+
+
+
 
 

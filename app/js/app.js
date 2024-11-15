@@ -1,6 +1,6 @@
 import Choices from 'choices.js'
 import Swiper from 'swiper'
-import { Navigation, Pagination } from 'swiper/modules';
+import { Manipulation, Navigation, Pagination } from 'swiper/modules';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 						} else {
 							formControlReset.classList.remove('is-show');
 						}
-	
+
 						if (checkAllInputsFilled()) {
 							if (btnSubmit) {
 								btnSubmit.removeAttribute('disabled');
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 							textarea.value = '';
 						}
 						formControlReset.classList.remove('is-show');
-	
+
 						if (checkAllInputsFilled()) {
 							if (btnSubmit) {
 								btnSubmit.removeAttribute('disabled');
@@ -462,7 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					document.documentElement.style.overflow = 'hidden';
 				}
 			}, holdDuration);
-			
+
 			event.target.addEventListener('touchend', touchEnd);
 		}
 
@@ -494,7 +494,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		function touchEnd(event) {
 			event.target.removeEventListener('touchmove', touchMove);
 			event.target.removeEventListener('touchend', touchEnd);
-			
+
 			draggedItem.classList.remove('dragging');
 			draggedItem.style = '';
 			document.documentElement.style = '';
@@ -532,40 +532,74 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	draggable();
 
+
+
+
+	const handleResponsiveMove = () => {
+		document.querySelectorAll('[data-move-target]').forEach((element) => {
+			const targetSelector = element.dataset.moveTarget
+			const breakpoint = parseInt(element.dataset.moveBreakpoint, 10)
+			const originalParent = element.parentElement
+			const target = document.querySelector(`#${targetSelector}`)
+			
+			if (!element.dataset.originalParent) {
+				element.dataset.originalParent = originalParent.id
+			}
+			
+			const currentParent = element.parentElement
 	
+			if (window.innerWidth <= breakpoint) {
+				if (currentParent !== target) {
+					target.appendChild(element)
+				}
+			} else {
+				const original = document.querySelector(`#${element.dataset.originalParent}`)
+				if (currentParent !== original) {
+					original.appendChild(element)
+				}
+			}
+		})
+	}
+
+	window.addEventListener('resize', handleResponsiveMove)
+
+	handleResponsiveMove()
+
+
 
 
 	function createPrevIcon() {
 		const span = document.createElement('span')
 		span.className = 'icon'
-	
+
 		const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 		const use = document.createElementNS('http://www.w3.org/2000/svg', 'use')
 		use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '../images/icons/swiper-arrow-prev.svg#svg-swiper-arrow-prev')
-	
+
 		svg.appendChild(use)
 		span.appendChild(svg)
-	
+
 		return span
 	}
-	
+
 	function createNextIcon() {
 		const span = document.createElement('span')
 		span.className = 'icon'
-	
+
 		const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 		const use = document.createElementNS('http://www.w3.org/2000/svg', 'use')
 		use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '../images/icons/swiper-arrow-next.svg#svg-swiper-arrow-next')
-	
+
 		svg.appendChild(use)
 		span.appendChild(svg)
-	
+
 		return span
 	}
 
 	const bannerSwiperClass = document.querySelectorAll('.swiper-banner')
 	const articleSwiperClass = document.querySelectorAll('.swiper-article')
 	const infrastructureSwiperClass = document.querySelectorAll('.swiper-infrastructure')
+	const skipassSwiperClass = document.querySelectorAll('.swiper-skipass')
 	const allNavigationNext = document.querySelectorAll('.swiper-button-next')
 	const allNavigationPrev = document.querySelectorAll('.swiper-button-prev')
 
@@ -626,11 +660,54 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	})
 
+	skipassSwiperClass?.forEach((element) => {
+		const swiperElement = element.querySelector('.swiper')
+		const navigationNext = element.querySelector('.swiper-button-next')
+		const navigationPrev = element.querySelector('.swiper-button-prev')
+		const pagination = element.querySelector('.swiper-pagination')
+
+		const swiperInstance = new Swiper(swiperElement, {
+			modules: [Manipulation, Navigation, Pagination],
+			spaceBetween: 24,
+
+			pagination: {
+				el: pagination,
+				clickable: true,
+			},
+
+			navigation: {
+				nextEl: navigationNext,
+				prevEl: navigationPrev,
+			},
+		});
+
+		element.querySelectorAll('.swiper-slide-remove').forEach((button) => {
+			button.addEventListener('click', (event) => {
+				const slide = button.closest('.swiper-slide')
+				if (slide) {
+					slide.classList.add('swiper-slide-fade-out')
+
+					setTimeout(() => {
+						const index = Array.from(swiperInstance.slides).indexOf(slide)
+						if (index !== -1) {
+							swiperInstance.removeSlide(index)
+
+							if (swiperInstance.slides.length === 0) {
+								swiperInstance.destroy(true, true)
+								element.remove()
+							}
+						}
+					}, 400)
+				}
+			})
+		})
+	})
+
 	allNavigationNext.forEach(button => {
 		const icon = createNextIcon()
 		button.appendChild(icon)
 	})
-	
+
 	allNavigationPrev.forEach(button => {
 		const icon = createPrevIcon()
 		button.appendChild(icon)

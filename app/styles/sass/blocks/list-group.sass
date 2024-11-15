@@ -5,6 +5,30 @@
 	&-item-action
 		color: var(--bs-list-group-action-color)
 
+.list-group-disc
+	--bs-list-group-color: inherit
+	--bs-list-group-border-width: 0
+	--bs-list-group-border-color: transparent
+	--bs-list-group-border-radius: 0
+	--bs-list-group-item-padding-x: 0
+	--bs-list-group-bg: transparent
+
+	.list-group-item
+		display: flex
+
+		&::before
+			content: ''
+			width: .25rem
+			height: 0.25rem
+			flex-shrink: 0
+			display: block
+			background-color: currentColor
+			margin-top: .625em
+			margin-inline: .75rem
+			border-radius: 50%
+
+
+
 .list-group-flush
 	--bs-list-group-item-padding-y: 0
 	--bs-list-group-item-padding-x: .25rem
@@ -114,9 +138,6 @@
 			--i-color: currentColor
 			
 			transition: unset
-
-		> span:not(.icon)
-			max-width: 600px
 
 		&-value
 			color: var(--bs-gray-500)

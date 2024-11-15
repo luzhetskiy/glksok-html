@@ -72,4 +72,61 @@
 	.accordion-body
 		padding-top: unset
 
+.accordion-prices
+	--bs-accordion-color: var(--bs-black)
+	--bs-accordion-active-color: var(--bs-black)
+	--bs-accordion-bg: var(--bs-white)
+	--bs-accordion-active-bg: var(--bs-white)
+	--bs-accordion-border-width: 0
+	--bs-accordion-border-color: transparent
+	--bs-accordion-border-radius: var(--bs-border-radius-xl)
+	--bs-accordion-inner-border-radius: var(--bs-accordion-border-radius)
+	--bs-accordion-body-padding-y: 1.25rem
+	--bs-accordion-body-padding-x: 4rem
+	--bs-accordion-btn-padding-y: 1.5rem
+	--bs-accordion-btn-padding-x: 1.5rem
+	--bs-accordion-btn-focus-border-color: transparent
+	--bs-accordion-btn-focus-box-shadow: unset
+	--bs-accordion-btn-icon-width: 1.5rem
+	--bs-accordion-btn-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 24 24' fill='%23FF4881' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.9998 18.2315L2.94873 9.18158L4.36273 7.76758L11.9998 15.4035L19.6368 7.76758L21.0508 9.18158L11.9998 18.2315Z'/%3E%3C/svg%3E")
+	--bs-accordion-btn-active-icon: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 24 24' fill='%23FF4881' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.9998 18.2315L2.94873 9.18158L4.36273 7.76758L11.9998 15.4035L19.6368 7.76758L21.0508 9.18158L11.9998 18.2315Z'/%3E%3C/svg%3E")
 
+	@media (max-width: 992px)
+		--bs-accordion-body-padding-y: 0
+		--bs-accordion-body-padding-x: 0
+		--bs-accordion-btn-padding-y: 1.25rem
+		--bs-accordion-btn-padding-x: 1rem
+
+		gap: 1rem
+
+	.accordion-item
+		border-radius: var(--bs-accordion-border-radius)
+
+		@media (max-width: 992px)
+			background-color: transparent
+
+		.accordion-button
+			@media (min-width: 992px)
+				border-radius: var(--bs-accordion-border-radius)
+
+	.accordion-button
+		font-size: 2.25rem
+		font-weight: 500
+		gap: 1rem
+
+		@media (min-width: 992px)
+			pointer-events: none
+
+		@media (max-width: 992px)
+			font-size: 1.5rem
+
+		.icon
+			--i-size: 3rem
+
+		&::after
+			@media (min-width: 992px)
+				display: none
+
+	.collapse:not(.show)
+		@media (min-width: 992px)
+			display: block

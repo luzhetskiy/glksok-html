@@ -1,0 +1,176 @@
+.prices
+
+	&-content
+
+		@media (max-width: 992px)
+			background-color: var(--bs-accordion-bg)
+			padding: 1rem
+
+		&-image
+			width: 100%
+			height: 100%
+			max-height: 380px
+			display: block
+			margin-inline: auto
+			object-fit: contain
+			margin-bottom: 1.5rem
+
+		h3
+			font-size: 2.25rem
+
+			@media (max-width: 992px)
+				font-size: 1.25rem
+
+		p
+
+			&:last-of-type
+				margin-bottom: 0
+
+		&-buttons
+			display: flex
+			flex-wrap: wrap
+			gap: 1rem 1.5rem
+			margin-top: 1.5rem
+
+			@media (max-width: 992px)
+				margin-top: 1rem
+
+			.btn
+				width: auto
+
+				@media (max-width: 992px)
+					width: 100%
+
+		.list-group-plaintext
+			--bs-list-group-color: inherit
+			--bs-list-group-action-color: inherit
+			--bs-list-group-item-padding-y: 0
+			
+			font-size: inherit
+			line-height: 1.25
+
+			@media (max-width: 992px)
+				--bs-list-group-item-padding-y: .5rem
+
+				margin-top: 1rem
+
+		.table-responsive
+			max-height: initial
+			margin-inline: -2rem
+			overflow-y: initial
+
+			@media (max-width: 992px)
+				margin-inline: -.5rem
+
+			.table
+				@media (max-width: 992px)
+					min-width: initial
+
+				@media (max-width: 576px)
+					min-width: initial
+
+		.table
+			font-size: 1.5rem
+			margin-top: 2rem
+
+			@media (max-width: 992px)
+				font-size: 1rem
+				margin-top: 1.5rem
+				
+			@media (max-width: 576px)
+
+			[data-th-value]
+				width: 9rem
+				text-align: center
+
+				@media (max-width: 992px)
+					width: 5rem
+
+			[data-th-hour]
+				width: 7rem
+				text-align: center
+
+				@media (max-width: 992px)
+					width: 3.625rem
+
+			> :not(caption) > *
+
+				> *
+					padding-inline: .5rem
+
+				> :last-child
+					padding-right: 2rem
+
+					@media (max-width: 992px)
+						padding-right: .5rem
+
+			thead
+				tr
+					> *
+						white-space: initial
+
+						@media (max-width: 992px)
+							font-size: .875rem
+
+						&:last-child
+							text-align: end
+
+			tbody
+				tr
+					> *
+						&:not(:first-child, :last-child)
+							text-align: center
+
+						&:first-child
+							font-weight: 400
+
+						&:not([colspan])
+							&:last-child
+								text-align: end
+						
+						b
+							font-weight: 500
+
+	&-aside
+		font-size: 1.25rem
+		line-height: 1.3
+		color: var(--bs-black)
+		background-color: var(--bs-white)
+		border-radius: var(--bs-border-radius-xl)
+		padding: 2rem
+
+		@media (max-width: 992px)
+			font-size: 1rem
+			border-top-left-radius: 0
+			border-top-right-radius: 0
+			padding: 1rem
+
+		&-title
+			font-size: 1.25rem
+
+		> *
+			margin-bottom: 1rem
+
+			&:last-child
+				margin-bottom: 0
+
+		.list-group-plaintext
+			--bs-list-group-color: inherit
+
+			&,
+			.list-group-item-title
+				font-size: inherit
+
+		.list-group-numbered
+			font-size: inherit
+			font-weight: 500
+
+			.list-group-item
+				display: flex
+				gap: .375rem
+
+				&::before
+					flex-shrink: 0
+
+		.list-group-contacts
+			font-weight: 400
