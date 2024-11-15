@@ -87,4 +87,36 @@
 		font-size: 1.5rem
 		font-weight: 500
 
+.list-group-docs
+	--bs-list-group-action-color: var(--bs-primary)
+	--bs-list-group-action-hover-color: var(--bs-blue-light)
+	--bs-list-group-action-active-color: var(--bs-blue-light)
+	--bs-list-group-action-hover-bg: #A5D1FE
+	--bs-list-group-action-active-bg: #A5D1FE
+	--bs-list-group-border-radius: var(--bs-border-radius-xl)
+	--bs-list-group-item-padding-y: 1.25rem
+	--bs-list-group-item-padding-x: 1rem
 
+	gap: .5rem
+
+	@media (min-width: 992px)
+		--bs-list-group-item-padding-x: 6.25rem
+
+		font-size: 1.25rem
+
+	.list-group-item
+		display: flex
+		align-items: center
+		gap: .5rem
+		border-radius: inherit
+
+		.icon
+			--i-color: currentColor
+			
+			transition: unset
+
+		> span:not(.icon)
+			max-width: 600px
+
+		&-value
+			color: var(--bs-gray-500)
