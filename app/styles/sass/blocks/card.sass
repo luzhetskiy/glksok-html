@@ -10,8 +10,21 @@
 	min-height: 360px
 	border: var(--bs-card-border-width) var(--bs-card-border-style) var(--bs-card-border-color)
 
+	@media (max-width: 576px)
+		--bs-card-spacer-y: 1.5rem
+		--bs-card-spacer-x: 1rem
+		--bs-card-cap-padding-y: 1rem
+
+	&:not(.card-mini, .card-add, .card-category, .card-article, .card-video)
+
+		@media (max-width: 576px)
+			min-height: 300px
+
 	&:not(:last-child)
 		margin-bottom: 1.5rem
+
+		@media (max-width: 576px)
+			margin-bottom: .75rem
 
 	&-header
 		font-size: 1.25rem
@@ -27,11 +40,17 @@
 		row-gap: 1rem
 		margin-bottom: 2rem
 
+		@media (max-width: 576px)
+			margin-bottom: 1.5rem
+
 	&-text
 		max-width: 600px
 		color: var(--bs-gray-800)
 		line-height: 1.25rem
 		margin-bottom: 1.5rem
+
+		@media (max-width: 576px)
+			margin-bottom: 1rem
 
 	&-balance
 		font-size: 3rem
@@ -74,6 +93,13 @@
 			&:not(:first-child)
 				margin-top: .75rem
 
+		.btn-outline-primary,
+		.btn-secondary,
+		.btn-primary
+
+			@media (max-width: 576px)
+				width: 100%
+
 .card-image-bg
 	background-repeat: no-repeat
 	background-position: center 100%
@@ -81,6 +107,11 @@
 
 .card-bigger
 	min-height: initial
+
+	&:not(.card-form)
+		@media (max-width: 576px)
+			--bs-card-cap-padding-x: 1rem
+			--bs-card-spacer-x: .5rem
 
 .card-mini,
 .card-add
@@ -94,12 +125,17 @@
 	--bs-card-bg: #8EC5FE
 	--bs-card-border-width: 1px
 	--bs-card-border-color: var(--bs-border-color)
-	height: 100%
 
+	height: 100%
 	background-repeat: no-repeat
 	background-position: calc( 100% + 4.75rem ) 0%
 	background-size: 230px
 	transition: background .3s ease-in-out
+
+	@media (max-width: 576px)
+		background-position: calc( 100% + 5.5rem ) 0%
+		background-size: 220px
+
 
 	&:not(&--bank)
 		&:is(:hover, :focus-visible)
@@ -114,6 +150,10 @@
 		.card-header,
 		.card-body
 			width: 68%
+
+			@media (max-width: 576px)
+				width: 100%
+				max-width: 320px
 
 	.card-header
 		border: 0
@@ -140,6 +180,11 @@
 .card-mini--bank
 	--bs-card-cap-padding-y: 1.5rem
 
+	@media (max-width: 576px)
+		--bs-card-spacer-y: 1rem
+		--bs-card-cap-padding-x: 1rem
+
+	
 	.card-header
 		font-size: 1.5rem
 		line-height: 1.75rem
@@ -212,14 +257,30 @@
 		&>*
 			margin-bottom: 0
 
+		.h1
+			@media (max-width: 576px)
+				font-size: 2.25rem
+				line-height: 2.5rem
+
+
 	&-inputs
 		display: flex
 		align-items: flex-start
 		margin-bottom: 1.5rem
 
+		@media (max-width: 992px)
+			flex-direction: column
+
 		.has-validation,
 		.form-floating
 			width: 100%
+
+			&-xs,
+			&-sm,
+			&-md
+				@media (max-width: 992px)
+					width: 100%
+					max-width: initial
 
 			&-xs
 				max-width: 160px
@@ -229,6 +290,17 @@
 
 			&-md
 				max-width: 260px
+
+		.card-button
+			@media (max-width: 576px)
+				width: 100%
+
+	.tab-pane .card-body,
+	.card-body
+
+		& > *:not(.card-img)
+			@media (max-width: 1200px)
+				max-width: 100%
 
 	.tab-pane
 
@@ -249,6 +321,13 @@
 		bottom: -180px
 		right: -450px
 
+		@media (max-width: 1400px)
+			right: -520px
+			bottom: -220px
+
+		@media (max-width: 1200px)
+			right: -560px
+
 .card-promocode
 	--bs-card-cap-padding-y: 2.5rem
 	--bs-card-spacer-y: 2.5rem
@@ -263,6 +342,10 @@
 	--bs-card-border-color: var(--bs-border-color)
 
 	min-height: initial
+
+	@media (max-width: 576px)
+		--bs-card-spacer-y: 1rem
+		--bs-card-spacer-x: 1.5rem
 
 	.card-header
 		min-height: 160px
@@ -279,8 +362,25 @@
 		background-size: 260px
 		background-position: calc( 100% + 4.5rem ) 20%
 
+		@media (max-width: 576px)
+			background-position: calc(100% + 4.75rem) 0%
+			background-size: 210px
+
 		& > * 
 			width: 66%
+
+			@media (max-width: 1400px)
+				width: 70%
+
+			@media (max-width: 992px)
+				width: 75%
+
+			@media (max-width: 768px)
+				width: 64%
+
+			@media (max-width: 576px)
+				width: 100%
+				max-width: 280px
 
 	.card-title
 		display: block
@@ -320,18 +420,34 @@
 		border-bottom-right-radius: inherit
 		padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x) calc( var(--bs-card-spacer-y) * 2 )
 
+		@media (max-width: 576px)
+			padding: var(--bs-card-spacer-y) 1rem 1.25rem var(--bs-card-spacer-x)
+
+		.btn
+			@media (max-width: 576px)
+				margin-top: 1.5rem
+				margin-left: -.5rem
+
 	.card-text
 		max-width: 100%
 		display: flex
 		align-items: flex-end
 		justify-content: space-between
+		font-size: var(--bs-font-size-md)
 		margin-bottom: 1rem
 
-		font-size: var(--bs-font-size-md)
+		@media (max-width: 576px)
+			flex-direction: column
+			align-items: stretch
 
 		&-left
 			max-width: 200px
 			line-height: 1.625rem
+
+			@media (max-width: 576px)
+				font-size: var(--bs-font-size)
+				line-height: normal
+				margin-bottom: .5rem
 
 		&-right
 			max-width: 160px
@@ -341,11 +457,19 @@
 			color: var(--bs-black)
 			text-align: right
 
+		& > *
+			@media (max-width: 576px)
+				max-width: initial
+				text-align: left
+
 	.btn
 		display: block
 
 .card-skipass--full
 	background-color: transparent
+
+	@media (max-width: 576px)
+		--bs-card-spacer-y: .75rem
 
 	.card-header
 		border: var(--bs-card-border-width) solid var(--bs-card-border-color)
@@ -354,22 +478,39 @@
 		& > *
 			width: 85%
 
+			@media (max-width: 1200px)
+				width: 75%
+
+		&.mb-2
+			@media (max-width: 576px)
+				margin-bottom: .25rem !important
+
 	.card-title
 		font-size: 3rem
 		line-height: 3.125rem
 
-		.btn-icon
-			display: inline-block
-			vertical-align: middle
+		@media (max-width: 576px)
+			font-size: calc( var(--bs-font-size-lg) - .125rem )
+			line-height: 1.75rem
 
+		.btn-icon
 			--bs-btn-padding-x: .375rem
 			--bs-btn-padding-y: .375rem
 			--bs-btn-border-radius: 50%
 
+			display: inline-block
+			vertical-align: middle
+
 			.icon
 				--i-size: 1.5rem
 
+				@media (max-width: 576px)
+					--i-size: 1rem
+
 	.card-body-wrapper
+
+		@media (max-width: 576px)
+			--bs-gutter-y: .25rem
 
 		& > *
 
@@ -378,14 +519,23 @@
 					.card-body
 						border-radius: calc( var(--bs-card-border-radius) / 5 ) calc( var(--bs-card-border-radius) / 5 ) calc( var(--bs-card-border-radius) / 5 ) var(--bs-card-border-radius)
 
+						@media (max-width: 992px)
+							border-radius: calc( var(--bs-card-border-radius) / 5 )
+
 			&:last-child
 				
 				.card-body
-						border-radius: calc( var(--bs-card-border-radius) / 5 ) calc( var(--bs-card-border-radius) / 5 ) var(--bs-card-border-radius) calc( var(--bs-card-border-radius) / 5 )
+					border-radius: calc( var(--bs-card-border-radius) / 5 ) calc( var(--bs-card-border-radius) / 5 ) var(--bs-card-border-radius) calc( var(--bs-card-border-radius) / 5 )
+
+					@media (max-width: 992px)
+						border-radius: calc( var(--bs-card-border-radius) / 5 ) calc( var(--bs-card-border-radius) / 5 ) var(--bs-card-border-radius) var(--bs-card-border-radius)
 
 	.card-body
 		height: 100%
 		background-color: var(--bs-card-bg)
+
+		@media (max-width: 576px)
+			padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x) calc( var(--bs-card-spacer-y) * 2 ) var(--bs-card-spacer-x)
 
 	.card-text
 		flex-direction: column
@@ -402,6 +552,13 @@
 		&-left
 			margin-bottom: 1.25rem
 
+			@media (max-width: 576px)
+				font-size: var(--bs-font-size-md)
+				font-weight: var(--bs-font-weight-medium)
+				line-height: 1.375rem
+				color: var(--bs-gray-800)
+
+
 		&-right
 			display: flex
 			flex-wrap: wrap
@@ -412,6 +569,9 @@
 
 			min-width: 160px
 
+			@media (max-width: 1400px)
+				width: 100%
+
 .card-list
 	--bs-card-cap-padding-y: 2rem
 	--bs-card-color: var(--bs-black)
@@ -419,13 +579,22 @@
 	font-size: var(--bs-font-size-md)
 	position: relative
 
+	@media (max-width: 992px)
+		min-height: initial
+
 	.card-header
 		min-height: 150px
+
+		@media (max-width: 992px)
+			min-height: initial
 
 		& > p
 			max-width: 160px
 			margin-left: auto
 			margin-bottom: 0
+
+			@media (max-width: 992px)
+				min-height: initial
 
 	.card-img
 		width: 290px
@@ -470,6 +639,10 @@
 	background-size: contain
 	background-position: 100% 100%
 
+	@media (max-width: 992px)
+		--bs-card-cap-padding-y: 1rem
+
+
 	&:is(:hover, :focus-visible, :active, .active)
 		--bs-card-bg: #8EC5FE
 		--bs-card-border-color: #8EC5FE
@@ -482,6 +655,9 @@
 		color: var(--bs-heading-color)
 		border: 0
 		transition: color 300ms ease-in-out
+
+		@media (max-width: 992px)
+			font-size: 1rem
 
 .card-article
 	--bs-card-spacer-y: 1rem
@@ -528,3 +704,64 @@
 
 		.card-title
 			color: var(--bs-secondary)
+
+.card-video
+	min-height: 100%
+
+	@media (max-width: 992px)
+		--bs-card-spacer-y: .75rem
+		--bs-card-spacer-x: 1.5rem
+
+	.card-body
+		padding-top: var(--bs-card-spacer-y)
+
+	.card-title
+		flex-wrap: nowrap
+		justify-content: stretch
+		gap: 1.25rem
+		font-size: 1.5rem
+		margin-bottom: .5rem
+
+		@media (max-width: 992px)
+			font-size: 1.25rem
+			gap: .5rem
+
+		.icon
+			--i-size: 3rem
+			--i-color: var(--bs-secondary)
+
+			position: relative
+
+			&::after
+				content: attr(data-current)
+				display: block
+				font-size: 1.25rem
+				font-weight: 500
+				line-height: 1
+				color: var(--bs-white)
+				pointer-events: none
+				user-select: none
+				position: absolute
+				top: 50%
+				left: calc( 50% - .4375rem )
+				transform: translate(-50%, -50%)
+
+	.card-iframe
+		width: calc( 100% + var(--bs-card-spacer-x) )
+		display: block
+		aspect-ratio: 16 / 9
+		background-color: var(--bs-gray-700)
+		margin: 0 calc( var(--bs-card-spacer-x) / 2 * -1 ) calc( var(--bs-card-spacer-y) / 2 * -1 )
+		border-radius: .75rem
+
+		@media (max-width: 992px)
+			width: calc( 100% + 2rem )
+			margin: 0 calc( ( var(--bs-card-spacer-x) - .5rem ) * -1 ) calc( ( var(--bs-card-spacer-y) - .5rem ) * -1 )
+
+
+
+
+
+
+
+

@@ -1,25 +1,3 @@
-@media (max-width: 1400px)
-
-	.card-form
-
-		.card-img
-			right: -520px
-			bottom: -220px
-
-	.card-skipass
-
-		.card-header
-
-			& > *
-				width: 70%
-
-	.card-skipass--full
-
-		.card-text
-
-			.btn
-				width: 100%
-
 @media (max-width: 1200px)
 
 	h1, .h1
@@ -37,24 +15,6 @@
 	.filters
 		grid-template-columns: repeat(2, auto)
 		grid-auto-flow: initial
-
-	.card-form
-
-		.tab-pane .card-body,
-		.card-body
-
-			& > *:not(.card-img)
-				max-width: 100%
-		
-		.card-img
-			right: -560px
-
-	.card-skipass--full
-
-		.card-header
-
-			& > *
-				width: 75%
 
 @media (max-width: 992px)
 
@@ -102,58 +62,6 @@
 
 				&:last-child
 					padding-right: .5rem
-
-	.card-form
-
-		&-inputs
-			flex-direction: column
-
-		.has-validation,
-		.form-floating
-
-			&-xs,
-			&-sm,
-			&-md
-				width: 100%
-				max-width: initial
-
-	.card-skipass
-
-		.card-header
-
-			& > *
-				width: 75%
-
-	.card-skipass--full
-
-		.card-body-wrapper
-
-			& > *
-
-				&:first-child
-
-					.card-body
-						border-radius: calc( var(--bs-card-border-radius) / 5 )
-
-				&:last-child
-				
-					.card-body
-						border-radius: calc( var(--bs-card-border-radius) / 5 ) calc( var(--bs-card-border-radius) / 5 ) var(--bs-card-border-radius) var(--bs-card-border-radius)
-
-	.card-list
-		min-height: initial
-
-		.card-header
-			min-height: initial
-
-			& > p
-				max-width: initial
-
-	.card-category
-		--bs-card-cap-padding-y: 1rem
-		
-		.card-header
-			font-size: 1rem
 
 	// sections
 	.section
@@ -203,13 +111,6 @@
 	.filters
 		width: 100%
 		grid-template-columns: 1fr
-
-	.card-skipass
-
-		.card-header
-
-			& > *
-				width: 64%
 
 	.modal
 		padding: .5rem !important
@@ -261,127 +162,6 @@
 
 	.alert
 		padding: 1rem 2rem 1rem 1rem
-
-	.card
-		--bs-card-spacer-y: 1.5rem
-		--bs-card-spacer-x: 1rem
-		--bs-card-cap-padding-y: 1rem
-
-		&:not(.card-mini, .card-add, .card-category, .card-article)
-			min-height: 300px
-
-		&:not(:last-child)
-			margin-bottom: .75rem
-
-		&-title
-			margin-bottom: 1.5rem
-
-		&-text
-			margin-bottom: 1rem
-
-		&-button
-
-			.btn-outline-primary,
-			.btn-secondary,
-			.btn-primary
-				width: 100%
-
-	.card-bigger
-
-		&:not(.card-form)
-			--bs-card-cap-padding-x: 1rem
-			--bs-card-spacer-x: .5rem
-
-	.card-form
-
-		.card-title
-
-			.h1
-				font-size: 2.25rem
-				line-height: 2.5rem
-
-		&-inputs
-
-			.card-button
-				width: 100%
-
-	.card-mini
-		background-position: calc( 100% + 5.5rem ) 0%
-		background-size: 220px
-
-		&:not(&--bank)
-
-			.card-header,
-			.card-body
-				width: 100%
-				max-width: 320px
-
-	.card-mini--bank
-		--bs-card-spacer-y: 1rem
-		--bs-card-cap-padding-x: 1rem
-
-	.card-skipass
-		--bs-card-spacer-y: 1rem
-		--bs-card-spacer-x: 1.5rem
-
-		.card-header
-			background-position: calc(100% + 4.75rem) 0%
-			background-size: 210px
-
-			& > *
-				width: 100%
-				max-width: 280px
-
-		.card-body
-			padding: var(--bs-card-spacer-y) 1rem 1.25rem var(--bs-card-spacer-x)
-
-			.btn
-				margin-top: 1.5rem
-				margin-left: -.5rem
-
-		.card-text
-			flex-direction: column
-			align-items: stretch
-
-			&-left
-				font-size: var(--bs-font-size)
-				line-height: normal
-				margin-bottom: .5rem
-
-			& > * 
-				max-width: initial
-				text-align: left
-
-	.card-skipass--full
-		--bs-card-spacer-y: .75rem
-
-		.card-header
-
-			&.mb-2
-				margin-bottom: .25rem !important
-
-		.card-title
-			font-size: calc( var(--bs-font-size-lg) - .125rem )
-			line-height: 1.75rem
-
-			.btn-icon
-
-				.icon
-					--i-size: 1rem
-
-		.card-body-wrapper
-			--bs-gutter-y: .25rem
-
-		.card-body
-			padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x) calc( var(--bs-card-spacer-y) * 2 ) var(--bs-card-spacer-x)
-
-		.card-text
-
-			&-left
-				font-size: var(--bs-font-size-md)
-				font-weight: var(--bs-font-weight-medium)
-				line-height: 1.375rem
-				color: var(--bs-gray-800)
 
 	.btn-remove
 		width: 100%
