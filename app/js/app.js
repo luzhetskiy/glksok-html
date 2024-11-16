@@ -574,7 +574,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 		const use = document.createElementNS('http://www.w3.org/2000/svg', 'use')
-		use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '../images/icons/swiper-arrow-prev.svg#svg-swiper-arrow-prev')
+		use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', 'images/icons/swiper-arrow-prev.svg#svg-swiper-arrow-prev')
 
 		svg.appendChild(use)
 		span.appendChild(svg)
@@ -588,7 +588,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 		const use = document.createElementNS('http://www.w3.org/2000/svg', 'use')
-		use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '../images/icons/swiper-arrow-next.svg#svg-swiper-arrow-next')
+		use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', 'images/icons/swiper-arrow-next.svg#svg-swiper-arrow-next')
 
 		svg.appendChild(use)
 		span.appendChild(svg)

@@ -141,3 +141,174 @@
 
 		&-value
 			color: var(--bs-gray-500)
+
+.list-group-schedule
+	--bs-list-group-color: var(--bs-black)
+	--bs-list-group-action-color: var(--bs-black)
+	--bs-list-group-border-width: 2px
+	--bs-list-group-border-color: var(--bs-blue-200)
+	--bs-list-group-border-radius: 0
+	--bs-list-group-item-padding-y: 2rem
+	--bs-list-group-item-padding-x: 4rem
+
+	line-height: normal
+
+	@media (max-width: 992px)
+		--bs-list-group-item-padding-y: 1rem
+		--bs-list-group-item-padding-x: .5rem
+
+	.list-group-item
+		border-top: var(--bs-list-group-border-width) solid var(--bs-list-group-border-color)
+		border-left: 0
+		border-right: 0
+		border-bottom: 0
+		margin-inline: -4rem -1.5rem
+		padding-right: 1.5rem
+
+		gap: 5rem
+
+		@media (max-width: 1400px)
+			gap: 2rem
+
+		@media (max-width: 1200px)
+			flex-direction: column
+
+		@media (max-width: 992px)
+			margin-inline: -.5rem
+			padding-right: var(--bs-list-group-item-padding-x)
+
+		@media (max-width: 576px)
+			gap: 1.25rem
+
+		&,
+		&-detail-item,
+		&-info-item
+			display: flex
+			justify-content: space-between
+
+		&-time,
+		&-name,
+		&-info-time
+			flex-shrink: 0
+			font-weight: 500
+
+		&-time
+			width: 15.625rem
+			font-size: 2.25rem
+
+			@media (max-width: 1200px)
+				width: 100%
+
+			@media (max-width: 992px)
+				font-size: 1.5rem
+
+		&-detail,
+		&-info,
+		&-info-placement
+			flex: 1
+
+		&-detail,
+		&-info
+			display: flex
+			flex-direction: column
+
+		&-detail
+
+			@media (min-width: 1200px)
+				align-self: center
+
+			&,
+			&-item
+				gap: 2rem
+
+				@media (max-width: 992px)
+					gap: 1.25rem
+
+			&-item
+
+				@media (max-width: 992px)
+					gap: 1.5rem
+
+				@media (max-width: 576px)
+					flex-direction: column
+					gap: .5rem
+
+				&--сompetition
+					.list-group-item-info-placement-item
+						--_color: var(--bs-white)
+						--_bg: var(--bs-secondary)
+
+				&--training
+					.list-group-item-info-placement-item
+						--_bg: var(--bs-warning)
+
+				&--closed
+					color: var(--bs-secondary)
+
+		&-name
+			width: 12.5rem
+			font-size: 1.5rem
+
+			@media (max-width: 992px)
+				width: 7.5rem
+				font-size: 1rem
+
+			@media (max-width: 576px)
+				width: 100%
+				line-height: 1.25
+				opacity: 0.8
+
+		&-info
+			gap: 1rem
+
+			&-item
+				gap: 4rem
+
+				@media (max-width: 1400px)
+					gap: 2rem
+
+				@media (max-width: 992px)
+					gap: 1.5rem
+
+			&-time
+				width: 10rem
+				font-size: 1.5rem
+
+				@media (max-width: 992px)
+					width: 8rem
+					font-size: 1.25rem
+
+			&-placement
+				display: flex
+				align-items: flex-start
+				flex-wrap: wrap
+				gap: .5rem
+
+				@media (max-width: 992px)
+					gap: .25rem
+
+				&-item
+					--_size: 2.25rem
+					--_color: var(--bs-black)
+					--_bg: #A5D1FE
+
+					min-width: var(--_size)
+					min-height: var(--_size)
+					display: flex
+					align-items: center
+					justify-content: center
+					font-size: 1.25rem
+					font-weight: 500
+					line-height: 1
+					text-transform: uppercase
+					color: var(--_color)
+					background-color: var(--_bg)
+					border-radius: var(--bs-border-radius-xl)
+					padding: .5rem .75rem
+
+					@media (max-width: 992px)
+						--_size: 2rem
+						
+						font-size: 1rem
+						padding: .25rem .625rem
+
