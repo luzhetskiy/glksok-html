@@ -1,78 +1,78 @@
 import Choices from 'choices.js'
 import Swiper from 'swiper'
-import { Manipulation, Navigation, Pagination } from 'swiper/modules';
+import { Manipulation, Navigation, Pagination } from 'swiper/modules'
 
 document.addEventListener('DOMContentLoaded', () => {
 
-	const backButton = document.querySelector('#backButton');
+	const backButton = document.querySelector('#backButton')
 
 	if (backButton) {
 		backButton.addEventListener('click', function () {
-			history.back();
-		});
+			history.back()
+		})
 	}
 
 	function restrictInputToHex() {
-		const formControlID = document.querySelectorAll('.form-control-id');
+		const formControlID = document.querySelectorAll('.form-control-id')
 
 		if (formControlID.length > 0) {
 			formControlID.forEach(function (input) {
 				input.addEventListener('input', function () {
-					const value = this.value.replace(/[^0-9A-Fa-f]/g, '');
-					this.value = value;
+					const value = this.value.replace(/[^0-9A-Fa-f]/g, '')
+					this.value = value
 
 					if (!value) {
-						this.classList.add('is-invalid');
-						this.parentElement.classList.add('is-invalid');
+						this.classList.add('is-invalid')
+						this.parentElement.classList.add('is-invalid')
 					} else {
-						this.classList.remove('is-invalid');
-						this.parentElement.classList.remove('is-invalid');
+						this.classList.remove('is-invalid')
+						this.parentElement.classList.remove('is-invalid')
 					}
-				});
-			});
+				})
+			})
 		}
 	}
 
 	function handleFormControlReset() {
-		const formControlResets = document.querySelectorAll('.form-control-reset');
+		const formControlResets = document.querySelectorAll('.form-control-reset')
 
 		if (formControlResets.length > 0) {
 			formControlResets.forEach(function (formControlReset) {
-				const textarea = formControlReset.querySelector('textarea');
-				const input = formControlReset.querySelector('input');
-				const btnReset = formControlReset.querySelector('.btn-reset');
-				const btnReveal = formControlReset.querySelector('.btn-reveal');
-				const form = formControlReset.closest('.needs-validation');
-				const btnSubmit = form.querySelector('.btn-disabled[type="submit"]');
-				const inputs = form.querySelectorAll('input:required');
-				const selects = form.querySelectorAll('select:required');
+				const textarea = formControlReset.querySelector('textarea')
+				const input = formControlReset.querySelector('input')
+				const btnReset = formControlReset.querySelector('.btn-reset')
+				const btnReveal = formControlReset.querySelector('.btn-reveal')
+				const form = formControlReset.closest('.needs-validation')
+				const btnSubmit = form.querySelector('.btn-disabled[type="submit"]')
+				const inputs = form.querySelectorAll('input:required')
+				const selects = form.querySelectorAll('select:required')
 
 				if (input) {
 					input.addEventListener('input', function () {
 						if (input.value.trim() !== '') {
-							formControlReset.classList.add('is-show');
+							formControlReset.classList.add('is-show')
 						} else {
-							formControlReset.classList.remove('is-show');
+							formControlReset.classList.remove('is-show')
 						}
 
 						if (checkAllInputsFilled()) {
 							if (btnSubmit) {
-								btnSubmit.removeAttribute('disabled');
+								btnSubmit.removeAttribute('disabled')
 							}
 						} else {
 							if (btnSubmit) {
-								btnSubmit.setAttribute('disabled', 'disabled');
+								btnSubmit.setAttribute('disabled', 'disabled')
 							}
 						}
-					});
+					})
 				}
 
 				if (textarea) {
 					textarea.addEventListener('input', function () {
 						if (textarea.value.trim() !== '') {
-							formControlReset.classList.add('is-show');
+							formControlReset.classList.add('is-show')
 						} else {
-							formControlReset.classList.remove('is-show');
+							formControlReset.classList.remove('is-show')
 						}
 					})
 				}
@@ -85,9 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
 							return
 						} else {
 							if (btnReveal.classList.contains('is-show')) {
-								input.type = 'text';
+								input.type = 'text'
 							} else {
-								input.type = 'password';
+								input.type = 'password'
 							}
 						}
 					})
@@ -96,165 +96,165 @@ document.addEventListener('DOMContentLoaded', () => {
 				if (btnReset) {
 					btnReset.addEventListener('click', function () {
 						if (input) {
-							input.value = '';
+							input.value = ''
 						}
 						if (textarea) {
-							textarea.value = '';
+							textarea.value = ''
 						}
-						formControlReset.classList.remove('is-show');
+						formControlReset.classList.remove('is-show')
 
 						if (checkAllInputsFilled()) {
 							if (btnSubmit) {
-								btnSubmit.removeAttribute('disabled');
+								btnSubmit.removeAttribute('disabled')
 							}
 						} else {
 							if (btnSubmit) {
-								btnSubmit.setAttribute('disabled', 'disabled');
+								btnSubmit.setAttribute('disabled', 'disabled')
 							}
 						}
-					});
+					})
 				}
 
 				function checkAllInputsFilled() {
-					let allFieldsFilled = true;
+					let allFieldsFilled = true
 					inputs.forEach(input => {
 						if (input.value.trim() === '') {
-							allFieldsFilled = false;
+							allFieldsFilled = false
 						}
-					});
+					})
 					selects.forEach(select => {
 						if (select.value.trim() === '') {
-							allFieldsFilled = false;
+							allFieldsFilled = false
 						}
-					});
-					return allFieldsFilled;
+					})
+					return allFieldsFilled
 				}
-			});
+			})
 		}
 	}
 
 	function allowNumbersOnly() {
-		const formControlNumbers = document.querySelectorAll('.form-control-numbers');
+		const formControlNumbers = document.querySelectorAll('.form-control-numbers')
 
 		if (formControlNumbers.length > 0) {
 			formControlNumbers.forEach(function (input) {
 				input.addEventListener('input', function (event) {
-					const value = event.target.value;
-					const numbersOnly = value.replace(/\D/g, '');
-					event.target.value = numbersOnly;
+					const value = event.target.value
+					const numbersOnly = value.replace(/\D/g, '')
+					event.target.value = numbersOnly
 
-					const formControlReset = input.closest('.form-control-reset');
+					const formControlReset = input.closest('.form-control-reset')
 					if (formControlReset) {
-						const resetInput = formControlReset.querySelector('input');
+						const resetInput = formControlReset.querySelector('input')
 						if (resetInput.value.trim() === '') {
-							formControlReset.classList.remove('is-show');
+							formControlReset.classList.remove('is-show')
 						}
 					}
 
 					if (!/^\d{1,}$/.test(numbersOnly)) {
-						this.classList.add('is-invalid');
-						this.parentElement.classList.add('is-invalid');
+						this.classList.add('is-invalid')
+						this.parentElement.classList.add('is-invalid')
 					} else {
-						this.classList.remove('is-invalid');
-						this.parentElement.classList.remove('is-invalid');
+						this.classList.remove('is-invalid')
+						this.parentElement.classList.remove('is-invalid')
 					}
-				});
-			});
+				})
+			})
 		}
 	}
 
-	restrictInputToHex();
-	handleFormControlReset();
-	allowNumbersOnly();
+	restrictInputToHex()
+	handleFormControlReset()
+	allowNumbersOnly()
 
-	const formsValidation = document.querySelectorAll('.needs-validation');
+	const formsValidation = document.querySelectorAll('.needs-validation')
 
 	if (formsValidation.length > 0) {
 		Array.from(formsValidation).forEach(form => {
-			const btnSubmit = form.querySelector('.btn-disabled[type="submit"]');
-			const inputs = form.querySelectorAll('input:required');
-			const selects = form.querySelectorAll('select:required');
+			const btnSubmit = form.querySelector('.btn-disabled[type="submit"]')
+			const inputs = form.querySelectorAll('input:required')
+			const selects = form.querySelectorAll('select:required')
 
 			function checkAllInputsFilled() {
-				let allFieldsFilled = true;
+				let allFieldsFilled = true
 				inputs.forEach(input => {
 					if (input.value.trim() === '') {
-						allFieldsFilled = false;
+						allFieldsFilled = false
 					}
-				});
+				})
 				selects.forEach(select => {
 					if (select.value.trim() === '') {
-						allFieldsFilled = false;
+						allFieldsFilled = false
 					}
-				});
-				return allFieldsFilled;
+				})
+				return allFieldsFilled
 			}
 
 			form.addEventListener('submit', event => {
 				inputs.forEach(input => {
 					if (input.value.trim() === '') {
-						input.classList.add('is-invalid');
-						input.parentElement.classList.add('is-invalid');
+						input.classList.add('is-invalid')
+						input.parentElement.classList.add('is-invalid')
 					}
-				});
+				})
 
 				selects.forEach(select => {
 					if (select.value.trim() === '') {
-						select.parentElement.parentElement.classList.add('is-invalid');
-						select.parentElement.parentElement.parentElement.classList.add('is-invalid');
+						select.parentElement.parentElement.classList.add('is-invalid')
+						select.parentElement.parentElement.parentElement.classList.add('is-invalid')
 					}
-				});
+				})
 
 				if (!form.checkValidity() || !checkAllInputsFilled()) {
-					event.preventDefault();
-					event.stopPropagation();
+					event.preventDefault()
+					event.stopPropagation()
 				}
-			});
+			})
 
 			inputs.forEach(input => {
 				input.addEventListener('input', function () {
 					if (this.value.trim() === '') {
-						this.classList.add('is-invalid');
-						this.parentElement.classList.add('is-invalid');
+						this.classList.add('is-invalid')
+						this.parentElement.classList.add('is-invalid')
 					} else {
-						this.classList.remove('is-invalid');
-						this.parentElement.classList.remove('is-invalid');
+						this.classList.remove('is-invalid')
+						this.parentElement.classList.remove('is-invalid')
 					}
 
 					if (checkAllInputsFilled()) {
 						if (btnSubmit) {
-							btnSubmit.removeAttribute('disabled');
+							btnSubmit.removeAttribute('disabled')
 						}
 					} else {
 						if (btnSubmit) {
-							btnSubmit.setAttribute('disabled', 'disabled');
+							btnSubmit.setAttribute('disabled', 'disabled')
 						}
 					}
-				});
-			});
+				})
+			})
 
 			selects.forEach(select => {
 				select.addEventListener('change', function () {
 					if (this.value.trim() === '') {
-						this.parentElement.parentElement.classList.add('is-invalid');
-						this.parentElement.parentElement.parentElement.classList.add('is-invalid');
+						this.parentElement.parentElement.classList.add('is-invalid')
+						this.parentElement.parentElement.parentElement.classList.add('is-invalid')
 					} else {
-						this.parentElement.parentElement.classList.remove('is-invalid');
-						this.parentElement.parentElement.parentElement.classList.remove('is-invalid');
+						this.parentElement.parentElement.classList.remove('is-invalid')
+						this.parentElement.parentElement.parentElement.classList.remove('is-invalid')
 					}
 
 					if (checkAllInputsFilled()) {
 						if (btnSubmit) {
-							btnSubmit.removeAttribute('disabled');
+							btnSubmit.removeAttribute('disabled')
 						}
 					} else {
 						if (btnSubmit) {
-							btnSubmit.setAttribute('disabled', 'disabled');
+							btnSubmit.setAttribute('disabled', 'disabled')
 						}
 					}
-				});
-			});
-		});
+				})
+			})
+		})
 	}
 
 
@@ -264,40 +264,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	if (filtersInput && tableFilters.length > 0) {
 		function applyFilters() {
-			const checkedCheckbox = filtersInput.querySelector('input[type="checkbox"]:checked');
+			const checkedCheckbox = filtersInput.querySelector('input[type="checkbox"]:checked')
 
 			tableFilters.forEach(function (row) {
-				const rowFilters = row.dataset.filter.split(' ');
-				const isVisible = !checkedCheckbox || rowFilters.includes(checkedCheckbox.value);
+				const rowFilters = row.dataset.filter.split(' ')
+				const isVisible = !checkedCheckbox || rowFilters.includes(checkedCheckbox.value)
 
 				if (isVisible) {
-					row.classList.remove('is-hidden');
+					row.classList.remove('is-hidden')
 				} else {
-					row.classList.add('is-hidden');
+					row.classList.add('is-hidden')
 				}
-			});
+			})
 		}
 
 		filtersInput.addEventListener('change', function (event) {
-			const checkbox = event.target;
+			const checkbox = event.target
 
 			if (checkbox.type === 'checkbox' && checkbox.checked) {
 				filtersInput.querySelectorAll('input[type="checkbox"]').forEach(function (checkbox) {
 					if (checkbox !== event.target) {
-						checkbox.checked = false;
+						checkbox.checked = false
 					}
-				});
+				})
 			}
 
-			applyFilters();
-		});
+			applyFilters()
+		})
 
-		applyFilters();
+		applyFilters()
 	}
 
 
 
-	const jsFormSelects = document.querySelectorAll('.js-form-select');
+	const jsFormSelects = document.querySelectorAll('.js-form-select')
 
 	const selectConfig = {
 		allowHTML: true,
@@ -346,191 +346,191 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-	const successSignUpModalId = 'successSignUp';
-	const successSignUpModal = document.querySelector(`#${successSignUpModalId}`);
+	const successSignUpModalId = 'successSignUp'
+	const successSignUpModal = document.querySelector(`#${successSignUpModalId}`)
 
 	if (successSignUpModal && !localStorage.getItem(successSignUpModalId)) {
-		const bootstrapModal = new bootstrap.Modal(successSignUpModal);
-		bootstrapModal.show();
+		const bootstrapModal = new bootstrap.Modal(successSignUpModal)
+		bootstrapModal.show()
 
-		localStorage.setItem(successSignUpModalId, 'true');
+		localStorage.setItem(successSignUpModalId, 'true')
 	}
 
 
 
 	function draggable() {
-		const draggableZones = document.querySelectorAll('.draggable-zone');
-		let draggedItem = null;
-		let draggedHandle = null;
-		let draggableZone = null;
-		let touchStartX, touchStartY;
-		let touchStartTime = 0;
-		const holdDuration = 1000;
+		const draggableZones = document.querySelectorAll('.draggable-zone')
+		let draggedItem = null
+		let draggedHandle = null
+		let draggableZone = null
+		let touchStartX, touchStartY
+		let touchStartTime = 0
+		const holdDuration = 1000
 
 		draggableZones.forEach(zone => {
-			const draggableItems = zone.querySelectorAll('.draggable');
+			const draggableItems = zone.querySelectorAll('.draggable')
 
 			draggableItems.forEach((item, index) => {
-				const draggableHandle = item.querySelector('.draggable-handle');
+				const draggableHandle = item.querySelector('.draggable-handle')
 
-				draggableHandle.setAttribute('draggable', 'true');
+				draggableHandle.setAttribute('draggable', 'true')
 
-				draggableHandle.addEventListener('dragstart', dragStart);
-				draggableHandle.addEventListener('dragend', dragEnd);
+				draggableHandle.addEventListener('dragstart', dragStart)
+				draggableHandle.addEventListener('dragend', dragEnd)
 
-				draggableHandle.addEventListener('touchstart', touchStart);
+				draggableHandle.addEventListener('touchstart', touchStart)
 
-				item.addEventListener('dragover', dragOver);
-				item.addEventListener('dragleave', dragLeave);
-				item.addEventListener('drop', drop);
-				item.setAttribute('data-position', index + 1);
-			});
-		});
+				item.addEventListener('dragover', dragOver)
+				item.addEventListener('dragleave', dragLeave)
+				item.addEventListener('drop', drop)
+				item.setAttribute('data-position', index + 1)
+			})
+		})
 
 		function dragStart(event) {
-			event.dataTransfer.setData('text/html', event.target.outerHTML);
-			event.dataTransfer.setData('text/plain', 'dragged');
-			draggedItem = event.target.closest('.draggable');
-			draggedItem.classList.add('dragging');
+			event.dataTransfer.setData('text/html', event.target.outerHTML)
+			event.dataTransfer.setData('text/plain', 'dragged')
+			draggedItem = event.target.closest('.draggable')
+			draggedItem.classList.add('dragging')
 		}
 
 		function dragEnd(event) {
-			draggedItem.classList.remove('dragging');
-			draggedItem = null;
+			draggedItem.classList.remove('dragging')
+			draggedItem = null
 		}
 
 		function dragOver(event) {
-			event.preventDefault();
+			event.preventDefault()
 
-			const target = event.target.closest('.draggable');
+			const target = event.target.closest('.draggable')
 
 			if (draggedItem && draggedItem !== target) {
-				target.classList.add('dragover');
+				target.classList.add('dragover')
 			}
 		}
 
 		function dragLeave(event) {
-			const target = event.target.closest('.draggable');
+			const target = event.target.closest('.draggable')
 
 			if (draggedItem && draggedItem !== target) {
-				target.classList.remove('dragover');
+				target.classList.remove('dragover')
 			}
 		}
 
 		function drop(event) {
-			event.preventDefault();
+			event.preventDefault()
 
-			const dragged = event.dataTransfer.getData('text/plain');
-			const draggableZone = draggedItem.closest('.draggable-zone');
+			const dragged = event.dataTransfer.getData('text/plain')
+			const draggableZone = draggedItem.closest('.draggable-zone')
 			if (dragged === 'dragged') {
-				const target = event.target.closest('.draggable');
+				const target = event.target.closest('.draggable')
 
 				if (draggedItem && draggedItem !== target) {
-					const temp = document.createElement('div');
-					draggedItem.parentNode.insertBefore(temp, draggedItem);
-					target.parentNode.insertBefore(draggedItem, target);
-					temp.parentNode.insertBefore(target, temp);
-					temp.parentNode.removeChild(temp);
+					const temp = document.createElement('div')
+					draggedItem.parentNode.insertBefore(temp, draggedItem)
+					target.parentNode.insertBefore(draggedItem, target)
+					temp.parentNode.insertBefore(target, temp)
+					temp.parentNode.removeChild(temp)
 
-					const draggableItems = draggableZone.querySelectorAll('.draggable');
+					const draggableItems = draggableZone.querySelectorAll('.draggable')
 					draggableItems.forEach((item, index) => {
-						item.setAttribute('data-position', index + 1);
-					});
+						item.setAttribute('data-position', index + 1)
+					})
 				}
 			}
 
-			const draggableItems = draggableZone.querySelectorAll('.draggable');
+			const draggableItems = draggableZone.querySelectorAll('.draggable')
 			draggableItems.forEach(item => {
-				item.classList.remove('dragover');
-			});
+				item.classList.remove('dragover')
+			})
 		}
 
 		function touchStart(event) {
-			touchStartX = event.touches[0].clientX;
-			touchStartY = event.touches[0].clientY;
-			draggedItem = event.target.closest('.draggable');
-			draggedHandle = draggedItem.querySelector('.draggable-handle');
-			draggableZone = draggedItem.closest('.draggable-zone');
-			touchStartTime = Date.now();
-			draggedHandle.draggable = false;
+			touchStartX = event.touches[0].clientX
+			touchStartY = event.touches[0].clientY
+			draggedItem = event.target.closest('.draggable')
+			draggedHandle = draggedItem.querySelector('.draggable-handle')
+			draggableZone = draggedItem.closest('.draggable-zone')
+			touchStartTime = Date.now()
+			draggedHandle.draggable = false
 
 			setTimeout(() => {
 				if (draggedItem && Date.now() - touchStartTime >= holdDuration) {
 
-					draggedItem.classList.add('dragging');
-					event.target.addEventListener('touchmove', touchMove);
-					document.documentElement.style.overflow = 'hidden';
+					draggedItem.classList.add('dragging')
+					event.target.addEventListener('touchmove', touchMove)
+					document.documentElement.style.overflow = 'hidden'
 				}
-			}, holdDuration);
+			}, holdDuration)
 
-			event.target.addEventListener('touchend', touchEnd);
+			event.target.addEventListener('touchend', touchEnd)
 		}
 
 		function touchMove(event) {
-			event.preventDefault();
+			event.preventDefault()
 
-			const touch = event.touches[0];
-			const offsetX = touch.clientX - touchStartX;
-			const offsetY = touch.clientY - touchStartY;
+			const touch = event.touches[0]
+			const offsetX = touch.clientX - touchStartX
+			const offsetY = touch.clientY - touchStartY
 
-			draggedItem.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-			draggedItem.style.pointerEvents = 'none';
-			draggedItem.style.position = 'relative';
-			draggedItem.style.zIndex = '1';
+			draggedItem.style.transform = `translate(${offsetX}px, ${offsetY}px)`
+			draggedItem.style.pointerEvents = 'none'
+			draggedItem.style.position = 'relative'
+			draggedItem.style.zIndex = '1'
 
-			const target = document.elementFromPoint(touch.clientX, touch.clientY);
+			const target = document.elementFromPoint(touch.clientX, touch.clientY)
 
-			const draggableItems = draggableZone.querySelectorAll('.draggable');
+			const draggableItems = draggableZone.querySelectorAll('.draggable')
 			draggableItems.forEach(item => {
-				item.classList.remove('dragover');
-			});
+				item.classList.remove('dragover')
+			})
 
-			const targetDraggable = target.closest('.draggable');
+			const targetDraggable = target.closest('.draggable')
 			if (targetDraggable && targetDraggable !== draggedItem) {
-				targetDraggable.classList.add('dragover');
+				targetDraggable.classList.add('dragover')
 			}
 		}
 
 		function touchEnd(event) {
-			event.target.removeEventListener('touchmove', touchMove);
-			event.target.removeEventListener('touchend', touchEnd);
+			event.target.removeEventListener('touchmove', touchMove)
+			event.target.removeEventListener('touchend', touchEnd)
 
-			draggedItem.classList.remove('dragging');
-			draggedItem.style = '';
-			document.documentElement.style = '';
+			draggedItem.classList.remove('dragging')
+			draggedItem.style = ''
+			document.documentElement.style = ''
 
-			const target = document.elementFromPoint(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
-			const targetDraggable = target.closest('.draggable');
+			const target = document.elementFromPoint(event.changedTouches[0].clientX, event.changedTouches[0].clientY)
+			const targetDraggable = target.closest('.draggable')
 
 			if (draggedItem && targetDraggable && draggedItem !== targetDraggable) {
-				const draggableItems = draggableZone.querySelectorAll('.draggable');
-				const draggedIndex = Array.from(draggableItems).indexOf(draggedItem);
-				const targetIndex = Array.from(draggableItems).indexOf(targetDraggable);
+				const draggableItems = draggableZone.querySelectorAll('.draggable')
+				const draggedIndex = Array.from(draggableItems).indexOf(draggedItem)
+				const targetIndex = Array.from(draggableItems).indexOf(targetDraggable)
 
 				if (draggedIndex > targetIndex) {
-					draggableZone.insertBefore(draggedItem, targetDraggable);
+					draggableZone.insertBefore(draggedItem, targetDraggable)
 				} else {
-					draggableZone.insertBefore(draggedItem, targetDraggable.nextSibling);
+					draggableZone.insertBefore(draggedItem, targetDraggable.nextSibling)
 				}
 
-				const updatedDraggableItems = draggableZone.querySelectorAll('.draggable');
+				const updatedDraggableItems = draggableZone.querySelectorAll('.draggable')
 				updatedDraggableItems.forEach((item, index) => {
-					item.setAttribute('data-position', index + 1);
-				});
+					item.setAttribute('data-position', index + 1)
+				})
 			}
 
-			const draggableItems = draggableZone.querySelectorAll('.draggable');
+			const draggableItems = draggableZone.querySelectorAll('.draggable')
 			draggableItems.forEach(item => {
-				item.classList.remove('dragover');
-			});
+				item.classList.remove('dragover')
+			})
 
-			draggedHandle.draggable = true;
-			draggedItem = null;
-			draggableZone = null;
+			draggedHandle.draggable = true
+			draggedItem = null
+			draggableZone = null
 		}
 	}
 
-	draggable();
+	draggable()
 
 
 
@@ -541,13 +541,13 @@ document.addEventListener('DOMContentLoaded', () => {
 			const breakpoint = parseInt(element.dataset.moveBreakpoint, 10)
 			const originalParent = element.parentElement
 			const target = document.querySelector(`#${targetSelector}`)
-			
+
 			if (!element.dataset.originalParent) {
 				element.dataset.originalParent = originalParent.id
 			}
-			
+
 			const currentParent = element.parentElement
-	
+
 			if (window.innerWidth <= breakpoint) {
 				if (currentParent !== target) {
 					target.appendChild(element)
@@ -622,7 +622,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				nextEl: navigationNext,
 				prevEl: navigationPrev,
 			},
-		});
+		})
 	})
 
 	articleSwiperClass?.forEach((element) => {
@@ -642,7 +642,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					spaceBetween: 32,
 				}
 			}
-		});
+		})
 	})
 
 	infrastructureSwiperClass?.forEach((element) => {
@@ -657,7 +657,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				el: pagination,
 				clickable: true,
 			},
-		});
+		})
 	})
 
 	skipassSwiperClass?.forEach((element) => {
@@ -679,7 +679,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				nextEl: navigationNext,
 				prevEl: navigationPrev,
 			},
-		});
+		})
 
 		element.querySelectorAll('.swiper-slide-remove').forEach((button) => {
 			button.addEventListener('click', (event) => {
@@ -712,5 +712,57 @@ document.addEventListener('DOMContentLoaded', () => {
 		const icon = createPrevIcon()
 		button.appendChild(icon)
 	})
+
+
+
+
+	ymaps.ready(init)
+
+	function init() {
+		const myMap = new ymaps.Map("map", {
+			center: [53.391736, 50.183302],
+			zoom: 15,
+			controls: [],
+		})
+
+		// Создаём массив меток
+		const geoObjects = [
+			new ymaps.Placemark([53.395533, 50.187212], {
+				hintContent: "«Верхняя площадка»",
+				balloonContent: "Здесь находится парковка"
+			}, {
+				preset: 'islands#blueParkingIcon'
+			}),
+			new ymaps.Placemark([53.389641, 50.172764], {
+				hintContent: "«Нижняя площадка»",
+				balloonContent: "Здесь находится парковка"
+			}, {
+				preset: 'islands#blueParkingIcon'
+			})
+		]
+
+		// Создаём кластеризатор
+		const clusterer = new ymaps.Clusterer({
+			preset: 'islands#blueClusterIcons', // Стандартный стиль кластера
+			groupByCoordinates: false,         // Группировать только близкие координаты
+			clusterDisableClickZoom: false,    // Отключить зум при клике на кластер
+			clusterHideIconOnBalloonOpen: false, // Не скрывать иконку кластера при открытии балуна
+			geoObjectHideIconOnBalloonOpen: false // Не скрывать иконку метки при открытии балуна
+		})
+
+		// Добавляем метки в кластеризатор
+		clusterer.add(geoObjects)
+
+		// Добавляем кластеризатор на карту
+		myMap.geoObjects.add(clusterer)
+
+		// Пересчёт размеров карты при ресайзе
+		window.addEventListener('resize', () => {
+			myMap.container.fitToViewport()
+		})
+	}
+
+
+
 
 })

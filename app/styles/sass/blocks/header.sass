@@ -30,16 +30,33 @@
 	&-nav
 		align-items: center
 
+		@media (max-width: 992px)
+			align-items: flex-start
+
 	.nav-item
 
 		&:not(:first-child)
 			margin-left: var(--bs-navbar-nav-item-margin-x)
 
+			@media (max-width: 992px)
+				margin: initial
+
 		&:not(:last-child)
 			margin-right: var(--bs-navbar-nav-item-margin-x)
 
+		&:not(:last-child, .nav-item--gift)
+
+			@media (max-width: 992px)
+				margin: initial
+				margin-bottom: var(--bs-navbar-nav-item-margin-y)
+
 	.nav-item--gift
-		
+
+		@media (max-width: 992px)
+			margin: initial
+			margin-top: var(--bs-navbar-nav-item-margin-y)
+			order: 1
+
 		.nav-link
 			--bs-nav-link-color: var(--bs-secondary)
 			display: flex
@@ -52,6 +69,11 @@
 	
 	.nav-link
 		line-height: 1.25
+
+		@media (max-width: 992px)
+			display: flex
+			align-items: center
+			padding-left: .5rem
 
 		&.disabled
 
@@ -71,8 +93,21 @@
 		.icon
 			display: none
 
+			@media (max-width: 992px)
+				display: block
+				margin-right: 1rem
+
 	&-footer
 		display: none
+
+		@media (max-width: 992px)
+			display: block
+			margin-top: auto
+			color: var(--bs-gray-600)
+
+		> a
+			@media (max-width: 992px)
+				display: block
 
 	&-social
 		display: flex
@@ -99,6 +134,13 @@
 
 		background-color: var(--bs-blue-lighter)
 
+		.navbar-brand
+
+			img
+
+				@media (max-width: 992px)
+					width: 100px
+
 		.container 
 
 			> .navbar-nav
@@ -107,6 +149,9 @@
 
 				flex-direction: row
 				gap: 3rem
+
+				@media (max-width: 992px)
+					gap: 2rem
 
 				.nav-link
 					gap: .5rem
@@ -131,9 +176,17 @@
 				margin: 0
 				transition: none
 
+				@media (max-width: 992px)
+					margin: 0
+
 		.offcanvas
 			--bs-offcanvas-width: 100%
 			--bs-offcanvas-bg: var(--bs-blue-lighter)
+
+			@media (max-width: 992px)
+				border-radius: 0
+				padding-top: 0
+				padding-inline: 0
 
 			&-header
 				padding-block: var(--bs-navbar-padding-y)
@@ -144,7 +197,13 @@
 					justify-content: space-between
 
 			&-body
-				margin-top: 5rem
+				margin-block: 5rem 2rem
+
+				@media (max-width: 1400px)
+					margin-top: 2rem
+
+				@media (max-width: 992px)
+					margin-top: 0
 
 			.navbar-toggler
 				--bs-navbar-toggler-icon-bg: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23FF4881' d='M13.8046 3.13798L12.862 2.19531L7.99998 7.05733L3.13798 2.19531L2.19531 3.13798L7.05731 8L2.19531 12.862L3.13798 13.8047L7.99998 8.94267L12.862 13.8047L13.8046 12.862L8.94265 8L13.8046 3.13798Z'/%3E%3C/svg%3E")
@@ -152,18 +211,48 @@
 			.navbar-nav
 				--bs-nav-link-font-size: 2.25rem
 
+				@media (max-width: 992px)
+					--bs-nav-link-font-size: 1.25rem
+
 			.nav-link
 				gap: 2rem
+				
+				@media (max-width: 992px)
+					gap: 1rem
+					padding-left: 0
 
 				&:not([data-has-icon])
 					padding-left: 5rem
 
+					@media (max-width: 1400px)
+						padding-left: 2rem
+
+					@media (max-width: 992px)
+						padding-left: 0
+
 				.icon
 					--i-size: 3rem
+
+					@media (max-width: 992px)
+						--i-size: 1.5rem
+						margin: 0
 
 			.list-group-social
 				padding-left: 5rem
 				margin-bottom: 5rem
 
+				@media (max-width: 1400px)
+					padding-left: 2rem
+					margin-bottom: 2rem
+
+				@media (max-width: 992px)
+					padding-left: 0
+					margin-bottom: 0
+
 				.list-group-item-title
 					color: rgba(var(--bs-white-rgb), .5)
+
+				.nav-link
+					.icon
+						@media (max-width: 992px)
+							--i-size: 3rem

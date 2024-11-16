@@ -85,89 +85,6 @@
 			margin-left: auto
 			padding: .5rem
 
-	.navbar
-
-		&-nav
-			align-items: flex-start
-
-		.nav-item
-
-			&:not(:first-child)
-				margin: initial
-
-			&:not(:last-child, .nav-item--gift)
-				margin: initial
-				margin-bottom: var(--bs-navbar-nav-item-margin-y)
-
-		.nav-item--gift
-			margin: initial
-			margin-top: var(--bs-navbar-nav-item-margin-y)
-			order: 1
-
-		.nav-link
-			display: flex
-			align-items: center
-			padding-left: .5rem
-
-			.icon
-				display: block
-				margin-right: 1rem
-
-		&-main
-
-			.navbar-brand
-
-				img
-					width: 100px
-
-			.nav-link
-
-				.icon
-					margin: 0
-
-			.container 
-				
-				> .navbar-nav
-						gap: 2rem
-
-			.offcanvas
-				border-radius: 0
-				padding-top: 0
-				padding-inline: 0
-
-				&-body
-					margin-top: 0
-
-				.navbar-nav
-					--bs-nav-link-font-size: 1.25rem
-
-					.nav-link
-						gap: 1rem
-						padding-left: 0
-
-						&:not([data-has-icon])
-							padding-left: 0
-
-						.icon
-							--i-size: 1.5rem
-							margin: 0
-
-				.list-group-social
-					padding-left: 0
-					margin-bottom: 0
-
-					.nav-link
-						.icon
-							--i-size: 3rem
-
-		&-footer
-			display: block
-			margin-top: auto
-			color: var(--bs-gray-600)
-
-			&>a
-				display: block
-
 	.table-responsive
 
 		.table
@@ -332,7 +249,7 @@
 
 	.btn
 
-		&:not(.btn-link, .btn-reset, .btn-plaintext, .swiper-slide-remove)
+		&:not(.btn-link, .btn-reset, .btn-plaintext, .btn-inherit, .swiper-slide-remove)
 			--bs-btn-padding-x: 1.375rem
 
 	.btn-icon
