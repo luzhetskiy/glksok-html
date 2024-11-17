@@ -1,4 +1,5 @@
 import Choices from 'choices.js'
+import VanillaCalendar from 'vanilla-calendar-pro'
 import Swiper from 'swiper'
 import { Manipulation, Navigation, Pagination } from 'swiper/modules'
 
@@ -716,16 +717,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-	ymaps.ready(init)
+	ymaps.ready(() => {
+		if (document.getElementById('map')) {
+			init()
+		}
+	})
 
 	function init() {
 		const myMap = new ymaps.Map("map", {
 			center: [53.391736, 50.183302],
 			zoom: 15,
-			controls: [],
+			controls: []
 		})
 
-		// Создаём массив меток
 		const geoObjects = [
 			new ymaps.Placemark([53.395533, 50.187212], {
 				hintContent: "«Верхняя площадка»",
@@ -741,25 +745,277 @@ document.addEventListener('DOMContentLoaded', () => {
 			})
 		]
 
-		// Создаём кластеризатор
 		const clusterer = new ymaps.Clusterer({
-			preset: 'islands#blueClusterIcons', // Стандартный стиль кластера
-			groupByCoordinates: false,         // Группировать только близкие координаты
-			clusterDisableClickZoom: false,    // Отключить зум при клике на кластер
-			clusterHideIconOnBalloonOpen: false, // Не скрывать иконку кластера при открытии балуна
-			geoObjectHideIconOnBalloonOpen: false // Не скрывать иконку метки при открытии балуна
+			preset: 'islands#blueClusterIcons',
+			groupByCoordinates: false,
+			clusterDisableClickZoom: false,
+			clusterHideIconOnBalloonOpen: false,
+			geoObjectHideIconOnBalloonOpen: false
 		})
 
-		// Добавляем метки в кластеризатор
 		clusterer.add(geoObjects)
-
-		// Добавляем кластеризатор на карту
 		myMap.geoObjects.add(clusterer)
 
-		// Пересчёт размеров карты при ресайзе
 		window.addEventListener('resize', () => {
 			myMap.container.fitToViewport()
 		})
+	}
+
+
+
+
+
+	const calendarPopups = {
+		'2024-11-13': {
+			modifier: 'vanilla-calendar-day__btn_secondary',
+			html: `
+				<div>
+					<time>12:00 PM</time>
+					<p>Что-то там</p>
+				</div>
+			`,
+		},
+		'2024-11-14': {
+			modifier: 'vanilla-calendar-day__btn_secondary',
+			html: `
+				<time>12:00 PM</time>
+				<p>Что-то там</p>
+			`,
+		},
+		'2024-11-15': {
+			modifier: 'vanilla-calendar-day__btn_secondary',
+			html: `
+				<time>12:00 PM</time>
+				<p>Что-то там</p>
+			`,
+		},
+		'2024-11-22': {
+			modifier: 'vanilla-calendar-day__btn_secondary',
+			html: `
+				<time>12:00 PM</time>
+				<p>Что-то там</p>
+			`,
+		},
+		'2024-11-24': {
+			modifier: 'vanilla-calendar-day__btn_secondary',
+			html: `
+				<time>12:00 PM</time>
+				<p>Что-то там</p>
+			`,
+		},
+		'2024-12-11': {
+			modifier: 'vanilla-calendar-day__btn_secondary',
+			html: `
+				<time>12:00 PM</time>
+				<p>Что-то там</p>
+			`,
+		},
+		'2024-12-12': {
+			modifier: 'vanilla-calendar-day__btn_secondary',
+			html: `
+				<time>12:00 PM</time>
+				<p>Что-то там</p>
+			`,
+		},
+		'2024-12-13': {
+			modifier: 'vanilla-calendar-day__btn_secondary',
+			html: `
+				<time>12:00 PM</time>
+				<p>Что-то там</p>
+			`,
+		},
+		'2024-12-20': {
+			modifier: 'vanilla-calendar-day__btn_secondary',
+			html: `
+				<time>12:00 PM</time>
+				<p>Что-то там</p>
+			`,
+		},
+		'2024-12-22': {
+			modifier: 'vanilla-calendar-day__btn_primary',
+			html: `
+				<time>12:00 PM</time>
+				<p>Что-то там</p>
+			`,
+		},
+		'2025-01-15': {
+			modifier: 'vanilla-calendar-day__btn_secondary',
+			html: `
+				<time>12:00 PM</time>
+				<p>Что-то там</p>
+			`,
+		},
+		'2025-01-16': {
+			modifier: 'vanilla-calendar-day__btn_secondary',
+			html: `
+				<time>12:00 PM</time>
+				<p>Что-то там</p>
+			`,
+		},
+		'2025-01-17': {
+			modifier: 'vanilla-calendar-day__btn_secondary',
+			html: `
+				<time>12:00 PM</time>
+				<p>Что-то там</p>
+			`,
+		},
+		'2025-01-23': {
+			modifier: 'vanilla-calendar-day__btn_secondary',
+			html: `
+				<time>12:00 PM</time>
+				<p>Что-то там</p>
+			`,
+		},
+		'2025-01-25': {
+			modifier: 'vanilla-calendar-day__btn_secondary',
+			html: `
+				<time>12:00 PM</time>
+				<p>Что-то там</p>
+			`,
+		},
+	}
+
+	const multipleTemplate = `
+		<div class="vanilla-calendar-controls">
+			<#ArrowPrev />
+			<#ArrowNext />
+		</div>
+		<div class="vanilla-calendar-grid">
+			<#Multiple>
+				<div class="vanilla-calendar-column">
+					<div class="vanilla-calendar-header">
+						<div class="vanilla-calendar-header__content">
+							<#Month />
+							<#Year />
+						</div>
+					</div>
+					<div class="vanilla-calendar-wrapper">
+						<#WeekNumbers />
+						<div class="vanilla-calendar-content">
+							<#Week />
+							<#Days />
+						</div>
+					</div>
+				</div>
+			<#/Multiple>
+		</div>
+		<#ControlTime />
+	`
+
+	function resetArrowVisibility(element, CSSClass) {
+		element.querySelectorAll(`.${CSSClass}`)?.forEach(calendarArrow => {
+			calendarArrow.style.visibility = ''
+		})
+	}
+
+	function addArrowIcons(calendar, nextIcon, prevIcon) {
+		const nextArrow = calendar.HTMLElement.querySelector(`.${calendar.CSSClasses.arrowNext}`)
+		const prevArrow = calendar.HTMLElement.querySelector(`.${calendar.CSSClasses.arrowPrev}`)
+
+		if (nextArrow && prevArrow) {
+			nextArrow.appendChild(nextIcon)
+			prevArrow.appendChild(prevIcon)
+		}
+	}
+
+	const updateCalendarMonths = (calendar) => {
+		const screenWidth = window.innerWidth;
+
+		if (screenWidth < 1200) {
+			calendar.months = 2
+		} else {
+			calendar.months = 3
+		}
+
+		calendar.update()
+		const prevIcon = createPrevIcon()
+		const nextIcon = createNextIcon()
+		addArrowIcons(calendar, nextIcon, prevIcon)
+		resetArrowVisibility(calendar.HTMLElement, calendar.CSSClasses.arrow)
+	}
+
+	document.querySelectorAll('[data-calendar-quarter]').forEach((calendarQuarter) => {
+		const prevIcon = createPrevIcon()
+		const nextIcon = createNextIcon()
+		const calendar = new VanillaCalendar(calendarQuarter, {
+			type: 'multiple',
+			DOMTemplates: {
+				multiple: multipleTemplate
+			},
+			months: 3,
+			settings: {
+				lang: 'ru-RU',
+				visibility: {
+					theme: 'light',
+					today: false,
+					daysOutside: false,
+				},
+				selection: {
+					day: false,
+					month: false,
+					year: false,
+				},
+			},
+			actions: {
+				clickArrow(e, self) {
+					resetArrowVisibility(self.HTMLElement, self.CSSClasses.arrow)
+				},
+			},
+			popups: calendarPopups,
+		})
+
+		calendar.init()
+
+		resetArrowVisibility(calendar.HTMLElement, calendar.CSSClasses.arrow)
+		addArrowIcons(calendar, nextIcon, prevIcon);
+		updateCalendarMonths(calendar)
+		window.addEventListener('resize', () => updateCalendarMonths(calendar))
+	})
+
+
+
+
+	const gridButton = document.getElementById('articles-grid')
+	const rowButton = document.getElementById('articles-row')
+	const articlesContainer = document.querySelector('.events-articles')
+
+	const updateView = (activeButton) => {
+		// Если кнопка уже активна, выходим из функции
+		if (activeButton.classList.contains('active')) return
+
+		gridButton.classList.remove('active')
+		rowButton.classList.remove('active')
+
+		activeButton.classList.add('active')
+
+		articlesContainer.classList.add('is-invisible')
+
+		setTimeout(() => {
+			if (activeButton.id === 'articles-row') {
+				articlesContainer.classList.add('is-row')
+			} else {
+				articlesContainer.classList.remove('is-row')
+			}
+		}, 310)
+
+		setTimeout(() => {
+			articlesContainer.classList.remove('is-invisible')
+		}, 320)
+	}
+
+	const initializeView = () => {
+		if (gridButton.classList.contains('active')) {
+			articlesContainer.classList.remove('is-row')
+		} else if (rowButton.classList.contains('active')) {
+			articlesContainer.classList.add('is-row')
+		}
+	}
+
+	if (gridButton && rowButton && articlesContainer) {
+		initializeView()
+
+		gridButton.addEventListener('click', () => updateView(gridButton))
+		rowButton.addEventListener('click', () => updateView(rowButton))
 	}
 
 

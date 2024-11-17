@@ -1,0 +1,6 @@
+<svg id="svg-row" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<rect width="32" height="3" rx="1.5"/>
+<rect y="10" width="32" height="3" rx="1.5"/>
+<rect y="19" width="32" height="3" rx="1.5"/>
+<rect y="29" width="32" height="3" rx="1.5"/>
+</svg>

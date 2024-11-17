@@ -1,0 +1,124 @@
+@import 'node_modules/vanilla-calendar-pro/build/vanilla-calendar.min'
+
+
+.vanilla-calendar
+
+	&_multiple
+
+		.vanilla-calendar-column
+			&:first-child
+				@media (max-width: 992px)
+					display: none
+
+	&-controls
+		padding-top: 0
+
+	&-header,
+	&-week
+		margin-bottom: 0
+
+	&-grid
+		gap: 1.5rem
+
+	&-arrow
+		width: 3rem
+		height: 3rem
+		color: var(--bs-secondary)
+		border: var(--bs-border-width) solid var(--bs-border-color)
+		border-radius: 50%
+		padding: .375rem
+		transition: border 300ms ease-in-out
+
+		&:is(:hover, :focus-visible, :active)
+			color: var(--bs-secondary)
+			border-color: var(--bs-secondary)
+
+		&.vanilla-calendar-arrow_prev,
+		&.vanilla-calendar-arrow_next
+
+			&:before
+				all: unset
+
+		.icon
+			--i-size: 100%
+			--i-color: currentColor
+
+	&-month,
+	&-year
+		font-size: 1.5rem
+		font-weight: 500
+
+	&-week
+
+		&__day
+			min-width: 3rem
+			min-height: 3rem
+
+	&-days
+		row-gap: 0
+
+	&-day
+
+		&__btn
+			min-width: 3rem
+			min-height: 3rem
+			font-size: 1rem
+			line-height: normal
+			border-radius: var(--bs-border-radius-xl)
+
+		&__popup
+			font-size: 1rem
+			line-height: 1.25
+
+			time
+				display: block
+				font-size: 1.25rem
+				font-weight: 500
+				margin-bottom: .5rem
+
+			p
+				margin: 0
+
+
+[data-calendar-theme=light]
+	.vanilla-calendar
+
+		&-month,
+		&-year
+
+			&.vanilla-calendar-year_disabled,
+			&.vanilla-calendar-month_disabled
+				color: var(--bs-black)
+
+		&-week
+
+			&__day
+				font-size: 1rem
+				font-weight: 400
+				color: var(--bs-gray-700)
+				text-transform: lowercase
+
+				&_weekend
+					color: var(--bs-black)
+
+		&-day
+
+			&__btn
+				color: var(--bs-black)
+
+				&_secondary
+
+					&,
+					&:hover
+						color: var(--bs-white)
+						background-color: var(--bs-secondary)
+
+				&_primary
+					&,
+					&:hover
+						color: var(--bs-white)
+						background-color: #A5D1FE
+
+
+
+
