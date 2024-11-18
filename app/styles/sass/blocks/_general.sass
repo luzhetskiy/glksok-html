@@ -506,8 +506,16 @@ textarea.form-control
 	--bs-nav-link-padding-x: 1.5rem
 	--bs-nav-link-color: var(--bs-blue)
 
-
+	flex-wrap: nowrap
 	border-bottom: 0
+	padding-bottom: .125rem
+	overflow-x: auto
+	overflow-y: hidden
+
+	@media (max-width: 576px)
+		width: calc( 100% + var(--bs-gutter-x) )
+		margin-inline: calc( var(--bs-gutter-x) / 2 * -1 )
+		padding-inline: calc( var(--bs-gutter-x) / 2 )
 
 	.nav-item
 

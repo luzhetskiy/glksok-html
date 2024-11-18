@@ -13,6 +13,158 @@ document.addEventListener('DOMContentLoaded', () => {
 		})
 	}
 
+
+
+
+	function createPrevIcon() {
+		const span = document.createElement('span')
+		span.className = 'icon'
+
+		const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+		const use = document.createElementNS('http://www.w3.org/2000/svg', 'use')
+		use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', 'images/icons/swiper-arrow-prev.svg#svg-swiper-arrow-prev')
+
+		svg.appendChild(use)
+		span.appendChild(svg)
+
+		return span
+	}
+
+	function createNextIcon() {
+		const span = document.createElement('span')
+		span.className = 'icon'
+
+		const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+		const use = document.createElementNS('http://www.w3.org/2000/svg', 'use')
+		use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', 'images/icons/swiper-arrow-next.svg#svg-swiper-arrow-next')
+
+		svg.appendChild(use)
+		span.appendChild(svg)
+
+		return span
+	}
+
+	const bannerSwiperClass = document.querySelectorAll('.swiper-banner')
+	const articleSwiperClass = document.querySelectorAll('.swiper-article')
+	const infrastructureSwiperClass = document.querySelectorAll('.swiper-infrastructure')
+	const skipassSwiperClass = document.querySelectorAll('.swiper-skipass')
+	const allNavigationNext = document.querySelectorAll('.swiper-button-next')
+	const allNavigationPrev = document.querySelectorAll('.swiper-button-prev')
+
+	bannerSwiperClass?.forEach((element) => {
+		const swiperElement = element.querySelector('.swiper')
+		const navigationNext = element.querySelector('.swiper-button-next')
+		const navigationPrev = element.querySelector('.swiper-button-prev')
+		const pagination = element.querySelector('.swiper-pagination')
+
+		new Swiper(swiperElement, {
+			modules: [Navigation, Pagination],
+			spaceBetween: 24,
+
+			pagination: {
+				el: pagination,
+				clickable: true,
+			},
+
+			navigation: {
+				nextEl: navigationNext,
+				prevEl: navigationPrev,
+			},
+		})
+	})
+
+	articleSwiperClass?.forEach((element) => {
+		const swiperElement = element.querySelector('.swiper')
+
+		new Swiper(swiperElement, {
+			slidesPerView: 'auto',
+			spaceBetween: 32,
+			observeSlideChildren: true,
+
+			breakpoints: {
+				0: {
+					slidesPerView: 'auto',
+					spaceBetween: 16
+				},
+				992: {
+					slidesPerView: 'auto',
+					spaceBetween: 32,
+				}
+			}
+		})
+	})
+
+	infrastructureSwiperClass?.forEach((element) => {
+		const swiperElement = element.querySelector('.swiper')
+		const pagination = element.querySelector('.swiper-pagination')
+
+		new Swiper(swiperElement, {
+			modules: [Pagination],
+			spaceBetween: 24,
+
+			pagination: {
+				el: pagination,
+				clickable: true,
+			},
+		})
+	})
+
+	skipassSwiperClass?.forEach((element) => {
+		const swiperElement = element.querySelector('.swiper')
+		const navigationNext = element.querySelector('.swiper-button-next')
+		const navigationPrev = element.querySelector('.swiper-button-prev')
+		const pagination = element.querySelector('.swiper-pagination')
+
+		const swiperInstance = new Swiper(swiperElement, {
+			modules: [Manipulation, Navigation, Pagination],
+			spaceBetween: 24,
+
+			pagination: {
+				el: pagination,
+				clickable: true,
+			},
+
+			navigation: {
+				nextEl: navigationNext,
+				prevEl: navigationPrev,
+			},
+		})
+
+		element.querySelectorAll('.swiper-slide-remove').forEach((button) => {
+			button.addEventListener('click', (event) => {
+				const slide = button.closest('.swiper-slide')
+				if (slide) {
+					slide.classList.add('swiper-slide-fade-out')
+
+					setTimeout(() => {
+						const index = Array.from(swiperInstance.slides).indexOf(slide)
+						if (index !== -1) {
+							swiperInstance.removeSlide(index)
+
+							if (swiperInstance.slides.length === 0) {
+								swiperInstance.destroy(true, true)
+								element.remove()
+							}
+						}
+					}, 400)
+				}
+			})
+		})
+	})
+
+	allNavigationNext.forEach(button => {
+		const icon = createNextIcon()
+		button.appendChild(icon)
+	})
+
+	allNavigationPrev.forEach(button => {
+		const icon = createPrevIcon()
+		button.appendChild(icon)
+	})
+
+
+
+
 	function restrictInputToHex() {
 		const formControlID = document.querySelectorAll('.form-control-id')
 
@@ -260,41 +412,151 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-	const filtersInput = document.querySelector('.filters')
+	let selectedDates = []
 	const tableFilters = document.querySelectorAll('[data-filter]')
+	const noResultsBlock = document.querySelector('[data-filter-result]')
+	const btnMore = document.querySelector('[data-filter-more]')
 
-	if (filtersInput && tableFilters.length > 0) {
-		function applyFilters() {
-			const checkedCheckbox = filtersInput.querySelector('input[type="checkbox"]:checked')
-
-			tableFilters.forEach(function (row) {
-				const rowFilters = row.dataset.filter.split(' ')
-				const isVisible = !checkedCheckbox || rowFilters.includes(checkedCheckbox.value)
-
-				if (isVisible) {
-					row.classList.remove('is-hidden')
-				} else {
-					row.classList.add('is-hidden')
-				}
+	function applyAllFilters() {
+		const selectedFilters = Array.from(document.querySelectorAll('[data-filter-action]'))
+			.flatMap(group => {
+				const checkboxValue = group.querySelector('input[type="checkbox"]:checked')?.id
+				const activeButtonId = group.querySelector('button.active')?.id
+				return [checkboxValue, activeButtonId].filter(Boolean)
 			})
+
+		let visibleCount = 0
+
+		tableFilters.forEach(function (row) {
+			const dataLoadingMore = row.getAttribute('data-loading-more')
+			const rowFilters = row.dataset.filter.split(' ')
+			const calendarDay = row.getAttribute('data-filter-day')
+			const isVisible = selectedFilters.every(filter => rowFilters.includes(filter))
+			const isDateMatch = selectedDates.length === 0 || selectedDates.includes(calendarDay)
+			const parentSwiperSlide = row.closest('.swiper-slide')
+
+			const toggleVisibility = (shouldShow) => {
+				if (shouldShow) {
+					parentSwiperSlide ? parentSwiperSlide.classList.remove('d-none') : null
+					row.classList.remove('d-none')
+					visibleCount++
+				} else {
+					parentSwiperSlide ? parentSwiperSlide.classList.add('d-none') : null
+					row.classList.add('d-none')
+				}
+			}
+
+			if (!dataLoadingMore) {
+				toggleVisibility(isVisible && isDateMatch)
+			} else if (dataLoadingMore === 'false') {
+				if (selectedDates.length === 0) {
+					toggleVisibility(false)
+					btnMore.classList.remove('d-none')
+
+					if (!isVisible) {
+						btnMore.classList.add('d-none')
+					}
+				} else if (selectedDates.includes(calendarDay)) {
+					toggleVisibility(true)
+					toggleVisibility(isVisible)
+				} else if (!selectedDates.includes(calendarDay)) {
+					toggleVisibility(false)
+					btnMore.classList.add('d-none')
+				}
+			} else if (dataLoadingMore === 'true') {
+				toggleVisibility(isVisible && isDateMatch)
+			}
+		})
+
+		if (visibleCount === 0) {
+			noResultsBlock?.classList.remove('d-none')
+			tableFilters.length > 0 ? btnMore?.classList.add('d-none') : null
+		} else {
+			noResultsBlock?.classList.add('d-none')
 		}
 
-		filtersInput.addEventListener('change', function (event) {
-			const checkbox = event.target
+		articleSwiperClass?.forEach((element) => {
+			const swiperInstance = element.querySelector('.swiper').swiper
 
+			swiperInstance ? swiperInstance.update() : null
+		})
+	}
+
+	document.querySelectorAll('[data-filter-action]').forEach(function (filtersGroup) {
+		// Для checkbox
+		filtersGroup.addEventListener('change', function (event) {
+			const checkbox = event.target
 			if (checkbox.type === 'checkbox' && checkbox.checked) {
-				filtersInput.querySelectorAll('input[type="checkbox"]').forEach(function (checkbox) {
-					if (checkbox !== event.target) {
-						checkbox.checked = false
+				filtersGroup.querySelectorAll('input[type="checkbox"]').forEach(function (cb) {
+					if (cb !== checkbox) {
+						cb.checked = false
 					}
 				})
 			}
-
-			applyFilters()
+			applyAllFilters()
 		})
+	
+		// Для кнопок
+		filtersGroup.addEventListener('click', function (event) {
+			const button = event.target.closest('button')
+			if (button) {
+				filtersGroup.querySelectorAll('button').forEach(btn => btn.classList.remove('active'))
+				button.classList.add('active')
+				applyAllFilters()
+			}
+		})
+	})
 
-		applyFilters()
-	}
+	applyAllFilters()
+
+	btnMore?.addEventListener('click', () => {
+		const hiddenCards = document.querySelectorAll('[data-loading-more="false"]')
+
+		if (hiddenCards.length === 0) {
+			btnMore.classList.add('d-none')
+			return
+		}
+
+		const spinner = btnMore.querySelector('.spinner-border')
+		spinner.classList.remove('d-none')
+
+		let shownCount = 0
+
+		setTimeout(() => {
+			for (const card of hiddenCards) {
+				if (tableFilters.length > 0) {
+					const rowFilters = card.dataset.filter.split(' ')
+					const isVisible = Array.from(document.querySelectorAll('[data-filter-action]'))
+						.map(group => group.querySelector('input[type="checkbox"]:checked')?.value)
+						.filter(Boolean)
+						.every(filter => rowFilters.includes(filter))
+	
+					const calendarDay = card.getAttribute('data-filter-day')
+					const isDateMatch = selectedDates.length === 0 || selectedDates.includes(calendarDay)
+
+					if (isVisible && isDateMatch) {
+						card.classList.remove('d-none')
+						card.setAttribute('data-loading-more', 'true')
+						shownCount++
+					}
+				} else {
+					card.classList.remove('d-none')
+					card.setAttribute('data-loading-more', 'true')
+					shownCount++
+				}
+
+				if (shownCount >= 4) {
+					break
+				}
+			}
+
+			if (hiddenCards.length === 0 || shownCount === hiddenCards.length) {
+				btnMore.classList.add('d-none')
+			}
+
+			spinner.classList.add('d-none')
+		}, 1000)
+	})
 
 
 
@@ -569,159 +831,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-	function createPrevIcon() {
-		const span = document.createElement('span')
-		span.className = 'icon'
-
-		const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-		const use = document.createElementNS('http://www.w3.org/2000/svg', 'use')
-		use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', 'images/icons/swiper-arrow-prev.svg#svg-swiper-arrow-prev')
-
-		svg.appendChild(use)
-		span.appendChild(svg)
-
-		return span
-	}
-
-	function createNextIcon() {
-		const span = document.createElement('span')
-		span.className = 'icon'
-
-		const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-		const use = document.createElementNS('http://www.w3.org/2000/svg', 'use')
-		use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', 'images/icons/swiper-arrow-next.svg#svg-swiper-arrow-next')
-
-		svg.appendChild(use)
-		span.appendChild(svg)
-
-		return span
-	}
-
-	const bannerSwiperClass = document.querySelectorAll('.swiper-banner')
-	const articleSwiperClass = document.querySelectorAll('.swiper-article')
-	const infrastructureSwiperClass = document.querySelectorAll('.swiper-infrastructure')
-	const skipassSwiperClass = document.querySelectorAll('.swiper-skipass')
-	const allNavigationNext = document.querySelectorAll('.swiper-button-next')
-	const allNavigationPrev = document.querySelectorAll('.swiper-button-prev')
-
-	bannerSwiperClass?.forEach((element) => {
-		const swiperElement = element.querySelector('.swiper')
-		const navigationNext = element.querySelector('.swiper-button-next')
-		const navigationPrev = element.querySelector('.swiper-button-prev')
-		const pagination = element.querySelector('.swiper-pagination')
-
-		new Swiper(swiperElement, {
-			modules: [Navigation, Pagination],
-			spaceBetween: 24,
-
-			pagination: {
-				el: pagination,
-				clickable: true,
-			},
-
-			navigation: {
-				nextEl: navigationNext,
-				prevEl: navigationPrev,
-			},
-		})
-	})
-
-	articleSwiperClass?.forEach((element) => {
-		const swiperElement = element.querySelector('.swiper')
-
-		new Swiper(swiperElement, {
-			slidesPerView: 'auto',
-			spaceBetween: 32,
-
-			breakpoints: {
-				0: {
-					slidesPerView: 'auto',
-					spaceBetween: 16
-				},
-				992: {
-					slidesPerView: 'auto',
-					spaceBetween: 32,
-				}
-			}
-		})
-	})
-
-	infrastructureSwiperClass?.forEach((element) => {
-		const swiperElement = element.querySelector('.swiper')
-		const pagination = element.querySelector('.swiper-pagination')
-
-		new Swiper(swiperElement, {
-			modules: [Pagination],
-			spaceBetween: 24,
-
-			pagination: {
-				el: pagination,
-				clickable: true,
-			},
-		})
-	})
-
-	skipassSwiperClass?.forEach((element) => {
-		const swiperElement = element.querySelector('.swiper')
-		const navigationNext = element.querySelector('.swiper-button-next')
-		const navigationPrev = element.querySelector('.swiper-button-prev')
-		const pagination = element.querySelector('.swiper-pagination')
-
-		const swiperInstance = new Swiper(swiperElement, {
-			modules: [Manipulation, Navigation, Pagination],
-			spaceBetween: 24,
-
-			pagination: {
-				el: pagination,
-				clickable: true,
-			},
-
-			navigation: {
-				nextEl: navigationNext,
-				prevEl: navigationPrev,
-			},
-		})
-
-		element.querySelectorAll('.swiper-slide-remove').forEach((button) => {
-			button.addEventListener('click', (event) => {
-				const slide = button.closest('.swiper-slide')
-				if (slide) {
-					slide.classList.add('swiper-slide-fade-out')
-
-					setTimeout(() => {
-						const index = Array.from(swiperInstance.slides).indexOf(slide)
-						if (index !== -1) {
-							swiperInstance.removeSlide(index)
-
-							if (swiperInstance.slides.length === 0) {
-								swiperInstance.destroy(true, true)
-								element.remove()
-							}
-						}
-					}, 400)
-				}
-			})
-		})
-	})
-
-	allNavigationNext.forEach(button => {
-		const icon = createNextIcon()
-		button.appendChild(icon)
-	})
-
-	allNavigationPrev.forEach(button => {
-		const icon = createPrevIcon()
-		button.appendChild(icon)
-	})
-
-
-
-
-	ymaps.ready(() => {
-		if (document.getElementById('map')) {
+	if (document.getElementById('map')) {
+		ymaps.ready(() => {
 			init()
-		}
-	})
+		})
+	}
 
 	function init() {
 		const myMap = new ymaps.Map("map", {
@@ -768,110 +882,48 @@ document.addEventListener('DOMContentLoaded', () => {
 	const calendarPopups = {
 		'2024-11-13': {
 			modifier: 'vanilla-calendar-day__btn_secondary',
-			html: `
-				<div>
-					<time>12:00 PM</time>
-					<p>Что-то там</p>
-				</div>
-			`,
 		},
 		'2024-11-14': {
 			modifier: 'vanilla-calendar-day__btn_secondary',
-			html: `
-				<time>12:00 PM</time>
-				<p>Что-то там</p>
-			`,
 		},
 		'2024-11-15': {
 			modifier: 'vanilla-calendar-day__btn_secondary',
-			html: `
-				<time>12:00 PM</time>
-				<p>Что-то там</p>
-			`,
 		},
 		'2024-11-22': {
 			modifier: 'vanilla-calendar-day__btn_secondary',
-			html: `
-				<time>12:00 PM</time>
-				<p>Что-то там</p>
-			`,
 		},
 		'2024-11-24': {
 			modifier: 'vanilla-calendar-day__btn_secondary',
-			html: `
-				<time>12:00 PM</time>
-				<p>Что-то там</p>
-			`,
 		},
 		'2024-12-11': {
 			modifier: 'vanilla-calendar-day__btn_secondary',
-			html: `
-				<time>12:00 PM</time>
-				<p>Что-то там</p>
-			`,
 		},
 		'2024-12-12': {
 			modifier: 'vanilla-calendar-day__btn_secondary',
-			html: `
-				<time>12:00 PM</time>
-				<p>Что-то там</p>
-			`,
 		},
 		'2024-12-13': {
 			modifier: 'vanilla-calendar-day__btn_secondary',
-			html: `
-				<time>12:00 PM</time>
-				<p>Что-то там</p>
-			`,
 		},
 		'2024-12-20': {
 			modifier: 'vanilla-calendar-day__btn_secondary',
-			html: `
-				<time>12:00 PM</time>
-				<p>Что-то там</p>
-			`,
 		},
 		'2024-12-22': {
-			modifier: 'vanilla-calendar-day__btn_primary',
-			html: `
-				<time>12:00 PM</time>
-				<p>Что-то там</p>
-			`,
+			modifier: 'vanilla-calendar-day__btn_secondary',
 		},
 		'2025-01-15': {
 			modifier: 'vanilla-calendar-day__btn_secondary',
-			html: `
-				<time>12:00 PM</time>
-				<p>Что-то там</p>
-			`,
 		},
 		'2025-01-16': {
 			modifier: 'vanilla-calendar-day__btn_secondary',
-			html: `
-				<time>12:00 PM</time>
-				<p>Что-то там</p>
-			`,
 		},
 		'2025-01-17': {
 			modifier: 'vanilla-calendar-day__btn_secondary',
-			html: `
-				<time>12:00 PM</time>
-				<p>Что-то там</p>
-			`,
 		},
 		'2025-01-23': {
 			modifier: 'vanilla-calendar-day__btn_secondary',
-			html: `
-				<time>12:00 PM</time>
-				<p>Что-то там</p>
-			`,
 		},
 		'2025-01-25': {
 			modifier: 'vanilla-calendar-day__btn_secondary',
-			html: `
-				<time>12:00 PM</time>
-				<p>Что-то там</p>
-			`,
 		},
 	}
 
@@ -919,7 +971,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	const updateCalendarMonths = (calendar) => {
-		const screenWidth = window.innerWidth;
+		const screenWidth = window.innerWidth
 
 		if (screenWidth < 1200) {
 			calendar.months = 2
@@ -951,7 +1003,6 @@ document.addEventListener('DOMContentLoaded', () => {
 					daysOutside: false,
 				},
 				selection: {
-					day: false,
 					month: false,
 					year: false,
 				},
@@ -960,6 +1011,13 @@ document.addEventListener('DOMContentLoaded', () => {
 				clickArrow(e, self) {
 					resetArrowVisibility(self.HTMLElement, self.CSSClasses.arrow)
 				},
+				clickDay(e, self) {
+					const isEvent = e.target.closest('.vanilla-calendar-day__btn_secondary')
+					selectedDates = isEvent ? self.selectedDates.join(',') : ''
+					isEvent ? null : self.selectedDates = []
+
+					applyAllFilters()
+				},
 			},
 			popups: calendarPopups,
 		})
@@ -967,11 +1025,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		calendar.init()
 
 		resetArrowVisibility(calendar.HTMLElement, calendar.CSSClasses.arrow)
-		addArrowIcons(calendar, nextIcon, prevIcon);
+		addArrowIcons(calendar, nextIcon, prevIcon)
 		updateCalendarMonths(calendar)
 		window.addEventListener('resize', () => updateCalendarMonths(calendar))
 	})
-
 
 
 

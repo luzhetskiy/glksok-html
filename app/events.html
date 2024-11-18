@@ -48,10 +48,10 @@
 				<div class="row g-5">
 					<div class="col-12">
 						<div class="events-filters">
-							<div class="filters">
+							<div class="filters" data-filter-action>
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="allArticles" id="allArticles" checked>
-									<label class="form-check-label" for="allArticles">
+									<input class="form-check-input" type="checkbox" value="allItem" id="allItem" checked>
+									<label class="form-check-label" for="allItem">
 										Все
 									</label>
 								</div>
@@ -69,9 +69,9 @@
 								</div>
 							</div>
 	
-							<div class="filters">
+							<div class="filters" data-filter-action>
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="bygones" id="bygonesArticles">
+									<input class="form-check-input" type="checkbox" value="bygonesArticles" id="bygonesArticles">
 									<label class="form-check-label" for="bygonesArticles">
 										Прошедшие
 									</label>
@@ -80,7 +80,7 @@
 	
 							<ul class="nav nav-tabs nav-tabs-filter" role="tablist">
 								<li class="nav-item" role="presentation">
-									<button class="nav-link" id="articles-grid" 
+									<button class="nav-link active" id="articles-grid" 
 										type="button" role="tab" aria-controls="articles-grid" aria-selected="true">
 										<span class="icon">
 											<svg>
@@ -91,7 +91,7 @@
 								</li>
 	
 								<li class="nav-item" role="presentation">
-									<button class="nav-link active" id="articles-row"
+									<button class="nav-link" id="articles-row"
 										type="button" role="tab" aria-controls="articles-row" aria-selected="false">
 										<span class="icon">
 											<svg>
@@ -107,13 +107,13 @@
 					<div class="col-12">
 						<div class="events-articles">
 							<div class="events-articles-filter">
-								<a href="#" class="card card-article is-bygone">
+								<a href="#" class="card card-article" data-filter="allItem holidaysArticles bygonesArticles" data-filter-day="2024-11-13">
 									<picture>
 										<!-- <source srcset="images/dist/articles/image-1.webp" type="image/webp"> -->
 										<img loading="lazy" src="images/dist/articles/image-1.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
 									</picture>
 									<div class="card-body">
-										<time datetime="" class="card-time">1 марта</time>
+										<time datetime="2024-11-13" class="card-time">13 ноября</time>
 										<h3 class="card-title">
 											Соревнования Самарской области по горнолыжному спорту "СОКолята 2024" - 3й этап слалом (5 трасса)
 											<span class="icon icon-solid">
@@ -125,13 +125,13 @@
 									</div>
 								</a>
 	
-								<a href="#" class="card card-article is-bygone">
+								<a href="#" class="card card-article" data-filter="allItem contestsArticles bygonesArticles" data-filter-day="2024-11-14">
 									<picture>
 										<!-- <source srcset="images/dist/articles/image-2.webp" type="image/webp"> -->
 										<img loading="lazy" src="images/dist/articles/image-2.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
 									</picture>
 									<div class="card-body">
-										<time datetime="" class="card-time">15 марта</time>
+										<time datetime="2024-11-14" class="card-time">14 ноября</time>
 										<h3 class="card-title">
 											Любители-2024 3-й этап —Контрольная тренировка на время по горнолыжному спорту и сноуборду
 											<span class="icon icon-solid">
@@ -143,13 +143,13 @@
 									</div>
 								</a>
 	
-								<a href="#" class="card card-article">
+								<a href="#" class="card card-article" data-filter="allItem bygonesArticles" data-filter-day="2024-11-15">
 									<picture>
 										<!-- <source srcset="images/dist/articles/image-3.webp" type="image/webp"> -->
 										<img loading="lazy" src="images/dist/articles/image-3.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
 									</picture>
 									<div class="card-body">
-										<time datetime="" class="card-time">21 марта</time>
+										<time datetime="2024-11-15" class="card-time">15 ноября</time>
 										<h3 class="card-title">
 											Масленица 2024
 											<span class="icon icon-solid">
@@ -161,13 +161,13 @@
 									</div>
 								</a>
 	
-								<a href="#" class="card card-article">
+								<a href="#" class="card card-article" data-filter="allItem holidaysArticles" data-filter-day="2024-11-22">
 									<picture>
 										<!-- <source srcset="images/dist/articles/image-4.webp" type="image/webp"> -->
 										<img loading="lazy" src="images/dist/articles/image-4.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
 									</picture>
 									<div class="card-body">
-										<time datetime="" class="card-time">25 марта</time>
+										<time datetime="2024-11-22" class="card-time">22 ноября</time>
 										<h3 class="card-title">
 											Праздник в честь Закрытия сезона 2024 — самый сочный спуск
 											<span class="icon icon-solid">
@@ -179,13 +179,13 @@
 									</div>
 								</a>
 	
-								<a href="#" class="card card-article">
+								<a href="#" class="card card-article" data-filter="allItem contestsArticles" data-filter-day="2024-11-24">
 									<picture>
 										<!-- <source srcset="images/dist/articles/image-1.webp" type="image/webp"> -->
 										<img loading="lazy" src="images/dist/articles/image-1.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
 									</picture>
 									<div class="card-body">
-										<time datetime="" class="card-time">1 марта</time>
+										<time datetime="2024-11-24" class="card-time">24 ноября</time>
 										<h3 class="card-title">
 											Соревнования Самарской области по горнолыжному спорту "СОКолята 2024" - 3й этап слалом (5 трасса)
 											<span class="icon icon-solid">
@@ -197,13 +197,13 @@
 									</div>
 								</a>
 	
-								<a href="#" class="card card-article">
+								<a href="#" class="card card-article" data-filter="allItem contestsArticles" data-filter-day="2024-12-11">
 									<picture>
 										<!-- <source srcset="images/dist/articles/image-2.webp" type="image/webp"> -->
 										<img loading="lazy" src="images/dist/articles/image-2.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
 									</picture>
 									<div class="card-body">
-										<time datetime="" class="card-time">15 марта</time>
+										<time datetime="2024-12-11" class="card-time">11 декабря</time>
 										<h3 class="card-title">
 											Любители-2024 3-й этап —Контрольная тренировка на время по горнолыжному спорту и сноуборду
 											<span class="icon icon-solid">
@@ -215,13 +215,13 @@
 									</div>
 								</a>
 	
-								<a href="#" class="card card-article">
+								<a href="#" class="card card-article" data-filter="allItem contestsArticles" data-filter-day="2024-12-12">
 									<picture>
 										<!-- <source srcset="images/dist/articles/image-3.webp" type="image/webp"> -->
 										<img loading="lazy" src="images/dist/articles/image-3.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
 									</picture>
 									<div class="card-body">
-										<time datetime="" class="card-time">21 марта</time>
+										<time datetime="2024-12-12" class="card-time">12 декабря</time>
 										<h3 class="card-title">
 											Масленица 2024
 											<span class="icon icon-solid">
@@ -233,13 +233,13 @@
 									</div>
 								</a>
 	
-								<a href="#" class="card card-article">
+								<a href="#" class="card card-article" data-filter="allItem contestsArticles" data-filter-day="2024-12-13">
 									<picture>
 										<!-- <source srcset="images/dist/articles/image-4.webp" type="image/webp"> -->
 										<img loading="lazy" src="images/dist/articles/image-4.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
 									</picture>
 									<div class="card-body">
-										<time datetime="" class="card-time">25 марта</time>
+										<time datetime="2024-12-13" class="card-time">13 декабря</time>
 										<h3 class="card-title">
 											Праздник в честь Закрытия сезона 2024 — самый сочный спуск
 											<span class="icon icon-solid">
@@ -250,16 +250,165 @@
 										</h3>
 									</div>
 								</a>
+
+								<a href="#" class="card card-article d-none" data-filter="allItem contestsArticles" data-filter-day="2024-12-20" data-loading-more="false">
+									<picture>
+										<!-- <source srcset="images/dist/articles/image-4.webp" type="image/webp"> -->
+										<img loading="lazy" src="images/dist/articles/image-4.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
+									</picture>
+									<div class="card-body">
+										<time datetime="2024-12-20" class="card-time">20 декабря</time>
+										<h3 class="card-title">
+											Праздник в честь Закрытия сезона 2024 — самый сочный спуск
+											<span class="icon icon-solid">
+												<svg>
+													<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
+												</svg>
+											</span>
+										</h3>
+									</div>
+								</a>
+
+								<a href="#" class="card card-article d-none" data-filter="allItem contestsArticles" data-filter-day="2024-12-20" data-loading-more="false">
+									<picture>
+										<!-- <source srcset="images/dist/articles/image-4.webp" type="image/webp"> -->
+										<img loading="lazy" src="images/dist/articles/image-4.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
+									</picture>
+									<div class="card-body">
+										<time datetime="2024-12-20" class="card-time">20 декабря</time>
+										<h3 class="card-title">
+											Праздник в честь Закрытия сезона 2024 — самый сочный спуск
+											<span class="icon icon-solid">
+												<svg>
+													<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
+												</svg>
+											</span>
+										</h3>
+									</div>
+								</a>
+
+								<a href="#" class="card card-article d-none" data-filter="allItem contestsArticles" data-filter-day="2024-12-22" data-loading-more="false">
+									<picture>
+										<!-- <source srcset="images/dist/articles/image-4.webp" type="image/webp"> -->
+										<img loading="lazy" src="images/dist/articles/image-4.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
+									</picture>
+									<div class="card-body">
+										<time datetime="2024-12-22" class="card-time">22 декабря</time>
+										<h3 class="card-title">
+											Праздник в честь Закрытия сезона 2024 — самый сочный спуск
+											<span class="icon icon-solid">
+												<svg>
+													<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
+												</svg>
+											</span>
+										</h3>
+									</div>
+								</a>
+
+								<a href="#" class="card card-article d-none" data-filter="allItem contestsArticles" data-filter-day="2025-01-15" data-loading-more="false">
+									<picture>
+										<!-- <source srcset="images/dist/articles/image-4.webp" type="image/webp"> -->
+										<img loading="lazy" src="images/dist/articles/image-4.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
+									</picture>
+									<div class="card-body">
+										<time datetime="2025-01-15" class="card-time">15 января</time>
+										<h3 class="card-title">
+											Праздник в честь Закрытия сезона 2024 — самый сочный спуск
+											<span class="icon icon-solid">
+												<svg>
+													<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
+												</svg>
+											</span>
+										</h3>
+									</div>
+								</a>
+
+								<a href="#" class="card card-article d-none" data-filter="allItem contestsArticles" data-filter-day="2025-01-16" data-loading-more="false">
+									<picture>
+										<!-- <source srcset="images/dist/articles/image-4.webp" type="image/webp"> -->
+										<img loading="lazy" src="images/dist/articles/image-4.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
+									</picture>
+									<div class="card-body">
+										<time datetime="2025-01-16" class="card-time">16 января</time>
+										<h3 class="card-title">
+											Праздник в честь Закрытия сезона 2024 — самый сочный спуск
+											<span class="icon icon-solid">
+												<svg>
+													<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
+												</svg>
+											</span>
+										</h3>
+									</div>
+								</a>
+
+								<a href="#" class="card card-article d-none" data-filter="allItem contestsArticles" data-filter-day="2025-01-17" data-loading-more="false">
+									<picture>
+										<!-- <source srcset="images/dist/articles/image-4.webp" type="image/webp"> -->
+										<img loading="lazy" src="images/dist/articles/image-4.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
+									</picture>
+									<div class="card-body">
+										<time datetime="2025-01-17" class="card-time">17 января</time>
+										<h3 class="card-title">
+											Праздник в честь Закрытия сезона 2024 — самый сочный спуск
+											<span class="icon icon-solid">
+												<svg>
+													<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
+												</svg>
+											</span>
+										</h3>
+									</div>
+								</a>
+
+								<a href="#" class="card card-article d-none" data-filter="allItem contestsArticles" data-filter-day="2025-01-23" data-loading-more="false">
+									<picture>
+										<!-- <source srcset="images/dist/articles/image-4.webp" type="image/webp"> -->
+										<img loading="lazy" src="images/dist/articles/image-4.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
+									</picture>
+									<div class="card-body">
+										<time datetime="2025-01-23" class="card-time">23 января</time>
+										<h3 class="card-title">
+											Праздник в честь Закрытия сезона 2024 — самый сочный спуск
+											<span class="icon icon-solid">
+												<svg>
+													<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
+												</svg>
+											</span>
+										</h3>
+									</div>
+								</a>
+
+								<a href="#" class="card card-article d-none" data-filter="allItem contestsArticles" data-filter-day="2025-01-25" data-loading-more="false">
+									<picture>
+										<!-- <source srcset="images/dist/articles/image-4.webp" type="image/webp"> -->
+										<img loading="lazy" src="images/dist/articles/image-4.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
+									</picture>
+									<div class="card-body">
+										<time datetime="2025-01-25" class="card-time">25 января</time>
+										<h3 class="card-title">
+											Праздник в честь Закрытия сезона 2024 — самый сочный спуск
+											<span class="icon icon-solid">
+												<svg>
+													<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
+												</svg>
+											</span>
+										</h3>
+									</div>
+								</a>
+
+								<div class="filters-result d-none" data-filter-result="">
+									Ничего не найдено
+								</div>
 							</div>
 
 							<div class="section-more justify-content-lg-center">
-								<button type="button" class="btn btn-outline-primary btn-more">
+								<button type="button" class="btn btn-outline-primary btn-more" data-filter-more="">
 									<span class="icon icon-solid">
 										<svg>
 											<use xlink:href="images/icons/arrow-bottom.svg#svg-arrow-bottom"></use>
 										</svg>
 									</span>
 									Показать ещё
+									<span class="spinner-border spinner-border-sm ms-2 d-none" aria-hidden="true"></span>
 								</button>
 							</div>
 						</div>

@@ -50,6 +50,11 @@
 
 			margin-left: auto
 
+			@media (max-width: 576px)
+				width: auto
+				margin-inline: auto 0
+				padding-inline: unset
+
 			.nav-link
 				.icon
 					--i-size: 2rem
@@ -60,8 +65,6 @@
 		.nav-tabs-year
 			@media (max-width: 576px)
 				--bs-nav-link-padding-x: 1rem
-
-				width: 100%
 
 			.nav-item
 				@media (max-width: 576px)
@@ -156,7 +159,7 @@
 					.icon
 						display: none
 
-				&.is-bygone
+				&[data-filter*="bygonesArticles"]
 					opacity: .5
 
 		&.is-invisible
