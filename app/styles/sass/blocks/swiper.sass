@@ -78,7 +78,13 @@
 .swiper-article
 	
 	.swiper
-		
+		margin-block: -5rem
+		padding-block: 5rem
+		pointer-events: none
+
+		&-wrapper
+			pointer-events: auto
+
 		&-slide
 			width: auto
 			height: auto
@@ -128,12 +134,13 @@
 	.swiper-button-prev
 		--bs-btn-hover-color: var(--bs-secondary)
 		--bs-btn-active-color: var(--bs-secondary)
-		--bs-btn-bg: var(--bs-white)
+		--bs-btn-bg: transparent
 		--bs-btn-hover-bg: var(--bs-white)
 		--bs-btn-active-bg: var(--bs-white)
-		--bs-btn-border-color: var(--bs-border-color)
-		--bs-btn-hover-border-color: var(--bs-secondary)
-		--bs-btn-active-border-color: var(--bs-secondary)
+		--bs-btn-border-width: 1px
+		--bs-btn-border-color: transparent
+		--bs-btn-hover-border-color: var(--bs-border-color)
+		--bs-btn-active-border-color: var(--bs-border-color)
 		--bs-btn-border-radius: 50%
 
 		margin-top: unset

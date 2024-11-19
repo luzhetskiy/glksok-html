@@ -1,5 +1,6 @@
 import Choices from 'choices.js'
 import VanillaCalendar from 'vanilla-calendar-pro'
+import { Fancybox } from "@fancyapps/ui"
 import Swiper from 'swiper'
 import { Manipulation, Navigation, Pagination } from 'swiper/modules'
 
@@ -12,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			history.back()
 		})
 	}
-
 
 
 
@@ -162,6 +162,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		button.appendChild(icon)
 	})
 
+
+
+	Fancybox.bind("[data-fancybox]", {
+		groupAttr: "data-fancybox",
+		groupAll: false,
+		autoFocus: false,
+	})
 
 
 
@@ -495,7 +502,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 			applyAllFilters()
 		})
-	
+
 		// Для кнопок
 		filtersGroup.addEventListener('click', function (event) {
 			const button = event.target.closest('button')
@@ -530,7 +537,7 @@ document.addEventListener('DOMContentLoaded', () => {
 						.map(group => group.querySelector('input[type="checkbox"]:checked')?.value)
 						.filter(Boolean)
 						.every(filter => rowFilters.includes(filter))
-	
+
 					const calendarDay = card.getAttribute('data-filter-day')
 					const isDateMatch = selectedDates.length === 0 || selectedDates.includes(calendarDay)
 
@@ -797,7 +804,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
 	const handleResponsiveMove = () => {
 		document.querySelectorAll('[data-move-target]').forEach((element) => {
 			const targetSelector = element.dataset.moveTarget
@@ -874,8 +880,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			myMap.container.fitToViewport()
 		})
 	}
-
-
 
 
 
@@ -1076,6 +1080,35 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 
+
+	const checkboxItems = document.querySelectorAll('[data-item-checkbox]')
+
+	checkboxItems?.forEach((element) => {
+		const checkbox = element.querySelector('input[type="checkbox"]')
+
+		const toggleActiveClass = () => {
+			if (checkbox.checked) {
+				element.classList.add('active')
+			} else {
+				element.classList.remove('active')
+			}
+		}
+
+		toggleActiveClass()
+
+		checkbox.addEventListener('change', toggleActiveClass)
+	})
+
+
+
+	const shortProductElement = document.querySelector('[data-short-product]')
+
+	if (shortProductElement) {
+		const updateHeightVariable = () => document.documentElement.style.setProperty('--short-product-height', `${Math.round(shortProductElement.getBoundingClientRect().height)}px`)
+
+		updateHeightVariable()
+		window.addEventListener('resize', updateHeightVariable)
+	}
 
 
 })

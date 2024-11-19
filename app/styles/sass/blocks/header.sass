@@ -69,6 +69,7 @@
 	
 	.nav-link
 		line-height: 1.25
+		transition: color 300ms ease-in-out,background-color 300ms ease-in-out,border-color 300ms ease-in-out
 
 		@media (max-width: 992px)
 			display: flex
@@ -157,6 +158,15 @@
 					gap: .5rem
 					padding-left: 0
 
+		.navbar-toggler
+			--bs-navbar-color: var(--bs-secondary)
+			
+			&:hover
+				--bs-navbar-color: var(--bs-black)
+
+			.icon
+				--i-color: currentColor
+
 		.navbar-nav
 			--bs-nav-link-color: var(--bs-white)
 			--bs-nav-link-hover-color: var(--bs-black)
@@ -168,6 +178,12 @@
 		.nav-link
 			display: flex
 			align-items: center
+
+			&:is(:hover, :focus)
+
+				.icon
+					--i-color: currentColor
+
 
 			.icon
 				--i-color: currentColor
@@ -199,8 +215,8 @@
 			&-body
 				margin-block: 5rem 2rem
 
-				@media (max-width: 1400px)
-					margin-top: 2rem
+				@media (max-width: 1400px), (max-height: 800px)
+					margin-block: 1rem
 
 				@media (max-width: 992px)
 					margin-top: 0
@@ -224,9 +240,6 @@
 				&:not([data-has-icon])
 					padding-left: 5rem
 
-					@media (max-width: 1400px)
-						padding-left: 2rem
-
 					@media (max-width: 992px)
 						padding-left: 0
 
@@ -241,8 +254,7 @@
 				padding-left: 5rem
 				margin-bottom: 5rem
 
-				@media (max-width: 1400px)
-					padding-left: 2rem
+				@media (max-width: 1400px), (max-height: 800px)
 					margin-bottom: 2rem
 
 				@media (max-width: 992px)

@@ -377,31 +377,6 @@ textarea.form-control
 				.icon
 					--i-color: var(--bs-link-color-rgb)
 
-.alert
-	--bs-alert-margin-bottom: 0
-	font-size: var(--bs-font-size-md)
-	font-weight: 500
-	line-height: normal
-	box-shadow: var(--bs-box-shadow-lg)
-
-	& > .icon
-		margin-bottom: .5rem
-
-.alert-success
-	--bs-alert-color: var(--bs-black)
-	--bs-alert-bg: var(--bs-white)
-
-	& > .icon
-		--i-size: 2.25rem
-		--i-color: var(--bs-success)
-
-.alert-dismissible
-
-	.btn-close
-		padding: .25rem
-		top: .75rem
-		right: .75rem
-
 .table-responsive
 	max-height: 330px
 	overflow-y: auto
@@ -511,6 +486,10 @@ textarea.form-control
 	padding-bottom: .125rem
 	overflow-x: auto
 	overflow-y: hidden
+	scrollbar-width: none
+
+	&::-webkit-scrollbar
+		display: none
 
 	@media (max-width: 576px)
 		width: calc( 100% + var(--bs-gutter-x) )
