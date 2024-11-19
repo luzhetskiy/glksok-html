@@ -1,1 +1,36 @@
 @import 'node_modules/@fancyapps/ui/dist/fancybox/fancybox'
+
+[data-fancybox]
+	display: inline-block
+	position: relative
+	cursor: pointer
+
+	&::after
+		content: ''
+		width: 100%
+		height: 100%
+		display: block
+		background-color: rgba(55, 71, 79, .5)
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 48 48' fill='%23fff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30.6866 6L34.9292 10.2428L26.586 18.586L29.414 21.414L37.7574 13.071L42 17.3138V6H30.6866ZM18.586 26.586L10.2426 34.929L6 30.6862V42H17.3134L13.0708 37.7572L21.414 29.414L18.586 26.586Z'/%3E%3C/svg%3E")
+		background-size: 3rem
+		background-position: center
+		background-repeat: no-repeat
+		border-radius: var(--bs-border-radius-xl)
+		pointer-events: none
+		user-select: none
+		opacity: 0
+		position: absolute
+		top: 0
+		left: 0
+		transition: opacity 300ms ease-in-out
+
+	img
+		display: block
+		border-radius: var(--bs-border-radius-xl)
+
+	@media (hover: hover)
+
+		&:hover
+
+			&::after
+				opacity: 1
