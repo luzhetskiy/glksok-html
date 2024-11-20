@@ -6,13 +6,13 @@ import { Manipulation, Navigation, Pagination } from 'swiper/modules'
 
 document.addEventListener('DOMContentLoaded', () => {
 
-	const backButton = document.querySelector('#backButton')
+	const backButtons = document.querySelectorAll('.btn-back')
 
-	if (backButton) {
-		backButton.addEventListener('click', function () {
+	backButtons?.forEach(button => {
+		button.addEventListener('click', function () {
 			history.back()
 		})
-	}
+	})
 
 
 

@@ -1,0 +1,83 @@
+.textpage
+
+	&-image
+		width: 100%
+		height: auto
+		min-height: 450px
+		display: block
+		background-color: var(--bs-gray-700)
+		border-top-right-radius: var(--bs-border-radius-xl)
+		border-top-left-radius: var(--bs-border-radius-xl)
+		object-fit: cover
+
+		@media (max-width: 992px)
+			min-height: 200px
+
+		@media (max-width: 576px)
+			width: calc( 100% + var(--bs-gutter-x) )
+			margin-inline: calc( var(--bs-gutter-x) / 2 * -1 )
+
+	&-content
+		background-color: var(--bs-white)
+		border-bottom-right-radius: var(--bs-border-radius-xl)
+		border-bottom-left-radius: var(--bs-border-radius-xl)
+		padding-block: 2rem 4rem
+
+		@media (max-width: 992px)
+			padding: 2rem calc( var(--bs-gutter-x) / 2)
+
+		@media (max-width: 576px)
+			margin-inline: calc( var(--bs-gutter-x) / 2 * -1 )
+
+		&-pictures
+			display: flex
+			flex-wrap: wrap
+			gap: .5rem
+			margin-block: 1.5rem
+
+			&:first-child
+				margin-top: 0
+
+			&:last-child
+				margin-bottom: 0
+
+			&-image
+				width: auto
+				height: 200px
+				display: block
+				object-fit: contain
+
+				@media (max-width: 992px)
+					height: 100px
+
+			[data-fancybox]
+
+				&::after,
+				img
+					@media (max-width: 992px)
+						border-radius: .625rem
+
+		.section-header
+			@media (max-width: 992px)
+				margin-bottom: 1rem
+
+		.section-title
+
+			&:not(.h2),
+			&.h2
+				@media (max-width: 992px)
+					font-size: 1.25rem
+
+		h4
+			margin-bottom: 1.5rem
+
+			@media (max-width: 992px)
+				font-size: 1rem
+				margin-bottom: 1rem
+
+		.list-group-docs
+			--bs-list-group-bg: var(--bs-gray-100)
+			--bs-list-group-action-hover-bg: var(--bs-body-bg)
+			--bs-list-group-action-active-bg: var(--bs-body-bg)
+
+

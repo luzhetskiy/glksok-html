@@ -21,9 +21,32 @@
 			@media (max-width: 992px)
 				font-size: 1.5rem
 
+			@media (max-width: 576px)
+				margin-bottom: 0
+
 		.alert
 			top: -1rem
 
+			@media (max-width: 992px)
+				width: 100%
+				max-width: calc(  var(--bs-container-md) - var(--bs-gutter-x) )
+				position: fixed
+				top: 1rem
+				left: 50%
+				transform: translateX(-50%)
+				z-index: var(--bs-zindex-fixed)
+
+			@media (max-width: 768px)
+				max-width: calc(  var(--bs-container-sm) - var(--bs-gutter-x) )
+
+			@media (max-width: 576px)
+				--bs-gutter-x: 1rem
+
+				width: initial
+				max-width: initial
+				left: calc( var(--bs-gutter-x) / 2 )
+				right: calc( var(--bs-gutter-x) / 2 )
+				transform: initial
 
 h1, .h1,
 h2, .h2
@@ -185,6 +208,27 @@ a
 
 	.icon-xxl
 		--i-size: 2.25rem
+
+.btn-back
+	--bs-btn-color: var(--bs-black)
+	--bs-btn-hover-color: var(--bs-secondary)
+	--bs-btn-active-color: var(--bs-secondary)
+	--bs-btn-border-width: 0
+	--bs-btn-border-radius: 0
+	--bs-btn-box-shadow: 0
+	--bs-btn-padding-x: 0
+	--bs-btn-padding-y: 0
+
+	.icon
+		--i-size: 2.25rem
+		--i-color: currentColor
+
+		transition: unset
+
+		@media (max-width: 992px)
+			--i-size: 1.5rem
+
+
 
 .btn-reset
 	--bs-btn-padding-y: 0
