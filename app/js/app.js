@@ -1140,12 +1140,20 @@ document.addEventListener('DOMContentLoaded', () => {
 		if (shortProductElement) {
 			const shortProductElementQuantity = shortProductElement.querySelector('[data-short-product-quantity]')
 			const shortProductElementPrice = shortProductElement.querySelector('[data-short-product-price]')
+			const shortProductElementButton = shortProductElement.querySelector('[data-short-product-button]')
 
 			if (shortProductElementQuantity) {
 				shortProductElementQuantity.textContent = quantity
 			}
 			if (shortProductElementPrice) {
 				shortProductElementPrice.textContent = totalPrice
+			}
+			if (shortProductElementButton) {
+				if (quantity === 0) {
+					shortProductElementButton.setAttribute('disabled', 'disabled')
+				} else {
+					shortProductElementButton.removeAttribute('disabled')
+				}
 			}
 		}
 	}

@@ -1,0 +1,114 @@
+<div class="modal fade" id="modalCart" tabindex="-1" aria-labelledby="modalCartLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h2 class="modal-title" id="modalCartLabel">
+					Корзина
+				</h2>
+				<button type="button" class="btn-close btn-icon" data-bs-dismiss="modal" aria-label="Закрыть">
+					<span class="icon icon-solid">
+						<svg>
+							<use xlink:href="../images/icons/cross.svg#svg-cross"></use>
+						</svg>
+					</span>
+				</button>
+      </div>
+			<form action="#" class="form needs-validation" novalidate>
+				<div class="modal-body">
+					<p class="modal-text text-black mb-3">
+						Вы выбрали 5 фото: 3253, 4557, 5765, 5743, 6595
+					</p>
+					<p class="modal-text text-black mb-3">
+						Фотографии будут высланы на указанный ниже e-mail. По всем вопросам: +79277535381 (Telegram)
+					</p>
+
+					<div class="row gy-4 gx-3 mt-4">
+						<div class="col-lg-6">
+							<div class="has-validation">
+								<div class="form-floating form-control-reset">
+									<input type="text" class="form-control" id="floatingInputName" maxlength="60" placeholder="ФИО ребёнка" required="">
+									<label for="floatingInputName">ФИО ребёнка</label>
+									<button type="button" class="btn btn-reset">
+										<span class="icon icon-solid">
+											<svg>
+												<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+											</svg>
+										</span>
+									</button>
+								</div>
+
+								<div class="invalid-feedback">
+									Вы все неправильно сделали. Нельзя использовать кириллические символы
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="has-validation">
+								<div class="form-floating form-control-reset">
+									<input type="tel" class="form-control" id="floatingInputTel" inputmode="tel" maxlength="14" placeholder="Телефон" required="">
+									<label for="floatingInputTel">Телефон</label>
+									<button type="button" class="btn btn-reset">
+										<span class="icon icon-solid">
+											<svg>
+												<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+											</svg>
+										</span>
+									</button>
+								</div>
+
+								<div class="invalid-feedback">
+									Вы все неправильно сделали. Нельзя использовать кириллические символы
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="has-validation">
+								<div class="form-floating form-control-reset">
+									<input type="email" class="form-control" id="floatingInputEmail" maxlength="60" inputmode="email" placeholder="e-mail" required="">
+									<label for="floatingInputEmail">e-mail</label>
+									<button type="button" class="btn btn-reset">
+										<span class="icon icon-solid">
+											<svg>
+												<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+											</svg>
+										</span>
+									</button>
+								</div>
+
+								<div class="invalid-feedback">
+									Вы все неправильно сделали. Нельзя использовать кириллические символы
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="form-floating form-control-reset">
+								<textarea class="form-control" placeholder="комментарий" id="floatingTextarea" maxlength="200"></textarea>
+								<label for="floatingTextarea">комментарий</label>
+								<button type="button" class="btn btn-reset">
+									<span class="icon icon-solid">
+										<svg>
+											<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+										</svg>
+									</span>
+								</button>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="checkboxPolicy">
+								<label class="form-check-label" for="checkboxPolicy">
+									С <a href="#" class="btn btn-plaintext">политикой обработки данных</a> согласен (сна)
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-secondary">
+						Оплатить 1000₽
+					</button>
+				</div>
+			</form>
+    </div>
+  </div>
+</div>

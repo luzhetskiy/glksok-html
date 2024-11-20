@@ -3,6 +3,7 @@
 <!--#include virtual="/parts/head.html" -->
 <div class="page bg-body">
 	<!--#include virtual="/parts/header-main.html" -->
+	<!--#include virtual="/parts/modalCart.html" -->
 
 	<main>
 		<section class="section">
@@ -321,7 +322,9 @@
 	<div class="photos-short" data-short-product>
 		<div class="container">
 			<div class="photos-short-content">
-				<button type="button" class="btn btn-secondary">
+				<button type="button" class="btn btn-secondary"
+					data-short-product-button=""
+					data-bs-toggle="modal" data-bs-target="#modalCart">
 					Купить
 				</button>
 
