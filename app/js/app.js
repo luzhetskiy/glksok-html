@@ -1082,8 +1082,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 	const checkboxItems = document.querySelectorAll('[data-item-checkbox]')
+	const shortProductElement = document.querySelector('[data-short-product]')
 
-	checkboxItems?.forEach((element) => {
+	// Функция для обновления количества и цены
+	const updateShortProductInfo = () => {
+		const checkedItems = Array.from(checkboxItems).filter((item) => {
+			const checkbox = item.querySelector('input[type="checkbox"]')
+			return checkbox?.checked
+		})
+
+		const quantity = checkedItems.length
+		const pricePerItem = quantity >= 3 ? 400 : 500
+		const totalPrice = quantity * pricePerItem
+
+		// Обновляем данные в shortProductElement
+		if (shortProductElement) {
+			const shortProductElementQuantity = shortProductElement.querySelector('[data-short-product-quantity]')
+			const shortProductElementPrice = shortProductElement.querySelector('[data-short-product-price]')
+
+			if (shortProductElementQuantity) {
+				shortProductElementQuantity.textContent = quantity
+			}
+			if (shortProductElementPrice) {
+				shortProductElementPrice.textContent = totalPrice
+			}
+		}
+	}
+
+	// Основная логика
+	checkboxItems.forEach((element) => {
 		const checkbox = element.querySelector('input[type="checkbox"]')
 
 		const toggleActiveClass = () => {
@@ -1092,23 +1119,41 @@ document.addEventListener('DOMContentLoaded', () => {
 			} else {
 				element.classList.remove('active')
 			}
+			updateShortProductInfo()
 		}
 
 		toggleActiveClass()
-
 		checkbox.addEventListener('change', toggleActiveClass)
 	})
 
-
-
-	const shortProductElement = document.querySelector('[data-short-product]')
-
+	// Обновляем высоту shortProductElement
 	if (shortProductElement) {
-		const updateHeightVariable = () => document.documentElement.style.setProperty('--short-product-height', `${Math.round(shortProductElement.getBoundingClientRect().height)}px`)
+		const updateHeightVariable = () => {
+			const height = Math.round(shortProductElement.getBoundingClientRect().height)
+			document.documentElement.style.setProperty('--short-product-height', `${height}px`)
+		}
 
 		updateHeightVariable()
 		window.addEventListener('resize', updateHeightVariable)
 	}
+
+
+
+	const iframesContainer = document.querySelectorAll('.iframe-container')
+	iframesContainer?.forEach((element) => {
+		const iframe = element.querySelector('iframe')
+		iframe.addEventListener('load', () => {
+			const resizeIframe = () => {
+				iframe.style.height = `${iframe.contentWindow.document.body.scrollHeight}px`
+			}
+			resizeIframe()
+			iframe.contentWindow.addEventListener('resize', resizeIframe)
+			window.addEventListener('shown.bs.modal', event => {
+				resizeIframe()
+			})
+		})
+	})
+
 
 
 })

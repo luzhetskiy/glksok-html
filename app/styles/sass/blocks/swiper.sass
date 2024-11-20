@@ -11,10 +11,17 @@
 		--swiper-container: 960px
 	
 	@media (min-width: 1200px)
-		--swiper-container: 950px
+		--swiper-container: 1140px
 
 	@media (min-width: 1400px)
-		--swiper-container: 1133.33px
+		--swiper-container: 1360px
+
+	&-lg
+		@media (min-width: 1200px)
+			--swiper-container: 950px
+
+		@media (min-width: 1400px)
+			--swiper-container: 1133.33px
 
 	.swiper
 		padding-inline: max(1rem, calc(((100% - var(--swiper-container) + 2rem) / 2)))

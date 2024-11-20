@@ -3,15 +3,12 @@
 <!--#include virtual="/parts/head.html" -->
 <div class="page bg-body">
 	<!--#include virtual="/parts/header-main.html" -->
+	<!--#include virtual="/parts/eventSignUp.html" -->
 
 	<main>
 		<section class="section">
 			<div class="page-header">
 				<div class="container">
-					<h1 class="h2">
-						Мероприятия
-					</h1>
-		
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item">
@@ -46,13 +43,14 @@
 						<div class="row g-5">
 							<div class="col-lg-8">
 								<div class="section-header">
-									<h2 class="section-title h2">
+									<h1 class="section-title h2">
 										Любители-2024 3-й этап — Контрольная тренировка на время по горнолыжному спорту и сноуборд
-									</h2>
+									</h1>
 								</div>
 
 								<div class="product-content-buttons mb-lg-5 mb-4">
-									<button type="button" class="btn btn-secondary">
+									<button type="button" class="btn btn-secondary"
+										data-bs-toggle="modal" data-bs-target="#eventSignUp">
 										<span class="icon">
 											<svg>
 												<use xlink:href="images/icons/chevron-in-circle-right.svg#svg-chevron-in-circle-right"></use>
@@ -93,20 +91,12 @@
 									</li>
 								</ul>
 
-								<ul class="list-group list-group-plaintext list-group-product mb-lg-5 mb-4">
-									<li class="list-group-item">
-										Стартовый взнос 700 руб. за каждого участника.
-									</li>
-									<li class="list-group-item">
-										Скипасс приобретается самостоятельно.
-									</li>
-									<li class="list-group-item">
-										Количество попыток 3.
-									</li>
-									<li class="list-group-item">
-										Залог за номер 1000 руб (возвращается когда сдают номер)
-									</li>
-								</ul>
+								<div class="dynamic-content mb-lg-5 mb-4">
+									<p>Стартовый взнос 700 руб. за каждого участника.</p>
+									<p>Скипасс приобретается самостоятельно.</p>
+									<p>Количество попыток 3.</p>
+									<p>Залог за номер 1000 руб (возвращается когда сдают номер)</p>
+								</div>
 
 								<div class="product-content-pictures">
 									<picture data-fancybox="group-1" data-src="images/dist/product/image-1.jpg">
@@ -199,236 +189,169 @@
 						Другие мероприятия
 					</h2>
 				</div>
+			</div>
+			<div class="swiper-padding-container swiper-article">
+				<div class="swiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<a href="#" class="card card-article" data-filter="allItem eventsArticles newsArticles photosArticles">
+								<picture>
+									<!-- <source srcset="images/dist/articles/image-1.webp" type="image/webp"> -->
+									<img loading="lazy" src="images/dist/articles/image-1.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
+								</picture>
+								<div class="card-body">
+									<time datetime="" class="card-time">1 марта</time>
+									<h3 class="card-title">
+										Соревнования Самарской области по горнолыжному спорту "СОКолята 2024" - 3й этап слалом (5 трасса)
+										<span class="icon icon-solid">
+											<svg>
+												<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
+											</svg>
+										</span>
+									</h3>
+								</div>
+							</a>
+						</div>
 
-				<div class="events-articles">
-					<div class="events-articles-filter">
-						<a href="#" class="card card-article">
-							<picture>
-								<!-- <source srcset="images/dist/articles/image-1.webp" type="image/webp"> -->
-								<img loading="lazy" src="images/dist/articles/image-1.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
-							</picture>
-							<div class="card-body">
-								<time datetime="" class="card-time">1 марта</time>
-								<h3 class="card-title">
-									Соревнования Самарской области по горнолыжному спорту "СОКолята 2024" - 3й этап слалом (5 трасса)
-									<span class="icon icon-solid">
-										<svg>
-											<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
-										</svg>
-									</span>
-								</h3>
-							</div>
-						</a>
+						<div class="swiper-slide">
+							<a href="#" class="card card-article" data-filter="allItem newsArticles">
+								<picture>
+									<!-- <source srcset="images/dist/articles/image-2.webp" type="image/webp"> -->
+									<img loading="lazy" src="images/dist/articles/image-2.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
+								</picture>
+								<div class="card-body">
+									<time datetime="" class="card-time">15 марта</time>
+									<h3 class="card-title">
+										Любители-2024 3-й этап —Контрольная тренировка на время по горнолыжному спорту и сноуборду
+										<span class="icon icon-solid">
+											<svg>
+												<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
+											</svg>
+										</span>
+									</h3>
+								</div>
+							</a>
+						</div>
 
-						<a href="#" class="card card-article">
-							<picture>
-								<!-- <source srcset="images/dist/articles/image-2.webp" type="image/webp"> -->
-								<img loading="lazy" src="images/dist/articles/image-2.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
-							</picture>
-							<div class="card-body">
-								<time datetime="" class="card-time">15 марта</time>
-								<h3 class="card-title">
-									Любители-2024 3-й этап —Контрольная тренировка на время по горнолыжному спорту и сноуборду
-									<span class="icon icon-solid">
-										<svg>
-											<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
-										</svg>
-									</span>
-								</h3>
-							</div>
-						</a>
+						<div class="swiper-slide">
+							<a href="#" class="card card-article" data-filter="allItem newsArticles">
+								<picture>
+									<!-- <source srcset="images/dist/articles/image-3.webp" type="image/webp"> -->
+									<img loading="lazy" src="images/dist/articles/image-3.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
+								</picture>
+								<div class="card-body">
+									<time datetime="" class="card-time">21 марта</time>
+									<h3 class="card-title">
+										Масленица 2024
+										<span class="icon icon-solid">
+											<svg>
+												<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
+											</svg>
+										</span>
+									</h3>
+								</div>
+							</a>
+						</div>
 
-						<a href="#" class="card card-article">
-							<picture>
-								<!-- <source srcset="images/dist/articles/image-3.webp" type="image/webp"> -->
-								<img loading="lazy" src="images/dist/articles/image-3.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
-							</picture>
-							<div class="card-body">
-								<time datetime="" class="card-time">21 марта</time>
-								<h3 class="card-title">
-									Масленица 2024
-									<span class="icon icon-solid">
-										<svg>
-											<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
-										</svg>
-									</span>
-								</h3>
-							</div>
-						</a>
+						<div class="swiper-slide">
+							<a href="#" class="card card-article" data-filter="allItem eventsArticles">
+								<picture>
+									<!-- <source srcset="images/dist/articles/image-4.webp" type="image/webp"> -->
+									<img loading="lazy" src="images/dist/articles/image-4.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
+								</picture>
+								<div class="card-body">
+									<time datetime="" class="card-time">25 марта</time>
+									<h3 class="card-title">
+										Праздник в честь Закрытия сезона 2024 — самый сочный спуск
+										<span class="icon icon-solid">
+											<svg>
+												<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
+											</svg>
+										</span>
+									</h3>
+								</div>
+							</a>
+						</div>
 
-						<a href="#" class="card card-article">
-							<picture>
-								<!-- <source srcset="images/dist/articles/image-4.webp" type="image/webp"> -->
-								<img loading="lazy" src="images/dist/articles/image-4.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
-							</picture>
-							<div class="card-body">
-								<time datetime="" class="card-time">25 марта</time>
-								<h3 class="card-title">
-									Праздник в честь Закрытия сезона 2024 — самый сочный спуск
-									<span class="icon icon-solid">
-										<svg>
-											<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
-										</svg>
-									</span>
-								</h3>
-							</div>
-						</a>
+						<div class="swiper-slide">
+							<a href="#" class="card card-article" data-filter="allItem photosArticles">
+								<picture>
+									<!-- <source srcset="images/dist/articles/image-1.webp" type="image/webp"> -->
+									<img loading="lazy" src="images/dist/articles/image-1.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
+								</picture>
+								<div class="card-body">
+									<time datetime="" class="card-time">1 марта</time>
+									<h3 class="card-title">
+										Соревнования Самарской области по горнолыжному спорту "СОКолята 2024" - 3й этап слалом (5 трасса)
+										<span class="icon icon-solid">
+											<svg>
+												<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
+											</svg>
+										</span>
+									</h3>
+								</div>
+							</a>
+						</div>
 
-						<a href="#" class="card card-article d-none" data-loading-more="false">
-							<picture>
-								<!-- <source srcset="images/dist/articles/image-4.webp" type="image/webp"> -->
-								<img loading="lazy" src="images/dist/articles/image-4.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
-							</picture>
-							<div class="card-body">
-								<time datetime="2024-12-20" class="card-time">20 декабря</time>
-								<h3 class="card-title">
-									Праздник в честь Закрытия сезона 2024 — самый сочный спуск
-									<span class="icon icon-solid">
-										<svg>
-											<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
-										</svg>
-									</span>
-								</h3>
-							</div>
-						</a>
+						<div class="swiper-slide">
+							<a href="#" class="card card-article" data-filter="allItem photosArticles">
+								<picture>
+									<!-- <source srcset="images/dist/articles/image-2.webp" type="image/webp"> -->
+									<img loading="lazy" src="images/dist/articles/image-2.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
+								</picture>
+								<div class="card-body">
+									<time datetime="" class="card-time">15 марта</time>
+									<h3 class="card-title">
+										Любители-2024 3-й этап —Контрольная тренировка на время по горнолыжному спорту и сноуборду
+										<span class="icon icon-solid">
+											<svg>
+												<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
+											</svg>
+										</span>
+									</h3>
+								</div>
+							</a>
+						</div>
 
-						<a href="#" class="card card-article d-none" data-loading-more="false">
-							<picture>
-								<!-- <source srcset="images/dist/articles/image-4.webp" type="image/webp"> -->
-								<img loading="lazy" src="images/dist/articles/image-4.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
-							</picture>
-							<div class="card-body">
-								<time datetime="2024-12-20" class="card-time">20 декабря</time>
-								<h3 class="card-title">
-									Праздник в честь Закрытия сезона 2024 — самый сочный спуск
-									<span class="icon icon-solid">
-										<svg>
-											<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
-										</svg>
-									</span>
-								</h3>
-							</div>
-						</a>
+						<div class="swiper-slide">
+							<a href="#" class="card card-article" data-filter="allItem eventsArticles">
+								<picture>
+									<!-- <source srcset="images/dist/articles/image-3.webp" type="image/webp"> -->
+									<img loading="lazy" src="images/dist/articles/image-3.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
+								</picture>
+								<div class="card-body">
+									<time datetime="" class="card-time">21 марта</time>
+									<h3 class="card-title">
+										Масленица 2024
+										<span class="icon icon-solid">
+											<svg>
+												<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
+											</svg>
+										</span>
+									</h3>
+								</div>
+							</a>
+						</div>
 
-						<a href="#" class="card card-article d-none" data-loading-more="false">
-							<picture>
-								<!-- <source srcset="images/dist/articles/image-4.webp" type="image/webp"> -->
-								<img loading="lazy" src="images/dist/articles/image-4.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
-							</picture>
-							<div class="card-body">
-								<time datetime="2024-12-22" class="card-time">22 декабря</time>
-								<h3 class="card-title">
-									Праздник в честь Закрытия сезона 2024 — самый сочный спуск
-									<span class="icon icon-solid">
-										<svg>
-											<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
-										</svg>
-									</span>
-								</h3>
-							</div>
-						</a>
-
-						<a href="#" class="card card-article d-none" data-loading-more="false">
-							<picture>
-								<!-- <source srcset="images/dist/articles/image-4.webp" type="image/webp"> -->
-								<img loading="lazy" src="images/dist/articles/image-4.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
-							</picture>
-							<div class="card-body">
-								<time datetime="2025-01-15" class="card-time">15 января</time>
-								<h3 class="card-title">
-									Праздник в честь Закрытия сезона 2024 — самый сочный спуск
-									<span class="icon icon-solid">
-										<svg>
-											<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
-										</svg>
-									</span>
-								</h3>
-							</div>
-						</a>
-
-						<a href="#" class="card card-article d-none" data-loading-more="false">
-							<picture>
-								<!-- <source srcset="images/dist/articles/image-4.webp" type="image/webp"> -->
-								<img loading="lazy" src="images/dist/articles/image-4.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
-							</picture>
-							<div class="card-body">
-								<time datetime="2025-01-16" class="card-time">16 января</time>
-								<h3 class="card-title">
-									Праздник в честь Закрытия сезона 2024 — самый сочный спуск
-									<span class="icon icon-solid">
-										<svg>
-											<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
-										</svg>
-									</span>
-								</h3>
-							</div>
-						</a>
-
-						<a href="#" class="card card-article d-none" data-loading-more="false">
-							<picture>
-								<!-- <source srcset="images/dist/articles/image-4.webp" type="image/webp"> -->
-								<img loading="lazy" src="images/dist/articles/image-4.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
-							</picture>
-							<div class="card-body">
-								<time datetime="2025-01-17" class="card-time">17 января</time>
-								<h3 class="card-title">
-									Праздник в честь Закрытия сезона 2024 — самый сочный спуск
-									<span class="icon icon-solid">
-										<svg>
-											<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
-										</svg>
-									</span>
-								</h3>
-							</div>
-						</a>
-
-						<a href="#" class="card card-article d-none" data-loading-more="false">
-							<picture>
-								<!-- <source srcset="images/dist/articles/image-4.webp" type="image/webp"> -->
-								<img loading="lazy" src="images/dist/articles/image-4.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
-							</picture>
-							<div class="card-body">
-								<time datetime="2025-01-23" class="card-time">23 января</time>
-								<h3 class="card-title">
-									Праздник в честь Закрытия сезона 2024 — самый сочный спуск
-									<span class="icon icon-solid">
-										<svg>
-											<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
-										</svg>
-									</span>
-								</h3>
-							</div>
-						</a>
-
-						<a href="#" class="card card-article d-none" data-loading-more="false">
-							<picture>
-								<!-- <source srcset="images/dist/articles/image-4.webp" type="image/webp"> -->
-								<img loading="lazy" src="images/dist/articles/image-4.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
-							</picture>
-							<div class="card-body">
-								<time datetime="2025-01-25" class="card-time">25 января</time>
-								<h3 class="card-title">
-									Праздник в честь Закрытия сезона 2024 — самый сочный спуск
-									<span class="icon icon-solid">
-										<svg>
-											<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
-										</svg>
-									</span>
-								</h3>
-							</div>
-						</a>
-					</div>
-
-					<div class="section-more justify-content-lg-center">
-						<button type="button" class="btn btn-outline-primary btn-more" data-filter-more="">
-							<span class="icon icon-solid">
-								<svg>
-									<use xlink:href="images/icons/arrow-bottom.svg#svg-arrow-bottom"></use>
-								</svg>
-							</span>
-							Показать ещё
-							<span class="spinner-border spinner-border-sm ms-2 d-none" aria-hidden="true"></span>
-						</button>
+						<div class="swiper-slide">
+							<a href="#" class="card card-article" data-filter="allItem eventsArticles photosArticles">
+								<picture>
+									<!-- <source srcset="images/dist/articles/image-4.webp" type="image/webp"> -->
+									<img loading="lazy" src="images/dist/articles/image-4.jpg" class="card-img-top" width="308" height="210" alt="Картинка">
+								</picture>
+								<div class="card-body">
+									<time datetime="" class="card-time">25 марта</time>
+									<h3 class="card-title">
+										Праздник в честь Закрытия сезона 2024 — самый сочный спуск
+										<span class="icon icon-solid">
+											<svg>
+												<use xlink:href="images/icons/arrow-right.svg#arrow-right"></use>
+											</svg>
+										</span>
+									</h3>
+								</div>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
