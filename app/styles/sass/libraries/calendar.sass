@@ -107,6 +107,7 @@
 			&__btn
 				color: var(--bs-black)
 
+				&_selected,
 				&_secondary
 					color: var(--bs-white)
 					background-color: var(--bs-secondary)
@@ -115,7 +116,18 @@
 					&.vanilla-calendar-day__btn_selected
 						background-color: #A5D1FE
 
+		&-months
 
+			&__month
+				&.vanilla-calendar-months__month_selected
+					&,
+					&:hover
+						background-color: #A5D1FE
 
-
+		&-years
+			&__year
+				&.vanilla-calendar-years__year_selected
+					&,
+					&:hover
+						background-color: #A5D1FE
 

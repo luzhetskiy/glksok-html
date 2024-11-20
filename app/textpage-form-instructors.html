@@ -1,0 +1,359 @@
+<!--#set var="title" value="glksok" -->
+<!--#set var="footer-class" value="footer-gradient-transition" -->
+<!--#include virtual="/parts/head.html" -->
+<div class="page bg-body">
+	<!--#include virtual="/parts/header-main.html" -->
+	<!--#include virtual="/parts/eventSignUp.html" -->
+
+	<div class="alert alert-event alert-dismissible fade show" role="alert">
+		<div class="container">
+			<button type="button" class="btn-close btn-icon" data-bs-dismiss="alert" aria-label="Close">
+				<div class="icon icon-solid">
+					<svg>
+						<use xlink:href="images/icons/cross.svg#svg-cross"></use>
+					</svg>
+				</div>
+			</button>
+	
+			<div class="alert-body">
+				Важное сообщение! 👉 С 20 марта начинается главная акция сезона «Сочные будни»
+			</div>
+		</div>
+	</div>
+
+	<main>
+		<section class="section">
+			<div class="page-header">
+				<div class="container">
+					<h2 class="h2">
+						Бронирование инструкторов онлайн
+					</h2>
+
+					<nav aria-label="breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item">
+								<a href="./home.html">
+									<span class="icon icon-solid">
+										<svg>
+											<use xlink:href="images/icons/home-outline.svg#svg-home-outline"></use>
+										</svg>
+									</span>
+								</a>
+							</li>
+							<li class="breadcrumb-item">
+								<a href="#">
+									О комплексе
+								</a>
+							</li>
+							<li class="breadcrumb-item active" aria-current="page">
+								Бронирование инструкторов онлайн
+							</li>
+						</ol>
+					</nav>
+				</div>
+			</div>
+
+			<div class="textpage">
+				<div class="container">
+					<picture>
+						<!-- <source srcset="images/dist/instructors_bg.webp" type="image/webp"> -->
+						<img loading="lazy" src="images/dist/instructors_bg.jpg" class="textpage-image" width="1328" height="450" alt="Картинка">
+					</picture>
+					<div class="textpage-content">
+						<div class="row justify-content-center">
+							<div class="col-lg-10">
+								<div class="section-header">
+									<h1 class="section-title">
+										Инструкторы. Запись и оплата
+									</h1>
+								</div>
+
+								<div class="row">
+									<div class="col-lg-8">
+										<form class="needs-validation textpage-form" novalidate="novalidate">
+											<h3 class="textpage-form-title">
+												форма бронирования инструкторов
+											</h3>
+		
+											<div class="row gy-4 gx-5">
+												<div class="col-12">
+													<div class="has-validation">
+														<div class="form-floating form-control-reset">
+															<input type="text" class="form-control" id="floatingInputName" maxlength="60" placeholder="ФИО ребёнка" required="">
+															<label for="floatingInputName">ФИО</label>
+															<button type="button" class="btn btn-reset">
+																<span class="icon icon-solid">
+																	<svg>
+																		<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+																	</svg>
+																</span>
+															</button>
+														</div>
+		
+														<div class="invalid-feedback">
+															Вы все неправильно сделали. Нельзя использовать кириллические символы
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6">
+													<div class="has-validation">
+														<div class="form-floating form-control-reset">
+															<input type="tel" class="form-control" id="floatingInputTel" inputmode="tel" maxlength="14" placeholder="Телефон" required="">
+															<label for="floatingInputTel">Телефон</label>
+															<button type="button" class="btn btn-reset">
+																<span class="icon icon-solid">
+																	<svg>
+																		<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+																	</svg>
+																</span>
+															</button>
+														</div>
+			
+														<div class="invalid-feedback">
+															Вы все неправильно сделали. Нельзя использовать кириллические символы
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6">
+													<div class="has-validation">
+														<div class="form-floating form-control-reset">
+															<input type="email" class="form-control" id="floatingInputEmail" maxlength="60" inputmode="email" placeholder="e-mail" required="">
+															<label for="floatingInputEmail">e-mail</label>
+															<button type="button" class="btn btn-reset">
+																<span class="icon icon-solid">
+																	<svg>
+																		<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+																	</svg>
+																</span>
+															</button>
+														</div>
+				
+														<div class="invalid-feedback">
+															Вы все неправильно сделали. Нельзя использовать кириллические символы
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6">
+													<div class="has-validation">
+														<div class="dropdown dropdown-calendar form-floating">
+															<input type="text" id="floatingDropdownCalendar" class="form-control dropdown-toggle" placeholder="выберете дату" readonly required
+																data-bs-toggle="dropdown" data-bs-offset="0,4" data-bs-auto-close="outside" aria-expanded="false">
+															<label for="floatingDropdownCalendar">выберете дату</label>
+															<div class="dropdown-menu">
+																<div data-calendar=""></div>
+															</div>
+														</div>
+
+														<div class="invalid-feedback">
+															Вы все неправильно сделали. Нельзя использовать кириллические символы
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6">
+													<div class="has-validation">
+														<div class="form-floating">
+															<select class="form-select js-form-select" id="floatingSelectTime" required
+																aria-label="выберете доступное время">
+																<option value="1">10:00 – 11:00</option>
+																<option value="2">10:00 – 11:00</option>
+																<option value="3">10:00 – 11:00</option>
+																<option value="4">10:00 – 11:00</option>
+																<option value="5">10:00 – 11:00</option>
+																<option value="6">10:00 – 11:00</option>
+															</select>
+															<label for="floatingSelectTime">выберете доступное время</label>
+														</div>
+				
+														<div class="invalid-feedback">
+															Вы все неправильно сделали. Нельзя использовать кириллические символы
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6">
+													<div class="has-validation">
+														<div class="form-floating">
+															<select class="form-select js-form-select" id="floatingSelectSport"
+																aria-label="вид спорта" required>
+																<option value="1">Горные лыжи</option>
+																<option value="2">Горные лыжи</option>
+																<option value="3">Горные лыжи</option>
+																<option value="4">Горные лыжи</option>
+																<option value="5">Горные лыжи</option>
+															</select>
+															<label for="floatingSelectSport">вид спорта</label>
+														</div>
+				
+														<div class="invalid-feedback">
+															Вы все неправильно сделали. Нельзя использовать кириллические символы
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6">
+													<div class="has-validation">
+														<div class="form-floating">
+															<select class="form-select js-form-select" id="floatingSelectStudy"
+																aria-label="количество обучаемых" required>
+																<option value="1">1</option>
+																<option value="2">2</option>
+																<option value="3">3</option>
+																<option value="4">4</option>
+																<option value="5">5</option>
+																<option value="6">6</option>
+															</select>
+															<label for="floatingSelectStudy">количество обучаемых</label>
+														</div>
+				
+														<div class="invalid-feedback">
+															Вы все неправильно сделали. Нельзя использовать кириллические символы
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6">
+													<div class="has-validation">
+														<div class="form-floating form-control-reset">
+															<input type="text" class="form-control" id="floatingInputYearOne" maxlength="60" placeholder="возраст обучаемого №1" required="">
+															<label for="floatingInputYearOne">возраст обучаемого №1</label>
+															<button type="button" class="btn btn-reset">
+																<span class="icon icon-solid">
+																	<svg>
+																		<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+																	</svg>
+																</span>
+															</button>
+														</div>
+		
+														<div class="invalid-feedback">
+															Вы все неправильно сделали. Нельзя использовать кириллические символы
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6">
+													<div class="has-validation">
+														<div class="form-floating form-control-reset">
+															<input type="text" class="form-control" id="floatingInputYearTwo" maxlength="60" placeholder="возраст обучаемого №2" required="">
+															<label for="floatingInputYearTwo">возраст обучаемого №2</label>
+															<button type="button" class="btn btn-reset">
+																<span class="icon icon-solid">
+																	<svg>
+																		<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+																	</svg>
+																</span>
+															</button>
+														</div>
+		
+														<div class="invalid-feedback">
+															Вы все неправильно сделали. Нельзя использовать кириллические символы
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6">
+													<div class="has-validation">
+														<div class="form-floating form-control-reset">
+															<input type="text" class="form-control" id="floatingInputYearThree" maxlength="60" placeholder="возраст обучаемого №3" required="">
+															<label for="floatingInputYearThree">возраст обучаемого №3</label>
+															<button type="button" class="btn btn-reset">
+																<span class="icon icon-solid">
+																	<svg>
+																		<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+																	</svg>
+																</span>
+															</button>
+														</div>
+		
+														<div class="invalid-feedback">
+															Вы все неправильно сделали. Нельзя использовать кириллические символы
+														</div>
+													</div>
+												</div>
+												<div class="col-12">
+													<div class="form-floating form-control-reset">
+														<textarea class="form-control" placeholder="комментарий" id="floatingTextarea" maxlength="200"></textarea>
+														<label for="floatingTextarea">комментарий</label>
+														<button type="button" class="btn btn-reset">
+															<span class="icon icon-solid">
+																<svg>
+																	<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+																</svg>
+															</span>
+														</button>
+													</div>
+												</div>
+												<div class="col-12">
+													<div class="form-check">
+														<input class="form-check-input" type="checkbox" value="" id="checkboxPolicy">
+														<label class="form-check-label" for="checkboxPolicy">
+															С <a href="#" class="btn btn-plaintext">политикой обработки данных</a> согласен (сна)
+														</label>
+													</div>
+												</div>
+												
+												<div class="col-12">
+													<button type="submit" class="btn btn-secondary textpage-form-submit">
+														Забронировать
+													</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+
+								<div class="dynamic-content">
+									<p>
+										Научиться кататься на горнолыжных склонах могут новички, взрослые и дети. Уже пары тренировок с инструктором достаточно, чтобы понять, почему ваших друзей и знакомых каждую зиму так тянет на «Глинку» — как ласково называют нашу горнолыжку самарцы. А распробовав удовольствие от покатушек в родном городе и уверенно встав на лыжи или сноуборд, можно запланировать отдых в больших горах.
+									</p>
+
+									<h3>
+										Забронировать по телефону
+									</h3>
+									<p>
+										Телефон бронирования: +79276868279
+									</p>
+									<p>
+										Бронивание в телеграме: +79958325073
+									</p>
+									<p>
+										Бронирование инструкторов производится за 1 сутки до прибытия клиентов. Телефоны активны только в рабочее время комплекса. По понедельникам инструкторский центр не работает, поэтому для бронирования инструктора на вторник, лучше записаться заранее.
+									</p>
+									<p>
+										Для детей от 5 до 10 лет мы рекомендуем <a href="#">детский лагерь «Лисенок»</a> (Обучение катанию, игры, творчество, еда и подарки).
+									</p>
+
+									<h3>
+										Когда
+									</h3>
+									<p>
+										Каждую субботу и воскресенье (и праздничные дни) в 11:00. Лучше <a href="#">бронировать</a> и оплачивать заранее онлайн, так как мы готовим прокат и еду. Но при наличии мест, мы сможем принять ваших детей и по факту.
+									</p>
+
+									<h3>
+										Цены
+									</h3>
+									<p>
+										Стоимость всех услгу комплекса смотрите в разделе «<a href="#">Цены</a>»
+									</p>
+
+									<h3>
+										Куда подходить
+									</h3>
+									<p>
+										После бронирования с вами свяжется менеджер и сообщит детали. Инструкторы находятся на обеих площадках ГЛК «СОК». Для освоения азов катания лучше всего подойдут трассы №9 и №10, которые находятся на «<a href="#">Верхней площадке</a>» комплекса (ул. Батайская, 18Б)
+									</p>
+
+
+									<h3>
+										Инструктор. Зачем
+									</h3>
+									<p>
+										Инструктор — это человек, прошедший специальное обучение, владеющий методикой и техникой упражнений, позволяющих освоить горные лыжи или сноуборд максимально правильно и безопасно. Он покажет нужные упражнения и укажет на ошибки, если вы уже умеете кататься.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<!--#include virtual="/parts/footer-main.html" -->
+</div>
+<!--#include virtual="/parts/scripts.html" -->

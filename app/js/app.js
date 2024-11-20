@@ -984,9 +984,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 
 		calendar.update()
-		const prevIcon = createPrevIcon()
-		const nextIcon = createNextIcon()
-		addArrowIcons(calendar, nextIcon, prevIcon)
 		resetArrowVisibility(calendar.HTMLElement, calendar.CSSClasses.arrow)
 	}
 
@@ -1022,6 +1019,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 					applyAllFilters()
 				},
+				updateCalendar(self) {
+					addArrowIcons(calendar, nextIcon, prevIcon)
+				},
 			},
 			popups: calendarPopups,
 		})
@@ -1032,6 +1032,47 @@ document.addEventListener('DOMContentLoaded', () => {
 		addArrowIcons(calendar, nextIcon, prevIcon)
 		updateCalendarMonths(calendar)
 		window.addEventListener('resize', () => updateCalendarMonths(calendar))
+	})
+
+	document.querySelectorAll('[data-calendar]').forEach((calendarElement) => {
+		const calendarInput = calendarElement.closest('.dropdown-calendar').querySelector('.dropdown-toggle')
+
+		const prevIcon = createPrevIcon()
+		const nextIcon = createNextIcon()
+
+		const calendar = new VanillaCalendar(calendarElement, {
+			type: 'default',
+			settings: {
+				lang: 'ru-RU',
+				visibility: {
+					theme: 'light',
+					daysOutside: false,
+				},
+			},
+			actions: {
+				clickDay(event, self) {
+					calendarInput.value = self.selectedDates.join(',')
+				},
+				clickMonth(e, self) {
+					setTimeout(() => addArrowIcons(calendar, nextIcon, prevIcon))
+				},
+				clickYear(event, self) {
+					setTimeout(() => addArrowIcons(calendar, nextIcon, prevIcon))
+				},
+				getDays(day, date, HTMLElement, HTMLButtonElement, self) {
+					setTimeout(() => addArrowIcons(calendar, nextIcon, prevIcon))
+				},
+				getYears(year, HTMLElement, self) {
+					setTimeout(() => addArrowIcons(calendar, nextIcon, prevIcon))
+				},
+				updateCalendar(self) {
+					setTimeout(() => addArrowIcons(calendar, nextIcon, prevIcon))
+				},
+			},
+		})
+
+		calendar.init()
+		addArrowIcons(calendar, nextIcon, prevIcon)
 	})
 
 

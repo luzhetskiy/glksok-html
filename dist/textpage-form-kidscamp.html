@@ -1,0 +1,755 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<!-- <base href="/"> -->
+
+	<title>glksok</title>
+	<meta name="description" content="Website">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="icon" href="images/favicon.svg">
+	
+	<link rel="stylesheet" href="css/libraries.min.css">
+	<link rel="stylesheet" href="css/app.min.css">
+
+</head>
+
+<body>
+<div class="page bg-body">
+	<header>
+	<nav class="navbar navbar-main">
+		<div class="container">
+			<a class="navbar-brand" href="./index.html">
+				<img src="images/dist/logo-main.svg" width="120" alt="Logo">
+			</a>
+			<ul class="navbar-nav ms-auto me-lg-6 me-5">
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+						<span class="icon">
+							<svg>
+								<use xlink:href="images/icons/camera.svg#svg-camera"></use>
+							</svg>
+						</span>
+						<span class="d-lg-inline d-none">
+							камеры
+						</span>
+					</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+						<span class="icon">
+							<svg>
+								<use xlink:href="images/icons/user.svg#svg-user"></use>
+							</svg>
+						</span>
+						<span class="d-lg-inline d-none">
+							личный кабинет
+						</span>
+					</a>
+        </li>
+      </ul>
+			<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+				aria-controls="offcanvasNavbar">
+				<span class="icon">
+					<svg>
+						<use xlink:href="images/icons/burger.svg#svg-burger"></use>
+					</svg>
+				</span>
+			</button>
+			<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+				<div class="offcanvas-header">
+					<div class="container">
+						<a class="navbar-brand" href="./index.html">
+							<img src="images/dist/logo-main.svg" width="120" alt="Logo">
+						</a>
+						<button class="navbar-toggler" type="button"
+							data-bs-dismiss="offcanvas" aria-label="Закрыть навигационное меню">
+							<span class="icon">
+								<svg>
+									<use xlink:href="images/icons/cross.svg#svg-cross"></use>
+								</svg>
+							</span>
+						</button>
+					</div>
+				</div>
+				<div class="offcanvas-body">
+					<div class="container">
+						<div class="row justify-content-center">
+							<div class="col-xxl-9 col-xl-10">
+								<div class="row">
+									<div class="col-lg-6">
+										<ul class="navbar-nav align-items-start">
+											<li class="nav-item">
+												<a class="nav-link" data-has-icon href="#">
+													<span class="icon icon-solid">
+														<svg>
+															<use xlink:href="images/icons/camera.svg#svg-camera"></use>
+														</svg>
+													</span>
+													камеры
+												</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" data-has-icon href="#">
+													<span class="icon icon-solid icon-home">
+														<svg>
+															<use xlink:href="images/icons/home.svg#svg-home"></use>
+														</svg>
+													</span>
+													личный кабинет
+												</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" data-has-icon href="#">
+													<span class="icon icon-solid">
+														<svg>
+															<use xlink:href="images/icons/gift.svg#svg-gift"></use>
+														</svg>
+													</span>
+													сертификат
+												</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" href="#">
+													о комплексе
+												</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" href="#">
+													цены
+												</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" href="#">
+													расписание
+												</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" href="#">
+													новости
+												</a>
+											</li>
+										</ul>
+									</div>
+									<div class="col-lg-6">
+										<ul class="navbar-nav align-items-start">
+											<li class="nav-item">
+												<a class="nav-link" href="#">
+													события
+												</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" href="#">
+													фото
+												</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" href="#">
+													контакты
+												</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" href="#">
+													забронировать инструктора
+												</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" href="#">
+													документы
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-xxl-9 col-xl-10">
+							<div class="list-group list-group-plaintext list-group-social">
+								<h3 class="list-group-item list-group-item-title">
+									Соцсети: @glksok
+								</h3>
+
+								<ul class="navbar-nav">
+									<li class="nav-item">
+										<a class="nav-link" data-has-icon href="#">
+											<span class="icon icon-solid">
+												<svg>
+													<use xlink:href="images/icons/vk.svg#svg-vk"></use>
+												</svg>
+											</span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-has-icon href="#">
+											<span class="icon icon-solid icon-home">
+												<svg>
+													<use xlink:href="images/icons/telegram.svg#svg-telegram"></use>
+												</svg>
+											</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+</header>
+	<div class="modal fade" id="eventSignUp" tabindex="-1" aria-labelledby="eventSignUpLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="eventSignUpLabel">
+					Заявиться на событие
+				</h2>
+        <button type="button" class="btn-close btn-icon" data-bs-dismiss="modal" aria-label="Закрыть">
+					<span class="icon icon-solid">
+						<svg>
+							<use xlink:href="../images/icons/cross.svg#svg-cross"></use>
+						</svg>
+					</span>
+				</button>
+      </div>
+			<div class="modal-body">
+				<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc9nyxJLKErG1FUpmXCFhOLHhk2LK-02J4Z1Q0YYJMzppCpQQ/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Закрыть</button>
+			</div>
+    </div>
+  </div>
+</div>
+
+	<div class="alert alert-event alert-dismissible fade show" role="alert">
+		<div class="container">
+			<button type="button" class="btn-close btn-icon" data-bs-dismiss="alert" aria-label="Close">
+				<div class="icon icon-solid">
+					<svg>
+						<use xlink:href="images/icons/cross.svg#svg-cross"></use>
+					</svg>
+				</div>
+			</button>
+	
+			<div class="alert-body">
+				Важное сообщение! 👉 С 20 марта начинается главная акция сезона «Сочные будни»
+			</div>
+		</div>
+	</div>
+
+	<main>
+		<section class="section">
+			<div class="page-header">
+				<div class="container">
+					<h2 class="h2">
+						Бронирование лагеря «Лисёнок»
+					</h2>
+
+					<nav aria-label="breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item">
+								<a href="./home.html">
+									<span class="icon icon-solid">
+										<svg>
+											<use xlink:href="images/icons/home-outline.svg#svg-home-outline"></use>
+										</svg>
+									</span>
+								</a>
+							</li>
+							<li class="breadcrumb-item">
+								<a href="#">
+									О комплексе
+								</a>
+							</li>
+							<li class="breadcrumb-item active" aria-current="page">
+								Бронирование лагеря «Лисёнок»
+							</li>
+						</ol>
+					</nav>
+				</div>
+			</div>
+
+			<div class="textpage">
+				<div class="container">
+					<picture>
+						<!-- <source srcset="images/dist/kidscamp_bg.webp" type="image/webp"> -->
+						<img loading="lazy" src="images/dist/kidscamp_bg.jpg" class="textpage-image" width="1328" height="450" alt="Картинка">
+					</picture>
+					<div class="textpage-content">
+						<div class="row justify-content-center">
+							<div class="col-lg-10">
+								<div class="section-header">
+									<h1 class="section-title">
+										Детский лагерь выходного дня «Лисёнок». Запись и оплата
+									</h1>
+								</div>
+
+								<div class="row">
+									<div class="col-lg-8">
+										<form class="needs-validation textpage-form" novalidate="novalidate">
+											<h3 class="textpage-form-title">
+												форма бронирования «Лисёнка»
+											</h3>
+		
+											<div class="row gy-4 gx-5">
+												<div class="col-12">
+													<div class="has-validation">
+														<div class="form-floating form-control-reset">
+															<input type="text" class="form-control" id="floatingInputName" maxlength="60" placeholder="ФИО ребёнка" required="">
+															<label for="floatingInputName">ФИО ребёнка</label>
+															<button type="button" class="btn btn-reset">
+																<span class="icon icon-solid">
+																	<svg>
+																		<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+																	</svg>
+																</span>
+															</button>
+														</div>
+		
+														<div class="invalid-feedback">
+															Вы все неправильно сделали. Нельзя использовать кириллические символы
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6">
+													<div class="has-validation">
+														<div class="form-floating form-control-reset">
+															<input type="tel" class="form-control" id="floatingInputTel" inputmode="tel" maxlength="14" placeholder="Телефон" required="">
+															<label for="floatingInputTel">Телефон</label>
+															<button type="button" class="btn btn-reset">
+																<span class="icon icon-solid">
+																	<svg>
+																		<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+																	</svg>
+																</span>
+															</button>
+														</div>
+			
+														<div class="invalid-feedback">
+															Вы все неправильно сделали. Нельзя использовать кириллические символы
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-6">
+													<div class="has-validation">
+														<div class="dropdown dropdown-calendar form-floating">
+															<input type="text" id="floatingDropdownCalendar" class="form-control dropdown-toggle" placeholder="выберете дату" readonly required
+																data-bs-toggle="dropdown" data-bs-offset="0,4" data-bs-auto-close="outside" aria-expanded="false">
+															<label for="floatingDropdownCalendar">выберете дату</label>
+															<div class="dropdown-menu">
+																<div data-calendar=""></div>
+															</div>
+														</div>
+
+														<div class="invalid-feedback">
+															Вы все неправильно сделали. Нельзя использовать кириллические символы
+														</div>
+													</div>
+												</div>
+												<div class="col-12">
+													<div class="has-validation">
+														<div class="form-floating form-control-reset">
+															<input type="email" class="form-control" id="floatingInputEmail" maxlength="60" inputmode="email" placeholder="e-mail" required="">
+															<label for="floatingInputEmail">e-mail</label>
+															<button type="button" class="btn btn-reset">
+																<span class="icon icon-solid">
+																	<svg>
+																		<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+																	</svg>
+																</span>
+															</button>
+														</div>
+				
+														<div class="invalid-feedback">
+															Вы все неправильно сделали. Нельзя использовать кириллические символы
+														</div>
+													</div>
+												</div>
+												<div class="col-12">
+													<div class="form-floating form-control-reset">
+														<textarea class="form-control" placeholder="комментарий" id="floatingTextarea" maxlength="200"></textarea>
+														<label for="floatingTextarea">комментарий</label>
+														<button type="button" class="btn btn-reset">
+															<span class="icon icon-solid">
+																<svg>
+																	<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+																</svg>
+															</span>
+														</button>
+													</div>
+												</div>
+												<div class="col-12">
+													<div class="form-check">
+														<input class="form-check-input" type="checkbox" value="" id="checkboxPolicy">
+														<label class="form-check-label" for="checkboxPolicy">
+															С <a href="#" class="btn btn-plaintext">политикой обработки данных</a> согласен (сна)
+														</label>
+													</div>
+												</div>
+												
+												<div class="col-12">
+													<button type="submit" class="btn btn-secondary textpage-form-submit">
+														Забронировать
+													</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+
+								<div class="dynamic-content mb-4">
+									<p>
+										Познакомьте ребёнка с горными лыжами и сноубордом в игровой форме. Подарите ему новых знакомых и насыщенный, интересный день? Подходит для детей от 5 до 10 лет. 
+									</p>
+
+									<p>
+										Намного выгоднее и веселее, чем одно индивидуальное занятие. Программа на целый день (5 часов)! С обучением, прокатом, играми, обедом и подарками. Устройте детям праздник!
+									</p>
+
+									<h3>
+										Стоимость
+									</h3>
+									<p>
+										3000 ₽. Включен обед, прокат (свое оборудование не обязательно и все активности).
+									</p>
+
+									<h3>
+										Когда
+									</h3>
+									<p>
+										Каждую субботу и воскресенье (и праздничные дни) в 11:00. Лучше <a href="#">бронировать</a> и оплачивать заранее онлайн, так как мы готовим прокат и еду. Но при наличии мест, мы сможем принять ваших детей и по факту.
+									</p>
+
+									<h3>
+										Где
+									</h3>
+									<p>
+										ГЛК «СОК», Верхняя площадка. ул. Батайская, 18Б. Обращаться в Детскую комнату. 
+									</p>
+									<p>
+										Для вопросов: +7 903 303 80 84
+									</p>
+
+									<h3>
+										Расписание
+									</h3>
+									<p>
+										11:00 — Прибытие и запись на программу
+									</p>
+
+									<p>
+										11:00-12:00 — Занятия и развлечения в игровой комнате
+									</p>
+
+									<p>
+										12:00-13:45 — Получение оборудования и занятие с инструктором
+									</p>
+
+									<p>
+										14:00 — Возвращение в игровую комнату
+									</p>
+
+									<p>
+										14:00-14:30 — Вкусный обед
+									</p>
+
+									<p>
+										14:30-15:00 — Рисование в детской комнате
+									</p>
+
+									<p>
+										15:00-15:30 — Творческий мастер-класс
+									</p>
+
+									<p>
+										15:30-16:00 — Завершение программы
+									</p>
+
+									<p>
+										«Лисёнок» — это веселуха на почти целый день. Родители могут быть свободны!
+									</p>
+
+									<p>
+										Если вы не готовы отдавать ребёнка на 5 часов, у нас есть детская комната. Там можно оставить ребёнка с 3-х лет с няней-аниматором.
+									</p>
+
+									<p>
+										Кстати, мы с удовольствием организуем веселый детский день рождения для вашего ребёнка «под ключ»! 
+									</p>
+								</div>
+
+								<div class="textpage-content-pictures">
+									<picture data-fancybox="group-1" data-src="images/dist/product/image-1.jpg">
+										<!-- <source srcset="images/dist/product/image-1.webp" type="image/webp"> -->
+										<img loading="lazy" src="images/dist/product/image-1.jpg" class="textpage-content-pictures-image" width="126" height="200" alt="Картинка">
+									</picture>
+									<picture data-fancybox="group-1" data-src="images/dist/product/image-2.jpg">
+										<!-- <source srcset="images/dist/product/image-2.webp" type="image/webp"> -->
+										<img loading="lazy" src="images/dist/product/image-2.jpg" class="textpage-content-pictures-image" width="258" height="200" alt="Картинка">
+									</picture>
+									<picture data-fancybox="group-1" data-src="images/dist/product/image-3.jpg">
+										<!-- <source srcset="images/dist/product/image-3.webp" type="image/webp"> -->
+										<img loading="lazy" src="images/dist/product/image-3.jpg" class="textpage-content-pictures-image" width="228" height="200" alt="Картинка">
+									</picture>
+									<picture data-fancybox="group-1" data-src="images/dist/product/image-4.jpg">
+										<!-- <source srcset="images/dist/product/image-4.webp" type="image/webp"> -->
+										<img loading="lazy" src="images/dist/product/image-4.jpg" class="textpage-content-pictures-image" width="126" height="200" alt="Картинка">
+									</picture>
+									<picture data-fancybox="group-1" data-src="images/dist/product/image-3.jpg">
+										<!-- <source srcset="images/dist/product/image-3.webp" type="image/webp"> -->
+										<img loading="lazy" src="images/dist/product/image-3.jpg" class="textpage-content-pictures-image" width="228" height="200" alt="Картинка">
+									</picture>
+									<picture data-fancybox="group-1" data-src="images/dist/product/image-4.jpg">
+										<!-- <source srcset="images/dist/product/image-4.webp" type="image/webp"> -->
+										<img loading="lazy" src="images/dist/product/image-4.jpg" class="textpage-content-pictures-image" width="126" height="200" alt="Картинка">
+									</picture>
+									<picture data-fancybox="group-1" data-src="images/dist/product/image-5.jpg">
+										<!-- <source srcset="images/dist/product/image-5.webp" type="image/webp"> -->
+										<img loading="lazy" src="images/dist/product/image-5.jpg" class="textpage-content-pictures-image" width="168" height="200" alt="Картинка">
+									</picture>
+									<picture data-fancybox="group-1" data-src="images/dist/product/image-6.jpg">
+										<!-- <source srcset="images/dist/product/image-6.webp" type="image/webp"> -->
+										<img loading="lazy" src="images/dist/product/image-6.jpg" class="textpage-content-pictures-image" width="168" height="200" alt="Картинка">
+									</picture>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer class="footer-main footer-gradient-transition">
+	<div class="footer-main-top">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-xl-10">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="row footer-main-nav">
+								<div class="col-lg-5">
+									<ul class="navbar-nav">
+										<li class="nav-item">
+											<a class="nav-link" href="#">
+												цены
+											</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#">
+												расписание
+											</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#">
+												о комплексе
+											</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#">
+												новости
+											</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#">
+												события
+											</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#">
+												3D тур
+											</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#">
+												документы
+											</a>
+										</li>
+									</ul>
+								</div>
+								<div class="col-lg-5">
+									<ul class="navbar-nav">
+										<li class="nav-item">
+											<a class="nav-link" href="#">
+												забронировать инструктора
+											</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#">
+												забронировать “Лисёнка”
+											</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#">
+												фото
+											</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#">
+												линый кабинет
+											</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="#">
+												контакты
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="row g-md-3 g-4 justify-content-center">
+								<div class="col-md-6 order-md-0 order-1">
+									<div class="list-group list-group-plaintext list-group-contacts">
+										<h3 class="list-group-item list-group-item-title">
+											Инструкторы:
+										</h3>
+										<a href="tel:+79276868279" class="list-group-item list-group-item-action">
+											+7 927 686-82-79
+										</a>
+										<a href="tel:+79178121048" class="list-group-item list-group-item-action">
+											+7 917 812-10-48 (ТГ)
+										</a>
+									</div>
+								</div>
+	
+								<div class="col-6">
+									<div class="list-group list-group-plaintext list-group-address">
+										<h3 class="list-group-item list-group-item-title">
+											<span class="icon d-md-none">
+												<svg>
+													<use xlink:href="images/icons/location.svg#svg-location"></use>
+												</svg>
+											</span>
+											Нижняя площадка
+										</h3>
+										<address class="list-group-item">
+											Самара, Красная Глинка пос., 3-й квартал 37 стр. 1
+										</address>
+									</div>
+								</div>
+	
+								<div class="col-md-6 order-md-0 order-2">
+									<div class="list-group list-group-plaintext list-group-contacts">
+										<h3 class="list-group-item list-group-item-title">
+											Спасатели:
+										</h3>
+										<a href="tel:+79270030330" class="list-group-item list-group-item-action">
+											+7 927 003-03-30
+										</a>
+									</div>
+								</div>
+	
+								<div class="col-6">
+									<div class="list-group list-group-plaintext list-group-address">
+										<h3 class="list-group-item list-group-item-title">
+											<span class="icon d-md-none">
+												<svg>
+													<use xlink:href="images/icons/location.svg#svg-location"></use>
+												</svg>
+											</span>
+											Верхняя площадка
+										</h3>
+										<address class="list-group-item">
+											Самара, Красная Глинка пос., ул. Батайская, 18б
+										</address>
+									</div>
+								</div>
+	
+								<div class="col-md-6 order-md-0 order-3">
+									<div class="list-group list-group-plaintext list-group-contacts">
+										<h3 class="list-group-item list-group-item-title">
+											Администрация:
+										</h3>
+										<a href="tel:+78469785607" class="list-group-item list-group-item-action">
+											+7 846 978-56-07
+										</a>
+									</div>
+								</div>
+	
+								<div class="col-md-6 col-auto">
+									<div class="list-group list-group-plaintext list-group-social">
+										<h3 class="list-group-item list-group-item-title">
+											Соцсети: @glksok
+										</h3>
+	
+										<ul class="navbar-nav">
+											<li class="nav-item">
+												<a class="nav-link" data-has-icon href="#">
+													<span class="icon icon-solid">
+														<svg>
+															<use xlink:href="images/icons/vk.svg#svg-vk"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link" data-has-icon href="#">
+													<span class="icon icon-solid icon-home">
+														<svg>
+															<use xlink:href="images/icons/telegram.svg#svg-telegram"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="footer-main-bottom">
+			<div class="row justify-content-center">
+				<div class="col-xl-10 d-flex align-items-center justify-content-between">
+					<a class="navbar-brand" href="#">
+						<picture>
+							<!-- <source srcset="images/.webp" type="image/webp"> -->
+							<img loading="lazy" src="images/dist/logo-2.svg" class="image" width="64" height="64" alt="Картинка">
+						</picture>
+		
+						<span class="d-xl-inline d-none">
+							ООО «ГОРНОЛЫЖНЫЙ КОМПЛЕКС», Самара
+						</span>
+					</a>
+
+					<div class="list-group list-group-plaintext">
+						<a href="#" class="list-group-item list-group-item-action">
+							Документы
+						</a>
+						<a href="#" class="list-group-item list-group-item-action">
+							Обработка персональных данных
+						</a>
+						<a href="#" class="list-group-item list-group-item-action">
+							Реклама на комплексе
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+</div>
+	
+	<script src="https://api-maps.yandex.ru/2.1/?apikey=ВАШ_API_КЛЮЧ&lang=ru_RU"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/app.min.js"></script>
+
+</body>
+</html>
