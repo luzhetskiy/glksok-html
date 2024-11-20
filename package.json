@@ -47,6 +47,7 @@
 		"@fancyapps/ui": "^5.0.36",
 		"choices.js": "^10.2.0",
 		"gulp-merge": "^0.1.1",
+		"iframe-resizer": "^5.3.2",
 		"merge-stream": "^2.0.0",
 		"swiper": "^11.1.14",
 		"vanilla-calendar-pro": "^2.9.10"

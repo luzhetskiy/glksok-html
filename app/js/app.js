@@ -1139,21 +1139,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-	const iframesContainer = document.querySelectorAll('.iframe-container')
-	iframesContainer?.forEach((element) => {
-		const iframe = element.querySelector('iframe')
-		iframe.addEventListener('load', () => {
-			const resizeIframe = () => {
-				iframe.style.height = `${iframe.contentWindow.document.body.scrollHeight}px`
-			}
-			resizeIframe()
-			iframe.contentWindow.addEventListener('resize', resizeIframe)
-			window.addEventListener('shown.bs.modal', event => {
-				resizeIframe()
-			})
-		})
-	})
-
-
-
 })
