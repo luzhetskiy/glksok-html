@@ -282,7 +282,7 @@
 
 			<div class="textpage">
 				<div class="container">
-					<picture>
+					<picture class="textpage-picture">
 						<!-- <source srcset="images/dist/instructors_bg.webp" type="image/webp"> -->
 						<img loading="lazy" src="images/dist/instructors_bg.jpg" class="textpage-image" width="1328" height="450" alt="Картинка">
 					</picture>
@@ -419,13 +419,14 @@
 													<div class="has-validation">
 														<div class="form-floating">
 															<select class="form-select js-form-select" id="floatingSelectStudy"
-																aria-label="количество обучаемых" required>
-																<option value="1">1</option>
-																<option value="2">2</option>
-																<option value="3">3</option>
-																<option value="4">4</option>
-																<option value="5">5</option>
-																<option value="6">6</option>
+																aria-label="количество обучаемых" required
+																data-choice-trainee="choice-1">
+																<option value="trainee-1">1</option>
+																<option value="trainee-2">2</option>
+																<option value="trainee-3">3</option>
+																<option value="trainee-4">4</option>
+																<option value="trainee-5">5</option>
+																<option value="trainee-6">6</option>
 															</select>
 															<label for="floatingSelectStudy">количество обучаемых</label>
 														</div>
@@ -435,62 +436,8 @@
 														</div>
 													</div>
 												</div>
-												<div class="col-lg-6">
-													<div class="has-validation">
-														<div class="form-floating form-control-reset">
-															<input type="text" class="form-control" id="floatingInputYearOne" maxlength="60" placeholder="возраст обучаемого №1" required="">
-															<label for="floatingInputYearOne">возраст обучаемого №1</label>
-															<button type="button" class="btn btn-reset">
-																<span class="icon icon-solid">
-																	<svg>
-																		<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
-																	</svg>
-																</span>
-															</button>
-														</div>
-		
-														<div class="invalid-feedback">
-															Вы все неправильно сделали. Нельзя использовать кириллические символы
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-6">
-													<div class="has-validation">
-														<div class="form-floating form-control-reset">
-															<input type="text" class="form-control" id="floatingInputYearTwo" maxlength="60" placeholder="возраст обучаемого №2" required="">
-															<label for="floatingInputYearTwo">возраст обучаемого №2</label>
-															<button type="button" class="btn btn-reset">
-																<span class="icon icon-solid">
-																	<svg>
-																		<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
-																	</svg>
-																</span>
-															</button>
-														</div>
-		
-														<div class="invalid-feedback">
-															Вы все неправильно сделали. Нельзя использовать кириллические символы
-														</div>
-													</div>
-												</div>
-												<div class="col-lg-6">
-													<div class="has-validation">
-														<div class="form-floating form-control-reset">
-															<input type="text" class="form-control" id="floatingInputYearThree" maxlength="60" placeholder="возраст обучаемого №3" required="">
-															<label for="floatingInputYearThree">возраст обучаемого №3</label>
-															<button type="button" class="btn btn-reset">
-																<span class="icon icon-solid">
-																	<svg>
-																		<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
-																	</svg>
-																</span>
-															</button>
-														</div>
-		
-														<div class="invalid-feedback">
-															Вы все неправильно сделали. Нельзя использовать кириллические символы
-														</div>
-													</div>
+												<div class="col-12">
+													<div class="row gy-4" data-container-trainee="choice-1"></div>
 												</div>
 												<div class="col-12">
 													<div class="form-floating form-control-reset">
@@ -513,9 +460,9 @@
 														</label>
 													</div>
 												</div>
-												
+
 												<div class="col-12">
-													<button type="submit" class="btn btn-secondary textpage-form-submit">
+													<button type="submit" class="btn btn-secondary textpage-form-submit" disabled>
 														Забронировать
 													</button>
 												</div>

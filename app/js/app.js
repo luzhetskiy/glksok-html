@@ -327,13 +327,31 @@ document.addEventListener('DOMContentLoaded', () => {
 	handleFormControlReset()
 	allowNumbersOnly()
 
+	const validateInput = (input) => {
+		if (input.value.trim() === '') {
+			input.classList.add('is-invalid')
+			input.parentElement.classList.add('is-invalid')
+		} else {
+			input.classList.remove('is-invalid')
+			input.parentElement.classList.remove('is-invalid')
+		}
+	}
+
 	const formsValidation = document.querySelectorAll('.needs-validation')
 
 	if (formsValidation.length > 0) {
-		Array.from(formsValidation).forEach(form => {
-			const btnSubmit = form.querySelector('.btn-disabled[type="submit"]')
-			const inputs = form.querySelectorAll('input:required')
-			const selects = form.querySelectorAll('select:required')
+		formsValidation.forEach(form => {
+			let btnSubmit = form.querySelector('button[type="submit"]')
+
+			// Функция для обновления inputs и selects
+			const updateFields = () => {
+				return {
+					inputs: form.querySelectorAll('input:required'),
+					selects: form.querySelectorAll('select:required')
+				}
+			}
+
+			let { inputs, selects } = updateFields()
 
 			function checkAllInputsFilled() {
 				let allFieldsFilled = true
@@ -371,48 +389,55 @@ document.addEventListener('DOMContentLoaded', () => {
 				}
 			})
 
-			inputs.forEach(input => {
-				input.addEventListener('input', function () {
-					if (this.value.trim() === '') {
-						this.classList.add('is-invalid')
-						this.parentElement.classList.add('is-invalid')
-					} else {
-						this.classList.remove('is-invalid')
-						this.parentElement.classList.remove('is-invalid')
-					}
+			const attachInputListeners = () => {
+				inputs.forEach(input => {
+					input.addEventListener('input', function () {
+						validateInput(input)
 
-					if (checkAllInputsFilled()) {
-						if (btnSubmit) {
-							btnSubmit.removeAttribute('disabled')
+						if (checkAllInputsFilled()) {
+							if (btnSubmit) {
+								btnSubmit.removeAttribute('disabled')
+							}
+						} else {
+							if (btnSubmit) {
+								btnSubmit.setAttribute('disabled', 'disabled')
+							}
 						}
-					} else {
-						if (btnSubmit) {
-							btnSubmit.setAttribute('disabled', 'disabled')
-						}
-					}
+					})
 				})
-			})
 
-			selects.forEach(select => {
-				select.addEventListener('change', function () {
-					if (this.value.trim() === '') {
-						this.parentElement.parentElement.classList.add('is-invalid')
-						this.parentElement.parentElement.parentElement.classList.add('is-invalid')
-					} else {
-						this.parentElement.parentElement.classList.remove('is-invalid')
-						this.parentElement.parentElement.parentElement.classList.remove('is-invalid')
-					}
+				selects.forEach(select => {
+					select.addEventListener('change', function () {
+						if (this.value.trim() === '') {
+							this.parentElement.parentElement.classList.add('is-invalid')
+							this.parentElement.parentElement.parentElement.classList.add('is-invalid')
+						} else {
+							this.parentElement.parentElement.classList.remove('is-invalid')
+							this.parentElement.parentElement.parentElement.classList.remove('is-invalid')
+						}
 
-					if (checkAllInputsFilled()) {
-						if (btnSubmit) {
-							btnSubmit.removeAttribute('disabled')
+						if (checkAllInputsFilled()) {
+							if (btnSubmit) {
+								btnSubmit.removeAttribute('disabled')
+							}
+						} else {
+							if (btnSubmit) {
+								btnSubmit.setAttribute('disabled', 'disabled')
+							}
 						}
-					} else {
-						if (btnSubmit) {
-							btnSubmit.setAttribute('disabled', 'disabled')
-						}
-					}
+					})
 				})
+			}
+
+			// Привязка слушателей к изначальным полям
+			attachInputListeners()
+
+			// Слушатель для обновления полей после динамической генерации
+			form.addEventListener('fieldsUpdated', () => {
+				const fields = updateFields()
+				inputs = fields.inputs
+				selects = fields.selects
+				attachInputListeners()
 			})
 		})
 	}
@@ -575,10 +600,83 @@ document.addEventListener('DOMContentLoaded', () => {
 		searchEnabled: false,
 		shouldSort: false,
 		itemSelectText: '',
+		classNames: {
+			containerOuter: (element) => {
+				const baseClass = 'choices'
+				const customClass = element.getAttribute('data-choice-class') || ''
+				return `${baseClass} ${customClass}`.trim()
+			}
+		}
 	}
 
 	jsFormSelects.forEach((select) => {
-		new Choices(select, selectConfig)
+		new Choices(select, {
+			...selectConfig,
+			classNames: {
+				...selectConfig.classNames,
+				containerOuter: selectConfig.classNames.containerOuter(select)
+			}
+		})
+	})
+
+
+
+	const selectElements = document.querySelectorAll('[data-choice-trainee]')
+
+	selectElements?.forEach(select => {
+		const containerId = select.getAttribute('data-choice-trainee')
+		const container = document.querySelector(`[data-container-trainee="${containerId}"]`)
+
+		if (container) {
+			const renderInputs = (count) => {
+				// Очистка контейнера
+				container.innerHTML = ''
+
+				// Генерация новых полей
+				for (let i = 1; i <= count; i++) {
+					const col = document.createElement('div')
+					col.classList.add('col-lg-6')
+
+					col.innerHTML = `
+            <div class="has-validation">
+              <div class="form-floating form-control-reset">
+                <input type="text" class="form-control" id="floatingInputYear${i}" maxlength="60" placeholder="возраст обучаемого №${i}" required>
+                <label for="floatingInputYear${i}">возраст обучаемого №${i}</label>
+                <button type="button" class="btn btn-reset">
+                  <span class="icon icon-solid">
+                    <svg>
+                      <use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+              <div class="invalid-feedback">
+                Вы все неправильно сделали. Нельзя использовать кириллические символы
+              </div>
+            </div>
+          `
+					container.appendChild(col)
+				}
+
+				const form = container.closest('form')
+				if (form) {
+					const event = new Event('fieldsUpdated')
+					form.dispatchEvent(event)
+				}
+			}
+
+			// Обработка изменения выбора
+			select.addEventListener('change', () => {
+				const selectedOption = select.options[select.selectedIndex]
+				const value = parseInt(selectedOption.value.split('-')[1], 10) // Извлечение числа из значения
+				renderInputs(value)
+			})
+
+			// Инициализация с текущим значением
+			const initialOption = select.options[select.selectedIndex]
+			const initialValue = parseInt(initialOption.value.split('-')[1], 10)
+			renderInputs(initialValue)
+		}
 	})
 
 
@@ -1052,6 +1150,9 @@ document.addEventListener('DOMContentLoaded', () => {
 			actions: {
 				clickDay(event, self) {
 					calendarInput.value = self.selectedDates.join(',')
+					validateInput(calendarInput)
+
+					self.selectedDates.join(',') !== '' ? bootstrap.Dropdown.getOrCreateInstance(self.HTMLElement.closest('.dropdown-calendar')).hide() : false
 				},
 				clickMonth(e, self) {
 					setTimeout(() => addArrowIcons(calendar, nextIcon, prevIcon))
