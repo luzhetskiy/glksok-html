@@ -981,53 +981,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-	const calendarPopups = {
-		'2024-11-13': {
-			modifier: 'vanilla-calendar-day__btn_secondary',
-		},
-		'2024-11-14': {
-			modifier: 'vanilla-calendar-day__btn_secondary',
-		},
-		'2024-11-15': {
-			modifier: 'vanilla-calendar-day__btn_secondary',
-		},
-		'2024-11-22': {
-			modifier: 'vanilla-calendar-day__btn_secondary',
-		},
-		'2024-11-24': {
-			modifier: 'vanilla-calendar-day__btn_secondary',
-		},
-		'2024-12-11': {
-			modifier: 'vanilla-calendar-day__btn_secondary',
-		},
-		'2024-12-12': {
-			modifier: 'vanilla-calendar-day__btn_secondary',
-		},
-		'2024-12-13': {
-			modifier: 'vanilla-calendar-day__btn_secondary',
-		},
-		'2024-12-20': {
-			modifier: 'vanilla-calendar-day__btn_secondary',
-		},
-		'2024-12-22': {
-			modifier: 'vanilla-calendar-day__btn_secondary',
-		},
-		'2025-01-15': {
-			modifier: 'vanilla-calendar-day__btn_secondary',
-		},
-		'2025-01-16': {
-			modifier: 'vanilla-calendar-day__btn_secondary',
-		},
-		'2025-01-17': {
-			modifier: 'vanilla-calendar-day__btn_secondary',
-		},
-		'2025-01-23': {
-			modifier: 'vanilla-calendar-day__btn_secondary',
-		},
-		'2025-01-25': {
-			modifier: 'vanilla-calendar-day__btn_secondary',
-		},
-	}
+	const calendarSetDates = (window.calendarDatesList || []).reduce((acc, date) => {
+		acc[date] = { modifier: 'vanilla-calendar-day__btn_secondary' }
+		return acc
+	}, {})
 
 	const multipleTemplate = `
 		<div class="vanilla-calendar-controls">
@@ -1115,13 +1072,20 @@ document.addEventListener('DOMContentLoaded', () => {
 					selectedDates = isEvent ? self.selectedDates.join(',') : ''
 					isEvent ? null : self.selectedDates = []
 
-					applyAllFilters()
+					if (isEvent) {
+						const selectedDate = isEvent.getAttribute('data-calendar-day')
+						if (selectedDate) {
+							const currentUrl = new URL(window.location.href)
+							currentUrl.searchParams.set('data', selectedDate)
+							window.history.replaceState(null, '', currentUrl)
+						}
+					}
 				},
 				updateCalendar(self) {
 					addArrowIcons(calendar, nextIcon, prevIcon)
 				},
 			},
-			popups: calendarPopups,
+			popups: calendarSetDates,
 		})
 
 		calendar.init()
