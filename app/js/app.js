@@ -16,6 +16,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+	document.addEventListener('show.bs.modal', toggleOverflow)
+	document.addEventListener('hide.bs.modal', toggleOverflow)
+	document.addEventListener('show.bs.offcanvas', toggleOverflow)
+	document.addEventListener('hide.bs.offcanvas', toggleOverflow)
+
+	function toggleOverflow(event) {
+		setTimeout(() => {
+			document.documentElement.style.overflow = event.type.startsWith('show') ? 'hidden' : ''
+		})
+	}
+
+
+
 	function createPrevIcon() {
 		const span = document.createElement('span')
 		span.className = 'icon'
@@ -131,23 +144,16 @@ document.addEventListener('DOMContentLoaded', () => {
 		})
 
 		element.querySelectorAll('.swiper-slide-remove').forEach((button) => {
-			button.addEventListener('click', (event) => {
+			button.addEventListener('click', () => {
 				const slide = button.closest('.swiper-slide')
 				if (slide) {
 					slide.classList.add('swiper-slide-fade-out')
-
-					setTimeout(() => {
-						const index = Array.from(swiperInstance.slides).indexOf(slide)
-						if (index !== -1) {
-							swiperInstance.removeSlide(index)
-
-							if (swiperInstance.slides.length === 0) {
-								swiperInstance.destroy(true, true)
-								element.remove()
-							}
-						}
-					}, 400)
 				}
+
+				setTimeout(() => {
+					swiperInstance.destroy(true, true)
+					element.remove()
+				}, 400)
 			})
 		})
 	})
@@ -467,6 +473,10 @@ document.addEventListener('DOMContentLoaded', () => {
 			const isDateMatch = selectedDates.length === 0 || selectedDates.includes(calendarDay)
 			const parentSwiperSlide = row.closest('.swiper-slide')
 
+			// Проверяем, должен ли элемент с фильтром "bygonesArticles" быть скрыт
+			const hasBygonesArticles = rowFilters.includes('bygonesArticles')
+			const isBygonesChecked = document.getElementById('bygonesArticles')?.checked
+
 			const toggleVisibility = (shouldShow) => {
 				if (shouldShow) {
 					parentSwiperSlide ? parentSwiperSlide.classList.remove('d-none') : null
@@ -476,6 +486,11 @@ document.addEventListener('DOMContentLoaded', () => {
 					parentSwiperSlide ? parentSwiperSlide.classList.add('d-none') : null
 					row.classList.add('d-none')
 				}
+			}
+
+			if (hasBygonesArticles && !isBygonesChecked) {
+				toggleVisibility(false)
+				return
 			}
 
 			if (!dataLoadingMore) {
@@ -1045,6 +1060,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.querySelectorAll('[data-calendar-quarter]').forEach((calendarQuarter) => {
 		const prevIcon = createPrevIcon()
 		const nextIcon = createNextIcon()
+
+		const urlParams = new URLSearchParams(window.location.search)
+    const selectedDateFromURL = urlParams.get('data')
+
 		const calendar = new VanillaCalendar(calendarQuarter, {
 			type: 'multiple',
 			DOMTemplates: {
@@ -1061,6 +1080,9 @@ document.addEventListener('DOMContentLoaded', () => {
 				selection: {
 					month: false,
 					year: false,
+				},
+				selected: {
+					dates: selectedDateFromURL ? [selectedDateFromURL] : [],
 				},
 			},
 			actions: {

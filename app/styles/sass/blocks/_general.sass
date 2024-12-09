@@ -421,6 +421,9 @@ textarea.form-control
 	margin-left: 2rem
 	margin-bottom: 0
 
+	@media (max-width: 992px)
+		margin-left: 0rem
+
 	&-item
 
 		a
@@ -430,6 +433,11 @@ textarea.form-control
 
 				.icon
 					--i-color: var(--bs-link-color-rgb)
+
+		&:nth-last-child(2)::after,
+		&.active
+			@media (max-width: 992px)
+				display: none
 
 .table-responsive
 	max-height: 330px
