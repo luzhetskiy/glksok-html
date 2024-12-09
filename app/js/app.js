@@ -1099,7 +1099,7 @@ document.addEventListener('DOMContentLoaded', () => {
 						if (selectedDate) {
 							const currentUrl = new URL(window.location.href)
 							currentUrl.searchParams.set('data', selectedDate)
-							window.history.replaceState(null, '', currentUrl)
+							window.location.href = currentUrl.toString()
 						}
 					}
 				},
