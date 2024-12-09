@@ -34,10 +34,14 @@ document.addEventListener('DOMContentLoaded', () => {
 		span.className = 'icon'
 
 		const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-		const use = document.createElementNS('http://www.w3.org/2000/svg', 'use')
-		use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', 'images/icons/swiper-arrow-prev.svg#svg-swiper-arrow-prev')
+		svg.setAttribute('viewBox', '0 0 48 48')
+		svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
+		svg.setAttribute('fill', 'currentColor')
 
-		svg.appendChild(use)
+		const path = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+		path.setAttribute('d', 'M29.6361 42.1025L11.5361 24.0005L29.6361 5.89844L32.4641 8.72644L17.1921 24.0005L32.4641 39.2745L29.6361 42.1025Z')
+
+		svg.appendChild(path)
 		span.appendChild(svg)
 
 		return span
@@ -48,14 +52,19 @@ document.addEventListener('DOMContentLoaded', () => {
 		span.className = 'icon'
 
 		const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-		const use = document.createElementNS('http://www.w3.org/2000/svg', 'use')
-		use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', 'images/icons/swiper-arrow-next.svg#svg-swiper-arrow-next')
+		svg.setAttribute('viewBox', '0 0 48 48')
+		svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
+		svg.setAttribute('fill', 'currentColor')
 
-		svg.appendChild(use)
+		const path = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+		path.setAttribute('d', 'M18.3639 5.8975L36.4639 23.9995L18.3639 42.1016L15.5359 39.2736L30.8079 23.9995L15.5359 8.72551L18.3639 5.8975Z')
+
+		svg.appendChild(path)
 		span.appendChild(svg)
 
 		return span
 	}
+
 
 	const bannerSwiperClass = document.querySelectorAll('.swiper-banner')
 	const articleSwiperClass = document.querySelectorAll('.swiper-article')
@@ -1062,7 +1071,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const nextIcon = createNextIcon()
 
 		const urlParams = new URLSearchParams(window.location.search)
-    const selectedDateFromURL = urlParams.get('datе')
+		const selectedDateFromURL = urlParams.get('datе')
 
 		const calendar = new VanillaCalendar(calendarQuarter, {
 			type: 'multiple',
