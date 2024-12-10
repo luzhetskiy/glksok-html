@@ -458,8 +458,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 
-
-	let selectedDates = []
 	const tableFilters = document.querySelectorAll('[data-filter]')
 	const noResultsBlock = document.querySelector('[data-filter-result]')
 	const btnMore = document.querySelector('[data-filter-more]')
@@ -473,18 +471,19 @@ document.addEventListener('DOMContentLoaded', () => {
 			})
 
 		let visibleCount = 0
+		const isBygonesChecked = document.getElementById('bygonesArticles')?.checked
 
 		tableFilters.forEach(function (row) {
 			const dataLoadingMore = row.getAttribute('data-loading-more')
 			const rowFilters = row.dataset.filter.split(' ')
-			const calendarDay = row.getAttribute('data-filter-day')
-			const isVisible = selectedFilters.every(filter => rowFilters.includes(filter))
-			const isDateMatch = selectedDates.length === 0 || selectedDates.includes(calendarDay)
 			const parentSwiperSlide = row.closest('.swiper-slide')
 
-			// Проверяем, должен ли элемент с фильтром "bygonesArticles" быть скрыт
-			const hasBygonesArticles = rowFilters.includes('bygonesArticles')
-			const isBygonesChecked = document.getElementById('bygonesArticles')?.checked
+			const isVisible = selectedFilters
+				.filter(filter => filter !== 'bygonesArticles')
+				.every(filter => rowFilters.includes(filter))
+
+			const isBygonesItem = rowFilters.includes('bygonesArticles')
+			const shouldShow = isBygonesItem ? isBygonesChecked : isVisible
 
 			const toggleVisibility = (shouldShow) => {
 				if (shouldShow) {
@@ -497,30 +496,17 @@ document.addEventListener('DOMContentLoaded', () => {
 				}
 			}
 
-			if (hasBygonesArticles && !isBygonesChecked) {
-				toggleVisibility(false)
-				return
-			}
-
 			if (!dataLoadingMore) {
-				toggleVisibility(isVisible && isDateMatch)
+				toggleVisibility(shouldShow)
 			} else if (dataLoadingMore === 'false') {
-				if (selectedDates.length === 0) {
-					toggleVisibility(false)
-					btnMore.classList.remove('d-none')
+				toggleVisibility(false)
+				btnMore.classList.remove('d-none')
 
-					if (!isVisible) {
-						btnMore.classList.add('d-none')
-					}
-				} else if (selectedDates.includes(calendarDay)) {
-					toggleVisibility(true)
-					toggleVisibility(isVisible)
-				} else if (!selectedDates.includes(calendarDay)) {
-					toggleVisibility(false)
+				if (!isVisible) {
 					btnMore.classList.add('d-none')
 				}
 			} else if (dataLoadingMore === 'true') {
-				toggleVisibility(isVisible && isDateMatch)
+				toggleVisibility(shouldShow)
 			}
 		})
 
@@ -587,10 +573,7 @@ document.addEventListener('DOMContentLoaded', () => {
 						.filter(Boolean)
 						.every(filter => rowFilters.includes(filter))
 
-					const calendarDay = card.getAttribute('data-filter-day')
-					const isDateMatch = selectedDates.length === 0 || selectedDates.includes(calendarDay)
-
-					if (isVisible && isDateMatch) {
+					if (isVisible) {
 						card.classList.remove('d-none')
 						card.setAttribute('data-loading-more', 'true')
 						shownCount++
@@ -1100,8 +1083,6 @@ document.addEventListener('DOMContentLoaded', () => {
 				},
 				clickDay(e, self) {
 					const isEvent = e.target.closest('.vanilla-calendar-day__btn_secondary')
-					selectedDates = isEvent ? self.selectedDates.join(',') : ''
-					isEvent ? null : self.selectedDates = []
 
 					if (isEvent) {
 						const selectedDate = isEvent.getAttribute('data-calendar-day')
