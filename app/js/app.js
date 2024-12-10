@@ -1054,7 +1054,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const nextIcon = createNextIcon()
 
 		const urlParams = new URLSearchParams(window.location.search)
-		const selectedDateFromURL = urlParams.get('datе')
+		const selectedDateFromURL = urlParams.get('date')
 
 		const calendar = new VanillaCalendar(calendarQuarter, {
 			type: 'multiple',
@@ -1088,7 +1088,7 @@ document.addEventListener('DOMContentLoaded', () => {
 						const selectedDate = isEvent.getAttribute('data-calendar-day')
 						if (selectedDate) {
 							const currentUrl = new URL(window.location.href)
-							currentUrl.searchParams.set('datе', selectedDate)
+							currentUrl.searchParams.set('date', selectedDate)
 							window.location.href = currentUrl.toString()
 						}
 					}
