@@ -56,18 +56,28 @@
 		+ *
 			margin-top: 1.5rem
 
+		li
+			position: relative
+
+			&::before
+				color: var(--bs-secondary)
+				position: absolute
+				right: calc( 100% + 1.25rem )
+
 	ol
 		counter-reset: list-counter
 
 		li
 			counter-increment: list-counter
-			position: relative
 
 			&::before
 				content: counter(list-counter) ". "
-				color: var(--bs-secondary)
-				position: absolute
-				right: calc( 100% + 1rem )
+
+	ul 
+
+		li
+			&::before
+				content: '—'
 
 	.textpage-picture-fluid
 		--_main-container: var(--bs-gutter-x)
