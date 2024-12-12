@@ -125,10 +125,12 @@
 	&.signin
 
 		.navbar-brand-text
-			font-size: 2.25rem
 			font-weight: var(--bs-font-weight-medium)
-			line-height: 2.375rem
 			color: var(--bs-heading-color)
+
+			@media (min-width: 992px)
+				font-size: 2.25rem
+				line-height: 2.375rem
 
 	&-main
 		--bs-navbar-toggler-icon-bg: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23FF4881' d='M4 5v2h16V5zm0 8h16v-2H4zm0 6h16v-2H4z'/%3E%3C/svg%3E")
