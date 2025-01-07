@@ -2,7 +2,7 @@ import Choices from 'choices.js'
 import VanillaCalendar from 'vanilla-calendar-pro'
 import { Fancybox } from "@fancyapps/ui"
 import Swiper from 'swiper'
-import { Manipulation, Navigation, Pagination } from 'swiper/modules'
+import { Manipulation, Navigation, Pagination, Autoplay } from 'swiper/modules'
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -13,19 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			history.back()
 		})
 	})
-
-
-
-	document.addEventListener('show.bs.modal', toggleOverflow)
-	document.addEventListener('hide.bs.modal', toggleOverflow)
-	document.addEventListener('show.bs.offcanvas', toggleOverflow)
-	document.addEventListener('hide.bs.offcanvas', toggleOverflow)
-
-	function toggleOverflow(event) {
-		setTimeout(() => {
-			document.documentElement.style.overflow = event.type.startsWith('show') ? 'hidden' : ''
-		})
-	}
 
 
 
@@ -80,8 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		const pagination = element.querySelector('.swiper-pagination')
 
 		new Swiper(swiperElement, {
-			modules: [Navigation, Pagination],
+			modules: [Navigation, Pagination, Autoplay],
 			spaceBetween: 24,
+			autoplay: true,
 
 			pagination: {
 				el: pagination,
@@ -121,8 +109,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		const pagination = element.querySelector('.swiper-pagination')
 
 		new Swiper(swiperElement, {
-			modules: [Pagination],
+			modules: [Pagination, Autoplay],
 			spaceBetween: 24,
+			autoplay: true,
 
 			pagination: {
 				el: pagination,
@@ -338,9 +327,42 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	}
 
+	function allowAlphaNumericOnly() {
+		const formControlAlphaNumeric = document.querySelectorAll('.form-control-alphanumeric')
+
+		if (formControlAlphaNumeric.length > 0) {
+			formControlAlphaNumeric.forEach(function (input) {
+				input.addEventListener('input', function (event) {
+					const value = event.target.value
+					// Удаляем все символы, кроме букв и цифр
+					const alphaNumericOnly = value.replace(/[^a-zA-Z0-9]/g, '')
+					event.target.value = alphaNumericOnly
+
+					const formControlReset = input.closest('.form-control-reset')
+					if (formControlReset) {
+						const resetInput = formControlReset.querySelector('input')
+						if (resetInput.value.trim() === '') {
+							formControlReset.classList.remove('is-show')
+						}
+					}
+
+					// Проверяем, что значение содержит хотя бы одну букву или цифру
+					if (!/^[a-zA-Z0-9]*$/.test(alphaNumericOnly)) {
+						this.classList.add('is-invalid')
+						this.parentElement.classList.add('is-invalid')
+					} else {
+						this.classList.remove('is-invalid')
+						this.parentElement.classList.remove('is-invalid')
+					}
+				})
+			})
+		}
+	}
+
 	restrictInputToHex()
 	handleFormControlReset()
 	allowNumbersOnly()
+	allowAlphaNumericOnly()
 
 	const validateInput = (input) => {
 		if (input.value.trim() === '') {
@@ -685,39 +707,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			renderInputs(initialValue)
 		}
 	})
-
-
-
-	const tabOverflow = document.querySelector('#tabOverflow')
-	const signinTab = document.querySelector('#signin-tab')
-	const tabPaneCard = document.querySelector('#signin-tab-card')
-	const hiddenClass = 'd-none'
-
-	if (tabOverflow && signinTab && tabPaneCard) {
-		tabOverflow.addEventListener('show.bs.tab', handleTabOverflow)
-		signinTab.addEventListener('shown.bs.tab', handleSigninTab)
-		handleSigninTab()
-	}
-
-	function handleTabOverflow(event) {
-		if (event.target.id === 'signin-tab' && signinTab.classList.contains('active')) {
-			// tabPaneCard.classList.remove(showClass)
-			tabPaneCard.classList.add(hiddenClass)
-		} else {
-			tabPaneCard.classList.remove(hiddenClass)
-			// tabPaneCard.classList.add(showClass)
-		}
-	}
-
-	function handleSigninTab() {
-		if (signinTab.classList.contains('active')) {
-			// tabPaneCard.classList.remove(showClass)
-			tabPaneCard.classList.add(hiddenClass)
-		} else {
-			tabPaneCard.classList.remove(hiddenClass)
-			// tabPaneCard.classList.add(showClass)
-		}
-	}
 
 
 
@@ -1265,4 +1254,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+	document.addEventListener('input', event => {
+		const input = event.target
+
+		if (!input.hasAttribute('data-formatting')) return
+
+		const formattingType = input.getAttribute('data-formatting')
+
+		// Логика форматирования в зависимости от типа
+		switch (formattingType) {
+			case 'numeric':
+				formatNumeric(input)
+				break
+			// Место для других вариантов форматирования
+			case 'other':
+				formatOther(input)
+				break
+			default:
+				console.warn(`Неизвестный тип форматирования: ${formattingType}`)
+		}
+	})
+
+	function formatNumeric(input) {
+		const value = input.value.replace(/\s+/g, '') // Убираем пробелы
+		if (!/^\d*$/.test(value)) return // Если есть нечисловые символы, не форматируем
+
+		const formattedValue = value.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+		input.value = formattedValue
+	}
 })

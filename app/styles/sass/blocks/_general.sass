@@ -5,6 +5,7 @@
 	min-height: 100dvh
 	display: flex
 	flex-direction: column
+	overflow-x: hidden
 
 	main
 		flex: 1
@@ -23,6 +24,11 @@
 
 			@media (max-width: 576px)
 				margin-bottom: 0
+
+			+ [aria-label="breadcrumb"]
+
+				@media (max-width: 576px)
+					margin-top: 1rem
 
 		.alert
 			top: -1rem
@@ -309,6 +315,47 @@ a
 			
 			.icon
 				opacity: 1
+
+.btn-apple,
+.btn-google
+	--bs-btn-font-family: ui-sans-serif, system-ui, sans-serif
+	--bs-btn-font-weight: 600
+	--bs-btn-line-height: 1
+	--bs-btn-color: var(--bs-white)
+	--bs-btn-bg: var(--bs-black)
+	--bs-btn-border-radius: .75rem
+	--bs-btn-padding-y: .5625rem
+	--bs-btn-padding-x: .75rem
+
+	--bs-btn-hover-color: var(--bs-white)
+	--bs-btn-active-color: var(--bs-white)
+	--bs-btn-hover-bg: var(--bs-black)
+	--bs-btn-active-bg: var(--bs-black)
+
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	gap: .5rem
+	text-align: start
+	white-space: nowrap
+
+	.icon
+		--i-size: 2.25rem
+
+	.content
+		display: flex
+		flex-direction: column
+		gap: .125rem
+
+		:first-child
+			font-size: 0.75rem
+			font-weight: 400
+
+.btn-apple
+
+	.icon
+		--i-color: currentColor
+
 
 .btn-has-icon
 	justify-content: space-between

@@ -133,6 +133,8 @@
 				line-height: 2.375rem
 
 	&-main
+		--bs-border-width: 0
+		--bs-navbar-toggler-focus-width: 0
 		--bs-navbar-toggler-icon-bg: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23FF4881' d='M4 5v2h16V5zm0 8h16v-2H4zm0 6h16v-2H4z'/%3E%3C/svg%3E")
 
 		background-color: var(--bs-blue-lighter)
@@ -215,13 +217,15 @@
 					justify-content: space-between
 
 			&-body
-				margin-block: 5rem 2rem
+				padding-block: 5rem 2rem
+				mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 1) 3rem, rgba(0, 0, 0, 1) calc(100% - 3rem), rgba(0, 0, 0, 0) 100%)
 
 				@media (max-width: 1400px), (max-height: 800px)
-					margin-block: 1rem
+					padding-block: 1.5rem
 
 				@media (max-width: 992px)
-					margin-top: 0
+					padding-top: 0
+					mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 1) 1rem, rgba(0, 0, 0, 1) calc(100% - 2rem), rgba(0, 0, 0, 0) 100%)
 
 			.navbar-toggler
 				--bs-navbar-toggler-icon-bg: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23FF4881' d='M13.8046 3.13798L12.862 2.19531L7.99998 7.05733L3.13798 2.19531L2.19531 3.13798L7.05731 8L2.19531 12.862L3.13798 13.8047L7.99998 8.94267L12.862 13.8047L13.8046 12.862L8.94265 8L13.8046 3.13798Z'/%3E%3C/svg%3E")

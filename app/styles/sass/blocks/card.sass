@@ -15,7 +15,7 @@
 		--bs-card-spacer-x: 1rem
 		--bs-card-cap-padding-y: 1rem
 
-	&:not(.card-mini, .card-add, .card-category, .card-article, .card-video)
+	&:not(.card-mini, .card-add, .card-category, .card-article, .card-video, .card-app)
 
 		@media (max-width: 576px)
 			min-height: 300px
@@ -311,7 +311,7 @@
 
 	.card-body
 
-		& > *:not(.card-img, .card-form-promocode)
+		& > *:not(.card-img, .card-form-promocode, .card-form-inputs)
 			max-width: 616px
 
 	.card-img
@@ -625,6 +625,26 @@
 		top: initial
 		left: initial
 
+.card-app
+	--bs-card-cap-padding-y: 2rem
+	--bs-card-color: var(--bs-black)
+
+	min-height: unset
+
+	.card-title
+
+		&:first-child,
+		&:last-child
+			margin-bottom: 0
+
+	.card-body
+		display: flex
+		flex-wrap: wrap
+		align-items: flex-start
+		gap: 1rem .5rem
+
+		.btn
+			flex-grow: 1
 
 .card-category
 	--bs-card-border-width: 1px
