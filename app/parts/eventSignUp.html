@@ -13,12 +13,136 @@
 					</span>
 				</button>
       </div>
-			<div class="modal-body">
-				<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc9nyxJLKErG1FUpmXCFhOLHhk2LK-02J4Z1Q0YYJMzppCpQQ/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Закрыть</button>
-			</div>
+			<form action="#" class="form needs-validation" novalidate>
+				<div class="modal-body">
+					<div class="row gy-4 gx-3 mt-4">
+						<div class="col-12">
+							<div class="has-validation">
+								<div class="form-floating form-control-reset">
+									<input type="text" class="form-control" id="floatingFullName" placeholder="ФИО" required>
+									<label for="floatingInputID">ФИО</label>
+									<button type="button" class="btn btn-reset">
+										<span class="icon icon-solid">
+											<svg>
+												<use xlink:href="../images/icons/cross-medium.svg#svg-cross-medium"></use>
+											</svg>
+										</span>
+									</button>
+								</div>
+								<div class="invalid-feedback">
+									Вы все неправильно сделали. Нельзя использовать кириллические символы
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<h3 class="h5 mb-3">
+								Вид спорта
+							</h3>
+							<div class="has-validation">
+								<div class="d-flex flex-wrap row-gap-3 column-gap-4">
+									<div class="form-check">
+										<input class="form-check-input" type="radio" id="modalTypeSport-0" name="type-sport" checked required>
+										<label class="form-check-label" for="modalTypeSport-0">
+											Горные лыжи
+										</label>
+									</div>
+									<div class="form-check">
+										<input class="form-check-input" type="radio" id="modalTypeSport-1" name="type-sport" required>
+										<label class="form-check-label" for="modalTypeSport-1">
+											Cноуборд
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<h3 class="h5 mb-3">
+								Пол 
+							</h3>
+							<div class="has-validation">
+								<div class="d-flex flex-wrap row-gap-3 column-gap-4">
+									<div class="form-check">
+										<input class="form-check-input" type="radio" id="modalGender-0" name="gender" checked required>
+										<label class="form-check-label" for="modalGender-0">
+											Мужской
+										</label>
+									</div>
+									<div class="form-check">
+										<input class="form-check-input" type="radio" id="modalGender-1" name="gender" required>
+										<label class="form-check-label" for="modalGender-1">
+											Женский
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="has-validation">
+								<div class="form-floating">
+									<input type="date" class="form-control" id="floatingModalInputBirthday" placeholder="Год рождения" required>
+									<label for="floatingModalInputBirthday">Год рождения</label>
+								</div>
+
+								<div class="invalid-feedback">
+									Вы все неправильно сделали. Нельзя использовать кириллические символы
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<h3 class="h5 mb-3">
+								Категория спорт 
+							</h3>
+							<div class="has-validation">
+								<div class="d-flex flex-wrap row-gap-3 column-gap-4">
+									<div class="form-check">
+										<input class="form-check-input" type="radio" id="modalCategorySport-0" name="category-sport" checked required>
+										<label class="form-check-label" for="modalCategorySport-0">
+											Да
+										</label>
+									</div>
+									<div class="form-check">
+										<input class="form-check-input" type="radio" id="modalCategorySport-1" name="category-sport" required>
+										<label class="form-check-label" for="modalCategorySport-1">
+											Нет
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="has-validation">
+								<div class="form-floating form-control-reset">
+									<input type="email" class="form-control" id="floatingModalInputEmail" maxlength="60" inputmode="email" placeholder="e-mail" required>
+									<label for="floatingModalInputEmail">e-mail</label>
+									<button type="button" class="btn btn-reset">
+										<span class="icon icon-solid">
+											<svg>
+												<use xlink:href="images/icons/cross-medium.svg#svg-cross-medium"></use>
+											</svg>
+										</span>
+									</button>
+								</div>
+
+								<div class="invalid-feedback">
+									Вы все неправильно сделали. Нельзя использовать кириллические символы
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="checkboxModalPolicy">
+								<label class="form-check-label" for="checkboxModalPolicy">
+									С <a href="#" class="btn btn-plaintext">политикой обработки данных</a> согласен (сна)
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary" data-bs-dismiss="modal" disabled>Отправить</button>
+					<button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Закрыть</button>
+				</div>
+			</form>
     </div>
   </div>
 </div>

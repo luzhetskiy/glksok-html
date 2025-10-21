@@ -31,6 +31,55 @@
 		</div>
 	</nav>
 </header>
+	<div class="alert-container container">
+	<div id="alert-cookie" class="alert alert-cookie fade" role="alert">
+		<div>
+			<h4>
+				Собираем cookie-файлы
+			</h4>
+			<p>
+				Наш сайт использует cookie. Хотите продолжить?
+			</p>
+		</div>
+		<button type="button" id="accept-cookie" class="btn btn-primary" data-bs-dismiss="alert" aria-label="Закрыть">
+			Ок
+		</button>
+	</div>
+</div>
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const alertEl = document.getElementById("alert-cookie");
+		const btn = document.getElementById("accept-cookie");
+		const STORAGE_KEY = "cookieAccepted";
+		const EXPIRE_DAYS = 365;
+
+		const saved = localStorage.getItem(STORAGE_KEY);
+		let showAlert = true;
+
+		if (saved) {
+			try {
+				const data = JSON.parse(saved);
+				const now = new Date();
+				if (data.expires && new Date(data.expires) > now) {
+					showAlert = false;
+				}
+			} catch { }
+		}
+
+		if (showAlert) {
+			alertEl.classList.add("show");
+			const bsAlert = bootstrap.Alert.getOrCreateInstance(alertEl);
+
+			btn.addEventListener("click", () => {
+				const expires = new Date();
+				expires.setDate(expires.getDate() + EXPIRE_DAYS);
+				localStorage.setItem(STORAGE_KEY, JSON.stringify({ accepted: true, expires }));
+				bsAlert.close();
+			});
+		}
+	});
+</script>
 
 	<main>
 
