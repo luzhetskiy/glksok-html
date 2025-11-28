@@ -267,6 +267,15 @@ document.addEventListener("DOMContentLoaded", () => {
   allowNumbersOnly();
   allowAlphaNumericOnly();
 
+  document
+    .querySelector('input[data-type="date"]')
+    .addEventListener("input", (e) => {
+      let v = e.target.value.replace(/\D/g, "").slice(0, 8);
+      if (v.length >= 5) v = v.replace(/(\d{2})(\d{2})(\d{1,4})/, "$1.$2.$3");
+      else if (v.length >= 3) v = v.replace(/(\d{2})(\d{1,2})/, "$1.$2");
+      e.target.value = v;
+    });
+
   const validateField = (field) => {
     if (!field) return;
 
@@ -281,6 +290,24 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (inputType === "email") {
         const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         invalid = !pattern.test(field.value.trim());
+      } else if (field.dataset.type === "date") {
+        const value = field.value.trim();
+
+        const pattern =
+          /^(0?[1-9]|[12][0-9]|3[01])\.(0?[1-9]|1[0-2])\.(\d{4})$/;
+        const match = value.match(pattern);
+
+        if (!match) {
+          invalid = true;
+        } else {
+          const [_, d, m, y] = match;
+          const jsDate = new Date(`${y}-${m}-${d}`);
+
+          invalid =
+            jsDate.getFullYear() != y ||
+            jsDate.getMonth() + 1 != Number(m) ||
+            jsDate.getDate() != Number(d);
+        }
       } else {
         invalid = field.value.trim() === "";
       }
@@ -309,7 +336,32 @@ document.addEventListener("DOMContentLoaded", () => {
     let { inputs, selects, checks } = updateFields();
 
     function checkAllFilled() {
-      for (let i of inputs) if (i.value.trim() === "") return false;
+      for (let i of inputs) {
+        const value = i.value.trim();
+
+        if (value === "") return false;
+
+        if (i.type === "email") {
+          const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!pattern.test(value)) return false;
+        }
+
+        if (i.dataset.type === "date") {
+          const pattern =
+            /^(0?[1-9]|[12][0-9]|3[01])\.(0?[1-9]|1[0-2])\.(\d{4})$/;
+          const match = i.value.trim().match(pattern);
+          if (!match) return false;
+
+          const [_, d, m, y] = match;
+          const jsDate = new Date(`${y}-${m}-${d}`);
+          if (
+            jsDate.getFullYear() != y ||
+            jsDate.getMonth() + 1 != Number(m) ||
+            jsDate.getDate() != Number(d)
+          )
+            return false;
+        }
+      }
       for (let s of selects) if (s.value.trim() === "") return false;
       for (let c of checks) if (!c.checked) return false;
 
