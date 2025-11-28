@@ -278,6 +278,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (inputType === "checkbox" || inputType === "radio") {
         invalid = !field.checked;
+      } else if (inputType === "email") {
+        const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        invalid = !pattern.test(field.value.trim());
       } else {
         invalid = field.value.trim() === "";
       }
