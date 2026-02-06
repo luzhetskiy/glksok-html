@@ -4,6 +4,8 @@ import { Fancybox } from "@fancyapps/ui";
 import Swiper from "swiper";
 import { Manipulation, Navigation, Pagination, Autoplay } from "swiper/modules";
 
+let didAutoScroll = false;
+
 document.addEventListener("DOMContentLoaded", () => {
   const backButtons = document.querySelectorAll(".btn-back");
 
@@ -72,8 +74,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     new Swiper(swiperElement, {
       modules: [Navigation, Pagination, Autoplay],
+      speed: 600,
       spaceBetween: 24,
-      autoplay: true,
+      autoplay: {
+        delay: 5000,
+      },
 
       pagination: {
         el: pagination,
@@ -1267,5 +1272,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const formattedValue = value.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     input.value = formattedValue;
+  }
+
+  function autoScrollToDateFromURL() {
+    const date = new URLSearchParams(location.search).get('date');
+    if (!date) return;
+
+    const target = [...document.querySelectorAll('[data-filter-day]')]
+      .find(el =>
+        el.dataset.filterDay === date &&
+        !el.classList.contains('d-none')
+      );
+
+    if (!target) return;
+
+    didAutoScroll = true;
+
+    const yOffset = -24;
+    const y =
+      target.getBoundingClientRect().top +
+      window.pageYOffset +
+      yOffset;
+    console.log({
+      y,
+      scrollHeight: document.documentElement.scrollHeight,
+      innerHeight: window.innerHeight,
+      maxScroll:
+        document.documentElement.scrollHeight - window.innerHeight
+    });
+
+    window.scrollTo({ top: y, behavior: "instant" });
+
+    // контрольный выстрел
+    setTimeout(() => {
+      window.scrollTo({ top: y, behavior: "instant" });
+    }, 0);
+  }
+
+  if (!didAutoScroll) {
+    autoScrollToDateFromURL();
   }
 });
