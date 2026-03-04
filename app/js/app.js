@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path.setAttribute(
       "d",
-      "M29.6361 42.1025L11.5361 24.0005L29.6361 5.89844L32.4641 8.72644L17.1921 24.0005L32.4641 39.2745L29.6361 42.1025Z"
+      "M29.6361 42.1025L11.5361 24.0005L29.6361 5.89844L32.4641 8.72644L17.1921 24.0005L32.4641 39.2745L29.6361 42.1025Z",
     );
 
     svg.appendChild(path);
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path.setAttribute(
       "d",
-      "M18.3639 5.8975L36.4639 23.9995L18.3639 42.1016L15.5359 39.2736L30.8079 23.9995L15.5359 8.72551L18.3639 5.8975Z"
+      "M18.3639 5.8975L36.4639 23.9995L18.3639 42.1016L15.5359 39.2736L30.8079 23.9995L15.5359 8.72551L18.3639 5.8975Z",
     );
 
     svg.appendChild(path);
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const bannerSwiperClass = document.querySelectorAll(".swiper-banner");
   const articleSwiperClass = document.querySelectorAll(".swiper-article");
   const infrastructureSwiperClass = document.querySelectorAll(
-    ".swiper-infrastructure"
+    ".swiper-infrastructure",
   );
   const skipassSwiperClass = document.querySelectorAll(".swiper-skipass");
   const allNavigationNext = document.querySelectorAll(".swiper-button-next");
@@ -182,33 +182,17 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function restrictInputToHex() {
-    const formControlID = document.querySelectorAll(".form-control-id");
-
-    if (formControlID.length > 0) {
-      formControlID.forEach(function (input) {
-        input.addEventListener("input", function () {
-          const value = this.value.replace(/[^0-9A-Fa-f]/g, "");
-          this.value = value;
-
-          if (!value) {
-            this.classList.add("is-invalid");
-            this.parentElement.classList.add("is-invalid");
-          } else {
-            this.classList.remove("is-invalid");
-            this.parentElement.classList.remove("is-invalid");
-          }
-        });
+    document.querySelectorAll(".form-control-id")?.forEach(function (input) {
+      input.addEventListener("input", function () {
+        this.value = this.value.replace(/[^0-9A-Fa-f]/g, "");
       });
-    }
+    });
   }
 
   function allowNumbersOnly() {
-    const formControlNumbers = document.querySelectorAll(
-      ".form-control-numbers"
-    );
-
-    if (formControlNumbers.length > 0) {
-      formControlNumbers.forEach(function (input) {
+    document
+      .querySelectorAll(".form-control-numbers")
+      ?.forEach(function (input) {
         input.addEventListener("input", function (event) {
           const value = event.target.value;
           const numbersOnly = value.replace(/\D/g, "");
@@ -231,16 +215,12 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       });
-    }
   }
 
   function allowAlphaNumericOnly() {
-    const formControlAlphaNumeric = document.querySelectorAll(
-      ".form-control-alphanumeric"
-    );
-
-    if (formControlAlphaNumeric.length > 0) {
-      formControlAlphaNumeric.forEach(function (input) {
+    document
+      .querySelectorAll(".form-control-alphanumeric")
+      ?.forEach(function (input) {
         input.addEventListener("input", function (event) {
           const value = event.target.value;
           // Удаляем все символы, кроме букв и цифр
@@ -265,7 +245,6 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       });
-    }
   }
 
   restrictInputToHex();
@@ -313,6 +292,9 @@ document.addEventListener("DOMContentLoaded", () => {
             jsDate.getMonth() + 1 != Number(m) ||
             jsDate.getDate() != Number(d);
         }
+      } else if (field.classList.contains("form-control-id")) {
+        const pattern = /^[0-9A-Fa-f]{14}$/;
+        invalid = !pattern.test(field.value.trim());
       } else {
         invalid = field.value.trim() === "";
       }
@@ -331,7 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const updateFields = () => {
       return {
         inputs: form.querySelectorAll(
-          "input:required:not([type='checkbox']):not([type='radio'])"
+          "input:required:not([type='checkbox']):not([type='radio'])",
         ),
         selects: form.querySelectorAll("select:required"),
         checks: form.querySelectorAll("input[type='checkbox']:required"),
@@ -345,6 +327,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const value = i.value.trim();
 
         if (value === "") return false;
+
+        if (i.classList.contains("form-control-id")) {
+          const hexPattern = /^[0-9A-Fa-f]{14}$/;
+          if (!hexPattern.test(value)) return false;
+        }
 
         if (i.type === "email") {
           const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -436,10 +423,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function applyAllFilters() {
     const selectedFilters = Array.from(
-      document.querySelectorAll("[data-filter-action]")
+      document.querySelectorAll("[data-filter-action]"),
     ).flatMap((group) => {
       const checkboxValue = group.querySelector(
-        'input[type="checkbox"]:checked'
+        'input[type="checkbox"]:checked',
       )?.id;
       const activeButtonId = group.querySelector("button.active")?.id;
       return [checkboxValue, activeButtonId].filter(Boolean);
@@ -537,7 +524,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   btnMore?.addEventListener("click", () => {
     const hiddenCards = document.querySelectorAll(
-      '[data-loading-more="false"]'
+      '[data-loading-more="false"]',
     );
 
     if (hiddenCards.length === 0) {
@@ -555,11 +542,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (tableFilters.length > 0) {
           const rowFilters = card.dataset.filter.split(" ");
           const isVisible = Array.from(
-            document.querySelectorAll("[data-filter-action]")
+            document.querySelectorAll("[data-filter-action]"),
           )
             .map(
               (group) =>
-                group.querySelector('input[type="checkbox"]:checked')?.value
+                group.querySelector('input[type="checkbox"]:checked')?.value,
             )
             .filter(Boolean)
             .every((filter) => rowFilters.includes(filter));
@@ -620,7 +607,7 @@ document.addEventListener("DOMContentLoaded", () => {
   selectElements?.forEach((select) => {
     const containerId = select.getAttribute("data-choice-trainee");
     const container = document.querySelector(
-      `[data-container-trainee="${containerId}"]`
+      `[data-container-trainee="${containerId}"]`,
     );
 
     if (container) {
@@ -827,7 +814,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const target = document.elementFromPoint(
         event.changedTouches[0].clientX,
-        event.changedTouches[0].clientY
+        event.changedTouches[0].clientY,
       );
       const targetDraggable = target.closest(".draggable");
 
@@ -881,7 +868,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       } else {
         const original = document.querySelector(
-          `#${element.dataset.originalParent}`
+          `#${element.dataset.originalParent}`,
         );
         if (currentParent !== original) {
           original.appendChild(element);
@@ -916,7 +903,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
           preset: "islands#blueParkingIcon",
-        }
+        },
       ),
       new ymaps.Placemark(
         [53.389641, 50.172764],
@@ -926,7 +913,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
           preset: "islands#blueParkingIcon",
-        }
+        },
       ),
     ];
 
@@ -951,7 +938,7 @@ document.addEventListener("DOMContentLoaded", () => {
       acc[date] = { modifier: "vanilla-calendar-day__btn_secondary" };
       return acc;
     },
-    {}
+    {},
   );
 
   const multipleTemplate = `
@@ -989,10 +976,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function addArrowIcons(calendar, nextIcon, prevIcon) {
     const nextArrow = calendar.HTMLElement.querySelector(
-      `.${calendar.CSSClasses.arrowNext}`
+      `.${calendar.CSSClasses.arrowNext}`,
     );
     const prevArrow = calendar.HTMLElement.querySelector(
-      `.${calendar.CSSClasses.arrowPrev}`
+      `.${calendar.CSSClasses.arrowPrev}`,
     );
 
     if (nextArrow && prevArrow) {
@@ -1050,7 +1037,7 @@ document.addEventListener("DOMContentLoaded", () => {
           },
           clickDay(e, self) {
             const isEvent = e.target.closest(
-              ".vanilla-calendar-day__btn_secondary"
+              ".vanilla-calendar-day__btn_secondary",
             );
 
             if (isEvent) {
@@ -1101,7 +1088,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           self.selectedDates.join(",") !== ""
             ? bootstrap.Dropdown.getOrCreateInstance(
-                self.HTMLElement.closest(".dropdown-calendar")
+                self.HTMLElement.closest(".dropdown-calendar"),
               ).hide()
             : false;
         },
@@ -1187,13 +1174,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // Обновляем данные в shortProductElement
     if (shortProductElement) {
       const shortProductElementQuantity = shortProductElement.querySelector(
-        "[data-short-product-quantity]"
+        "[data-short-product-quantity]",
       );
       const shortProductElementPrice = shortProductElement.querySelector(
-        "[data-short-product-price]"
+        "[data-short-product-price]",
       );
       const shortProductElementButton = shortProductElement.querySelector(
-        "[data-short-product-button]"
+        "[data-short-product-button]",
       );
 
       if (shortProductElementQuantity) {
@@ -1233,11 +1220,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (shortProductElement) {
     const updateHeightVariable = () => {
       const height = Math.round(
-        shortProductElement.getBoundingClientRect().height
+        shortProductElement.getBoundingClientRect().height,
       );
       document.documentElement.style.setProperty(
         "--short-product-height",
-        `${height}px`
+        `${height}px`,
       );
     };
 
@@ -1275,30 +1262,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function autoScrollToDateFromURL() {
-    const date = new URLSearchParams(location.search).get('date');
+    const date = new URLSearchParams(location.search).get("date");
     if (!date) return;
 
-    const target = [...document.querySelectorAll('[data-filter-day]')]
-      .find(el =>
-        el.dataset.filterDay === date &&
-        !el.classList.contains('d-none')
-      );
+    const target = [...document.querySelectorAll("[data-filter-day]")].find(
+      (el) => el.dataset.filterDay === date && !el.classList.contains("d-none"),
+    );
 
     if (!target) return;
 
     didAutoScroll = true;
 
     const yOffset = -24;
-    const y =
-      target.getBoundingClientRect().top +
-      window.pageYOffset +
-      yOffset;
+    const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
     console.log({
       y,
       scrollHeight: document.documentElement.scrollHeight,
       innerHeight: window.innerHeight,
-      maxScroll:
-        document.documentElement.scrollHeight - window.innerHeight
+      maxScroll: document.documentElement.scrollHeight - window.innerHeight,
     });
 
     window.scrollTo({ top: y, behavior: "instant" });
