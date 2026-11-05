@@ -6,3 +6,9 @@
 		min-height: 500px
 		object-fit: cover
 		object-position: center
+
+		// Desktop: shorten the hero so the top of the
+		// category cards row is visible on the first screen
+		@media (min-width: 993px)
+			height: clamp(280px, calc(100vh - 400px), 700px)
+			min-height: 0
