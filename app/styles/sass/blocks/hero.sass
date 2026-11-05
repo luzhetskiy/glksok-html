@@ -8,7 +8,10 @@
 		object-position: center
 
 		// Desktop: shorten the hero so the top of the
-		// category cards row is visible on the first screen
+		// category cards row is visible on the first screen.
+		// contain — картинка вписывается целиком, без обрезки
 		@media (min-width: 993px)
 			height: clamp(280px, calc(100vh - 400px), 700px)
 			min-height: 0
+			object-fit: contain
+			background-color: var(--bs-white)
